@@ -12,8 +12,9 @@ import { detailPatches as p3, routeFieldPatches as r3 } from './huanan-xinan';
 import { detailPatches as p4, routeFieldPatches as r4 } from './xibei-qingzang';
 import { detailPatches as p5 } from './city-character-20260802';
 import { detailPatches as p6 } from './coverage-character-20260802';
+import { detailPatches as p7 } from './leg-compose-character-20260802';
 
-const detailPatchList = [p1, p2, p3, p4, p5, p6];
+const detailPatchList = [p1, p2, p3, p4, p5, p6, p7];
 const routePatchList = [r1, r2, r3, r4];
 
 export function applyDetailPatches(

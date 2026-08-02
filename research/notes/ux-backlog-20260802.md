@@ -71,4 +71,13 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ---
 
-*Updated: 2026-08-02 · session: compact sticky + filter sheet + calendar season + compositionKind chips; compose detail timeline for 河西/南疆 pilots.*
+### Remaining (open)
+
+- [ ] Further: auto-hide chip strip itself on deep scroll if still too tall with many chips *(also listed under A)*
+- [ ] True **virtualization / windowing** if catalog ≫ ~200 *(B)*
+- [ ] P1: mobile bottom nav (探索 / 两年 / 说明) + safe-area *(E)*
+- [ ] P2: embla gallery; light motion; offline search index *(E)*
+
+**Clean-light verify 2026-08-02** (`47a0e23`+`ae3bab8`): **PASS** — see `research/audits/plan-verify-round-20260802-ux-clean.md`. `ux:plan` 21/21. No code fixes.
+
+*Updated: 2026-08-02 · session: compact sticky + filter sheet + calendar season + compositionKind chips; compose detail timeline for 河西/南疆 pilots; clean-light verify PASS.*

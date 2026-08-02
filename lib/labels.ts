@@ -23,6 +23,7 @@ export const THEME_LABELS: Record<RouteTheme, string> = {
   "grand-loop": "全国大环线",
   frontier: "边陲城市",
   "long-stay": "长居推荐",
+  corridor: "经典走廊",
 };
 
 export const PACE_LABELS: Record<Pace, string> = {

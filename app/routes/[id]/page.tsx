@@ -106,6 +106,11 @@ export default async function RouteDetailPage({
               长居推荐
             </span>
           )}
+          {route.themes?.includes("corridor") && (
+            <span className="rounded-lg bg-indigo-700 px-3 py-1.5 text-lg font-medium text-white">
+              经典走廊
+            </span>
+          )}
         </div>
 
         <div className="mt-6">

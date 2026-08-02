@@ -19,6 +19,9 @@ import { patchRoutes as nationalLoopsRoutes } from './patches/routes-national-lo
 import { patchRoutes as frontierRoutes } from './patches/routes-frontier';
 import { patchRoutes as longStayRoutes } from './patches/routes-long-stay';
 import { patchRoutes as prefectureHebeiShandongRoutes } from './patches/routes-prefecture-hebei-shandong';
+import { patchRoutes as coverageWave20260802Routes } from './patches/routes-coverage-wave-20260802';
+import { patchRoutes as coverageWave20260802bRoutes } from './patches/routes-coverage-wave-20260802b';
+import { patchRoutes as coverageWave20260802cRoutes } from './patches/routes-coverage-wave-20260802c';
 import {
   applyRouteFieldPatches,
   getMergedRouteDetails,
@@ -72,6 +75,9 @@ export const routes: Route[] = (() => {
     ...frontierRoutes,
     ...longStayRoutes,
     ...prefectureHebeiShandongRoutes,
+    ...coverageWave20260802Routes,
+    ...coverageWave20260802bRoutes,
+    ...coverageWave20260802cRoutes,
   ]) {
     map.set(r.id, r);
   }

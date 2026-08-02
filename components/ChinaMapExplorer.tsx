@@ -383,7 +383,9 @@ export function ChinaMapExplorer() {
                 ? "跨省慢环：拆段走、日驾短、段末可回京；不是特种兵一天一千公里。"
                 : theme === "frontier"
                   ? "边陲城市短住：看口岸与边境风光，不涉越境；规定以当地公告为准。"
-                  : "长居慢住：空气相对清新、周边自然与日归丰富；约三四周节奏，不是赶景点清单。"}
+                  : theme === "corridor"
+                    ? "经典走廊浅段：318/江南水乡等只走适老可控段；高原走廊写清海拔与可跳过。"
+                    : "长居慢住：空气相对清新、周边自然与日归丰富；约三四周节奏，不是赶景点清单。"}
             </p>
           </div>
           <ul className="divide-y divide-sky-100">
@@ -583,6 +585,12 @@ function ShortcutChips({
         active={theme === "long-stay"}
         onClick={() => onTheme("long-stay")}
         label="长居推荐"
+        tone="amber"
+      />
+      <FilterChip
+        active={theme === "corridor"}
+        onClick={() => onTheme("corridor")}
+        label="经典走廊"
         tone="amber"
       />
       {filtersDirty ? (

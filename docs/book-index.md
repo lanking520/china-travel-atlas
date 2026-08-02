@@ -1,6 +1,6 @@
 # 成书路线索引
 
-> 由 `npm run export:book-index` 生成，勿手改。共 169 条。
+> 由 `npm run export:book-index` 生成，勿手改。共 171 条。
 
 ## 按地区
 
@@ -127,6 +127,7 @@
 - **东兴 · 中越边境浅游** (`frontier-dongxing`) · 短途 · 秋/冬/春
 - **阳朔 · 漓江山水短住** (`longstay-yangshuo`) · 短途 · 春/秋
 - **万宁/琼海 · 非暑期海岸慢居** (`longstay-hainan-east`) · 长旅行 · 冬/春/秋
+- **桂林 · 漓江慢居枢纽** (`base-guilin`) · 长旅行 · 春/秋
 - **珠海滨海 · 两三天** (`huanan-zhuhai-3d`) · 短途 · 冬/春/秋
 - **广州慢住 · 潮汕或珠海可选** (`huanan-guangzhou-chaoshan`) · 长旅行 · 冬/春
 - **桂林阳朔 · 漓江慢住** (`huanan-guilin-yangshuo`) · 长旅行 · 春/秋
@@ -157,6 +158,7 @@
 - **昆明 · 春城慢居约一个月** (`longstay-kunming`) · 长旅行 · 春/秋/冬
 - **都江堰 · 平原边缘清新慢居** (`longstay-dujiangyan`) · 长旅行 · 春/秋
 - **镇远 · 舞阳河江城短住** (`longstay-zhenyuan`) · 短途 · 春/秋/夏
+- **贵阳 · 黔中慢居枢纽** (`base-guiyang`) · 长旅行 · 春/秋
 - **川滇慢环 · 成都大理丽江** (`national-chuandian-slow`) · 长旅行 · 春/秋/冬
 - **都江堰 · 青城山两日** (`xinan-dujiangyan-2d`) · 短途 · 春/秋
 - **大理州 · 洱源剑川日归表** (`xinan-yunnan-dali-daytrips`) · 短途 · 春/秋/夏
@@ -274,6 +276,8 @@
 - 都江堰 · 平原边缘清新慢居 (`longstay-dujiangyan`) · 西南秘境
 - 镇远 · 舞阳河江城短住 (`longstay-zhenyuan`) · 西南秘境
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
+- 桂林 · 漓江慢居枢纽 (`base-guilin`) · 华南岭南
+- 贵阳 · 黔中慢居枢纽 (`base-guiyang`) · 西南秘境
 - 丝路慢段 · 西安到吐鲁番 (`national-silkroad-slow`) · 西北丝路
 - 川滇慢环 · 成都大理丽江 (`national-chuandian-slow`) · 西南秘境
 - 西安 · 慢住两周 (`huazhong-xian-slow`) · 中原华中
@@ -496,6 +500,8 @@
 - 都江堰 · 平原边缘清新慢居 (`longstay-dujiangyan`) · 西南秘境
 - 镇远 · 舞阳河江城短住 (`longstay-zhenyuan`) · 西南秘境
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
+- 桂林 · 漓江慢居枢纽 (`base-guilin`) · 华南岭南
+- 贵阳 · 黔中慢居枢纽 (`base-guiyang`) · 西南秘境
 - 青甘慢环 · 湖光丹霞两三周 (`national-qinggan-slow`) · 青藏高地
 - 丝路慢段 · 西安到吐鲁番 (`national-silkroad-slow`) · 西北丝路
 - 川滇慢环 · 成都大理丽江 (`national-chuandian-slow`) · 西南秘境

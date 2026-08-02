@@ -680,6 +680,58 @@ export const routeDetails: Record<string, RouteDetailFields> = {
       },
     ],
   },
+  'base-guilin': {
+    introduction:
+      '桂林长居枢纽卡：固定电梯短租约三四周，以地点为中心辐射漓江/阳朔短线——不另写一套景点正文。\n\n长居门槛对照：两江机场+高铁；市区商超够一月日常；本地三甲=桂林医学院附属医院等（专科可下撤南宁/广州）。\n\n周边（nearbyLegs）：① 短线「阳朔·漓江山水短住」（已降级、非月租）② 长线气质「桂林阳朔·漓江慢住」。细节只在各卡维护。\n\n每周至少两空白日；湿热雨具与空白日写进日常。阳朔镇区不作月租主锚。',
+    seasonGuide:
+      '春秋最宜慢居。夏季湿热多雨缩短户外；冬季阴冷潮湿以市区为主。',
+    notices: [
+      '约三四周：市区短租为主；周边短线按体力点开。',
+      '本地三甲达标；阳朔不作月租主锚。',
+      '短租先试住一周；问清电梯与退租。',
+      '阳朔日归/短住预留堵车；雨后湿滑改室内。',
+      '景点正文见 nearbyLegs；本卡不复述。',
+      '段末两江或高铁回京，机票留弹性。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/87318-Li-River.jpg/1280px-87318-Li-River.jpg',
+        caption: '桂林 · 慢居基地',
+        stopId: 'ls-guilin-hub',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Yangshuo.jpg/1280px-Yangshuo.jpg',
+        caption: '阳朔/漓江辐射（见短线）',
+        stopId: 'ls-guilin-yangshuo-radiate',
+      },
+    ],
+  },
+  'base-guiyang': {
+    introduction:
+      '贵阳长居枢纽卡：固定电梯短租约三四周，以地点为中心辐射镇远/黄果树/黔东南——不另写一套景点正文。\n\n长居门槛对照：龙洞堡机场+高铁；省会商超够一月日常；本地三甲=贵医附院/省人民医院。\n\n周边（nearbyLegs）：①「镇远·舞阳河江城短住」（已降级）②「镇远·舞阳河古城」③「黄果树扶梯浅览」④「黔东南·西江肇兴浅访」⑤可选串线「贵阳基地·黄果树与黔东可选」。细节只在各卡维护。\n\n每周至少两空白日；阴凉多雨备薄外套。镇远县城不作月租主锚。',
+    seasonGuide:
+      '春秋最宜慢居。夏季凉爽可避暑但雨多；冬季阴冷潮湿缩短户外。',
+    notices: [
+      '约三四周：市区短租为主；周边短线按体力点开。',
+      '本地三甲达标；镇远不作月租主锚。',
+      '短租先试住一周；问清电梯防潮。',
+      '勿一周硬拼黄果树+黔东两线。',
+      '景点正文见 nearbyLegs；本卡不复述。',
+      '段末龙洞堡飞回北京，机票留弹性。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Guiyang.jpg/1280px-Guiyang.jpg',
+        caption: '贵阳 · 慢居基地',
+        stopId: 'ls-guiyang-hub',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Huangguoshu_Waterfall.jpg/1280px-Huangguoshu_Waterfall.jpg',
+        caption: '黄果树/黔东辐射（见短线）',
+        stopId: 'ls-guiyang-radiate',
+      },
+    ],
+  },
   'compose-nanjiang-kuqa-kashi': {
     introduction:
       '南疆人文走廊是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 短线「库车·天山神秘大峡谷」（约2–3天）→ ② 阿克苏电梯酒店缓冲过夜（glue，非独立短线）→ ③ 短线「喀什·老城与帕米尔浅尝」（约4–6天，帕米尔可选）。单日车程≤5小时；不环塔特种兵。\n\n峡谷观光车、艾提尕尔/巴扎/香妃墓等细节只在各短线卡片里维护。本卡只管衔接、休息日与进出港。飞库车进、喀什或乌市出。对照月预算约两万。约一个月慢居请走 base-kashi。',

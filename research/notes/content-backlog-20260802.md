@@ -29,7 +29,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **川西 B corridor** — `leg-chengdu-adapt` + reuse `xinan-sichuan-leshan-emei` / `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役极端 `xinan-chuanxi-slow`（不强制四姑娘/新都桥/稻城）
 - [ ] **National long→compose migration** — remaining long corridors after 南疆/河西/川西 pilots
 - [x] **Rethink weak longstay** — `longstay-yangshuo` / `longstay-zhenyuan` **降级**为名景短腿（theme 离 long-stay；枢纽桂林/贵阳）
-- [ ] **Optional hub bases** — 桂林 / 贵阳作新 `base`/`longstay`（三甲 hubs）尚未立项；现仅下撤枢纽叙事
+- [x] **Optional hub bases** — `base-guilin` / `base-guiyang` 立项（三门槛 PASS；nearbyLegs→阳朔/漓江、镇远/黄果树/黔东南）
 
 ## Open — quality (prior)
 
@@ -48,6 +48,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **河西 compose pilot** — `leg-dunhuang-mogao` + `leg-zhangye-danxia` + `compose-hexi-dunhuang-zhangye`（嘉峪关 glue）；退役 `xibei-dunhuang-zhangye`
 - [x] **川西 compose pilot** — `leg-chengdu-adapt` + `xinan-sichuan-leshan-emei` + `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役 `xinan-chuanxi-slow`
 - [x] **弱长居降级** — yangshuo / zhenyuan 离 long-stay 芯片；名景短腿 + 桂林/贵阳枢纽叙事
+- [x] **`base-guilin` / `base-guiyang`** — 三门槛 PASS；nearbyLegs 辐射 demoted legs + 漓江/黔东相关卡
 - [x] Mid NCF deepen: **黄山** / **张家界** / **桂林阳朔**
 - [x] Wave 2 prior: frontier six + prefecture-f + famous THIN slice
 - [x] PG dining batch for many hubs (leftovers remain)
@@ -64,7 +65,6 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. National long→compose 下一批（其余 long 走廊）
-2. Optional：桂林/贵阳是否立项为新 `base`/`longstay`（三甲 hubs；现仅下撤枢纽叙事）
-3. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-4. Duration-honesty pass on other padded longs
-5. Image 404 audit + famous THIN + leftover PG dining
+2. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
+3. Duration-honesty pass on other padded longs
+4. Image 404 audit + famous THIN + leftover PG dining

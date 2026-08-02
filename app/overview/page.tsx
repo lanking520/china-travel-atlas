@@ -210,8 +210,10 @@ export default function OverviewPage() {
                 <RouteLink id="longstay-hulunbuir">呼伦贝尔夏</RouteLink>、
                 <RouteLink id="longstay-dujiangyan">都江堰西缘</RouteLink>、
                 <RouteLink id="longstay-hainan-east">琼海万宁</RouteLink>、
-                <RouteLink id="base-kashi">喀什丝路</RouteLink>
-                ——约三四周慢居，须过交通/物资/本地三甲门槛；阳朔、镇远已降为山水短腿（枢纽分别下撤桂林、贵阳），不与昆明级并列。
+                <RouteLink id="base-kashi">喀什丝路</RouteLink>、
+                <RouteLink id="base-guilin">桂林漓江</RouteLink>、
+                <RouteLink id="base-guiyang">贵阳黔中</RouteLink>
+                ——约三四周慢居，须过交通/物资/本地三甲门槛；阳朔、镇远已降为山水短腿（由桂林、贵阳枢纽辐射），不与昆明级并列。
               </p>
             </div>
           </div>

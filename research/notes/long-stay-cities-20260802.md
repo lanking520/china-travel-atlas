@@ -19,6 +19,8 @@
 | `longstay-hulunbuir` | 海拉尔机场 | 城住够；草原无 | 市人民医院三甲 | **PASS**（仅夏；须城住） |
 | `longstay-hainan-east` | 环岛高铁+两端机场 | 琼海/万宁够 | **优先琼海三甲**；海口专科 | **PASS**（锚琼海） |
 | `base-kashi` | 机场（无高铁） | 地州首府够一月 | 地区一院三甲；乌市专科 | **PASS + caveat**（专科/气候/距京） |
+| `base-guilin` | 两江机场+高铁 | 地级市够一月 | 桂医附院等本地三甲；南宁/广州专科 | **PASS** |
+| `base-guiyang` | 龙洞堡+高铁枢纽 | 省会级 | 贵医/省医本地三甲 | **PASS** |
 | `longstay-yangshuo` | 经桂林进出 | 镇区中等 | **本地无三甲**→桂林 | **DEMOTED** → 名景短腿 |
 | `longstay-zhenyuan` | 高铁便利 | 县城偏薄 | **本地无三甲**→贵阳 | **DEMOTED** → 名景短腿 |
 
@@ -28,12 +30,12 @@
 
 | id | 决定 | 现产品形 | 推荐枢纽 / 替代 |
 |----|------|----------|-----------------|
-| `longstay-yangshuo` | **(a) 降级** | `tripType: short` + `compositionKind: leg` + theme=`famous-scenic`；约5–7天 | 医疗/物资：**桂林**；更长漓江：`huanan-guilin-yangshuo`；月租：**昆明/大理** |
-| `longstay-zhenyuan` | **(a) 降级** | 同上；约4–6天（略松于三天卡） | 医疗/物资：**贵阳**；紧凑：`xinan-guizhou-zhenyuan`；贵阳锚：`xinan-guizhou-loop`；月租：**昆明/大理** |
+| `longstay-yangshuo` | **(a) 降级** | `tripType: short` + `compositionKind: leg` + theme=`famous-scenic`；约5–7天 | 医疗/物资：**桂林** → 月租 **`base-guilin`**；更长漓江：`huanan-guilin-yangshuo` |
+| `longstay-zhenyuan` | **(a) 降级** | 同上；约4–6天（略松于三天卡） | 医疗/物资：**贵阳** → 月租 **`base-guiyang`**；紧凑：`xinan-guizhou-zhenyuan`；串线：`xinan-guizhou-loop` |
 
 id 保留以免断链；Explore「长居推荐」芯片与 overview 列表已去掉二者。
 
-## 入选（6 longstay + 1 base；2 demoted legs）
+## 入选（6 longstay + 3 base；2 demoted legs）
 
 | id | 基地 | 空气/自然理由 | 季节 | 月预算粗估（双人） |
 |----|------|---------------|------|-------------------|
@@ -44,6 +46,8 @@ id 保留以免断链；Explore「长居推荐」芯片与 overview 列表已去
 | `longstay-dujiangyan` | 都江堰 | 成都平原**西缘**相对清新；青城前山/熊猫日归 | 春秋 | 1.4–1.9万 |
 | `longstay-hainan-east` | 琼海/万宁 | 非暑期湿润海岸；人少于三亚核心 | 冬春秋 | 1.5–2万 |
 | `base-kashi` | 喀什 | 丝路西端气质；`nearbyLegs` 辐射库车/南疆组合 | 春秋 | 1.5–2.5万 |
+| `base-guilin` | 桂林 | 漓江喀斯特枢纽；辐射阳朔短腿/漓江慢住 | 春秋 | 1.5–2.2万 |
+| `base-guiyang` | 贵阳 | 黔中省会枢纽；辐射镇远/黄果树/黔东南 | 春秋 | 1.4–2万 |
 
 ### 降级后仍保留的短腿（非长居芯片）
 
@@ -60,7 +64,7 @@ id 保留以免断链；Explore「长居推荐」芯片与 overview 列表已去
 - **张家口/承德长居一月**：承德更适合 4–6 日深挖短线；坝上另题  
 - **厦门鼓浪屿核心**：商旅嘈杂；长居让位威海/海南东线  
 - **阳朔镇区月租** / **镇远县城月租**：已降级（见上）  
-- **桂林 / 贵阳作新 `longstay-*` / `base-*`**：尚未立项（候补三甲 hubs）；目前作阳朔/镇远下撤枢纽叙事 + 既有短线/长线卡（`huanan-guilin-yangshuo`、`xinan-guizhou-loop`），不急于扩长居名单。立项前须过交通/物资/三甲门槛审计。 
+- ~~**桂林 / 贵阳作新 `longstay-*` / `base-*`**~~：**已立项** `base-guilin` / `base-guiyang`（三门槛 PASS；辐射 demoted legs） 
 
 ## UI
 
@@ -70,7 +74,7 @@ Explore 首页快捷芯片 **「长居推荐」**（theme=`long-stay`）；详�
 
 ## 产品文件
 
-- `content/patches/routes-long-stay.ts`  
+- `content/patches/routes-long-stay.ts`（含 `base-guilin` / `base-guiyang`）  
 - `content/patches/routes-xinjiang.ts`（`base-kashi`）  
 - `content/route-provinces.ts` / `content/practical-guides.ts`  
 - IA：`content-route-composition-ia-20260802.md`  

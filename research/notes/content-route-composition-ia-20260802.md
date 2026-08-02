@@ -68,13 +68,16 @@ Do **not** duplicate stop text inside every compose.
 | id | Radiates | Hub bar |
 | --- | --- | --- |
 | `base-kashi` | `xibei-xinjiang-kashi`, `leg-kuqa-canyon`, `compose-nanjiang-kuqa-kashi` | 机场+市区物资+本地三甲（地区一院）；专科下撤乌市 |
+| `base-guilin` | `longstay-yangshuo`, `huanan-guilin-yangshuo` | 两江+高铁+本地三甲（桂医附院）；阳朔不作月租主锚 |
+| `base-guiyang` | `longstay-zhenyuan`, `xinan-guizhou-zhenyuan`, `xinan-guizhou-huangguoshu`, `xinan-guizhou-dong-corridor`, `xinan-guizhou-loop` | 龙洞堡+高铁+本地三甲（贵医/省医）；镇远不作月租主锚 |
 
 ### Pilot status (20260802)
 
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
 - Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: national long→compose migration; optional 桂林/贵阳 `base`；Explore 长居 chip polish.
+- Still open: national long→compose migration；Explore 长居 chip polish 可选。
+- Shipped: `base-guilin` / `base-guiyang` with nearbyLegs（阳朔/漓江；镇远/黄果树/黔东南/loop）。
 - Shipped UX: Explore 短线/长线 chips + compose detail **组合时间线** (legs + glue).
 
 ## Second corridor — 河西（shipped 20260802）

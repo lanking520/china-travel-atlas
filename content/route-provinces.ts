@@ -120,6 +120,8 @@ export const routeProvinces: Record<
   'longstay-dujiangyan': { primary: 'sichuan' },
   'longstay-zhenyuan': { primary: 'guizhou' },
   'longstay-hainan-east': { primary: 'hainan' },
+  'base-guilin': { primary: 'guangxi' },
+  'base-guiyang': { primary: 'guizhou' },
   // coverage wave 20260802
   'huazhong-hubei-wuhan': { primary: 'hubei' },
   'huazhong-henan-zhengzhou': { primary: 'henan' },

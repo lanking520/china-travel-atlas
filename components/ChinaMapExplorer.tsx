@@ -421,9 +421,6 @@ export function ChinaMapExplorer() {
                 <ActiveFilterChips
                   searchQuery={searchActive ? searchQuery.trim() : undefined}
                   level={level}
-                  season={season}
-                  tripType={tripType}
-                  theme={theme}
                   onDismissSearch={clearSearch}
                   onDismissRegion={() => {
                     goChina();
@@ -433,9 +430,6 @@ export function ChinaMapExplorer() {
                   onDismissProvince={() => {
                     if (level.kind === "province") goRegion(level.regionId);
                   }}
-                  onDismissSeason={() => setSeason(undefined)}
-                  onDismissTripType={() => setTripType(undefined)}
-                  onDismissTheme={() => setTheme(undefined)}
                 />
               </div>
             </div>
@@ -673,30 +667,19 @@ function TabButton({
   );
 }
 
+/** Chips only for scope not covered by 季节/长短/主题 dim triggers. */
 function ActiveFilterChips({
   searchQuery,
   level,
-  season,
-  tripType,
-  theme,
   onDismissSearch,
   onDismissRegion,
   onDismissProvince,
-  onDismissSeason,
-  onDismissTripType,
-  onDismissTheme,
 }: {
   searchQuery?: string;
   level: MapLevel;
-  season?: Season;
-  tripType?: TripType;
-  theme?: RouteTheme;
   onDismissSearch: () => void;
   onDismissRegion: () => void;
   onDismissProvince: () => void;
-  onDismissSeason: () => void;
-  onDismissTripType: () => void;
-  onDismissTheme: () => void;
 }) {
   const chips: {
     key: string;
@@ -725,27 +708,6 @@ function ActiveFilterChips({
       key: "province",
       label: p?.name ?? "省",
       onDismiss: onDismissProvince,
-    });
-  }
-  if (season) {
-    chips.push({
-      key: "season",
-      label: SEASON_FULL_LABELS[season],
-      onDismiss: onDismissSeason,
-    });
-  }
-  if (tripType) {
-    chips.push({
-      key: "trip",
-      label: TRIP_TYPE_LABELS[tripType],
-      onDismiss: onDismissTripType,
-    });
-  }
-  if (theme) {
-    chips.push({
-      key: "theme",
-      label: THEME_CHIP_LABELS[theme],
-      onDismiss: onDismissTheme,
     });
   }
 
@@ -842,6 +804,22 @@ function DimensionFilters({
           ? "主题"
           : "";
 
+  const dimDirty =
+    openDim === "season"
+      ? season !== undefined
+      : openDim === "trip"
+        ? tripType !== undefined
+        : openDim === "theme"
+          ? theme !== undefined
+          : false;
+
+  const resetOpenDim = () => {
+    if (openDim === "season") onSeason(undefined);
+    else if (openDim === "trip") onTripType(undefined);
+    else if (openDim === "theme") onTheme(undefined);
+    onOpenDim(null);
+  };
+
   return (
     <>
       <div
@@ -889,13 +867,24 @@ function DimensionFilters({
               <h2 className="font-display text-base font-bold text-sky-950">
                 {sheetTitle}
               </h2>
-              <button
-                type="button"
-                onClick={() => onOpenDim(null)}
-                className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80"
-              >
-                完成
-              </button>
+              <div className="flex items-center gap-0.5">
+                <button
+                  type="button"
+                  onClick={resetOpenDim}
+                  disabled={!dimDirty}
+                  aria-label={`重置${sheetTitle}`}
+                  className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80 disabled:cursor-default disabled:text-sky-400 disabled:hover:bg-transparent"
+                >
+                  重置
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onOpenDim(null)}
+                  className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80"
+                >
+                  完成
+                </button>
+              </div>
             </div>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-1">
               {openDim === "season" ? (

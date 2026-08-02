@@ -245,8 +245,12 @@ await check("P6 season / trip dims on results", async () => {
   }
   await seasonSheet.getByRole("button", { name: "冬季", exact: true }).click();
   await page.waitForTimeout(300);
-  if (!(await page.getByRole("button", { name: /移除筛选 冬季/ }).count())) {
-    throw new Error("winter identity chip missing");
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /季节·冬季/ }).count())) {
+    throw new Error("winter should show on 季节· dim trigger");
+  }
+  if (await page.getByRole("button", { name: /移除筛选 冬季/ }).count()) {
+    throw new Error("season identity chip should not appear (dim trigger suffices)");
   }
   // Trip dim has 短线 / 长线
   await openTripDim(page);
@@ -257,14 +261,17 @@ await check("P6 season / trip dims on results", async () => {
   if (!(await tripSheet.getByRole("button", { name: "长线", exact: true }).count())) {
     throw new Error("长线 chip missing");
   }
+  if (!(await tripSheet.getByRole("button", { name: "重置" }).count())) {
+    throw new Error("长短 sheet missing 重置");
+  }
   await tripSheet.getByRole("button", { name: "完成" }).click();
   await page.waitForTimeout(150);
-  // Clear season
+  // Clear season via 全部季节
   await openSeasonDim(page);
   await page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "全部季节" }).click();
   await page.waitForTimeout(200);
-  if (await page.getByRole("button", { name: /移除筛选 冬季/ }).count()) {
-    throw new Error("全部季节 should clear season chip");
+  if (!(await dims.getByRole("button", { name: /季节·全季节/ }).count())) {
+    throw new Error("全部季节 should restore 季节·全季节 trigger");
   }
   // Map drill with season
   await goMapCover(page);
@@ -396,8 +403,11 @@ await check("P15 名景 via 主题· dim → dual-column RouteCards", async () =
   await page.waitForTimeout(600);
   const t = await page.locator("body").innerText();
   if (!/名景/.test(t)) throw new Error("名景 theme list missing title cue");
-  if (!(await page.getByRole("button", { name: /移除筛选 名景/ }).count())) {
-    throw new Error("名景 identity chip missing");
+  if (!(await page.getByRole("button", { name: /主题·名景/ }).count())) {
+    throw new Error("名景 should show on 主题· dim trigger");
+  }
+  if (await page.getByRole("button", { name: /移除筛选 名景/ }).count()) {
+    throw new Error("名景 identity chip should not appear");
   }
   const mingGrid = page.locator('[aria-label*="名景"][class*="grid-cols-2"]');
   if (!(await mingGrid.count())) {
@@ -593,14 +603,17 @@ await check("P21 compose sticky「组合」+ embedded legs", async () => {
   }
 });
 
-await check("P22 soft calendar season + identity chip", async () => {
+await check("P22 season via dim trigger + sheet 重置 (no identity chip)", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(500);
   const body = await page.locator("body").innerText();
   if (!/已按当季|先名景|先显示名景/.test(body)) {
-    throw new Error("home missing soft-calendar catalog hint");
+    throw new Error("home missing catalog hint");
   }
-  // Soft default: no season identity chip
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /季节·全季节/ }).count())) {
+    throw new Error("default should be 季节·全季节");
+  }
   if (
     await page
       .getByRole("button", { name: /移除筛选 (春季|夏季|秋季|冬季)/ })
@@ -609,26 +622,33 @@ await check("P22 soft calendar season + identity chip", async () => {
     throw new Error("clean catalog should not show season identity chip");
   }
   await openSeasonDim(page);
-  if (!(await page.getByRole("button", { name: "全部季节" }).count())) {
+  const seasonSheet = page.getByRole("dialog", { name: "季节" });
+  if (!(await seasonSheet.getByRole("button", { name: "全部季节" }).count())) {
     throw new Error("季节 sheet missing 全部季节");
   }
-  const winter = page.getByRole("button", { name: "冬季", exact: true });
-  if (!(await winter.count())) throw new Error("冬季 chip missing");
+  if (!(await seasonSheet.getByRole("button", { name: "重置" }).count())) {
+    throw new Error("季节 sheet missing 重置");
+  }
+  const winter = seasonSheet.getByRole("button", { name: "冬季", exact: true });
+  if (!(await winter.count())) throw new Error("冬季 option missing");
   await winter.click();
   await page.waitForTimeout(350);
-  if (!(await page.getByRole("button", { name: /移除筛选 冬季/ }).count())) {
-    throw new Error("winter season should show identity chip");
+  if (!(await dims.getByRole("button", { name: /季节·冬季/ }).count())) {
+    throw new Error("winter should show on 季节· dim trigger");
   }
-  // Clear via 全部季节
-  await openSeasonDim(page);
-  await page.getByRole("button", { name: "全部季节" }).click();
-  await page.waitForTimeout(300);
   if (await page.getByRole("button", { name: /移除筛选 冬季/ }).count()) {
-    throw new Error("全部季节 should clear winter identity chip");
+    throw new Error("winter should not show identity chip");
+  }
+  // Clear via sheet 重置
+  await openSeasonDim(page);
+  await page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "重置" }).click();
+  await page.waitForTimeout(300);
+  if (!(await dims.getByRole("button", { name: /季节·全季节/ }).count())) {
+    throw new Error("重置 should restore 季节·全季节");
   }
   const after = await page.locator("body").innerText();
   if (!/全年未筛季节|先显示名景/.test(after)) {
-    throw new Error("全部季节 should show year-round catalog hint");
+    throw new Error("重置 should show year-round catalog hint");
   }
 });
 
@@ -679,8 +699,11 @@ await check("P24 mobile bottom nav + theme dim 长居", async () => {
   }
   await themeSheet.getByRole("button", { name: "长居", exact: true }).click();
   await page.waitForTimeout(400);
-  if (!(await page.getByRole("button", { name: /移除筛选 长居/ }).count())) {
-    throw new Error("长居 theme should set identity chip");
+  if (!(await page.getByRole("button", { name: /主题·长居/ }).count())) {
+    throw new Error("长居 should show on 主题· dim trigger");
+  }
+  if (await page.getByRole("button", { name: /移除筛选 长居/ }).count()) {
+    throw new Error("长居 identity chip should not appear");
   }
 });
 
@@ -707,13 +730,13 @@ const md = [
   "",
   "- 搜索在 tabs 之上；默认「全部景点」dual-column；名景优先；分页懒加载",
   "- 「地图选区」cover：仅搜索 + 地图（iPhone 首屏 SVG ≥40%）；点大区 → 省份 → 路线",
-  "- 结果页 identity chips 可移除；省内「移除筛选 华北」→ 干净全部景点",
+  "- 结果页：大区/省/搜索 chips 可移除；省内「移除筛选 华北」→ 干净全部景点",
   "- 干净目录隐藏 sticky「返回」；有筛选/钻取时「返回」回全部景点",
   "- 搜索框：婺源 / 九寨可命中；名景经 主题· sheet → `grid-cols-2`",
   "- 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算",
   "- 详情 sticky「本页目录」；路线指南+时间规划默认展开",
   "- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接",
-  "- 筛选维度：季节/长短/主题 sheets；默认全季节/全部/全部主题；identity chips 可清",
+  "- 筛选维度：季节/长短/主题 sheets（trigger 显示当前值）；默认全季节/全部/全部主题；无 dim identity chips；清选用全部* 或 sheet「重置」",
   "- sticky hide-on-scroll: transform + hysteresis（防 flicker）",
   "- mobile bottom nav 探索/两年/说明",
   "- 长居枢纽：sticky「门槛」「辐射」；#gates 三门槛可见；nearbyLegs 可点",

@@ -27,7 +27,8 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 - [x] **Compact filter chrome**: sticky transform-hide on scroll (not height-collapse thrash)
 - [x] Dimension filters: 季节 / 长短 / 主题 triggers + sheet (replaces bulky chip pile + nested「添加筛选」)
 - [x] Remove Explore shortcuts「从北京短途」+「当季」chip
-- [x] **Calendar soft-default season**: `getSeasonNow()` applies filter; **no identity chip** while calendar-default (hint「已按当季」); clear via「全部季节」
+- [x] **No dim identity chips**: 季节/长短/主题 shown only on dim triggers (`季节·夏季`); clear via 全部* or sheet「重置」. Chips remain for search / 大区 / 省 only.
+- [x] **Calendar soft-default season** (superseded): was `getSeasonNow()` + hint; now defaults **全季节 / 全部 / 全部主题**
 - [x] Light **compositionKind** Explore support: 短线/长线
 - [x] **Compose detail timeline** + sticky「组合」
 - [x] **Compose intro → leg links**:「嵌入短线」under intro (`3930888`) — all 14 compose pages
@@ -79,5 +80,6 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 - Nested「添加筛选」→ **3 direct buttons** 季节 / 长短 / 主题 (per-dim sheet). Defaults **全季节 / 全部 / 全部主题** (`undefined`). **Supersedes** earlier calendar soft-default season.
 - Sticky **flicker** on scroll reverse: dual collapse + `max-h-0` changed document height → scrollY thrash. **Fixed:** single `chromeHidden`, rAF + hysteresis, hide via `-translate-y-full` only.
 - Mobile bottom nav shipped; compose intro「嵌入短线」done in `3930888`.
+- **Redundant dim identity chips** (e.g.「夏季×」next to `季节·夏季`): **removed**. Clear dims via 全部季节/全部/全部主题 or sheet「重置」. Keep chips for search keyword + map region/province only.
 
-*Updated: 2026-08-02 · DimensionFilters + 全季节 defaults + sticky flicker fix; ux:plan 25/25.*
+*Updated: 2026-08-02 · Drop dim identity chips + sheet 重置; compose count 31 (`bd34761`); ux:plan updated.*

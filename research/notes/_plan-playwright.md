@@ -1,6 +1,6 @@
 # Plan × Playwright 验证报告
 
-> 生成：2026-08-02T23:01:16.979Z
+> 生成：2026-08-02T23:11:33.739Z
 > Base：http://127.0.0.1:3000
 
 **结果：25 PASS / 0 FAIL**（共 25 项）
@@ -29,7 +29,7 @@
 | P19 map cover SVG ≥40% first viewport | PASS |  |
 | P20 catalog paginates (lazy load-more) | PASS |  |
 | P21 compose sticky「组合」+ embedded legs | PASS |  |
-| P22 soft calendar season + identity chip | PASS |  |
+| P22 season via dim trigger + sheet 重置 (no identity chip) | PASS |  |
 | P23 base 长居三门槛 + nearby 辐射 | PASS |  |
 | P24 mobile bottom nav + theme dim 长居 | PASS |  |
 
@@ -37,13 +37,13 @@
 
 - 搜索在 tabs 之上；默认「全部景点」dual-column；名景优先；分页懒加载
 - 「地图选区」cover：仅搜索 + 地图（iPhone 首屏 SVG ≥40%）；点大区 → 省份 → 路线
-- 结果页 identity chips 可移除；省内「移除筛选 华北」→ 干净全部景点
+- 结果页：大区/省/搜索 chips 可移除；省内「移除筛选 华北」→ 干净全部景点
 - 干净目录隐藏 sticky「返回」；有筛选/钻取时「返回」回全部景点
 - 搜索框：婺源 / 九寨可命中；名景经 主题· sheet → `grid-cols-2`
 - 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算
 - 详情 sticky「本页目录」；路线指南+时间规划默认展开
 - 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接
-- 筛选维度：季节/长短/主题 sheets；默认全季节/全部/全部主题；identity chips 可清
+- 筛选维度：季节/长短/主题 sheets（trigger 显示当前值）；默认全季节/全部/全部主题；无 dim identity chips；清选用全部* 或 sheet「重置」
 - sticky hide-on-scroll: transform + hysteresis（防 flicker）
 - mobile bottom nav 探索/两年/说明
 - 长居枢纽：sticky「门槛」「辐射」；#gates 三门槛可见；nearbyLegs 可点

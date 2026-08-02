@@ -184,4 +184,9 @@ export const routeProvinces: Record<
   'xibei-gansu-lanzhou-huanghe': { primary: 'gansu' },
   'huanan-guangdong-chaoshan': { primary: 'guangdong' },
   'xinan-sichuan-g318-mid': { primary: 'sichuan' },
+  // Prefecture wave 20260802d
+  'huazhong-henan-luoyang-county': { primary: 'henan' },
+  'huazhong-henan-kaifeng': { primary: 'henan' },
+  'huadong-jiangsu-suzhou-county': { primary: 'jiangsu' },
+  'xinan-yunnan-dali-daytrips': { primary: 'yunnan' },
 };

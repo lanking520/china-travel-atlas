@@ -2559,6 +2559,56 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       { name: '雅安市人民医院', level: '三甲', area: '雅安', note: '请用高德核实' },
     ],
   },
+
+  // ── Prefecture wave 20260802d ─────────────────────────────
+  'huazhong-henan-luoyang-county': {
+    routeGuide:
+      '高铁洛阳→市区电梯酒店→白马寺+二里头（可同廊勿赶）→孟津小浪底另日可选→回京。\n\n可跳过：小浪底、卫坡；勿串龙门少林开封。',
+    timePlan: ['D1：抵达休整', 'D2：白马寺', 'D3：二里头', 'D4：小浪底或空白', '回京'],
+    sightsTips: '· 二里头查闭馆日。\n· 小浪底观光车优先。\n· 龙门/开封另卡。',
+    dining: '洛阳水席浅尝；汤面清淡少辣。',
+    longStay: '洛阳市区近医院电梯酒店连住。',
+    hospitals: [
+      { name: '河南科技大学第一附属医院', level: '三甲', area: '洛阳', note: '请用高德核实' },
+      { name: '洛阳市中心医院', level: '三甲', area: '洛阳', note: '请用高德核实' },
+    ],
+  },
+  'huazhong-henan-kaifeng': {
+    routeGuide:
+      '高铁/城际开封→鼓楼电梯酒店→清明上河园宜早→铁塔/龙亭选段→城墙可删→经郑州回京。\n\n可跳过：城墙；勿与洛阳龙门同日。',
+    timePlan: ['D1：抵达鼓楼', 'D2：清明上河园', 'D3：铁塔龙亭或回京'],
+    sightsTips: '· 园内早到。\n· 登塔可删。\n· 夜市控油。',
+    dining: '灌汤包浅尝；少油炸少冷饮。',
+    longStay: '鼓楼附近电梯酒店。',
+    hospitals: [
+      { name: '开封市中心医院', level: '三甲', area: '开封', note: '请用高德核实' },
+      { name: '河南大学淮河医院', level: '三甲', area: '开封', note: '请用高德核实' },
+    ],
+  },
+  'huadong-jiangsu-suzhou-county': {
+    routeGuide:
+      '高铁苏州/昆山→园区或水乡电梯酒店→周庄与同里二选一加深→常熟方塔可选→回京。\n\n可跳过：常熟、另一水乡；园林走专线。',
+    timePlan: ['D1：抵达', 'D2–3：周庄或同里', 'D4：常熟或空白', '回京'],
+    sightsTips: '· 石板防滑。\n· 勿同日两水乡。\n· 不排拙政园连刷。',
+    dining: '苏帮菜清淡；少甜腻。',
+    longStay: '园区或水乡电梯酒店连住。',
+    hospitals: [
+      { name: '苏州大学附属第一医院', level: '三甲', area: '苏州', note: '请用高德核实' },
+      { name: '昆山市中医医院', level: '三级', area: '昆山', note: '请用高德核实' },
+    ],
+  },
+  'xinan-yunnan-dali-daytrips': {
+    routeGuide:
+      '飞大理→古城外电梯酒店短住→喜洲半日可选→洱源日归→沙溪过夜或日归→飞京。\n\n可跳过：喜洲、地热国；月租慢居请走 longstay-dali。',
+    timePlan: ['D1：抵达适应', 'D2：喜洲或空白', 'D3：洱源', 'D4–5：沙溪', '飞京'],
+    sightsTips: '· 每天一县。\n· 勿满环洱海。\n· 非长居主题。',
+    dining: '大理饵丝/米线少油；菌类遵当地安全提示。',
+    longStay: '本卡短住电梯酒店；长居另线才村/龙龛短租。',
+    hospitals: [
+      { name: '大理大学第一附属医院', level: '三甲', area: '大理市区', note: '请用高德核实' },
+      { name: '大理白族自治州人民医院', level: '三甲', area: '大理市区', note: '请用高德核实' },
+    ],
+  },
 };
 
 export const PRACTICAL_GUIDE_WAVE1_IDS = Object.keys(practicalGuides);

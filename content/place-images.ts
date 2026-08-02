@@ -206,6 +206,14 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'huanan-zhuhai-3d': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Zhuhai.jpg/1280px-Zhuhai.jpg',
   'huazhong-hunan-changsha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Yuelu_Academy.jpg/1280px-Yuelu_Academy.jpg',
   'huazhong-luoyang-kaifeng': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/1280px-27427-Luoyang_%2849067744628%29.jpg',
+  'huazhong-henan-luoyang-county':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/27495-Luoyang%2C_White_Horse_Temple.jpg/1280px-27495-Luoyang%2C_White_Horse_Temple.jpg',
+  'huazhong-henan-kaifeng':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E5%BC%80%E5%B0%81%E9%93%81%E5%A1%94.jpg/1280px-%E5%BC%80%E5%B0%81%E9%93%81%E5%A1%94.jpg',
+  'huadong-jiangsu-suzhou-county':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Zhouzhuang_water_town.jpg/1280px-Zhouzhuang_water_town.jpg',
+  'xinan-yunnan-dali-daytrips':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/%E5%89%91%E5%B7%9D%E6%B2%99%E6%BA%AA%E5%8F%A4%E9%95%87.jpg/1280px-%E5%89%91%E5%B7%9D%E6%B2%99%E6%BA%AA%E5%8F%A4%E9%95%87.jpg',
   'huazhong-shaanxi-hanzhong': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hantai%2C_Hanzhong%2C_Shaanxi%2C_China_-_panoramio_%286%29.jpg/1280px-Hantai%2C_Hanzhong%2C_Shaanxi%2C_China_-_panoramio_%286%29.jpg',
   'huazhong-wudang-3d': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Wudangshan_pic_7.jpg/1280px-Wudangshan_pic_7.jpg',
   'huazhong-xian-slow': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Xi%27an_City_Wall.jpg/1280px-Xi%27an_City_Wall.jpg',
@@ -1042,6 +1050,43 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
   'qixian-qiao-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qiao_Family_Compound%2C_Jinyiyuan.JPG/1280px-Qiao_Family_Compound%2C_Jinyiyuan.JPG',
+  // prefecture wave 20260802d stops
+  'ly-county-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/1280px-27427-Luoyang_%2849067744628%29.jpg',
+  'ly-baimasi':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/27495-Luoyang%2C_White_Horse_Temple.jpg/1280px-27495-Luoyang%2C_White_Horse_Temple.jpg',
+  'ly-erlitou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/20240815_Erlitou_Xia_Capital_Site_Museum_01.jpg/1280px-20240815_Erlitou_Xia_Capital_Site_Museum_01.jpg',
+  'ly-xiaolangdi-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Xiaolangdi_Dam_Scenic_Area_-_10323808574.jpg/1280px-Xiaolangdi_Dam_Scenic_Area_-_10323808574.jpg',
+  'ly-weipo-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Xiaolangdi_Dam_Scenic_Area_-_10323808574.jpg/1280px-Xiaolangdi_Dam_Scenic_Area_-_10323808574.jpg',
+  'kf-gulou-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/%E5%BC%80%E5%B0%81%E9%BE%99%E4%BA%AD.JPG/1280px-%E5%BC%80%E5%B0%81%E9%BE%99%E4%BA%AD.JPG',
+  'kf-qingming':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Millennium_City_Park_02.jpg/1280px-Millennium_City_Park_02.jpg',
+  'kf-iron-pagoda':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E5%BC%80%E5%B0%81%E9%93%81%E5%A1%94.jpg/1280px-%E5%BC%80%E5%B0%81%E9%93%81%E5%A1%94.jpg',
+  'kf-wall-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/%E5%BC%80%E5%B0%81%E9%BE%99%E4%BA%AD.JPG/1280px-%E5%BC%80%E5%B0%81%E9%BE%99%E4%BA%AD.JPG',
+  'szc-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Humble_Administrator%27s_Garden_2015.JPG/1280px-Humble_Administrator%27s_Garden_2015.JPG',
+  'szc-zhouzhuang':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Zhouzhuang_water_town.jpg/1280px-Zhouzhuang_water_town.jpg',
+  'szc-tongli':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Tongli_Town.jpg/1280px-Tongli_Town.jpg',
+  'szc-changshu-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/%E5%B8%B8%E7%86%9F%E5%AE%8B%E5%B4%87%E6%95%99%E5%85%B4%E7%A6%8F%E5%AF%BA%E6%96%B9%E5%A1%94.jpg/1280px-%E5%B8%B8%E7%86%9F%E5%AE%8B%E5%B4%87%E6%95%99%E5%85%B4%E7%A6%8F%E5%AF%BA%E6%96%B9%E5%A1%94.jpg',
+  'dl-dt-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
+  'dl-dt-xizhou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/%E5%96%9C%E6%B4%B2%E5%8F%A4%E9%95%87%E7%AE%80%E4%BB%8B.jpg/1280px-%E5%96%9C%E6%B4%B2%E5%8F%A4%E9%95%87%E7%AE%80%E4%BB%8B.jpg',
+  'dl-dt-eryuan':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Cibi_Lake_viewed_form_north_shore.JPG/1280px-Cibi_Lake_viewed_form_north_shore.JPG',
+  'dl-dt-shaxi':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/%E5%89%91%E5%B7%9D%E6%B2%99%E6%BA%AA%E5%8F%A4%E9%95%87.jpg/1280px-%E5%89%91%E5%B7%9D%E6%B2%99%E6%BA%AA%E5%8F%A4%E9%95%87.jpg',
+  'dl-dt-hotspring-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/%E6%B4%B1%E6%BA%90%E5%A4%A7%E7%90%86%E5%9C%B0%E7%83%AD%E5%9B%BD%E6%99%AF%E5%8C%BA%E5%86%85%E7%9A%84%E5%A4%A7%E6%BB%9A%E9%94%85.jpg/1280px-%E6%B4%B1%E6%BA%90%E5%A4%A7%E7%90%86%E5%9C%B0%E7%83%AD%E5%9B%BD%E6%99%AF%E5%8C%BA%E5%86%85%E7%9A%84%E5%A4%A7%E6%BB%9A%E9%94%85.jpg',
 };
 
 /** Neutral China fallback (Great Wall) — never foreign Unsplash scenery. */

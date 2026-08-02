@@ -1,32 +1,25 @@
-# Missing / thin routes backlog · 2026-08-02（updated after famous-P2 + dead-lead）
+# Missing / thin routes backlog · 2026-08-02（updated after prefecture-wave d）
 
-> Catalog size: **144** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
-> Was 135 (post famous-P1)；**+9 new** this wave；**1 overwrite**（晋中平遥织太谷祁县）。  
+> Catalog size: **148** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
+> Was 144 (post famous-P2 / dead-lead)；**+4 new** this wave.  
 > Legend: **M** = no dedicated route · **T** = thin · **C** = dedicated covered · **D** = discoverability fixed.
 
 ---
 
-## Closed this wave（P2）
+## Closed this wave（prefecture d）
 
 | Item | Status | id |
 |------|--------|-----|
-| 梵净 | **C** | `xinan-guizhou-fanjing` |
-| 荔波 | **C** | `xinan-guizhou-libo` |
-| 神农架 | **C** | `huazhong-hubei-shennongjia` |
-| 恩施 | **C** | `huazhong-hubei-enshi` |
-| 西江/肇兴 | **C** | `xinan-guizhou-dong-corridor` |
-| 中山 | **C** | `huanan-guangdong-zhongshan` |
-| 兰州黄河 | **C** | `xibei-gansu-lanzhou-huanghe` |
-| 汕头潮州加深 | **C** | `huanan-guangdong-chaoshan` |
-| G318 川藏中段浅尝 | **C** | `xinan-sichuan-g318-mid`（雅安–泸定；非全线） |
-| 晋中太谷祁县↔平遥 | **C** | `huabei-shanxi-pingyao-deep` overwrite |
-| 名景当季死链（婺源等） | **D** | see `dead-lead-visibility-20260802.md` |
+| 洛阳孟津/偃师 | **C** | `huazhong-henan-luoyang-county`（独立浅线） |
+| 开封 | **C** | `huazhong-henan-kaifeng` |
+| 苏州县域 | **C** | `huadong-jiangsu-suzhou-county` |
+| 大理州表格式日归 | **C** | `xinan-yunnan-dali-daytrips`（非长居；与 `longstay-dali` 分卡） |
 
 ---
 
 ## Still open（next）
 
-忻州五台减负已有 · 洛阳孟津/偃师 · 开封 · 苏州县域 · 大理州表格式 · 其余地级深挖见 prefecture backlog …
+忻州县域表（五台减负已有） · 扬州县域补强 · 其余地级深挖见 prefecture backlog …
 
 ---
 
@@ -39,5 +32,5 @@
 ## Method notes
 
 - Count = keys in `route-provinces.ts`（须与 routes merge 1:1）.  
-- Image: `research/audits/image-completeness-famous-p2-20260802.md`  
-- Visibility: `research/audits/dead-lead-visibility-20260802.md`
+- Visibility: run `node research/scripts/dead-lead-audit.mjs`  
+- Prefecture notes: `research/notes/prefecture-depth/`

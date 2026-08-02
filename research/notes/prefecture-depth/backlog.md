@@ -16,20 +16,24 @@
 | 山东 | 威海市县域 | `longstay-weihai`（enrich 荣成/乳山） | [shandong-weihai.md](./shandong-weihai.md) |
 | 山西 | 大同市 | `huabei-shanxi-loop`（enrich 左云/灵丘可选） | [shanxi-datong.md](./shanxi-datong.md) |
 | 河北 | 石家庄/正定 | `huabei-hebei-shijiazhuang`（新建） | [hebei-shijiazhuang.md](./hebei-shijiazhuang.md) |
+| 河南 | 洛阳孟津/偃师 | `huazhong-henan-luoyang-county`（新建独立浅线） | [henan-luoyang.md](./henan-luoyang.md) |
+| 河南 | 开封 | `huazhong-henan-kaifeng`（新建） | [henan-kaifeng.md](./henan-kaifeng.md) |
+| 江苏 | 苏州县域 | `huadong-jiangsu-suzhou-county`（新建） | [jiangsu-suzhou.md](./jiangsu-suzhou.md) |
+| 云南 | 大理州日归表 | `xinan-yunnan-dali-daytrips`（新建；非长居） | [yunnan-dali.md](./yunnan-dali.md) |
 
 关联长居（城市基地，非县域深挖）：见 `research/notes/long-stay-cities-20260802.md`。
 
 ## 下一批建议（华北/父母友好）
 
 1. **忻州**（五台山适老减负版已有 `huabei-shanxi-wutai`，可再县域表）  
-2. **河南洛阳**（孟津/偃师县域）  
+2. ~~**河南洛阳**（孟津/偃师县域）~~ → 已完成 `huazhong-henan-luoyang-county`（2026-08-02d）  
 3. ~~**晋中**（太谷/祁县与平遥织紧）~~ → 已完成 `huabei-shanxi-pingyao-deep`（2026-08-02 P2） 
 
 ## 再下一批（走廊向）
 
-- 河南：开封  
-- 江苏：苏州（昆山/常熟日归）、扬州县域补强  
-- 云南：大理州（洱源/剑川已有沙溪，可系统表格式）  
+- ~~河南：开封~~ → 已完成 `huazhong-henan-kaifeng`  
+- ~~江苏：苏州（昆山/常熟日归）~~ → 已完成 `huadong-jiangsu-suzhou-county`；扬州县域补强仍开  
+- ~~云南：大理州（洱源/剑川表格式）~~ → 已完成 `xinan-yunnan-dali-daytrips`（与 `longstay-dali` 分卡）  
 
 ## 暂缓
 

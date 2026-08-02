@@ -119,6 +119,18 @@ const expectSearch = [
   "开平",
   "九华",
   "武隆",
+  "孟津",
+  "偃师",
+  "白马寺",
+  "二里头",
+  "开封",
+  "清明上河",
+  "周庄",
+  "同里",
+  "常熟",
+  "洱源",
+  "剑川",
+  "沙溪",
 ];
 
 const searchReport = {};
@@ -134,7 +146,7 @@ for (const q of expectSearch) {
 const searchMiss = expectSearch.filter((q) => searchReport[q].count === 0);
 const searchNotOnFamous = expectSearch.filter((q) => {
   const r = searchReport[q];
-  return r.count > 0 && r.onFamousChip.length === 0 && ["梵净","荔波","神农架","恩施","西江","肇兴","潮州","平遥","黄果树","武夷","千岛湖","婺源","北海","普陀","开平","九华","武隆","乔家"].includes(q);
+  return r.count > 0 && r.onFamousChip.length === 0 && ["梵净","荔波","神农架","恩施","西江","肇兴","潮州","平遥","黄果树","武夷","千岛湖","婺源","北海","普陀","开平","九华","武隆","乔家","开封","周庄","沙溪","白马寺"].includes(q);
 });
 
 const out = {
@@ -186,7 +198,7 @@ console.log(JSON.stringify({
   searchMiss: out.searchMiss,
   searchNotOnFamous: out.searchNotOnFamous,
   sampleSearch: Object.fromEntries(
-    ["梵净","荔波","神农架","中山","兰州","潮州","平遥","乔家","G318","太谷"].map((q) => [q, out.searchReport[q]]),
+    ["梵净","开封","周庄","沙溪","孟津","洱源","白马寺","同里"].map((q) => [q, out.searchReport[q]]),
   ),
 }, null, 2));
 console.error(`Wrote ${outPath}`);

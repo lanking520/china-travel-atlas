@@ -1,62 +1,95 @@
 import Link from "next/link";
 import type { Route } from "@/content/types";
-import { getRegionById } from "@/content";
 import { SafeImage } from "@/components/SafeImage";
-import { REGION_SHORT, SEASON_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
+import { THEME_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
+import { cardImageForRoute } from "@/lib/place-images";
 
 interface RouteCardProps {
   route: Route;
+  /** Alternating taller tiles for a light masonry / 小红书 feel */
+  tall?: boolean;
 }
 
-export function RouteCard({ route }: RouteCardProps) {
-  const region = getRegionById(route.region);
+/**
+ * Pinterest / 小红书 style pick card: full-bleed place image + scrim + large text.
+ * Used in Explore province / theme / search grids.
+ */
+export function RouteCard({ route, tall = false }: RouteCardProps) {
+  const src = cardImageForRoute(route);
+  const themeHint = route.themes?.[0]
+    ? THEME_LABELS[route.themes[0]]
+    : undefined;
 
   return (
     <Link
       href={`/routes/${route.id}/`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-sky-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+      className={`group relative flex min-h-[200px] w-full flex-col overflow-hidden rounded-2xl bg-sky-900 shadow-sm ring-1 ring-sky-950/15 transition-[transform,box-shadow] hover:shadow-md active:scale-[0.99] ${
+        tall ? "aspect-[3/4] sm:aspect-[2/3]" : "aspect-[4/5] sm:aspect-[3/4]"
+      }`}
     >
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-sky-100">
-        <SafeImage
-          src={route.coverImage}
-          alt={route.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-        {route.fromHome && (
-          <span className="absolute left-3 top-3 rounded-lg bg-emerald-700 px-3 py-1 text-base font-semibold text-white">
-            北京出发
+      <SafeImage
+        src={src}
+        alt={`${route.title}景色`}
+        fill
+        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+        sizes="(max-width: 768px) 50vw, 33vw"
+      />
+      {/* Bottom scrim — sky ink, not purple glass */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-sky-950/95 via-sky-950/45 to-sky-950/10"
+        aria-hidden
+      />
+      <div className="relative mt-auto flex min-h-[48%] flex-col justify-end p-2.5 sm:p-3.5">
+        {route.fromHome ? (
+          <span className="mb-1.5 w-fit rounded-md bg-emerald-700/95 px-2 py-0.5 text-sm font-semibold text-white">
+            从北京
           </span>
-        )}
-      </div>
-      <div className="flex flex-1 flex-col gap-2 p-5">
-        <h3 className="text-xl font-bold leading-snug text-sky-950">
+        ) : themeHint ? (
+          <span className="mb-1.5 w-fit rounded-md bg-amber-700/90 px-2 py-0.5 text-sm font-semibold text-white">
+            {themeHint}
+          </span>
+        ) : null}
+        <h3 className="font-display text-[1.05rem] font-bold leading-snug text-white drop-shadow-sm sm:text-lg">
           {route.title}
         </h3>
-        <p className="line-clamp-2 text-lg leading-relaxed text-sky-800/90">
-          {route.summary}
+        <p className="mt-1 text-base font-medium leading-snug text-sky-100">
+          {route.daysLabel}
+          <span className="mx-1 text-sky-300/80" aria-hidden>
+            ·
+          </span>
+          {TRIP_TYPE_LABELS[route.tripType] === "长旅行"
+            ? "长线"
+            : TRIP_TYPE_LABELS[route.tripType]}
         </p>
-        <div className="mt-auto flex flex-wrap gap-2 pt-2">
-          <span className="rounded-lg bg-sky-100 px-3 py-1 text-base font-medium text-sky-900">
-            {region?.name ?? REGION_SHORT[route.region]}
-          </span>
-          <span className="rounded-lg bg-emerald-100 px-3 py-1 text-base font-medium text-emerald-900">
-            {route.daysLabel}
-          </span>
-          <span className="rounded-lg bg-amber-100 px-3 py-1 text-base font-medium text-amber-900">
-            {TRIP_TYPE_LABELS[route.tripType]}
-          </span>
-          {route.seasons.map((season) => (
-            <span
-              key={season}
-              className="rounded-lg bg-orange-100 px-3 py-1 text-base font-medium text-orange-900"
-            >
-              {SEASON_LABELS[season]}
-            </span>
-          ))}
-        </div>
+        <p className="mt-0.5 text-base font-semibold leading-snug text-amber-200">
+          大致金额：{route.budgetLabel}
+        </p>
       </div>
     </Link>
+  );
+}
+
+interface RouteCardGridProps {
+  routes: Route[];
+  /** Accessible name for the list region */
+  "aria-label"?: string;
+}
+
+/** 2-col mobile / 3-col md+ dual-column pick grid */
+export function RouteCardGrid({
+  routes,
+  "aria-label": ariaLabel = "路线列表",
+}: RouteCardGridProps) {
+  return (
+    <ul
+      aria-label={ariaLabel}
+      className="grid grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-3"
+    >
+      {routes.map((route, index) => (
+        <li key={route.id} className="min-w-0">
+          <RouteCard route={route} tall={index % 2 === 1} />
+        </li>
+      ))}
+    </ul>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
   getProvinceById,
@@ -25,13 +24,15 @@ import {
 } from "@/lib/china-geo";
 import {
   SEASON_FULL_LABELS,
-  SEASON_LABELS,
   THEME_LABELS,
   TRIP_TYPE_LABELS,
 } from "@/lib/labels";
+import { searchRoutes } from "@/lib/route-search";
 import { getSeasonNow } from "@/lib/season-now";
 import { RegionMap } from "./RegionMap";
-import { RouteOverviewMap } from "./RouteOverviewMap";
+import { RouteCardGrid } from "./RouteCard";
+
+const SEARCH_DEBOUNCE_MS = 180;
 
 type MapLevel =
   | { kind: "china" }
@@ -63,11 +64,26 @@ export function ChinaMapExplorer() {
   const [fromHomeOnly, setFromHomeOnly] = useState(false);
   const [theme, setTheme] = useState<RouteTheme | undefined>(undefined);
   const [level, setLevel] = useState<MapLevel>({ kind: "china" });
+  const [searchInput, setSearchInput] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      setSearchQuery(searchInput);
+    }, SEARCH_DEBOUNCE_MS);
+    return () => window.clearTimeout(t);
+  }, [searchInput]);
 
   const filterOpts = useMemo(
     () => ({ season, tripType, fromHomeOnly, theme }),
     [season, tripType, fromHomeOnly, theme],
   );
+
+  const searchHits = useMemo(
+    () => searchRoutes(routes, searchQuery),
+    [searchQuery],
+  );
+  const searchActive = searchQuery.trim().length > 0;
 
   const beijingShortActive = fromHomeOnly && tripType === "short";
   const currentSeasonActive = season === currentSeason;
@@ -162,6 +178,11 @@ export function ChinaMapExplorer() {
     setTheme(undefined);
   }
 
+  function clearSearch() {
+    setSearchInput("");
+    setSearchQuery("");
+  }
+
   function filterStatusText() {
     const parts: string[] = [];
     parts.push(season ? SEASON_FULL_LABELS[season] : "不限季节");
@@ -186,6 +207,10 @@ export function ChinaMapExplorer() {
   const themeListMode = level.kind === "china" && theme !== undefined;
 
   function exitResults() {
+    if (searchActive) {
+      clearSearch();
+      return;
+    }
     if (level.kind !== "china") {
       goChina();
       return;
@@ -193,17 +218,26 @@ export function ChinaMapExplorer() {
     if (theme) setTheme(undefined);
   }
 
-  const resultsTitle = themeListMode
-    ? `${THEME_LABELS[theme!]} · 选路线`
-    : level.kind === "province" && provinceMeta
-      ? `${provinceMeta.name} · 选路线`
-      : `${regionMeta?.name ?? ""} · 选省份`;
+  const resultsTitle = searchActive
+    ? `搜索 · ${searchHits.length} 条`
+    : themeListMode
+      ? `${THEME_LABELS[theme!]} · 选路线`
+      : level.kind === "province" && provinceMeta
+        ? `${provinceMeta.name} · 选路线`
+        : `${regionMeta?.name ?? ""} · 选省份`;
 
   return (
     <div className="space-y-2 sm:space-y-3">
-      {resultsMode ? (
-        <div className="sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-b-xl sm:px-0">
-          <div className="flex flex-wrap items-center gap-2">
+      {/* Search is always available — parents often know a city/spot name */}
+      <div
+        className={
+          searchActive || resultsMode
+            ? "sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-b-xl sm:px-0"
+            : undefined
+        }
+      >
+        {(searchActive || resultsMode) && (
+          <div className="mb-2 flex flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={exitResults}
@@ -213,7 +247,7 @@ export function ChinaMapExplorer() {
               <span aria-hidden>←</span>
               返回
             </button>
-            {level.kind === "province" && regionMeta ? (
+            {!searchActive && level.kind === "province" && regionMeta ? (
               <button
                 type="button"
                 onClick={() => goRegion(level.regionId)}
@@ -228,15 +262,60 @@ export function ChinaMapExplorer() {
                 {resultsTitle}
               </p>
               <p className="truncate text-sm text-sky-700/90 sm:text-base">
-                {filterStatusText()}
-                {level.kind === "province" && regionMeta ? (
+                {searchActive
+                  ? `关键词「${searchQuery.trim()}」`
+                  : filterStatusText()}
+                {!searchActive && level.kind === "province" && regionMeta ? (
                   <span className="text-sky-600"> · {regionMeta.name}</span>
                 ) : null}
               </p>
             </div>
           </div>
-        </div>
-      ) : (
+        )}
+        <label className="block">
+          <span className="sr-only">搜索路线</span>
+          <div className="flex items-stretch gap-2">
+            <input
+              type="search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="搜索城市、景点或路线"
+              enterKeyHint="search"
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck={false}
+              className="min-h-[52px] w-full flex-1 rounded-xl border-0 bg-white px-4 text-lg text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/80 focus:outline-none focus:ring-2 focus:ring-sky-600"
+            />
+            {searchInput ? (
+              <button
+                type="button"
+                onClick={clearSearch}
+                aria-label="清除搜索"
+                className="inline-flex min-h-[52px] shrink-0 items-center rounded-xl bg-white px-4 text-base font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
+              >
+                清除
+              </button>
+            ) : null}
+          </div>
+        </label>
+      </div>
+
+      {searchActive ? (
+        <section aria-label="搜索结果" className="space-y-2">
+          {searchHits.length === 0 ? (
+            <p className="rounded-2xl border border-dashed border-sky-300/80 bg-white/60 px-4 py-10 text-center text-lg leading-relaxed text-sky-800">
+              没有找到「{searchQuery.trim()}」相关路线。
+              <span className="mt-2 block text-base text-sky-700">
+                可试城市名、景点名，或点清除后用地图选大区。
+              </span>
+            </p>
+          ) : (
+            <RouteCardGrid routes={searchHits} aria-label="搜索结果路线" />
+          )}
+        </section>
+      ) : null}
+
+      {!searchActive && !resultsMode ? (
         <section
           aria-label="路线筛选"
           className="rounded-2xl bg-white/80 px-2 py-1.5 ring-1 ring-sky-900/6 sm:px-4 sm:py-2.5"
@@ -340,13 +419,13 @@ export function ChinaMapExplorer() {
           <p className="mt-0.5 hidden text-base leading-snug text-sky-800/75 sm:mt-1.5 sm:block">
             当前：{filterStatusText()}
             {shortcutActive ? "（快捷已启用）" : ""}
-            。先在地图点地区，再点省份，最后点路线看攻略。
+            。可搜索城市/景点，或先在地图点地区，再选省份与路线。
           </p>
         </section>
-      )}
+      ) : null}
 
       {/* —— 全国：筛选 + 地图同一构图 —— */}
-      {level.kind === "china" && !themeListMode && (
+      {!searchActive && level.kind === "china" && !themeListMode && (
         <section className="space-y-2 sm:space-y-3">
           <div>
             <h2 className="font-display text-base font-bold tracking-tight text-sky-950 sm:text-2xl">
@@ -371,7 +450,7 @@ export function ChinaMapExplorer() {
       )}
 
       {/* —— 主题列表（大环线 / 边陲）：与地图钻取同样隐藏筛选 —— */}
-      {themeListMode && theme ? (
+      {!searchActive && themeListMode && theme ? (
         <section className="space-y-3">
           <div>
             <h2 className="font-display text-xl font-bold text-sky-950">
@@ -392,31 +471,15 @@ export function ChinaMapExplorer() {
                       : "长居慢住：空气相对清新、周边自然与日归丰富；约三四周节奏，不是赶景点清单。"}
             </p>
           </div>
-          <ul className="divide-y divide-sky-100">
-            {themedRoutes.map((route) => (
-              <li key={route.id}>
-                <Link
-                  href={`/routes/${route.id}/`}
-                  className="block min-h-[56px] py-3 transition hover:bg-white/50"
-                >
-                  <span className="font-display block text-lg font-bold text-sky-950">
-                    {route.title}
-                  </span>
-                  <span className="mt-0.5 block text-base text-sky-700">
-                    {route.daysLabel} · {TRIP_TYPE_LABELS[route.tripType]}
-                  </span>
-                  <span className="mt-0.5 block text-base font-semibold text-amber-900">
-                    大致金额：{route.budgetLabel}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <RouteCardGrid
+            routes={themedRoutes}
+            aria-label={`${THEME_LABELS[theme]}路线`}
+          />
         </section>
       ) : null}
 
       {/* —— 大区：点省份 —— */}
-      {level.kind === "region" && regionMeta && (
+      {!searchActive && level.kind === "region" && regionMeta && (
         <section className="space-y-3">
           <div className="min-w-0 max-w-2xl">
             <h2 className="font-display text-xl font-bold tracking-tight text-sky-950 sm:text-2xl">
@@ -469,7 +532,7 @@ export function ChinaMapExplorer() {
       )}
 
       {/* —— 省份：路线列表 —— */}
-      {level.kind === "province" && provinceMeta && (
+      {!searchActive && level.kind === "province" && provinceMeta && (
         <section className="space-y-3">
           <div className="min-w-0 max-w-2xl">
             <h2 className="font-display text-xl font-bold tracking-tight text-sky-950 sm:text-2xl">
@@ -485,52 +548,10 @@ export function ChinaMapExplorer() {
               该省在当前筛选下没有路线，请点「返回」后更换条件。
             </p>
           ) : (
-            <ul className="space-y-3">
-              {provinceRoutes.map((route) => (
-                <li key={route.id}>
-                  <article className="overflow-hidden rounded-2xl bg-white/85 ring-1 ring-sky-900/8">
-                    <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
-                      <div className="max-h-[160px] overflow-hidden bg-sky-50/80 p-2 sm:max-h-[200px] md:max-h-none md:min-h-[200px] md:border-r md:border-sky-100/80 md:p-3">
-                        <RouteOverviewMap
-                          stops={route.stops}
-                          fromHome={route.fromHome}
-                          tripType={route.tripType}
-                          compact
-                        />
-                      </div>
-                      <div className="flex flex-col px-3.5 py-3 sm:px-5 sm:py-4">
-                        <h3 className="font-display text-lg font-bold leading-snug text-sky-950 sm:text-[1.35rem]">
-                          {route.title}
-                        </h3>
-                        <p className="mt-1 text-base font-medium leading-snug text-sky-800">
-                          {route.daysLabel}
-                          <span className="mx-1.5 text-sky-300" aria-hidden>
-                            ·
-                          </span>
-                          {TRIP_TYPE_LABELS[route.tripType]}
-                          {route.fromHome ? " · 从北京" : ""}
-                          {route.seasons.length
-                            ? ` · ${route.seasons.map((s) => `${SEASON_LABELS[s]}季`).join("、")}`
-                            : ""}
-                        </p>
-                        <p className="mt-1 text-base font-semibold leading-snug text-amber-900">
-                          大致金额：{route.budgetLabel}
-                        </p>
-                        <p className="mt-1.5 line-clamp-2 text-base leading-relaxed text-sky-800/85">
-                          {route.summary}
-                        </p>
-                        <Link
-                          href={`/routes/${route.id}/`}
-                          className="mt-3 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-sky-800 px-5 text-base font-semibold text-white hover:bg-sky-900 sm:w-auto sm:self-start"
-                        >
-                          查看详细旅行攻略 →
-                        </Link>
-                      </div>
-                    </div>
-                  </article>
-                </li>
-              ))}
-            </ul>
+            <RouteCardGrid
+              routes={provinceRoutes}
+              aria-label={`${provinceMeta.name}路线`}
+            />
           )}
         </section>
       )}

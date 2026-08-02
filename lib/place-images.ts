@@ -101,3 +101,18 @@ export function withPlaceImages(route: Route): Route {
 
   return { ...route, coverImage: cover, stops, gallery: deduped };
 }
+
+/**
+ * Explore pick-card image: place cover first, else first stop photo, else China fallback.
+ * Routes from `@/content` already run through withPlaceImages; this is defensive for any caller.
+ */
+export function cardImageForRoute(route: Route): string {
+  const cover = placeCoverForRoute(route.id, route.coverImage);
+  if (cover && cover !== withAssetBase(PLACE_IMAGE_FALLBACK)) return cover;
+  for (const stop of route.stops) {
+    const stopImg = placeImageForStop(stop.id, stop.image);
+    if (stopImg) return stopImg;
+  }
+  return cover || withAssetBase(PLACE_IMAGE_FALLBACK);
+}
+

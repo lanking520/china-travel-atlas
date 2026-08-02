@@ -33,6 +33,16 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# research raw dumps / cookies (content-gen only)
+research/raw/**
+!research/raw/.gitkeep
+!research/raw/**/.gitkeep
+!research/raw/xhs-cookies.txt.example
+research/**/cookies*.json
+research/**/auth.json
+research/raw/xhs-cookies.txt
+
+
 # vercel
 .vercel
 

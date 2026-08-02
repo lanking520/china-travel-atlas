@@ -26,6 +26,14 @@ export interface Stop {
   image?: string;
 }
 
+/** 人工整理时的参考来源（官网/知乎/小红书等公开链接，禁止整篇搬运） */
+export interface RouteSource {
+  title: string;
+  url: string;
+  kind: 'official' | 'zhihu' | 'xiaohongshu' | 'other';
+  note?: string;
+}
+
 export interface Route {
   id: string;
   title: string;
@@ -40,6 +48,9 @@ export interface Route {
   summary: string;
   whyFast?: string;
   stops: Stop[];
+  /** 调研关键词，方便子女在小红书/知乎复核 */
+  researchKeywords?: string[];
+  sources?: RouteSource[];
 }
 
 export interface Region {

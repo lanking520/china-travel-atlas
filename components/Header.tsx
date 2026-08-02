@@ -18,6 +18,12 @@ export function Header() {
             探索
           </Link>
           <Link
+            href="/overview/"
+            className="rounded-xl px-4 py-2.5 text-lg font-medium text-sky-800 hover:bg-sky-50"
+          >
+            两年怎么走
+          </Link>
+          <Link
             href="/about/"
             className="rounded-xl px-4 py-2.5 text-lg font-medium text-sky-800 hover:bg-sky-50"
           >

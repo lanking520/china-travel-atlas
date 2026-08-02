@@ -38,14 +38,11 @@ export default async function RouteDetailPage({
           ← 返回探索
         </Link>
 
-        <div className="relative mb-6 aspect-[21/9] overflow-hidden rounded-2xl bg-sky-100">
-          <Image
-            src={route.coverImage}
-            alt={route.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="768px"
+        <div className="mb-8">
+          <RouteOverviewMap
+            stops={route.stops}
+            fromHome={route.fromHome}
+            tripType={route.tripType}
           />
         </div>
 
@@ -55,6 +52,17 @@ export default async function RouteDetailPage({
         <p className="mt-3 text-xl leading-relaxed text-sky-800">
           {route.summary}
         </p>
+
+        <div className="relative mt-6 mb-6 aspect-[21/9] overflow-hidden rounded-2xl bg-sky-100">
+          <Image
+            src={route.coverImage}
+            alt={route.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="768px"
+          />
+        </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
           <span className="rounded-lg bg-sky-100 px-3 py-1.5 text-lg font-medium text-sky-900">
@@ -81,10 +89,6 @@ export default async function RouteDetailPage({
           )}
         </div>
 
-        <div className="mt-8">
-          <RouteOverviewMap stops={route.stops} />
-        </div>
-
         <section className="mt-10 space-y-4">
           <h2 className="text-2xl font-bold text-sky-950">行程安排</h2>
           <StopTimeline stops={route.stops} />
@@ -96,6 +100,11 @@ export default async function RouteDetailPage({
             {route.transport}
           </p>
           <p className="mt-2 text-lg text-sky-700">{transportNote}</p>
+          {route.tripType === "long" && (
+            <p className="mt-2 text-lg text-sky-700">
+              行程结束后建议回京休整几天，再出发下一段。
+            </p>
+          )}
         </section>
 
         <section className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-6">
@@ -113,6 +122,49 @@ export default async function RouteDetailPage({
             <h2 className="text-2xl font-bold text-orange-950">快览说明</h2>
             <p className="mt-3 text-lg leading-relaxed text-orange-900">
               {route.whyFast}
+            </p>
+          </section>
+        )}
+
+        {(route.sources?.length || route.researchKeywords?.length) && (
+          <section className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-2xl font-bold text-slate-900">参考来源与复核</h2>
+            {route.researchKeywords && route.researchKeywords.length > 0 && (
+              <p className="mt-3 text-lg text-slate-700">
+                可在小红书/知乎搜索：
+                {route.researchKeywords.map((kw) => (
+                  <span
+                    key={kw}
+                    className="mr-2 mt-2 inline-block rounded-lg bg-white px-3 py-1 text-base text-slate-800 ring-1 ring-slate-200"
+                  >
+                    {kw}
+                  </span>
+                ))}
+              </p>
+            )}
+            {route.sources && route.sources.length > 0 && (
+              <ul className="mt-4 space-y-3">
+                {route.sources.map((source) => (
+                  <li key={source.url} className="text-lg text-slate-800">
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-sky-800 underline-offset-2 hover:underline"
+                    >
+                      {source.title}
+                    </a>
+                    {source.note ? (
+                      <span className="mt-1 block text-base text-slate-600">
+                        {source.note}
+                      </span>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-4 text-base text-slate-600">
+              社区笔记仅作参考，出行前以景区官网与现场公告为准。
             </p>
           </section>
         )}

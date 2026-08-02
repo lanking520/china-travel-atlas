@@ -14,10 +14,13 @@ import { RegionMap } from "./RegionMap";
 import { RouteCard } from "./RouteCard";
 
 export function ExploreClient() {
-  const [filters, setFilters] = useState<FilterState>({});
-  const [preset, setPreset] = useState<"none" | "from-home" | "season">("none");
-
   const currentSeason = getCurrentSeason();
+  const [filters, setFilters] = useState<FilterState>({
+    season: currentSeason,
+  });
+  const [preset, setPreset] = useState<"none" | "from-home" | "season">(
+    "season",
+  );
 
   const filteredRoutes = useMemo(() => {
     if (preset === "from-home") {
@@ -26,7 +29,11 @@ export function ExploreClient() {
       );
     }
     if (preset === "season") {
-      return filterRoutes({ season: currentSeason });
+      return filterRoutes({
+        season: filters.season ?? currentSeason,
+        region: filters.region,
+        tripType: filters.tripType,
+      });
     }
     const routeFilter: RouteFilter = {
       region: filters.region,
@@ -46,6 +53,16 @@ export function ExploreClient() {
     setFilters((prev) => ({ ...prev, region: regionId }));
   }
 
+  function applySeasonPreset() {
+    if (preset === "season") {
+      setPreset("none");
+      setFilters((prev) => ({ ...prev, season: undefined }));
+      return;
+    }
+    setPreset("season");
+    setFilters((prev) => ({ ...prev, season: currentSeason }));
+  }
+
   return (
     <div className="space-y-8">
       <section className="space-y-4">
@@ -63,7 +80,7 @@ export function ExploreClient() {
           </button>
           <button
             type="button"
-            onClick={() => setPreset(preset === "season" ? "none" : "season")}
+            onClick={applySeasonPreset}
             className={`min-h-[52px] rounded-2xl px-5 py-3 text-lg font-semibold transition-colors ${
               preset === "season"
                 ? "bg-orange-600 text-white"

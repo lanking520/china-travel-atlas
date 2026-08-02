@@ -7,7 +7,9 @@
     "build": "next build",
     "build:pages": "GITHUB_PAGES=true next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "research:list": "node research/scripts/list-queries.mjs",
+    "research:xhs": "node research/scripts/xhs-with-cookies.mjs"
   },
   "dependencies": {
     "next": "16.2.12",
@@ -15,6 +17,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@lucasygu/redbook": "^0.8.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -1,0 +1,66 @@
+{
+  "purpose": "Content-generation search queries only; not used by the website build.",
+  "platforms": ["xiaohongshu", "zhihu", "official"],
+  "routes": [
+    {
+      "id": "mutianyu-day",
+      "queries": ["慕田峪 老人 缆车", "慕田峪 自驾 停车", "慕田峪 银杏 人流"]
+    },
+    {
+      "id": "tianjin-day",
+      "queries": ["天津 一日游 老人", "五大道 步行 强度", "海河 夜景 餐厅"]
+    },
+    {
+      "id": "chengde-2d",
+      "queries": ["承德避暑山庄 电瓶车", "承德两日游 适老", "普宁寺 台阶"]
+    },
+    {
+      "id": "gubei-overnight",
+      "queries": ["古北水镇 过夜 老人", "司马台长城 缆车", "古北水镇 淡季"]
+    },
+    {
+      "id": "huabei-shanxi-loop",
+      "queries": ["大同云冈 适老", "悬空寺 体力", "平遥古城 短住 老人"]
+    },
+    {
+      "id": "yunnan-dali-lijiang",
+      "queries": ["大理 长住 短租", "大理 丽江 老人 节奏", "沙溪古镇 住宿"]
+    },
+    {
+      "id": "xibei-dunhuang-zhangye",
+      "queries": ["敦煌 租车 自驾", "莫高窟 预约 老人", "张掖丹霞 观光车"]
+    },
+    {
+      "id": "dongbei-changbai-summer",
+      "queries": ["长白山北坡 环保车 老人", "长白山 倒站车 天池", "二道白河 温泉 住宿"]
+    },
+    {
+      "id": "huadong-hangzhou-suzhou",
+      "queries": ["杭州西湖 无障碍 环湖", "西湖 无障碍游船", "苏州园林 少走路 老人"]
+    },
+    {
+      "id": "huanan-xiamen-winter",
+      "queries": ["厦门过冬 长住", "鼓浪屿 老人 轮渡", "南靖土楼 车程"]
+    },
+    {
+      "id": "huazhong-wudang-3d",
+      "queries": ["武当山 索道 金顶 老人", "武当山 分时预约 金顶", "武当山 太子坡 紫霄宫"]
+    },
+    {
+      "id": "dongbei-harbin-snow-3d",
+      "queries": ["哈尔滨冰雪大世界 老人 免费", "冰雪大世界 暖房 休息", "哈尔滨 中央大街 冬季 适老"]
+    },
+    {
+      "id": "huanan-sanya-winter",
+      "queries": ["三亚 避寒 老人 冬季", "三亚 候鸟 适应期 温差", "三亚 老年公寓 正规"]
+    },
+    {
+      "id": "xinan-chengdu-slow",
+      "queries": ["成都 慢游 老人 熊猫基地", "成都 人民公园 盖碗茶", "成都 博物馆 无障碍 电梯"]
+    },
+    {
+      "id": "qingzang-lhasa-slow",
+      "queries": ["拉萨 适应 老人", "布达拉宫 预约 体力", "纳木错 高原反应"]
+    }
+  ]
+}

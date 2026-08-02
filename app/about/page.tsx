@@ -41,6 +41,18 @@ export default function AboutPage() {
             iPhone：Safari 分享 →「添加到主屏幕」。Android：Chrome 菜单 →「安装应用」或「添加到主屏幕」。
           </p>
         </section>
+
+        <section className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+          <h2 className="text-2xl font-bold text-amber-950">攻略从哪来</h2>
+          <p className="mt-3 text-lg text-amber-900">
+            路线结构已搭好；细节会对照景区官网，并由家人在小红书、知乎上按关键词复核后改写，不会把平台原文整篇搬上来。
+          </p>
+          <p className="mt-2 text-lg text-amber-800">
+            开发与调研说明见仓库文档
+            <code className="mx-1 rounded bg-white px-1">docs/内容调研与来源.md</code>
+            。
+          </p>
+        </section>
       </main>
     </>
   );

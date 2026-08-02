@@ -46,4 +46,4 @@ Clean-context wrap-up after Explore 地区 dim / map-tab removal, content close-
 
 ---
 
-*Updated: 2026-08-02 · clean-context wrap-up.*
+*Updated: 2026-08-02 evening · FINAL verify `plan-verify-round-20260802-final.md` (PASS; live about lags deploy).*

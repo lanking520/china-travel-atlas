@@ -1,25 +1,25 @@
 # Verify loop latest
 
-Time: 2026-08-02 (content backlog close-out after `84a3af6`)
+Time: 2026-08-02 (FINAL clean-context verify)
 
-**Verdict: PASS**
+**Verdict: PASS** (live about copy lags until Pages deploy)
 
-Source: `research/audits/plan-verify-round-20260802-content-backlog.md`
+Source: `research/audits/plan-verify-round-20260802-final.md`
 
 | Check | Result |
 | --- | --- |
-| Content backlog checkboxes | PASS — **0** open `[ ]`; Open/Done sections fully `[x]` |
-| Dining short (`<35`) | PASS — **0** / 182 hand PG |
-| Strict THIN | PASS — **0** / 182 |
-| Soft-short intro `<200` | PASS — **0** / 182 |
-| Compose / base pilots | PASS — 南疆/河西/川西 + 3 bases |
-| Longstay criteria | PASS — documented; weak hubs demoted |
-| Image leftovers 乐亭/左云/qiziwan | PASS — gen wired; out of soft |
-| Explore UX + maps (prior) | PASS (unchanged) |
+| Plan / backlog hygiene | PASS — product open 0; polish opens intentional; multi-discovery gate (not XHS) |
+| Dead code after map-tab removal | PASS — FilterBar/RegionMap gone; detail maps kept |
+| Docs (`AGENTS.md`, README, about/overview) | PASS — 4 dims; no map tab pitch |
+| `tsc --noEmit` | PASS |
+| `ux:plan` | PASS — **25 / 25** (after about P9 string fix) |
+| Live home Explore IA | PASS — no 地图选区; 4 dims present |
+| 河口–沙巴 honesty | PASS — Sapa / Vietnam / passport+visa on compose |
+| Catalog | **~201** · compose **31** · leg **67** · base **3** |
 
 ## Top next tasks
-1. Optional：Explore 长居 chip / base 详情 polish
-2. 逐条精细化 — stops/tips for high-traffic hubs
-3. Extreme alpine cards — keep honesty; no forced compose
-4. Same-corridor soft → Commons only if dedicated scenic appears
-5. New prefecture coverage only if product asks (not backlog residual)
+1. After Pages deploy: curl live `/about/` for refreshed 四个维度 copy
+2. China CDN dual-deploy when ICP/domain ready (mainland-access note)
+3. UX optional: density / virtualization only if jank
+4. Content optional: high-traffic stops/tips; 长居 chip polish if wanted
+5. Do not reintroduce map tab or block new ids on XHS MCP

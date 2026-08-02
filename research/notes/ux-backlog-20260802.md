@@ -10,7 +10,7 @@ Later agents: tick items as done; do **not** fight content agents on `content/*`
 
 ## Framework research status (summary)
 
-Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: tabs + search + dual-column `RouteCard` + map cover purity + dimension filters (季节/长短/主题) + mobile **bottom nav**.
+Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: **single catalog** + search + dual-column `RouteCard` + four dimension filters (季节/长短/主题/**地区**) + mobile **bottom nav**. Map is **not** an Explore entry (RegionMap may remain unused).
 
 **GH Pages / static export constraints:** no SSR streaming. Catalog in slim `lib/generated/explore-routes.json`. Paginate/window cards; `loading="lazy"`; do **not** import all `route-details` into Explore.
 
@@ -18,17 +18,16 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ## A — Layout / IA
 
-- [x] **Search box above** tabs「全部景点 / 地图选区」
-- [x] Explore IA: default **全部景点** catalog; **地图选区** = search + map only
-- [x] Sticky **返回** → clean 全部景点 when scoped; **hidden** on clean catalog
-- [x] Region-chip dismiss → clean 全部景点
-- [x] Map cover: maximize SVG first-viewport share
+- [x] **Search box above** filter dims (no dual-tab chrome)
+- [x] Explore IA: **single catalog**「全部景点」; **removed「地图选区」** tab / map cover
+- [x] **地区** fourth dim: sheet 大区 → optional 省份; default **全部地区**; trigger `地区·全部` / `地区·华东` / `地区·浙江`
+- [x] Sticky **返回** → clean catalog when scoped; **hidden** on clean catalog
 - [x] Soften long catalog: 名景 / 从北京 sort + hint
 - [x] **Compact filter chrome**: sticky transform-hide on scroll (not height-collapse thrash)
-- [x] Dimension filters: 季节 / 长短 / 主题 triggers + sheet (replaces bulky chip pile + nested「添加筛选」)
+- [x] Dimension filters: 季节 / 长短 / 主题 / 地区 triggers + sheet
 - [x] Remove Explore shortcuts「从北京短途」+「当季」chip
-- [x] **No dim identity chips**: 季节/长短/主题 shown only on dim triggers (`季节·夏季`); clear via 全部* or sheet「重置」. Chips remain for search / 大区 / 省 only.
-- [x] **Calendar soft-default season** (superseded): was `getSeasonNow()` + hint; now defaults **全季节 / 全部 / 全部主题**
+- [x] **No dim identity chips**: dims shown only on triggers; clear via 全部* / 全部地区 / sheet「重置」。Search keyword chip only.
+- [x] Defaults **全季节 / 全部 / 全部主题 / 全部地区** (`undefined`)
 - [x] Light **compositionKind** Explore support: 短线/长线
 - [x] **Compose detail timeline** + sticky「组合」
 - [x] **Compose intro → leg links**:「嵌入短线」under intro (`3930888`) — all 14 compose pages
@@ -51,8 +50,8 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ## D — Verify / CI
 
-- [x] `ux:plan` locks Explore IA + soft calendar + dims + bottom nav + compose legs
-- [x] CI Pages smoke + live curl smoke job
+- [x] `ux:plan` locks Explore IA + dims (incl. 地区) + bottom nav + compose legs
+- [x] CI Pages smoke + live curl smoke job (strings: 全部景点|筛选维度|地区)
 
 ## E — Framework modernization
 
@@ -77,9 +76,10 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 ### Reconcile notes (2026-08-02 evening)
 
 **User overrides / leaked asks:**
-- Nested「添加筛选」→ **3 direct buttons** 季节 / 长短 / 主题 (per-dim sheet). Defaults **全季节 / 全部 / 全部主题** (`undefined`). **Supersedes** earlier calendar soft-default season.
+- Nested「添加筛选」→ **4 direct buttons** 季节 / 长短 / 主题 / **地区** (per-dim sheet). Defaults **全季节 / 全部 / 全部主题 / 全部地区**.
+- **Removed「地图选区」** tab and Explore map cover; region pick is sheet-only (大区 first, province optional).
 - Sticky **flicker** on scroll reverse: dual collapse + `max-h-0` changed document height → scrollY thrash. **Fixed:** single `chromeHidden`, rAF + hysteresis, hide via `-translate-y-full` only.
 - Mobile bottom nav shipped; compose intro「嵌入短线」done in `3930888`.
-- **Redundant dim identity chips** (e.g.「夏季×」next to `季节·夏季`): **removed**. Clear dims via 全部季节/全部/全部主题 or sheet「重置」. Keep chips for search keyword + map region/province only.
+- **Redundant dim identity chips** removed (incl. region/province). Clear via 全部* / 全部地区 or sheet「重置」. Search keyword chip only.
 
-*Updated: 2026-08-02 · Drop dim identity chips + sheet 重置; compose count 31 (`bd34761`); ux:plan updated.*
+*Updated: 2026-08-02 · Region as 4th dim; drop map tab; ux:plan + Pages smoke updated.*

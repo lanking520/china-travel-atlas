@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Plan-aligned Playwright verification for china-travel-atlas.
- * Covers: 全部景点 default, map cover, drill-down, filters on results, search, detail.
+ * Covers: catalog default, 地区 sheet (大区→可选省), dim filters, search, detail.
  */
 import { chromium, devices } from "playwright";
 import fs from "node:fs";
@@ -32,23 +32,36 @@ function mustInclude(text, patterns, label) {
   }
 }
 
+/** Unhide sticky Explore chrome (transform-hide ignores pointer events). */
+async function revealExploreChrome(page) {
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+  });
+  await page.waitForTimeout(200);
+}
+
+/** Force-click: next dev overlay portal can intercept normal clicks on sheets. */
+async function sheetClick(locator) {
+  await locator.click({ force: true });
+}
+
 async function openSeasonDim(page) {
+  await revealExploreChrome(page);
   const btn = page.getByRole("button", { name: /季节·/ });
   if (!(await btn.count())) throw new Error("季节· trigger missing");
-  if (!(await page.getByRole("button", { name: "全部季节" }).isVisible().catch(() => false))) {
-    await btn.click();
-    await page.getByRole("dialog", { name: "季节" }).waitFor({
-      state: "visible",
-      timeout: 8000,
-    });
+  const dialog = page.getByRole("dialog", { name: "季节" });
+  if (!(await dialog.isVisible().catch(() => false))) {
+    await btn.click({ force: true });
+    await dialog.waitFor({ state: "visible", timeout: 8000 });
   }
   await page.waitForTimeout(150);
 }
 
 async function openTripDim(page) {
+  await revealExploreChrome(page);
   const btn = page.getByRole("button", { name: /长短·/ });
   if (!(await btn.count())) throw new Error("长短· trigger missing");
-  await btn.click();
+  await btn.click({ force: true });
   await page.getByRole("dialog", { name: "长短" }).waitFor({
     state: "visible",
     timeout: 8000,
@@ -57,9 +70,10 @@ async function openTripDim(page) {
 }
 
 async function openThemeDim(page) {
+  await revealExploreChrome(page);
   const btn = page.getByRole("button", { name: /主题·/ });
   if (!(await btn.count())) throw new Error("主题· trigger missing");
-  await btn.click();
+  await btn.click({ force: true });
   await page.getByRole("dialog", { name: "主题" }).waitFor({
     state: "visible",
     timeout: 8000,
@@ -67,9 +81,16 @@ async function openThemeDim(page) {
   await page.waitForTimeout(150);
 }
 
-async function goMapCover(page) {
-  await page.getByRole("tab", { name: "地图选区" }).click();
-  await page.waitForTimeout(400);
+async function openRegionDim(page) {
+  await revealExploreChrome(page);
+  const btn = page.getByRole("button", { name: /地区·/ });
+  if (!(await btn.count())) throw new Error("地区· trigger missing");
+  await btn.click({ force: true });
+  await page.getByRole("dialog", { name: "地区" }).waitFor({
+    state: "visible",
+    timeout: 8000,
+  });
+  await page.waitForTimeout(150);
 }
 
 const browser = await chromium.launch({
@@ -92,67 +113,59 @@ await check("P0 preview reachable", async () => {
   if (!res?.ok()) throw new Error("status " + res?.status());
 });
 
-await check("P1 home: 全部景点 default + tabs (no cover filter pile)", async () => {
+await check("P1 home: catalog + 4 dim filters (no map tab)", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(800);
   const t = await page.locator("body").innerText();
   mustInclude(t, ["爸妈中国旅游地图"], "home brand");
-  if (!(await page.getByRole("tab", { name: "全部景点" }).count())) {
-    throw new Error("missing tab 全部景点");
+  if (await page.getByRole("tab", { name: "地图选区" }).count()) {
+    throw new Error("地图选区 tab should be removed");
   }
-  if (!(await page.getByRole("tab", { name: "地图选区" }).count())) {
-    throw new Error("missing tab 地图选区");
+  if (await page.getByRole("tablist", { name: "探索方式" }).count()) {
+    throw new Error("探索方式 dual-tab chrome should be removed");
   }
-  const allTab = page.getByRole("tab", { name: "全部景点" });
-  if ((await allTab.getAttribute("aria-selected")) !== "true") {
-    throw new Error("全部景点 should be default selected");
-  }
-  // Search must sit above tabs
+  // Search must sit above 筛选维度
   const orderOk = await page.evaluate(() => {
     const input = document.querySelector('input[placeholder="搜索城市、景点或路线"]');
-    const tabs = document.querySelector('[role="tablist"][aria-label="探索方式"]');
-    if (!input || !tabs) return false;
-    const pos = input.compareDocumentPosition(tabs);
+    const dims = document.querySelector('[aria-label="筛选维度"]');
+    if (!input || !dims) return false;
+    const pos = input.compareDocumentPosition(dims);
     return (pos & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
   });
-  if (!orderOk) throw new Error("search box must be above 探索方式 tabs");
-  // Default results: dual-col catalog + dim triggers (季节 shows calendar soft-default)
+  if (!orderOk) throw new Error("search box must be above 筛选维度");
   const dims = page.locator('[aria-label="筛选维度"]');
   if (!(await dims.count())) throw new Error("筛选维度 row missing");
-  if (!(await dims.getByRole("button", { name: /季节·/ }).count())) {
-    throw new Error("missing 季节· dim trigger");
-  }
-  for (const re of [/长短·全部/, /主题·全部/]) {
+  for (const re of [/季节·全季节/, /长短·全部/, /主题·全部/, /地区·全部/]) {
     if (!(await dims.getByRole("button", { name: re }).count())) {
       throw new Error("missing default dim trigger " + re);
     }
   }
-  // Season option chips must NOT be visible until 季节 sheet opens
   if (await page.getByRole("button", { name: "全部季节" }).count()) {
     throw new Error("season chips visible before opening 季节 sheet");
+  }
+  if (await page.getByRole("button", { name: "全部地区" }).count()) {
+    throw new Error("region chips visible before opening 地区 sheet");
   }
   const grid = page.locator('[aria-label="全部景点路线"]');
   if (!(await grid.count())) throw new Error("全部景点 grid missing");
   if ((await grid.locator('a[href*="/routes/"]').count()) < 6) {
     throw new Error("全部景点 dual-col has too few cards");
   }
-  // Soft calendar default + 名景 sort hint (no 从北京短途 / 当季 shortcut chips)
   if (!/已按当季|先名景|先显示名景/.test(t)) {
-    throw new Error("missing calendar-season / 名景 catalog hint");
+    throw new Error("missing 名景 catalog hint");
   }
   if (/从北京短途/.test(t)) {
     throw new Error("removed shortcut 从北京短途 should not appear");
   }
-  // Clean catalog: no sticky 返回; soft calendar has no season identity chip
   if (await page.getByRole("button", { name: "返回" }).count()) {
     throw new Error("clean catalog should hide sticky 返回");
   }
   if (
     await page
-      .getByRole("button", { name: /移除筛选 (春季|夏季|秋季|冬季)/ })
+      .getByRole("button", { name: /移除筛选 (春季|夏季|秋季|冬季|华北|华东)/ })
       .count()
   ) {
-    throw new Error("soft calendar default should not show season identity chip");
+    throw new Error("clean catalog should not show dim identity chips");
   }
   await page.screenshot({ path: path.join(outDir, "01-home.png"), fullPage: true });
 });
@@ -174,40 +187,62 @@ await check("P2 per-route budget estimate (not home BudgetBar)", async () => {
   await page.waitForTimeout(400);
 });
 
-await check("P3 map drill: 地图选区 → 大区 → 省份", async () => {
-  await goMapCover(page);
-  const mapText = await page.locator("body").innerText();
-  if (!/点地图选大区|点击中国地图选大区/.test(mapText)) {
-    throw new Error("map cover missing CTA");
+await check("P3 地区 sheet: 大区 → 可选省份", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(400);
+  await openRegionDim(page);
+  const sheet = page.getByRole("dialog", { name: "地区" });
+  if (!(await sheet.getByRole("button", { name: "全部地区" }).count())) {
+    throw new Error("地区 sheet missing 全部地区");
   }
-  // Cover must NOT show 路线筛选 panel
-  if (await page.getByLabel("路线筛选").count()) {
-    throw new Error("filters panel on map cover");
+  await sheetClick(sheet.getByRole("button", { name: "华北", exact: true }));
+  await page.waitForTimeout(300);
+  if (!(await sheet.getByText("可选省份").count())) {
+    throw new Error("after 大区, optional province section missing");
   }
-  await page.getByRole("button", { name: /^华北/ }).first().click();
-  await page.waitForTimeout(600);
-  const t = await page.locator("body").innerText();
-  mustInclude(t, ["选择省份", "返回"], "region view");
-  const provinceHit = await page
-    .getByRole("button", { name: /条路线 · 点击进入/ })
-    .count();
-  if (!provinceHit) throw new Error("no province buttons");
+  if (!(await sheet.getByRole("button", { name: "本区全部" }).count())) {
+    throw new Error("本区全部 missing after picking 大区");
+  }
+  const provinceHit = await sheet.getByRole("button", { name: "北京", exact: true }).count();
+  if (!provinceHit) throw new Error("华北 sheet missing 北京 province chip");
+  // Region-only (no province required): 完成 keeps 地区·华北
+  await sheetClick(sheet.getByRole("button", { name: "完成" }));
+  await page.waitForTimeout(400);
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·华北/ }).count())) {
+    throw new Error("大区-only should show 地区·华北 on trigger");
+  }
+  if (await page.getByRole("button", { name: /移除筛选 华北/ }).count()) {
+    throw new Error("region identity chip should not appear");
+  }
+  const regionGrid = page.locator('[aria-label="华北路线"]');
+  if (!(await regionGrid.count())) throw new Error("region-filtered grid missing");
+  if ((await regionGrid.locator('a[href*="/routes/"]').count()) < 1) {
+    throw new Error("华北 region filter returned 0 routes");
+  }
   await page.screenshot({ path: path.join(outDir, "02-region.png"), fullPage: true });
 });
 
-await check("P4 map drill: 省份 → 路线列表", async () => {
-  const beijingProv = page.getByRole("button", { name: /^北京/ });
-  if ((await beijingProv.count()) > 0) {
-    await beijingProv.first().click();
+await check("P4 地区 sheet: 省份 → 路线列表", async () => {
+  await openRegionDim(page);
+  const sheet = page.getByRole("dialog", { name: "地区" });
+  const beijing = sheet.getByRole("button", { name: "北京", exact: true });
+  if ((await beijing.count()) > 0) {
+    await sheetClick(beijing);
   } else {
-    await page.getByRole("button", { name: /条路线 · 点击进入/ }).first().click();
+    await sheetClick(sheet.getByRole("button", { name: "本区全部" }));
   }
-  await page.waitForTimeout(800);
-  const t = await page.locator("body").innerText();
-  mustInclude(t, ["选择路线"], "province view");
+  await page.waitForTimeout(500);
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·北京/ }).count())) {
+    // 本区全部 fallback still ok if 北京 missing
+    if (!(await dims.getByRole("button", { name: /地区·华北/ }).count())) {
+      throw new Error("province/region trigger label missing after pick");
+    }
+  }
   const routeCards = page.locator('a[href*="/routes/"]');
   if ((await routeCards.count()) < 1) {
-    throw new Error("province view missing dual-column route cards");
+    throw new Error("province filter missing dual-column route cards");
   }
   await page.screenshot({ path: path.join(outDir, "03-province.png"), fullPage: true });
 });
@@ -232,6 +267,7 @@ await check("P5 click route → detail guide", async () => {
 await check("P6 season / trip dims on results", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(500);
+  await revealExploreChrome(page);
   await openSeasonDim(page);
   const seasonSheet = page.getByRole("dialog", { name: "季节" });
   if (!(await seasonSheet.getByRole("button", { name: "全部季节" }).count())) {
@@ -243,7 +279,7 @@ await check("P6 season / trip dims on results", async () => {
   if (await page.getByRole("button", { name: /^当季/ }).count()) {
     throw new Error("当季 shortcut chip should be removed");
   }
-  await seasonSheet.getByRole("button", { name: "冬季", exact: true }).click();
+  await sheetClick(seasonSheet.getByRole("button", { name: "冬季", exact: true }));
   await page.waitForTimeout(300);
   const dims = page.locator('[aria-label="筛选维度"]');
   if (!(await dims.getByRole("button", { name: /季节·冬季/ }).count())) {
@@ -264,48 +300,65 @@ await check("P6 season / trip dims on results", async () => {
   if (!(await tripSheet.getByRole("button", { name: "重置" }).count())) {
     throw new Error("长短 sheet missing 重置");
   }
-  await tripSheet.getByRole("button", { name: "完成" }).click();
+  await sheetClick(tripSheet.getByRole("button", { name: "完成" }));
   await page.waitForTimeout(150);
   // Clear season via 全部季节
   await openSeasonDim(page);
-  await page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "全部季节" }).click();
+  await sheetClick(
+    page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "全部季节" }),
+  );
   await page.waitForTimeout(200);
   if (!(await dims.getByRole("button", { name: /季节·全季节/ }).count())) {
     throw new Error("全部季节 should restore 季节·全季节 trigger");
   }
-  // Map drill with season
-  await goMapCover(page);
-  await page.getByRole("button", { name: /^华北/ }).first().click();
-  await page.waitForTimeout(500);
+  // Region + season combine
+  await openRegionDim(page);
+  await sheetClick(
+    page.getByRole("dialog", { name: "地区" }).getByRole("button", { name: "华北", exact: true }),
+  );
+  await page.waitForTimeout(200);
+  await sheetClick(
+    page.getByRole("dialog", { name: "地区" }).getByRole("button", { name: "完成" }),
+  );
+  await page.waitForTimeout(300);
   await openSeasonDim(page);
-  await page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "冬季", exact: true }).click();
+  await sheetClick(
+    page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "冬季", exact: true }),
+  );
   await page.waitForTimeout(400);
   const winterText = await page.locator("body").innerText();
-  if (!/选择省份|没有匹配|返回|条路线/.test(winterText)) {
-    throw new Error("season filter broke region view");
+  if (!/没有匹配|返回|条路线|华北/.test(winterText)) {
+    throw new Error("season + region filter broke catalog");
   }
 });
 
 await check("P7 返回 clears to 全部景点 catalog", async () => {
-  if (!(await page.locator("body").innerText()).includes("选择省份")) {
-    await page.goto(base + "/", { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(400);
-    await goMapCover(page);
-    await page.getByRole("button", { name: /^华北/ }).first().click();
-    await page.waitForTimeout(500);
-  }
-  await page.getByRole("button", { name: "返回" }).click();
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(400);
-  const allTab = page.getByRole("tab", { name: "全部景点" });
-  if ((await allTab.getAttribute("aria-selected")) !== "true") {
-    throw new Error("返回 should land on 全部景点");
-  }
+  await openRegionDim(page);
+  await sheetClick(
+    page.getByRole("dialog", { name: "地区" }).getByRole("button", { name: "华北", exact: true }),
+  );
+  await page.waitForTimeout(200);
+  await sheetClick(
+    page.getByRole("dialog", { name: "地区" }).getByRole("button", { name: "完成" }),
+  );
+  await page.waitForTimeout(300);
+  await revealExploreChrome(page);
+  await page.getByRole("button", { name: "返回" }).click({ force: true });
+  await page.waitForTimeout(400);
   if (!(await page.locator('[aria-label="全部景点路线"]').count())) {
     throw new Error("返回 missing 全部景点 grid");
   }
-  // Clean: no season panel until 添加筛选
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·全部/ }).count())) {
+    throw new Error("返回 should restore 地区·全部");
+  }
   if (await page.getByRole("button", { name: "全部季节" }).count()) {
     throw new Error("filters still expanded/visible after 返回");
+  }
+  if (await page.getByRole("button", { name: "返回" }).count()) {
+    throw new Error("clean catalog should hide sticky 返回");
   }
 });
 
@@ -318,13 +371,16 @@ await check("P8 overview two-year page", async () => {
   mustInclude(t, ["两年怎么走", "回京"], "overview");
 });
 
-await check("P9 about explains map UX", async () => {
+await check("P9 about explains region filter UX", async () => {
   const res = await page.goto(base + "/about/", {
     waitUntil: "domcontentloaded",
   });
   if (!res?.ok()) throw new Error("status " + res?.status());
   const t = await page.locator("body").innerText();
-  mustInclude(t, [/地图/, /省/], "about");
+  mustInclude(t, [/地区/, /大区|省/], "about");
+  if (/地图选区/.test(t)) {
+    throw new Error("about should not still pitch 地图选区");
+  }
 });
 
 await check("P10 southwest long-trip detail has 回京/飞", async () => {
@@ -342,22 +398,28 @@ await check("P11 no page JS errors", async () => {
   if (pageErrors.length) throw new Error(pageErrors.slice(0, 3).join(" | "));
 });
 
-await check("P12 desktop: SVG region path clickable", async () => {
+await check("P12 desktop: 地区 sheet 华东 → 浙江", async () => {
   const desk = await browser.newContext({
     viewport: { width: 1280, height: 800 },
   });
   const dpage = await desk.newPage();
   await dpage.goto(base + "/", { waitUntil: "domcontentloaded" });
   await dpage.waitForTimeout(500);
-  await dpage.getByRole("tab", { name: "地图选区" }).click();
-  await dpage.waitForTimeout(400);
-  const pathEl = dpage
-    .locator('svg[aria-label="中国地区示意图"] path')
-    .first();
-  await pathEl.click({ force: true });
-  await dpage.waitForTimeout(600);
-  const t = await dpage.locator("body").innerText();
-  if (!/选择省份/.test(t)) throw new Error("SVG click did not enter region");
+  await openRegionDim(dpage);
+  const sheet = dpage.getByRole("dialog", { name: "地区" });
+  await sheetClick(sheet.getByRole("button", { name: "华东", exact: true }));
+  await dpage.waitForTimeout(200);
+  const zhejiang = sheet.getByRole("button", { name: "浙江", exact: true });
+  if (!(await zhejiang.count())) throw new Error("华东 missing 浙江 chip");
+  await sheetClick(zhejiang);
+  await dpage.waitForTimeout(500);
+  const dims = dpage.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·浙江/ }).count())) {
+    throw new Error("desktop province pick should show 地区·浙江");
+  }
+  if ((await dpage.locator('a[href*="/routes/"]').count()) < 1) {
+    throw new Error("浙江 filter missing routes");
+  }
   await dpage.screenshot({ path: path.join(outDir, "05-desktop-region.png") });
   await desk.close();
 });
@@ -399,7 +461,7 @@ await check("P15 名景 via 主题· dim → dual-column RouteCards", async () =
   await page.waitForTimeout(400);
   await openThemeDim(page);
   const sheet = page.getByRole("dialog", { name: "主题" });
-  await sheet.getByRole("button", { name: "名景", exact: true }).click();
+  await sheetClick(sheet.getByRole("button", { name: "名景", exact: true }));
   await page.waitForTimeout(600);
   const t = await page.locator("body").innerText();
   if (!/名景/.test(t)) throw new Error("名景 theme list missing title cue");
@@ -423,7 +485,7 @@ await check("P15 名景 via 主题· dim → dual-column RouteCards", async () =
   // Demoted yangshuo/zhenyuan must not appear under 长居推荐
   await openThemeDim(page);
   const sheet2 = page.getByRole("dialog", { name: "主题" });
-  await sheet2.getByRole("button", { name: "长居", exact: true }).click();
+  await sheetClick(sheet2.getByRole("button", { name: "长居", exact: true }));
   await page.waitForTimeout(400);
   const hrefs = await page.locator('a[href*="/routes/"]').evaluateAll((as) =>
     as.map((a) => a.getAttribute("href") || ""),
@@ -465,52 +527,39 @@ await check("P16 detail sticky section rail", async () => {
   await page.screenshot({ path: path.join(outDir, "08-detail-rail.png") });
 });
 
-await check("P17 region-chip dismiss → clean 全部景点", async () => {
+await check("P17 全部地区 clears region → clean catalog", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(400);
-  await goMapCover(page);
-  await page.getByRole("button", { name: /^华北/ }).first().click();
-  await page.waitForTimeout(500);
-  const beijingProv = page.getByRole("button", { name: /^北京/ });
-  if ((await beijingProv.count()) > 0) {
-    await beijingProv.first().click();
+  await openRegionDim(page);
+  const sheet = page.getByRole("dialog", { name: "地区" });
+  await sheetClick(sheet.getByRole("button", { name: "华北", exact: true }));
+  await page.waitForTimeout(200);
+  const beijing = sheet.getByRole("button", { name: "北京", exact: true });
+  if ((await beijing.count()) > 0) {
+    await sheetClick(beijing);
   } else {
-    await page.getByRole("button", { name: /条路线 · 点击进入/ }).first().click();
+    await sheetClick(sheet.getByRole("button", { name: "完成" }));
   }
-  await page.waitForTimeout(600);
-  // Unhide sticky chrome (transform-hide ignores pointer events)
+  await page.waitForTimeout(400);
   await page.evaluate(() => {
     window.scrollTo(0, 80);
     window.scrollTo(0, 0);
   });
-  await page.waitForTimeout(300);
-  const dismissRegion = page.getByRole("button", { name: /移除筛选 华北/ });
-  if (!(await dismissRegion.count())) {
-    // Fallback: sticky 返回 also clears region → clean catalog
-    const back = page.getByRole("button", { name: "返回" });
-    if (!(await back.count())) {
-      throw new Error("province view missing 移除筛选 华北 and 返回");
-    }
-    await page.evaluate(() => {
-      const el = document.querySelector('[aria-label="返回"]');
-      if (el instanceof HTMLElement) el.click();
-    });
-  } else {
-    await page.evaluate(() => {
-      const el = document.querySelector('[aria-label="移除筛选 华北"]');
-      if (el instanceof HTMLElement) el.click();
-    });
-  }
-  await page.waitForTimeout(400);
-  const allTab = page.getByRole("tab", { name: "全部景点" });
-  if ((await allTab.getAttribute("aria-selected")) !== "true") {
-    throw new Error("region dismiss should land on 全部景点");
-  }
-  if (!(await page.locator('[aria-label="全部景点路线"]').count())) {
-    throw new Error("region dismiss missing 全部景点 grid");
-  }
+  await page.waitForTimeout(200);
   if (await page.getByRole("button", { name: /移除筛选 华北/ }).count()) {
-    throw new Error("华北 chip still present after dismiss");
+    throw new Error("region should not use identity chips");
+  }
+  await openRegionDim(page);
+  await sheetClick(
+    page.getByRole("dialog", { name: "地区" }).getByRole("button", { name: "全部地区" }),
+  );
+  await page.waitForTimeout(400);
+  if (!(await page.locator('[aria-label="全部景点路线"]').count())) {
+    throw new Error("全部地区 missing 全部景点 grid");
+  }
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·全部/ }).count())) {
+    throw new Error("全部地区 should restore 地区·全部");
   }
   if (await page.getByRole("button", { name: "返回" }).count()) {
     throw new Error("clean catalog should hide sticky 返回");
@@ -520,11 +569,8 @@ await check("P17 region-chip dismiss → clean 全部景点", async () => {
 await check("P18 clean catalog hides sticky 返回", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(500);
-  if (
-    (await page.getByRole("tab", { name: "全部景点" }).getAttribute("aria-selected")) !==
-    "true"
-  ) {
-    throw new Error("default tab should be 全部景点");
+  if (!(await page.locator('[aria-label="全部景点路线"]').count())) {
+    throw new Error("default should show 全部景点 grid");
   }
   if (await page.getByRole("button", { name: "返回" }).count()) {
     throw new Error("unfiltered 全部景点 should not show sticky 返回");
@@ -532,28 +578,31 @@ await check("P18 clean catalog hides sticky 返回", async () => {
   if (!(await page.getByPlaceholder("搜索城市、景点或路线").count())) {
     throw new Error("sticky search should remain on clean catalog");
   }
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·全部/ }).count())) {
+    throw new Error("default 地区·全部 missing");
+  }
 });
 
-await check("P19 map cover SVG ≥40% first viewport", async () => {
-  await goMapCover(page);
-  await page.waitForTimeout(700);
-  const map = page.locator('svg[aria-label="中国地区示意图"]');
-  await map.waitFor({ state: "visible", timeout: 10000 });
-  const share = await page.evaluate(() => {
-    const el = document.querySelector('svg[aria-label="中国地区示意图"]');
-    if (!el) return 0;
-    const r = el.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const visible = Math.max(0, Math.min(vh, r.bottom) - Math.max(0, r.top));
-    return visible / vh;
-  });
-  if (share < 0.4) {
-    throw new Error(
-      `map cover SVG share ${(share * 100).toFixed(1)}% < 40% on iPhone viewport`,
-    );
+await check("P19 地区 sheet: 大区 optional, no map cover", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(400);
+  if (await page.locator('svg[aria-label="中国地区示意图"]').count()) {
+    throw new Error("Explore should not mount map cover SVG");
+  }
+  await openRegionDim(page);
+  const sheet = page.getByRole("dialog", { name: "地区" });
+  await sheetClick(sheet.getByRole("button", { name: "华东", exact: true }));
+  await page.waitForTimeout(200);
+  // Province not required — 本区全部 closes with region-only
+  await sheetClick(sheet.getByRole("button", { name: "本区全部" }));
+  await page.waitForTimeout(400);
+  const dims = page.locator('[aria-label="筛选维度"]');
+  if (!(await dims.getByRole("button", { name: /地区·华东/ }).count())) {
+    throw new Error("本区全部 should keep 地区·华东");
   }
   await page.screenshot({
-    path: path.join(outDir, "09-map-cover-viewport.png"),
+    path: path.join(outDir, "09-region-sheet.png"),
   });
 });
 
@@ -631,7 +680,7 @@ await check("P22 season via dim trigger + sheet 重置 (no identity chip)", asyn
   }
   const winter = seasonSheet.getByRole("button", { name: "冬季", exact: true });
   if (!(await winter.count())) throw new Error("冬季 option missing");
-  await winter.click();
+  await sheetClick(winter);
   await page.waitForTimeout(350);
   if (!(await dims.getByRole("button", { name: /季节·冬季/ }).count())) {
     throw new Error("winter should show on 季节· dim trigger");
@@ -641,7 +690,9 @@ await check("P22 season via dim trigger + sheet 重置 (no identity chip)", asyn
   }
   // Clear via sheet 重置
   await openSeasonDim(page);
-  await page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "重置" }).click();
+  await sheetClick(
+    page.getByRole("dialog", { name: "季节" }).getByRole("button", { name: "重置" }),
+  );
   await page.waitForTimeout(300);
   if (!(await dims.getByRole("button", { name: /季节·全季节/ }).count())) {
     throw new Error("重置 should restore 季节·全季节");
@@ -697,7 +748,7 @@ await check("P24 mobile bottom nav + theme dim 长居", async () => {
       throw new Error(`主题 sheet missing ${label}`);
     }
   }
-  await themeSheet.getByRole("button", { name: "长居", exact: true }).click();
+  await sheetClick(themeSheet.getByRole("button", { name: "长居", exact: true }));
   await page.waitForTimeout(400);
   if (!(await page.getByRole("button", { name: /主题·长居/ }).count())) {
     throw new Error("长居 should show on 主题· dim trigger");
@@ -728,15 +779,15 @@ const md = [
   "",
   "## 对照 Plan",
   "",
-  "- 搜索在 tabs 之上；默认「全部景点」dual-column；名景优先；分页懒加载",
-  "- 「地图选区」cover：仅搜索 + 地图（iPhone 首屏 SVG ≥40%）；点大区 → 省份 → 路线",
-  "- 结果页：大区/省/搜索 chips 可移除；省内「移除筛选 华北」→ 干净全部景点",
-  "- 干净目录隐藏 sticky「返回」；有筛选/钻取时「返回」回全部景点",
+  "- 搜索在 筛选维度 之上；单目录「全部景点」dual-column；名景优先；分页懒加载",
+  "- 无「地图选区」tab / map cover；地区为第四维：大区必选路径 → 省份可选",
+  "- 地区 trigger：`地区·全部` / `地区·华东` / `地区·浙江`；无 region identity chips；清选用「全部地区」或重置",
+  "- 干净目录隐藏 sticky「返回」；有筛选时「返回」回全部景点",
   "- 搜索框：婺源 / 九寨可命中；名景经 主题· sheet → `grid-cols-2`",
   "- 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算",
   "- 详情 sticky「本页目录」；路线指南+时间规划默认展开",
   "- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接",
-  "- 筛选维度：季节/长短/主题 sheets（trigger 显示当前值）；默认全季节/全部/全部主题；无 dim identity chips；清选用全部* 或 sheet「重置」",
+  "- 筛选维度：季节/长短/主题/地区 sheets；默认全季节/全部/全部主题/全部地区；无 dim identity chips",
   "- sticky hide-on-scroll: transform + hysteresis（防 flicker）",
   "- mobile bottom nav 探索/两年/说明",
   "- 长居枢纽：sticky「门槛」「辐射」；#gates 三门槛可见；nearbyLegs 可点",

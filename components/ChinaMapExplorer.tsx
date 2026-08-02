@@ -1,27 +1,17 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   catalogRoutes as routes,
   getCatalogRoutesByProvince as getRoutesByProvince,
   getProvinceById,
   getProvincesByRegion,
   getRegionById,
+  regions,
 } from "@/lib/explore-catalog";
 import type { ProvinceId } from "@/content/provinces";
 import type { RegionId, Route, RouteTheme, Season, TripType } from "@/content/types";
-import {
-  createEquirectangularProjection,
-  expandBBox,
-  featureBBox,
-  geometryToPath,
-  labelPoint,
-  loadChinaProvinceFeatures,
-  mergeBBoxes,
-  resolveProvinceId,
-  simplifyGeometry,
-  type ChinaProvinceFeature,
-} from "@/lib/china-geo";
 import {
   REGION_SHORT,
   SEASON_FULL_LABELS,
@@ -29,7 +19,6 @@ import {
   TRIP_TYPE_LABELS,
 } from "@/lib/labels";
 import { searchRoutes } from "@/lib/route-search";
-import { RegionMap } from "./RegionMap";
 import { RouteCardGrid } from "./RouteCard";
 
 const SEARCH_DEBOUNCE_MS = 180;
@@ -39,7 +28,7 @@ const SCROLL_SHOW_DY = 28;
 const SCROLL_HIDE_Y = 72;
 const SCROLL_SHOW_Y = 40;
 
-type OpenDim = "season" | "trip" | "theme" | null;
+type OpenDim = "season" | "trip" | "theme" | "region" | null;
 
 const THEME_ORDER: RouteTheme[] = [
   "famous-scenic",
@@ -48,13 +37,6 @@ const THEME_ORDER: RouteTheme[] = [
   "grand-loop",
   "frontier",
 ];
-
-type ExploreTab = "all" | "map";
-
-type MapLevel =
-  | { kind: "china" }
-  | { kind: "region"; regionId: RegionId }
-  | { kind: "province"; regionId: RegionId; provinceId: ProvinceId };
 
 const THEME_CHIP_LABELS: Record<RouteTheme, string> = {
   "famous-scenic": "名景",
@@ -70,11 +52,20 @@ function routeMatches(
     season?: Season;
     tripType?: TripType;
     theme?: RouteTheme;
+    regionId?: RegionId;
+    provinceId?: ProvinceId;
   },
 ) {
   if (opts.season && !route.seasons.includes(opts.season)) return false;
   if (opts.tripType && resolvedTripType(route) !== opts.tripType) return false;
   if (opts.theme && !route.themes?.includes(opts.theme)) return false;
+  if (opts.provinceId) {
+    return (
+      route.primaryProvince === opts.provinceId ||
+      route.provinces?.includes(opts.provinceId) === true
+    );
+  }
+  if (opts.regionId && route.region !== opts.regionId) return false;
   return true;
 }
 
@@ -86,13 +77,21 @@ function resolvedTripType(route: Route): TripType {
   return route.tripType;
 }
 
+function shortProvinceName(name: string) {
+  return name
+    .replace(/(壮族自治区|回族自治区|维吾尔自治区|自治区|特别行政区)$/, "")
+    .replace(/(省|市)$/, "");
+}
+
 export function ChinaMapExplorer() {
-  const [tab, setTab] = useState<ExploreTab>("all");
-  /** Defaults: 全季节 / 全部长短 / 全部主题 (supersedes calendar soft-default). */
+  /** Defaults: 全季节 / 全部长短 / 全部主题 / 全部地区. */
   const [season, setSeason] = useState<Season | undefined>(undefined);
   const [tripType, setTripType] = useState<TripType | undefined>(undefined);
   const [theme, setTheme] = useState<RouteTheme | undefined>(undefined);
-  const [level, setLevel] = useState<MapLevel>({ kind: "china" });
+  const [regionId, setRegionId] = useState<RegionId | undefined>(undefined);
+  const [provinceId, setProvinceId] = useState<ProvinceId | undefined>(
+    undefined,
+  );
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [openDim, setOpenDim] = useState<OpenDim>(null);
@@ -144,8 +143,8 @@ export function ChinaMapExplorer() {
   }, [openDim]);
 
   const filterOpts = useMemo(
-    () => ({ season, tripType, theme }),
-    [season, tripType, theme],
+    () => ({ season, tripType, theme, regionId, provinceId }),
+    [season, tripType, theme, regionId, provinceId],
   );
 
   const searchHits = useMemo(
@@ -153,21 +152,6 @@ export function ChinaMapExplorer() {
     [searchQuery],
   );
   const searchActive = searchQuery.trim().length > 0;
-
-
-  const filtersDirty =
-    tripType !== undefined ||
-    theme !== undefined ||
-    season !== undefined;
-
-  const drilled = level.kind !== "china";
-
-  /** Results: 全部景点 tab, or any search / drill / filter scope. */
-  const resultsMode =
-    tab === "all" || searchActive || drilled || filtersDirty;
-
-  /** Cover: map tab with zero scope — search + map only. */
-  const coverMode = !resultsMode;
 
   const catalogRoutes = useMemo(() => {
     const matched = routes.filter((r) => routeMatches(r, filterOpts));
@@ -181,122 +165,36 @@ export function ChinaMapExplorer() {
     });
   }, [filterOpts]);
 
-  const themedRoutes = useMemo(
-    () => routes.filter((r) => routeMatches(r, filterOpts) && r.themes?.length),
-    [filterOpts],
-  );
-
-  const regionMeta =
-    level.kind === "china" ? undefined : getRegionById(level.regionId);
-
-  const provinceMeta =
-    level.kind === "province" ? getProvinceById(level.provinceId) : undefined;
-
-  const regionProvinces = useMemo(() => {
-    if (level.kind === "china") return [];
-    return getProvincesByRegion(level.regionId).filter((p) => {
-      const rs = getRoutesByProvince(p.id, season).filter((r) =>
-        routeMatches(r, filterOpts),
-      );
-      return rs.length > 0;
-    });
-  }, [level, season, filterOpts]);
-
-  const provinceRoutes = useMemo(() => {
-    if (level.kind !== "province") return [];
-    return getRoutesByProvince(level.provinceId, season).filter((r) =>
-      routeMatches(r, filterOpts),
-    );
-  }, [level, season, filterOpts]);
-
-  const regionRouteCount = useMemo(() => {
-    if (level.kind === "china") return 0;
-    return routes.filter(
-      (r) => r.region === level.regionId && routeMatches(r, filterOpts),
-    ).length;
-  }, [level, filterOpts]);
-
-  const regionsWithRoutes = useMemo(() => {
-    if (!filtersDirty) return undefined;
-    const ids = new Set<RegionId>();
-    for (const r of routes) {
-      if (routeMatches(r, filterOpts)) ids.add(r.region);
-    }
-    return ids;
-  }, [filtersDirty, filterOpts]);
-
-  const themeListMode =
-    level.kind === "china" && theme !== undefined && !searchActive;
-
-  const allListMode =
-    tab === "all" &&
-    level.kind === "china" &&
-    !searchActive &&
-    theme === undefined;
-
-  function goChina() {
-    setLevel({ kind: "china" });
-  }
-
-  function goRegion(regionId: RegionId) {
-    setLevel({ kind: "region", regionId });
-    setTab("all");
-  }
-
-  function goProvince(regionId: RegionId, provinceId: ProvinceId) {
-    setLevel({ kind: "province", regionId, provinceId });
-    setTab("all");
-  }
-
-  function clearFilters() {
-    setSeason(undefined);
-    setTripType(undefined);
-    setTheme(undefined);
-  }
-
-  function resetCatalogDefaults() {
-    setSeason(undefined);
-    setTripType(undefined);
-    setTheme(undefined);
-  }
+  const regionMeta = regionId ? getRegionById(regionId) : undefined;
+  const provinceMeta = provinceId ? getProvinceById(provinceId) : undefined;
 
   function clearSearch() {
     setSearchInput("");
     setSearchQuery("");
   }
 
+  function clearRegion() {
+    setRegionId(undefined);
+    setProvinceId(undefined);
+  }
+
+  function resetCatalogDefaults() {
+    setSeason(undefined);
+    setTripType(undefined);
+    setTheme(undefined);
+    clearRegion();
+  }
+
   function exitToAll() {
     clearSearch();
     resetCatalogDefaults();
-    goChina();
-    setTab("all");
     setOpenDim(null);
-  }
-
-  function selectTab(next: ExploreTab) {
-    setTab(next);
-    if (next === "map") {
-      clearSearch();
-      clearFilters();
-      goChina();
-      setOpenDim(null);
-    } else {
-      clearSearch();
-      resetCatalogDefaults();
-      goChina();
-      setOpenDim(null);
-    }
-  }
-
-  function setThemeFilter(next: RouteTheme | undefined) {
-    setTheme(next);
-    setLevel({ kind: "china" });
-    setTab("all");
   }
 
   const hasExtraScope =
     searchActive ||
-    drilled ||
+    regionId !== undefined ||
+    provinceId !== undefined ||
     tripType !== undefined ||
     theme !== undefined ||
     season !== undefined;
@@ -305,36 +203,45 @@ export function ChinaMapExplorer() {
 
   const resultsTitle = searchActive
     ? `搜索 · ${searchHits.length} 条`
-    : level.kind === "province" && provinceMeta
-      ? `${provinceMeta.name} · 选路线`
-      : level.kind === "region" && regionMeta
-        ? `${regionMeta.name} · 选省份`
+    : provinceMeta
+      ? `${shortProvinceName(provinceMeta.name)} · ${catalogRoutes.length} 条`
+      : regionMeta
+        ? `${REGION_SHORT[regionMeta.id]} · ${catalogRoutes.length} 条`
         : theme
-          ? `${THEME_CHIP_LABELS[theme]} · ${themedRoutes.length} 条`
+          ? `${THEME_CHIP_LABELS[theme]} · ${catalogRoutes.length} 条`
           : `全部景点 · ${catalogRoutes.length} 条`;
 
   const catalogClean =
     !searchActive &&
-    !drilled &&
+    regionId === undefined &&
+    provinceId === undefined &&
     season === undefined &&
     tripType === undefined &&
     theme === undefined;
 
+  const chromeOff = chromeHidden;
 
-  const chromeOff = resultsMode && chromeHidden;
+  const themeBlurb =
+    theme === "famous-scenic"
+      ? "名景专线：点标题即可进入攻略。"
+      : theme === "grand-loop"
+        ? "跨省慢环：拆段走、日驾短、段末可回京。"
+        : theme === "frontier"
+          ? "边陲城市短住：看口岸与边境风光，不涉越境。"
+          : theme === "corridor"
+            ? "经典走廊浅段：只走可控段；高原走廊写清海拔与可跳过。"
+            : theme === "long-stay"
+              ? "长居慢住：约三四周节奏。枢纽卡写清三门槛（进出交通·物资·本地三甲）；景点正文在周边短线，不是赶清单。"
+              : null;
 
   return (
     <div className="space-y-2 sm:space-y-3">
       <div
-        className={
-          resultsMode
-            ? `sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-1.5 backdrop-blur-md transition-transform duration-200 ease-out sm:mx-0 sm:rounded-b-xl sm:px-0 ${
-                chromeOff
-                  ? "pointer-events-none -translate-y-full"
-                  : "translate-y-0"
-              }`
-            : "space-y-2 rounded-2xl bg-white/85 px-2.5 py-2 shadow-sm ring-1 ring-sky-900/6 sm:px-3.5 sm:py-2.5"
-        }
+        className={`sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-1.5 backdrop-blur-md transition-transform duration-200 ease-out sm:mx-0 sm:rounded-b-xl sm:px-0 ${
+          chromeOff
+            ? "pointer-events-none -translate-y-full"
+            : "translate-y-0"
+        }`}
         aria-hidden={chromeOff || undefined}
       >
         <div className="space-y-1.5">
@@ -344,10 +251,7 @@ export function ChinaMapExplorer() {
               <input
                 type="search"
                 value={searchInput}
-                onChange={(e) => {
-                  setSearchInput(e.target.value);
-                  if (e.target.value.trim()) setTab("all");
-                }}
+                onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="搜索城市、景点或路线"
                 enterKeyHint="search"
                 autoComplete="off"
@@ -369,127 +273,58 @@ export function ChinaMapExplorer() {
               ) : null}
             </div>
           </label>
-
-          <div
-            role="tablist"
-            aria-label="探索方式"
-            className="flex gap-1 rounded-xl bg-sky-100/70 p-1 ring-1 ring-sky-900/5"
-          >
-            <TabButton
-              active={tab === "all"}
-              onClick={() => selectTab("all")}
-              label="全部景点"
-            />
-            <TabButton
-              active={tab === "map"}
-              onClick={() => selectTab("map")}
-              label="地图选区"
-            />
-          </div>
         </div>
 
-        {resultsMode ? (
-          <div className="mt-1.5 space-y-1">
-            <div className="flex min-h-8 items-center gap-1.5">
-              {showExitBack ? (
-                <button
-                  type="button"
-                  onClick={exitToAll}
-                  aria-label="返回"
-                  tabIndex={chromeOff ? -1 : undefined}
-                  className="inline-flex min-h-7 shrink-0 items-center gap-0.5 rounded-lg bg-sky-800 px-2 text-[0.7rem] font-semibold text-white hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
-                >
-                  <span aria-hidden>←</span>
-                  返回
-                </button>
-              ) : null}
-              {showExitBack &&
-              !searchActive &&
-              level.kind === "province" &&
-              regionMeta ? (
-                <button
-                  type="button"
-                  onClick={() => goRegion(level.regionId)}
-                  aria-label={`上一级，${regionMeta.name}`}
-                  tabIndex={chromeOff ? -1 : undefined}
-                  className="inline-flex min-h-7 shrink-0 items-center rounded-lg bg-white px-2 text-[0.7rem] font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-8 sm:px-2.5 sm:text-xs"
-                >
-                  上一级
-                </button>
-              ) : null}
-              <div className="min-w-0 flex-1 overflow-x-auto">
-                <ActiveFilterChips
-                  searchQuery={searchActive ? searchQuery.trim() : undefined}
-                  level={level}
-                  onDismissSearch={clearSearch}
-                  onDismissRegion={() => {
-                    goChina();
-                    setTab("all");
-                    resetCatalogDefaults();
-                  }}
-                  onDismissProvince={() => {
-                    if (level.kind === "province") goRegion(level.regionId);
-                  }}
-                />
-              </div>
-            </div>
-            <DimensionFilters
-              season={season}
-              tripType={tripType}
-              theme={theme}
-              openDim={openDim}
-              onOpenDim={setOpenDim}
-              onSeason={(s) => {
-                setSeason(s);
-                setTab("all");
-              }}
-              onTripType={(t) => {
-                setTripType(t);
-                setTab("all");
-              }}
-              onTheme={setThemeFilter}
-            />
-          </div>
-        ) : null}
-      </div>
-
-      {resultsMode ? (
-        <div className="space-y-0.5 px-0.5">
-          <p className="font-display text-[0.95rem] font-bold leading-snug text-sky-950 sm:text-lg">
-            {resultsTitle}
-          </p>
-          {catalogClean ? (
-            <p className="text-xs text-sky-700/85 sm:text-sm">
-              未加筛选 · 先显示名景；点季节 / 长短 / 主题可收窄
-            </p>
-          ) : null}
-        </div>
-      ) : null}
-
-      {coverMode ? (
-        <section className="space-y-1.5 sm:space-y-3" aria-label="地图选区">
-          <div>
-            <h2 className="font-display text-[0.95rem] font-bold tracking-tight text-sky-950 sm:text-2xl">
-              <span className="sm:hidden">点地图选大区</span>
-              <span className="hidden sm:inline">点击中国地图选大区</span>
-            </h2>
-            <p className="mt-0.5 hidden text-base text-sky-700/90 sm:block">
-              点选大区进入路线；或切到「全部景点」浏览全部。
-            </p>
-            <div className="mt-1 sm:mt-2">
-              <RegionMap
-                compact
-                cover
-                selected={undefined}
-                regionsWithRoutes={undefined}
-                onSelect={(id) => {
-                  if (id) goRegion(id);
-                }}
+        <div className="mt-1.5 space-y-1">
+          <div className="flex min-h-8 items-center gap-1.5">
+            {showExitBack ? (
+              <button
+                type="button"
+                onClick={exitToAll}
+                aria-label="返回"
+                tabIndex={chromeOff ? -1 : undefined}
+                className="inline-flex min-h-7 shrink-0 items-center gap-0.5 rounded-lg bg-sky-800 px-2 text-[0.7rem] font-semibold text-white hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
+              >
+                <span aria-hidden>←</span>
+                返回
+              </button>
+            ) : null}
+            <div className="min-w-0 flex-1 overflow-x-auto">
+              <ActiveFilterChips
+                searchQuery={searchActive ? searchQuery.trim() : undefined}
+                onDismissSearch={clearSearch}
               />
             </div>
           </div>
-        </section>
-      ) : null}
+          <DimensionFilters
+            season={season}
+            tripType={tripType}
+            theme={theme}
+            regionId={regionId}
+            provinceId={provinceId}
+            openDim={openDim}
+            onOpenDim={setOpenDim}
+            onSeason={setSeason}
+            onTripType={setTripType}
+            onTheme={setTheme}
+            onRegion={(nextRegion, nextProvince) => {
+              setRegionId(nextRegion);
+              setProvinceId(nextProvince);
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="space-y-0.5 px-0.5">
+        <p className="font-display text-[0.95rem] font-bold leading-snug text-sky-950 sm:text-lg">
+          {resultsTitle}
+        </p>
+        {catalogClean ? (
+          <p className="text-xs text-sky-700/85 sm:text-sm">
+            未加筛选 · 先显示名景；点季节 / 长短 / 主题 / 地区可收窄
+          </p>
+        ) : null}
+      </div>
 
       {searchActive ? (
         <section aria-label="搜索结果" className="space-y-2">
@@ -497,7 +332,7 @@ export function ChinaMapExplorer() {
             <p className="rounded-2xl border border-dashed border-sky-300/80 bg-white/60 px-4 py-10 text-center text-lg leading-relaxed text-sky-800">
               没有找到「{searchQuery.trim()}」相关路线。
               <span className="mt-2 block text-base text-sky-700">
-                可试城市名、景点名，或点返回后用地图选大区。
+                可试城市名、景点名，或点「地区」按大区筛选。
               </span>
             </p>
           ) : (
@@ -508,131 +343,41 @@ export function ChinaMapExplorer() {
             />
           )}
         </section>
-      ) : null}
-
-      {!searchActive && level.kind === "china" && allListMode ? (
-        <section aria-label="全部景点" className="space-y-2">
-          <RouteCardGrid
-            routes={catalogRoutes}
-            aria-label="全部景点路线"
-            paginate
-          />
-        </section>
-      ) : null}
-
-      {!searchActive && themeListMode && theme ? (
-        <section className="space-y-3">
-          <p className="max-w-2xl text-[0.95rem] leading-relaxed text-sky-800/90 sm:text-base">
-            {theme === "famous-scenic"
-              ? "名景专线：点标题即可进入攻略，不必先钻地图。"
-              : theme === "grand-loop"
-                ? "跨省慢环：拆段走、日驾短、段末可回京。"
-                : theme === "frontier"
-                  ? "边陲城市短住：看口岸与边境风光，不涉越境。"
-                  : theme === "corridor"
-                    ? "经典走廊浅段：只走可控段；高原走廊写清海拔与可跳过。"
-                    : "长居慢住：约三四周节奏。枢纽卡写清三门槛（进出交通·物资·本地三甲）；景点正文在周边短线，不是赶清单。"}
-          </p>
-          <RouteCardGrid
-            routes={themedRoutes}
-            aria-label={`${THEME_LABELS[theme]}路线`}
-            paginate={themedRoutes.length > 12}
-          />
-        </section>
-      ) : null}
-
-      {!searchActive &&
-        level.kind === "china" &&
-        resultsMode &&
-        !themeListMode &&
-        !allListMode &&
-        tab === "map" && (
-          <section className="space-y-2">
-            <h2 className="font-display text-base font-bold text-sky-950 sm:text-xl">
-              点地图选大区
-            </h2>
-            <RegionMap
-              compact
-              selected={undefined}
-              regionsWithRoutes={regionsWithRoutes}
-              onSelect={(id) => {
-                if (id) goRegion(id);
-              }}
-            />
-          </section>
-        )}
-
-      {!searchActive && level.kind === "region" && regionMeta && (
-        <section className="space-y-3">
-          <div className="min-w-0 max-w-2xl">
-            <h2 className="font-display text-xl font-bold tracking-tight text-sky-950 sm:text-2xl">
-              {regionMeta.name} · 选择省份
-            </h2>
-            <p className="mt-0.5 text-base leading-snug text-sky-700">
-              {regionMeta.blurb}
-              {regionRouteCount > 0
-                ? ` 本区当前筛选下共 ${regionRouteCount} 条路线。`
-                : " 当前筛选本区暂无路线，请改条件或点「返回」。"}
+      ) : (
+        <section
+          aria-label={
+            provinceMeta
+              ? `${provinceMeta.name}路线`
+              : regionMeta
+                ? `${REGION_SHORT[regionMeta.id]}路线`
+                : theme
+                  ? `${THEME_LABELS[theme]}路线`
+                  : "全部景点"
+          }
+          className="space-y-2"
+        >
+          {themeBlurb ? (
+            <p className="max-w-2xl text-[0.95rem] leading-relaxed text-sky-800/90 sm:text-base">
+              {themeBlurb}
             </p>
-          </div>
-
-          <ProvinceRegionMap
-            regionId={level.regionId}
-            provinces={regionProvinces}
-            filterOpts={filterOpts}
-            onSelectProvince={(pid) => goProvince(level.regionId, pid)}
-          />
-
-          {regionProvinces.length === 0 ? (
-            <p className="border border-dashed border-sky-300/80 bg-white/50 px-4 py-8 text-center text-lg text-sky-700">
-              当前筛选下该大区还没有匹配路线，请点「返回」后改条件。
-            </p>
-          ) : (
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-              {regionProvinces.map((p) => {
-                const n = getRoutesByProvince(p.id, season).filter((r) =>
-                  routeMatches(r, filterOpts),
-                ).length;
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    onClick={() => goProvince(level.regionId, p.id)}
-                    className="min-h-11 rounded-xl bg-emerald-50/80 px-3 py-2 text-left ring-1 ring-emerald-200/70 hover:bg-emerald-100/80 hover:ring-emerald-400 sm:px-4"
-                  >
-                    <span className="font-display text-lg font-bold text-emerald-950">
-                      {p.name}
-                    </span>
-                    <span className="mt-0.5 block text-base text-emerald-800">
-                      {n} 条路线 · 点击进入
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </section>
-      )}
-
-      {!searchActive && level.kind === "province" && provinceMeta && (
-        <section className="space-y-3">
-          <div className="min-w-0 max-w-2xl">
-            <h2 className="font-display text-xl font-bold tracking-tight text-sky-950 sm:text-2xl">
-              {provinceMeta.name} · 选择路线
-            </h2>
-            <p className="mt-0.5 text-base text-sky-700">
-              点开进入详细旅行攻略（介绍、须知、地图、景点图）。
-            </p>
-          </div>
-
-          {provinceRoutes.length === 0 ? (
-            <p className="border border-dashed border-sky-300/80 bg-white/50 px-4 py-8 text-center text-lg text-sky-700">
-              该省在当前筛选下没有路线，请点「返回」后更换条件。
+          ) : null}
+          {catalogRoutes.length === 0 ? (
+            <p className="rounded-2xl border border-dashed border-sky-300/80 bg-white/60 px-4 py-10 text-center text-lg leading-relaxed text-sky-800">
+              当前筛选没有匹配路线，请点「返回」或改条件。
             </p>
           ) : (
             <RouteCardGrid
-              routes={provinceRoutes}
-              aria-label={`${provinceMeta.name}路线`}
+              routes={catalogRoutes}
+              aria-label={
+                provinceMeta
+                  ? `${provinceMeta.name}路线`
+                  : regionMeta
+                    ? `${REGION_SHORT[regionMeta.id]}路线`
+                    : theme
+                      ? `${THEME_LABELS[theme]}路线`
+                      : "全部景点路线"
+              }
+              paginate={catalogRoutes.length > 12}
             />
           )}
         </section>
@@ -641,99 +386,32 @@ export function ChinaMapExplorer() {
   );
 }
 
-function TabButton({
-  active,
-  onClick,
-  label,
-}: {
-  active: boolean;
-  onClick: () => void;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      onClick={onClick}
-      className={`min-h-9 flex-1 rounded-lg px-3 text-sm font-semibold transition-colors sm:min-h-10 sm:text-[0.95rem] ${
-        active
-          ? "bg-white text-sky-950 shadow-sm ring-1 ring-sky-900/8"
-          : "text-sky-800 hover:bg-white/50"
-      }`}
-    >
-      {label}
-    </button>
-  );
-}
-
-/** Chips only for scope not covered by 季节/长短/主题 dim triggers. */
+/** Chips only for search keyword — region/dims show on triggers. */
 function ActiveFilterChips({
   searchQuery,
-  level,
   onDismissSearch,
-  onDismissRegion,
-  onDismissProvince,
 }: {
   searchQuery?: string;
-  level: MapLevel;
   onDismissSearch: () => void;
-  onDismissRegion: () => void;
-  onDismissProvince: () => void;
 }) {
-  const chips: {
-    key: string;
-    label: string;
-    onDismiss: () => void;
-  }[] = [];
-
-  if (searchQuery) {
-    chips.push({
-      key: "q",
-      label: `「${searchQuery}」`,
-      onDismiss: onDismissSearch,
-    });
-  }
-  if (level.kind === "region" || level.kind === "province") {
-    const region = getRegionById(level.regionId);
-    chips.push({
-      key: "region",
-      label: region ? REGION_SHORT[region.id] ?? region.name : "大区",
-      onDismiss: onDismissRegion,
-    });
-  }
-  if (level.kind === "province") {
-    const p = getProvinceById(level.provinceId);
-    chips.push({
-      key: "province",
-      label: p?.name ?? "省",
-      onDismiss: onDismissProvince,
-    });
-  }
-
-  if (chips.length === 0) {
-    return null;
-  }
+  if (!searchQuery) return null;
 
   return (
     <div
       aria-label="当前筛选"
       className="flex flex-nowrap items-center gap-1.5"
     >
-      {chips.map((c) => (
-        <button
-          key={c.key}
-          type="button"
-          onClick={c.onDismiss}
-          aria-label={`移除筛选 ${c.label}`}
-          className="inline-flex min-h-7 shrink-0 items-center gap-1 rounded-full bg-sky-800/88 px-2 py-0.5 text-[0.7rem] font-semibold text-white shadow-sm hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
-        >
-          {c.label}
-          <span aria-hidden className="text-sky-200/90">
-            ×
-          </span>
-        </button>
-      ))}
+      <button
+        type="button"
+        onClick={onDismissSearch}
+        aria-label={`移除筛选 「${searchQuery}」`}
+        className="inline-flex min-h-7 shrink-0 items-center gap-1 rounded-full bg-sky-800/88 px-2 py-0.5 text-[0.7rem] font-semibold text-white shadow-sm hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
+      >
+        「{searchQuery}」
+        <span aria-hidden className="text-sky-200/90">
+          ×
+        </span>
+      </button>
     </div>
   );
 }
@@ -770,20 +448,29 @@ function DimensionFilters({
   season,
   tripType,
   theme,
+  regionId,
+  provinceId,
   openDim,
   onOpenDim,
   onSeason,
   onTripType,
   onTheme,
+  onRegion,
 }: {
   season?: Season;
   tripType?: TripType;
   theme?: RouteTheme;
+  regionId?: RegionId;
+  provinceId?: ProvinceId;
   openDim: OpenDim;
   onOpenDim: (d: OpenDim) => void;
   onSeason: (s: Season | undefined) => void;
   onTripType: (t: TripType | undefined) => void;
   onTheme: (t: RouteTheme | undefined) => void;
+  onRegion: (
+    regionId: RegionId | undefined,
+    provinceId: ProvinceId | undefined,
+  ) => void;
 }) {
   const seasonLabel = season
     ? `季节·${SEASON_FULL_LABELS[season]}`
@@ -794,6 +481,11 @@ function DimensionFilters({
   const themeLabel = theme
     ? `主题·${THEME_CHIP_LABELS[theme]}`
     : "主题·全部";
+  const regionLabel = provinceId
+    ? `地区·${shortProvinceName(getProvinceById(provinceId)?.name ?? "省")}`
+    : regionId
+      ? `地区·${REGION_SHORT[regionId]}`
+      : "地区·全部";
 
   const sheetTitle =
     openDim === "season"
@@ -802,7 +494,9 @@ function DimensionFilters({
         ? "长短"
         : openDim === "theme"
           ? "主题"
-          : "";
+          : openDim === "region"
+            ? "地区"
+            : "";
 
   const dimDirty =
     openDim === "season"
@@ -811,14 +505,232 @@ function DimensionFilters({
         ? tripType !== undefined
         : openDim === "theme"
           ? theme !== undefined
-          : false;
+          : openDim === "region"
+            ? regionId !== undefined
+            : false;
 
   const resetOpenDim = () => {
     if (openDim === "season") onSeason(undefined);
     else if (openDim === "trip") onTripType(undefined);
     else if (openDim === "theme") onTheme(undefined);
+    else if (openDim === "region") onRegion(undefined, undefined);
     onOpenDim(null);
   };
+
+  const regionProvinces = useMemo(() => {
+    if (!regionId) return [];
+    return getProvincesByRegion(regionId).filter((p) => {
+      const n = getRoutesByProvince(p.id, season).filter((r) =>
+        routeMatches(r, {
+          season,
+          tripType,
+          theme,
+          regionId,
+          provinceId: p.id,
+        }),
+      ).length;
+      return n > 0;
+    });
+  }, [regionId, season, tripType, theme]);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const sheet =
+    openDim && mounted
+      ? createPortal(
+          <div className="fixed inset-0 z-[80]" role="presentation">
+            <button
+              type="button"
+              aria-label="关闭筛选"
+              className="absolute inset-0 bg-sky-950/35"
+              onClick={() => onOpenDim(null)}
+            />
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={sheetTitle}
+              className="absolute inset-x-0 bottom-0 flex max-h-[70vh] flex-col rounded-t-2xl bg-[#f5fafc] outline-none ring-1 ring-sky-900/10"
+            >
+              <div className="mx-auto mt-2.5 h-1 w-10 shrink-0 rounded-full bg-sky-300/80" />
+              <div className="flex items-center justify-between gap-3 px-4 pb-1 pt-3">
+                <h2 className="font-display text-base font-bold text-sky-950">
+                  {sheetTitle}
+                </h2>
+                <div className="flex items-center gap-0.5">
+                  <button
+                    type="button"
+                    onClick={resetOpenDim}
+                    disabled={!dimDirty}
+                    aria-label={`重置${sheetTitle}`}
+                    className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80 disabled:cursor-default disabled:text-sky-400 disabled:hover:bg-transparent"
+                  >
+                    重置
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onOpenDim(null)}
+                    className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80"
+                  >
+                    完成
+                  </button>
+                </div>
+              </div>
+              <div className="overflow-y-auto px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-1">
+                {openDim === "season" ? (
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                    <FilterChip
+                      active={!season}
+                      onClick={() => {
+                        onSeason(undefined);
+                        onOpenDim(null);
+                      }}
+                      label="全部季节"
+                      ariaLabel="全部季节"
+                      tone="orange"
+                    />
+                    {(
+                      Object.entries(SEASON_FULL_LABELS) as [Season, string][]
+                    ).map(([id, label]) => (
+                      <FilterChip
+                        key={id}
+                        active={season === id}
+                        onClick={() => {
+                          onSeason(season === id ? undefined : id);
+                          onOpenDim(null);
+                        }}
+                        label={label}
+                        tone="orange"
+                      />
+                    ))}
+                  </div>
+                ) : null}
+                {openDim === "trip" ? (
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                    <FilterChip
+                      active={!tripType}
+                      onClick={() => {
+                        onTripType(undefined);
+                        onOpenDim(null);
+                      }}
+                      label="全部"
+                      ariaLabel="全部长短"
+                      tone="amber"
+                    />
+                    {(
+                      Object.entries(TRIP_TYPE_LABELS) as [TripType, string][]
+                    ).map(([id, label]) => (
+                      <FilterChip
+                        key={id}
+                        active={tripType === id}
+                        onClick={() => {
+                          onTripType(tripType === id ? undefined : id);
+                          onOpenDim(null);
+                        }}
+                        label={label}
+                        tone="amber"
+                      />
+                    ))}
+                  </div>
+                ) : null}
+                {openDim === "theme" ? (
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                    <FilterChip
+                      active={!theme}
+                      onClick={() => {
+                        onTheme(undefined);
+                        onOpenDim(null);
+                      }}
+                      label="全部主题"
+                      ariaLabel="全部主题"
+                      tone="amber"
+                    />
+                    {THEME_ORDER.map((id) => (
+                      <FilterChip
+                        key={id}
+                        active={theme === id}
+                        onClick={() => {
+                          onTheme(theme === id ? undefined : id);
+                          onOpenDim(null);
+                        }}
+                        label={THEME_CHIP_LABELS[id]}
+                        tone="amber"
+                      />
+                    ))}
+                  </div>
+                ) : null}
+                {openDim === "region" ? (
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                      <FilterChip
+                        active={!regionId}
+                        onClick={() => {
+                          onRegion(undefined, undefined);
+                          onOpenDim(null);
+                        }}
+                        label="全部地区"
+                        ariaLabel="全部地区"
+                        tone="emerald"
+                      />
+                      {regions.map((r) => (
+                        <FilterChip
+                          key={r.id}
+                          active={regionId === r.id}
+                          onClick={() => {
+                            onRegion(r.id, undefined);
+                          }}
+                          label={REGION_SHORT[r.id]}
+                          ariaLabel={REGION_SHORT[r.id]}
+                          tone="emerald"
+                        />
+                      ))}
+                    </div>
+                    {regionId ? (
+                      <div className="space-y-1.5 border-t border-sky-200/70 pt-2.5">
+                        <p className="text-xs font-medium text-sky-700/90">
+                          可选省份（可不选）
+                        </p>
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                          <FilterChip
+                            active={!provinceId}
+                            onClick={() => {
+                              onRegion(regionId, undefined);
+                              onOpenDim(null);
+                            }}
+                            label="本区全部"
+                            ariaLabel="本区全部"
+                            tone="emerald"
+                          />
+                          {regionProvinces.map((p) => (
+                            <FilterChip
+                              key={p.id}
+                              active={provinceId === p.id}
+                              onClick={() => {
+                                onRegion(regionId, p.id);
+                                onOpenDim(null);
+                              }}
+                              label={shortProvinceName(p.name)}
+                              ariaLabel={shortProvinceName(p.name)}
+                              tone="emerald"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="text-xs text-sky-700/80">
+                        先选大区；省份可选，不选则看该区全部路线。
+                      </p>
+                    )}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )
+      : null;
 
   return (
     <>
@@ -846,133 +758,14 @@ function DimensionFilters({
           pressed={openDim === "theme"}
           onClick={() => onOpenDim(openDim === "theme" ? null : "theme")}
         />
+        <DimTrigger
+          label={regionLabel}
+          active={regionId !== undefined}
+          pressed={openDim === "region"}
+          onClick={() => onOpenDim(openDim === "region" ? null : "region")}
+        />
       </div>
-
-      {openDim ? (
-        <div className="fixed inset-0 z-50" role="presentation">
-          <button
-            type="button"
-            aria-label="关闭筛选"
-            className="absolute inset-0 bg-sky-950/35"
-            onClick={() => onOpenDim(null)}
-          />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={sheetTitle}
-            className="absolute inset-x-0 bottom-0 flex max-h-[70vh] flex-col rounded-t-2xl bg-[#f5fafc] outline-none ring-1 ring-sky-900/10"
-          >
-            <div className="mx-auto mt-2.5 h-1 w-10 shrink-0 rounded-full bg-sky-300/80" />
-            <div className="flex items-center justify-between gap-3 px-4 pb-1 pt-3">
-              <h2 className="font-display text-base font-bold text-sky-950">
-                {sheetTitle}
-              </h2>
-              <div className="flex items-center gap-0.5">
-                <button
-                  type="button"
-                  onClick={resetOpenDim}
-                  disabled={!dimDirty}
-                  aria-label={`重置${sheetTitle}`}
-                  className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80 disabled:cursor-default disabled:text-sky-400 disabled:hover:bg-transparent"
-                >
-                  重置
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onOpenDim(null)}
-                  className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80"
-                >
-                  完成
-                </button>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-1">
-              {openDim === "season" ? (
-                <>
-                  <FilterChip
-                    active={!season}
-                    onClick={() => {
-                      onSeason(undefined);
-                      onOpenDim(null);
-                    }}
-                    label="全部季节"
-                    ariaLabel="全部季节"
-                    tone="orange"
-                  />
-                  {(
-                    Object.entries(SEASON_FULL_LABELS) as [Season, string][]
-                  ).map(([id, label]) => (
-                    <FilterChip
-                      key={id}
-                      active={season === id}
-                      onClick={() => {
-                        onSeason(season === id ? undefined : id);
-                        onOpenDim(null);
-                      }}
-                      label={label}
-                      tone="orange"
-                    />
-                  ))}
-                </>
-              ) : null}
-              {openDim === "trip" ? (
-                <>
-                  <FilterChip
-                    active={!tripType}
-                    onClick={() => {
-                      onTripType(undefined);
-                      onOpenDim(null);
-                    }}
-                    label="全部"
-                    ariaLabel="全部长短"
-                    tone="amber"
-                  />
-                  {(
-                    Object.entries(TRIP_TYPE_LABELS) as [TripType, string][]
-                  ).map(([id, label]) => (
-                    <FilterChip
-                      key={id}
-                      active={tripType === id}
-                      onClick={() => {
-                        onTripType(tripType === id ? undefined : id);
-                        onOpenDim(null);
-                      }}
-                      label={label}
-                      tone="amber"
-                    />
-                  ))}
-                </>
-              ) : null}
-              {openDim === "theme" ? (
-                <>
-                  <FilterChip
-                    active={!theme}
-                    onClick={() => {
-                      onTheme(undefined);
-                      onOpenDim(null);
-                    }}
-                    label="全部主题"
-                    ariaLabel="全部主题"
-                    tone="amber"
-                  />
-                  {THEME_ORDER.map((id) => (
-                    <FilterChip
-                      key={id}
-                      active={theme === id}
-                      onClick={() => {
-                        onTheme(theme === id ? undefined : id);
-                        onOpenDim(null);
-                      }}
-                      label={THEME_CHIP_LABELS[id]}
-                      tone="amber"
-                    />
-                  ))}
-                </>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {sheet}
     </>
   );
 }
@@ -1015,202 +808,5 @@ function FilterChip({
     >
       {label}
     </button>
-  );
-}
-
-function shortProvinceLabel(name: string) {
-  return name
-    .replace(/(壮族自治区|回族自治区|维吾尔自治区|自治区|特别行政区)$/, "")
-    .replace(/(省|市)$/, "")
-    .slice(0, 3);
-}
-
-function ProvinceRegionMap({
-  regionId,
-  provinces,
-  filterOpts,
-  onSelectProvince,
-}: {
-  regionId: RegionId;
-  provinces: ReturnType<typeof getProvincesByRegion>;
-  filterOpts: {
-    season?: Season;
-    tripType?: TripType;
-    theme?: RouteTheme;
-  };
-  onSelectProvince: (id: ProvinceId) => void;
-}) {
-  const region = getRegionById(regionId);
-  const selectable = useMemo(
-    () => new Set(provinces.map((p) => p.id)),
-    [provinces],
-  );
-  const allInRegion = useMemo(
-    () => getProvincesByRegion(regionId),
-    [regionId],
-  );
-
-  const [features, setFeatures] = useState<ChinaProvinceFeature[] | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    loadChinaProvinceFeatures()
-      .then((f) => {
-        if (!cancelled) setFeatures(f);
-      })
-      .catch(() => {
-        /* ignore */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const VIEW_W = 640;
-  const VIEW_H = 520;
-
-  const paths = useMemo(() => {
-    if (!features) return [];
-    const regionFeatures = features.filter((f) => {
-      const id = resolveProvinceId(f.properties);
-      return id && allInRegion.some((p) => p.id === id);
-    });
-    const bbox =
-      regionFeatures.length > 0
-        ? expandBBox(mergeBBoxes(regionFeatures.map(featureBBox)), 0.1)
-        : {
-            minLng: 73.5,
-            maxLng: 135,
-            minLat: 18,
-            maxLat: 53.6,
-          };
-    const project = createEquirectangularProjection(
-      bbox,
-      VIEW_W,
-      VIEW_H,
-      20,
-    );
-    return features
-      .map((f) => {
-        const provinceId = resolveProvinceId(f.properties) ?? null;
-        const inRegion = Boolean(
-          provinceId && allInRegion.some((p) => p.id === provinceId),
-        );
-        return {
-          key: String(f.properties.adcode),
-          provinceId,
-          name: f.properties.name,
-          d: geometryToPath(simplifyGeometry(f.geometry, 6), project),
-          label: labelPoint(f, project),
-          inRegion,
-        };
-      })
-      .filter((p) => p.d.length > 0);
-  }, [features, allInRegion]);
-
-  return (
-    <div className="rounded-2xl bg-gradient-to-br from-sky-50/90 via-white/70 to-emerald-50/50 p-2.5 ring-1 ring-sky-900/8 sm:p-3">
-      <p className="mb-2 text-center text-base text-sky-800">
-        {region?.name}省份地图 · 点击高亮省份进入
-      </p>
-      {!features && (
-        <p className="mb-2 text-center text-base text-sky-700">地图加载中…</p>
-      )}
-      <svg
-        viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-        className="mx-auto max-h-[min(36vh,260px)] w-full max-w-[min(100%,20rem)] sm:max-h-[min(38vh,280px)] sm:max-w-md"
-        role="img"
-        aria-label={`${region?.name}省份地图`}
-      >
-        <rect
-          x={0}
-          y={0}
-          width={VIEW_W}
-          height={VIEW_H}
-          rx={8}
-          fill="#e0f2fe"
-        />
-        {paths.map((p) => {
-          const active = Boolean(
-            p.provinceId && selectable.has(p.provinceId) && p.inRegion,
-          );
-          const dim = !p.inRegion;
-          const n =
-            p.provinceId && active
-              ? getRoutesByProvince(p.provinceId, filterOpts.season).filter(
-                  (r) => routeMatches(r, filterOpts),
-                ).length
-              : 0;
-          return (
-            <g key={p.key}>
-              <path
-                d={p.d}
-                fill={dim ? "#e2e8f0" : active ? "#047857" : "#a7f3d0"}
-                stroke={dim ? "#cbd5e1" : "#065f46"}
-                strokeWidth={dim ? 0.6 : 1.4}
-                opacity={dim ? 0.4 : 1}
-                className={
-                  active
-                    ? "cursor-pointer transition-colors hover:fill-emerald-600"
-                    : undefined
-                }
-                onClick={() => {
-                  if (p.provinceId && active) onSelectProvince(p.provinceId);
-                }}
-                role={active ? "button" : undefined}
-                tabIndex={active ? 0 : undefined}
-                aria-label={
-                  p.provinceId && active
-                    ? `${p.name}，${n}条路线`
-                    : p.name || undefined
-                }
-                onKeyDown={(e) => {
-                  if (!p.provinceId || !active) return;
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    onSelectProvince(p.provinceId);
-                  }
-                }}
-              />
-              {p.inRegion && p.provinceId && (
-                <>
-                  <text
-                    x={p.label.x}
-                    y={p.label.y}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="pointer-events-none fill-white text-[15px] font-bold"
-                    style={{
-                      paintOrder: "stroke",
-                      stroke: active ? "#064e3b" : "#047857",
-                      strokeWidth: 3,
-                    }}
-                  >
-                    {shortProvinceLabel(
-                      p.name || getProvinceById(p.provinceId)?.name || "",
-                    )}
-                  </text>
-                  {active && (
-                    <text
-                      x={p.label.x}
-                      y={p.label.y + 18}
-                      textAnchor="middle"
-                      className="pointer-events-none fill-emerald-950 text-[13px] font-semibold"
-                      style={{
-                        paintOrder: "stroke",
-                        stroke: "#fff",
-                        strokeWidth: 3,
-                      }}
-                    >
-                      {n}条
-                    </text>
-                  )}
-                </>
-              )}
-            </g>
-          );
-        })}
-      </svg>
-    </div>
   );
 }

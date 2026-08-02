@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath,
   assetPrefix: basePath,
+  // Dev-only route indicator sits bottom-left and can intercept clicks on
+  // Explore's bottom sheets during Playwright verification; never renders
+  // in the static export users see.
+  devIndicators: false,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },

@@ -1,5 +1,3 @@
-import type { ProvinceId } from "@/content/provinces";
-
 /** Mainland China approx. extent for equirectangular SVG fit */
 export const CHINA_BBOX = {
   minLng: 73.5,
@@ -35,98 +33,6 @@ export interface ChinaProvinceFeature {
 export interface ChinaProvinceCollection {
   type: "FeatureCollection";
   features: ChinaProvinceFeature[];
-}
-
-/** Official GB/T adcode (province) → our ProvinceId */
-export const ADCODE_TO_PROVINCE: Record<number, ProvinceId> = {
-  110000: "beijing",
-  120000: "tianjin",
-  130000: "hebei",
-  140000: "shanxi",
-  150000: "neimenggu",
-  210000: "liaoning",
-  220000: "jilin",
-  230000: "heilongjiang",
-  310000: "shanghai",
-  320000: "jiangsu",
-  330000: "zhejiang",
-  340000: "anhui",
-  350000: "fujian",
-  360000: "jiangxi",
-  370000: "shandong",
-  410000: "henan",
-  420000: "hubei",
-  430000: "hunan",
-  440000: "guangdong",
-  450000: "guangxi",
-  460000: "hainan",
-  500000: "chongqing",
-  510000: "sichuan",
-  520000: "guizhou",
-  530000: "yunnan",
-  540000: "xizang",
-  610000: "shaanxi",
-  620000: "gansu",
-  630000: "qinghai",
-  640000: "ningxia",
-  650000: "xinjiang",
-};
-
-const NAME_TO_PROVINCE: Record<string, ProvinceId> = {
-  北京市: "beijing",
-  天津: "tianjin",
-  天津市: "tianjin",
-  河北省: "hebei",
-  山西省: "shanxi",
-  内蒙古自治区: "neimenggu",
-  内蒙古: "neimenggu",
-  辽宁省: "liaoning",
-  吉林省: "jilin",
-  黑龙江省: "heilongjiang",
-  上海市: "shanghai",
-  江苏省: "jiangsu",
-  浙江省: "zhejiang",
-  安徽省: "anhui",
-  福建省: "fujian",
-  江西省: "jiangxi",
-  山东省: "shandong",
-  河南省: "henan",
-  湖北省: "hubei",
-  湖南省: "hunan",
-  广东省: "guangdong",
-  广西壮族自治区: "guangxi",
-  广西: "guangxi",
-  海南省: "hainan",
-  重庆市: "chongqing",
-  四川省: "sichuan",
-  贵州省: "guizhou",
-  云南省: "yunnan",
-  西藏自治区: "xizang",
-  西藏: "xizang",
-  陕西省: "shaanxi",
-  甘肃省: "gansu",
-  青海省: "qinghai",
-  宁夏回族自治区: "ningxia",
-  宁夏: "ningxia",
-  新疆维吾尔自治区: "xinjiang",
-  新疆: "xinjiang",
-};
-
-export function resolveProvinceId(props: {
-  adcode?: number | string;
-  name?: string;
-}): ProvinceId | undefined {
-  const raw = props.adcode;
-  if (raw !== undefined && raw !== null && raw !== "") {
-    const n = typeof raw === "number" ? raw : Number(String(raw).replace(/\D/g, ""));
-    if (Number.isFinite(n) && ADCODE_TO_PROVINCE[n]) {
-      return ADCODE_TO_PROVINCE[n];
-    }
-  }
-  if (props.name && NAME_TO_PROVINCE[props.name]) {
-    return NAME_TO_PROVINCE[props.name];
-  }
-  return undefined;
 }
 
 export type ProjectFn = (lng: number, lat: number) => { x: number; y: number };
@@ -247,56 +153,6 @@ export function bboxFromLonLats(
   return { minLng, maxLng, minLat, maxLat };
 }
 
-export function featureBBox(feature: ChinaProvinceFeature): GeoBBox {
-  let minLng = Infinity;
-  let maxLng = -Infinity;
-  let minLat = Infinity;
-  let maxLat = -Infinity;
-
-  const visit = (coords: unknown): void => {
-    if (!Array.isArray(coords) || coords.length === 0) return;
-    if (typeof coords[0] === "number") {
-      const lng = coords[0] as number;
-      const lat = coords[1] as number;
-      minLng = Math.min(minLng, lng);
-      maxLng = Math.max(maxLng, lng);
-      minLat = Math.min(minLat, lat);
-      maxLat = Math.max(maxLat, lat);
-      return;
-    }
-    for (const c of coords) visit(c);
-  };
-  visit(feature.geometry.coordinates);
-  return { minLng, maxLng, minLat, maxLat };
-}
-
-export function mergeBBoxes(boxes: GeoBBox[]): GeoBBox {
-  if (boxes.length === 0) return { ...CHINA_BBOX };
-  return boxes.reduce(
-    (acc, b) => ({
-      minLng: Math.min(acc.minLng, b.minLng),
-      maxLng: Math.max(acc.maxLng, b.maxLng),
-      minLat: Math.min(acc.minLat, b.minLat),
-      maxLat: Math.max(acc.maxLat, b.maxLat),
-    }),
-    {
-      minLng: Infinity,
-      maxLng: -Infinity,
-      minLat: Infinity,
-      maxLat: -Infinity,
-    },
-  );
-}
-
-export interface ParsedProvince {
-  provinceId: ProvinceId | null;
-  adcode: number | string;
-  name: string;
-  center: LonLat | null;
-  path: string;
-  feature: ChinaProvinceFeature;
-}
-
 let loadPromise: Promise<ChinaProvinceFeature[]> | null = null;
 
 function geoUrl(): string {
@@ -323,31 +179,3 @@ export async function loadChinaProvinceFeatures(): Promise<
   return loadPromise;
 }
 
-export function parseProvinces(
-  features: ChinaProvinceFeature[],
-  project: ProjectFn,
-): ParsedProvince[] {
-  return features.map((feature) => {
-    const provinceId = resolveProvinceId(feature.properties) ?? null;
-    return {
-      provinceId,
-      adcode: feature.properties.adcode,
-      name: feature.properties.name,
-      center: feature.properties.center ?? null,
-      path: geometryToPath(feature.geometry, project),
-      feature,
-    };
-  });
-}
-
-export function labelPoint(
-  feature: ChinaProvinceFeature,
-  project: ProjectFn,
-): { x: number; y: number } {
-  if (feature.properties.center) {
-    const [lng, lat] = feature.properties.center;
-    return project(lng, lat);
-  }
-  const b = featureBBox(feature);
-  return project((b.minLng + b.maxLng) / 2, (b.minLat + b.maxLat) / 2);
-}

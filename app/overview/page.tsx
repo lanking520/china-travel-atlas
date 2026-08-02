@@ -179,7 +179,7 @@ export default function OverviewPage() {
           </h2>
           <p className="mt-3 text-lg text-amber-900">
             省内线之外，还可按主题挑：跨省慢环、边陲短住、以及空气清新向的长居慢住（约一个月）。
-            首页「全部景点」点「添加筛选」或主题快捷「长居 / 名景」，也可搜路线名直达。
+            首页点「主题」选「长居 / 名景」，或用「地区」收窄，也可搜路线名直达。
           </p>
           <div className="mt-6 space-y-5 text-lg leading-relaxed text-amber-950">
             <div className="rounded-xl bg-white p-5 shadow-sm">

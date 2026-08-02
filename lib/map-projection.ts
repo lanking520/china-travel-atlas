@@ -1,12 +1,4 @@
-import {
-  bboxFromLonLats,
-  createEquirectangularProjection,
-  expandBBox,
-  type GeoBBox,
-} from "./china-geo";
-
-export type { GeoBBox };
-export { CHINA_BBOX, createEquirectangularProjection, expandBBox, bboxFromLonLats } from "./china-geo";
+import { bboxFromLonLats } from "./china-geo";
 
 export interface LatLng {
   lat: number;
@@ -16,40 +8,6 @@ export interface LatLng {
 export interface ProjectedPoint {
   x: number;
   y: number;
-}
-
-/**
- * Project stops into an SVG viewBox, fitting their lon/lat bbox
- * (with padding). Prefer createEquirectangularProjection for shared basemaps.
- */
-export function projectStops(
-  stops: LatLng[],
-  width: number,
-  height: number,
-  padding = 24,
-): ProjectedPoint[] {
-  if (stops.length === 0) return [];
-  const bbox = expandBBox(bboxFromLonLats(stops), 0.12);
-  const project = createEquirectangularProjection(bbox, width, height, padding);
-  return stops.map((stop) => project(stop.lng, stop.lat));
-}
-
-/** Build a shared projection for stops + province underlay. */
-export function projectionForStops(
-  stops: LatLng[],
-  width: number,
-  height: number,
-  padding = 28,
-): { project: (lng: number, lat: number) => ProjectedPoint; bbox: GeoBBox } {
-  const bbox = expandBBox(bboxFromLonLats(stops, 1.5), 0.18);
-  return {
-    bbox,
-    project: createEquirectangularProjection(bbox, width, height, padding),
-  };
-}
-
-export function polylinePoints(points: ProjectedPoint[]): string {
-  return points.map((p) => `${p.x},${p.y}`).join(" ");
 }
 
 /** Truncate stop names for map labels (适老 readable length). */

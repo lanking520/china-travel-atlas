@@ -25,7 +25,7 @@ export default function HomePage() {
               爸妈中国旅游地图
             </h1>
             <p className="mt-1 hidden max-w-xl text-base leading-snug text-sky-800/90 sm:mt-2 sm:block sm:text-lg sm:leading-relaxed">
-              先浏览全部景点，或用地图选大区；需要时再加季节、行程与主题筛选。
+              先浏览全部景点；需要时用地区、季节、长短与主题筛选收窄。
             </p>
           </div>
         </section>

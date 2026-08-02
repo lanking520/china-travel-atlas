@@ -101,7 +101,7 @@ jobs:
           for i in 1 2 3 4 5 6; do
             code=$(curl -sS -o /tmp/pages-index.html -w "%{http_code}" "$BASE/" || echo 000)
             if [ "$code" = "200" ] \
-              && grep -qE '探索方式|全部景点|地图选区' /tmp/pages-index.html \
+              && grep -qE '全部景点|筛选维度|地区' /tmp/pages-index.html \
               && grep -qE '/china-travel-atlas/_next/' /tmp/pages-index.html; then
               ok=1
               break

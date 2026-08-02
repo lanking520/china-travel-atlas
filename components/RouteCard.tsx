@@ -96,17 +96,17 @@ export function RouteCard({
             {themeHint}
           </span>
         ) : null}
-        <h3 className="font-display text-[0.95rem] font-bold leading-snug text-white drop-shadow-sm sm:text-base">
+        <h3 className="font-display text-[1.02rem] font-bold leading-snug text-white drop-shadow-sm sm:text-[1.08rem]">
           {route.title}
         </h3>
-        <p className="text-[0.8rem] font-medium leading-snug text-sky-100/90 sm:text-sm">
+        <p className="text-[0.88rem] font-medium leading-snug text-sky-100/90 sm:text-[0.95rem]">
           {route.daysLabel}
           <span className="mx-1 text-sky-300/70" aria-hidden>
             ·
           </span>
           {kindLabel}
         </p>
-        <p className="text-[0.8rem] font-semibold leading-snug text-amber-200/95 sm:text-sm">
+        <p className="text-[0.88rem] font-semibold leading-snug text-amber-200/95 sm:text-[0.95rem]">
           {route.budgetLabel}
         </p>
       </div>

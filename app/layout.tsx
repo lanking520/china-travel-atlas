@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { BottomNav } from "@/components/BottomNav";
 import { PwaRegister } from "@/components/PwaRegister";
 import "./globals.css";
 
@@ -46,7 +47,10 @@ export default function RootLayout({
     >
       <body className="min-h-full font-sans text-sky-950 antialiased">
         <PwaRegister />
-        {children}
+        <div className="pb-[calc(2.85rem+env(safe-area-inset-bottom,0px))] sm:pb-0">
+          {children}
+        </div>
+        <BottomNav />
       </body>
     </html>
   );

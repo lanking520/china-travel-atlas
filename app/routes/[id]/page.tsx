@@ -143,7 +143,7 @@ export default async function RouteDetailPage({
             {(
               [
                 ...(route.compositionKind === "compose" && route.legIds?.length
-                  ? ([["#compose-legs", "短线"]] as [string, string][])
+                  ? ([["#compose-legs", "组合"]] as [string, string][])
                   : []),
                 ...(showLongStayGates
                   ? ([["#gates", "门槛"]] as [string, string][])
@@ -307,6 +307,25 @@ export default async function RouteDetailPage({
           ) : null}
         </section>
 
+        {showLongStayGates ? (
+          <section
+            id="gates"
+            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-300 bg-teal-50 p-6"
+          >
+            <h2 className="text-2xl font-bold text-teal-950">长居三门槛</h2>
+            <p className="mt-2 text-base text-teal-800">
+              进出交通 · 生活物资 · 本地三甲——达不到就不与枢纽并列推荐。
+            </p>
+            <div className="mt-4 space-y-4 text-lg leading-relaxed text-teal-950">
+              {paragraphs(practical.longStay ?? "").map((p) => (
+                <p key={p.slice(0, 24)} className="whitespace-pre-line">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {route.nearbyLegs && route.nearbyLegs.length > 0 ? (
           <section
             id="nearby"
@@ -463,24 +482,7 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        {showLongStayGates ? (
-          <section
-            id="gates"
-            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-300 bg-teal-50 p-6"
-          >
-            <h2 className="text-2xl font-bold text-teal-950">长居三门槛</h2>
-            <p className="mt-2 text-base text-teal-800">
-              进出交通 · 生活物资 · 本地三甲——达不到就不与枢纽并列推荐。
-            </p>
-            <div className="mt-4 space-y-4 text-lg leading-relaxed text-teal-950">
-              {paragraphs(practical.longStay ?? "").map((p) => (
-                <p key={p.slice(0, 24)} className="whitespace-pre-line">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </section>
-        ) : (
+        {showLongStayGates ? null : (
           <SoftDetails title="长居建议" tone="teal" className="mt-10">
             <div className="space-y-4 text-lg leading-relaxed text-teal-950">
               {paragraphs(practical.longStay ?? "").map((p) => (

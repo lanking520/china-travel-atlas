@@ -34,6 +34,21 @@ import { RegionMap } from "./RegionMap";
 import { RouteCardGrid } from "./RouteCard";
 
 const SEARCH_DEBOUNCE_MS = 180;
+/** Hide-on-scroll hysteresis — transform only, never collapse height. */
+const SCROLL_HIDE_DY = 28;
+const SCROLL_SHOW_DY = 28;
+const SCROLL_HIDE_Y = 72;
+const SCROLL_SHOW_Y = 40;
+
+type OpenDim = "season" | "trip" | "theme" | null;
+
+const THEME_ORDER: RouteTheme[] = [
+  "famous-scenic",
+  "long-stay",
+  "corridor",
+  "grand-loop",
+  "frontier",
+];
 
 type ExploreTab = "all" | "map";
 
@@ -75,16 +90,19 @@ function resolvedTripType(route: Route): TripType {
 export function ChinaMapExplorer() {
   const currentSeason = getSeasonNow();
   const [tab, setTab] = useState<ExploreTab>("all");
-  /** Calendar default season — clear via chip /「全部季节」. */
+  /** Soft calendar default: filter on; no identity chip while default. */
   const [season, setSeason] = useState<Season | undefined>(() => getSeasonNow());
   const [tripType, setTripType] = useState<TripType | undefined>(undefined);
   const [theme, setTheme] = useState<RouteTheme | undefined>(undefined);
   const [level, setLevel] = useState<MapLevel>({ kind: "china" });
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [addFiltersOpen, setAddFiltersOpen] = useState(false);
-  /** Results: collapse search+tabs on scroll-down to free RouteCard viewport. */
-  const [headCollapsed, setHeadCollapsed] = useState(false);
+  const [openDim, setOpenDim] = useState<OpenDim>(null);
+  /**
+   * Single sticky chrome hide flag. Transform-only (no max-h / flow collapse)
+   * so scrollY doesn't thrash when hiding/showing.
+   */
+  const [chromeHidden, setChromeHidden] = useState(false);
 
   useEffect(() => {
     const t = window.setTimeout(() => {
@@ -94,18 +112,38 @@ export function ChinaMapExplorer() {
   }, [searchInput]);
 
   useEffect(() => {
+    if (openDim) setChromeHidden(false);
+  }, [openDim]);
+
+  useEffect(() => {
     let lastY = window.scrollY;
+    let raf = 0;
     const onScroll = () => {
-      const y = window.scrollY;
-      const delta = y - lastY;
-      if (delta > 10 && y > 56) setHeadCollapsed(true);
-      else if (delta < -10) setHeadCollapsed(false);
-      if (y < 24) setHeadCollapsed(false);
-      lastY = y;
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        if (openDim) {
+          setChromeHidden(false);
+          lastY = window.scrollY;
+          return;
+        }
+        const y = window.scrollY;
+        const dy = y - lastY;
+        if (Math.abs(dy) < SCROLL_HIDE_DY) return;
+        if (dy > SCROLL_HIDE_DY && y > SCROLL_HIDE_Y) {
+          setChromeHidden(true);
+        } else if (dy < -SCROLL_SHOW_DY || y < SCROLL_SHOW_Y) {
+          setChromeHidden(false);
+        }
+        lastY = y;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, [openDim]);
 
   const filterOpts = useMemo(
     () => ({ season, tripType, theme }),
@@ -119,8 +157,6 @@ export function ChinaMapExplorer() {
   const searchActive = searchQuery.trim().length > 0;
 
   const seasonIsCalendarDefault = season === currentSeason;
-  const extraFiltersDirty =
-    tripType !== undefined || theme !== undefined || season === undefined;
 
   const filtersDirty =
     tripType !== undefined ||
@@ -138,7 +174,6 @@ export function ChinaMapExplorer() {
 
   const catalogRoutes = useMemo(() => {
     const matched = routes.filter((r) => routeMatches(r, filterOpts));
-    // Default catalog: 名景 first, then 从北京 — softens long unfiltered lists
     return [...matched].sort((a, b) => {
       const af = a.themes?.includes("famous-scenic") ? 0 : 1;
       const bf = b.themes?.includes("famous-scenic") ? 0 : 1;
@@ -222,7 +257,6 @@ export function ChinaMapExplorer() {
     setTheme(undefined);
   }
 
-  /** Clean 全部景点: calendar season on, no trip/theme/search/drill. */
   function resetCatalogDefaults() {
     setSeason(getSeasonNow());
     setTripType(undefined);
@@ -234,36 +268,31 @@ export function ChinaMapExplorer() {
     setSearchQuery("");
   }
 
-  /** Sticky 返回 → clean 全部景点 (calendar season default). */
   function exitToAll() {
     clearSearch();
     resetCatalogDefaults();
     goChina();
     setTab("all");
-    setAddFiltersOpen(false);
+    setOpenDim(null);
   }
 
   function selectTab(next: ExploreTab) {
     setTab(next);
     if (next === "map") {
-      // Map cover: drop drill/filters so cover stays search+map only
       clearSearch();
       clearFilters();
       goChina();
-      setAddFiltersOpen(false);
+      setOpenDim(null);
     } else {
       clearSearch();
       resetCatalogDefaults();
       goChina();
-      setAddFiltersOpen(false);
+      setOpenDim(null);
     }
   }
 
-  function toggleTheme(next: RouteTheme) {
-    setTheme((prev) => {
-      if (prev === next) return undefined;
-      return next;
-    });
+  function setThemeFilter(next: RouteTheme | undefined) {
+    setTheme(next);
     setLevel({ kind: "china" });
     setTab("all");
   }
@@ -276,7 +305,6 @@ export function ChinaMapExplorer() {
     season === undefined ||
     (season !== undefined && !seasonIsCalendarDefault);
 
-  /** Sticky 返回 only when there is non-default scope to clear. */
   const showExitBack = hasExtraScope;
 
   const resultsTitle = searchActive
@@ -289,26 +317,30 @@ export function ChinaMapExplorer() {
           ? `${THEME_CHIP_LABELS[theme]} · ${themedRoutes.length} 条`
           : `全部景点 · ${catalogRoutes.length} 条`;
 
-  const showExploreHead = !resultsMode || !headCollapsed;
+  const catalogClean =
+    !searchActive &&
+    !drilled &&
+    tripType === undefined &&
+    theme === undefined &&
+    (seasonIsCalendarDefault || season === undefined);
+
+  const chromeOff = resultsMode && chromeHidden;
 
   return (
     <div className="space-y-2 sm:space-y-3">
-      {/* Sticky: search above tabs; results = thin chip strip (filters in vaul). */}
       <div
         className={
           resultsMode
-            ? "sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-1.5 backdrop-blur-md sm:mx-0 sm:rounded-b-xl sm:px-0"
+            ? `sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-1.5 backdrop-blur-md transition-transform duration-200 ease-out sm:mx-0 sm:rounded-b-xl sm:px-0 ${
+                chromeOff
+                  ? "pointer-events-none -translate-y-full"
+                  : "translate-y-0"
+              }`
             : "space-y-2 rounded-2xl bg-white/85 px-2.5 py-2 shadow-sm ring-1 ring-sky-900/6 sm:px-3.5 sm:py-2.5"
         }
+        aria-hidden={chromeOff || undefined}
       >
-        <div
-          className={
-            showExploreHead
-              ? "space-y-1.5"
-              : "pointer-events-none max-h-0 space-y-0 overflow-hidden opacity-0"
-          }
-          aria-hidden={!showExploreHead}
-        >
+        <div className="space-y-1.5">
           <label className="block">
             <span className="sr-only">搜索路线</span>
             <div className="flex items-stretch gap-2">
@@ -324,7 +356,7 @@ export function ChinaMapExplorer() {
                 autoComplete="off"
                 autoCorrect="off"
                 spellCheck={false}
-                tabIndex={showExploreHead ? undefined : -1}
+                tabIndex={chromeOff ? -1 : undefined}
                 className="min-h-10 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.02rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/75 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:min-h-11"
               />
               {searchInput ? (
@@ -332,7 +364,7 @@ export function ChinaMapExplorer() {
                   type="button"
                   onClick={clearSearch}
                   aria-label="清除搜索"
-                  tabIndex={showExploreHead ? undefined : -1}
+                  tabIndex={chromeOff ? -1 : undefined}
                   className="inline-flex min-h-10 shrink-0 items-center rounded-xl bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-11 sm:text-[0.95rem]"
                 >
                   清除
@@ -360,63 +392,63 @@ export function ChinaMapExplorer() {
         </div>
 
         {resultsMode ? (
-          <div
-            className={`flex min-h-8 items-center gap-1.5 ${showExploreHead ? "mt-1.5" : ""}`}
-          >
-            {showExitBack ? (
-              <button
-                type="button"
-                onClick={exitToAll}
-                aria-label="返回"
-                className="inline-flex min-h-7 shrink-0 items-center gap-0.5 rounded-lg bg-sky-800 px-2 text-[0.7rem] font-semibold text-white hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
-              >
-                <span aria-hidden>←</span>
-                返回
-              </button>
-            ) : null}
-            {showExitBack &&
-            !searchActive &&
-            level.kind === "province" &&
-            regionMeta ? (
-              <button
-                type="button"
-                onClick={() => goRegion(level.regionId)}
-                aria-label={`上一级，${regionMeta.name}`}
-                className="inline-flex min-h-7 shrink-0 items-center rounded-lg bg-white px-2 text-[0.7rem] font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-8 sm:px-2.5 sm:text-xs"
-              >
-                上一级
-              </button>
-            ) : null}
-            <div className="min-w-0 flex-1 overflow-x-auto">
-              <ActiveFilterChips
-                searchQuery={searchActive ? searchQuery.trim() : undefined}
-                level={level}
-                season={season}
-                tripType={tripType}
-                theme={theme}
-                onDismissSearch={clearSearch}
-                onDismissRegion={() => {
-                  goChina();
-                  setTab("all");
-                  resetCatalogDefaults();
-                }}
-                onDismissProvince={() => {
-                  if (level.kind === "province") goRegion(level.regionId);
-                }}
-                onDismissSeason={() => setSeason(undefined)}
-                onDismissTripType={() => setTripType(undefined)}
-                onDismissTheme={() => setTheme(undefined)}
-              />
+          <div className="mt-1.5 space-y-1">
+            <div className="flex min-h-8 items-center gap-1.5">
+              {showExitBack ? (
+                <button
+                  type="button"
+                  onClick={exitToAll}
+                  aria-label="返回"
+                  tabIndex={chromeOff ? -1 : undefined}
+                  className="inline-flex min-h-7 shrink-0 items-center gap-0.5 rounded-lg bg-sky-800 px-2 text-[0.7rem] font-semibold text-white hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
+                >
+                  <span aria-hidden>←</span>
+                  返回
+                </button>
+              ) : null}
+              {showExitBack &&
+              !searchActive &&
+              level.kind === "province" &&
+              regionMeta ? (
+                <button
+                  type="button"
+                  onClick={() => goRegion(level.regionId)}
+                  aria-label={`上一级，${regionMeta.name}`}
+                  tabIndex={chromeOff ? -1 : undefined}
+                  className="inline-flex min-h-7 shrink-0 items-center rounded-lg bg-white px-2 text-[0.7rem] font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-8 sm:px-2.5 sm:text-xs"
+                >
+                  上一级
+                </button>
+              ) : null}
+              <div className="min-w-0 flex-1 overflow-x-auto">
+                <ActiveFilterChips
+                  searchQuery={searchActive ? searchQuery.trim() : undefined}
+                  level={level}
+                  season={season}
+                  hideSeasonChip={seasonIsCalendarDefault}
+                  tripType={tripType}
+                  theme={theme}
+                  onDismissSearch={clearSearch}
+                  onDismissRegion={() => {
+                    goChina();
+                    setTab("all");
+                    resetCatalogDefaults();
+                  }}
+                  onDismissProvince={() => {
+                    if (level.kind === "province") goRegion(level.regionId);
+                  }}
+                  onDismissSeason={() => setSeason(undefined)}
+                  onDismissTripType={() => setTripType(undefined)}
+                  onDismissTheme={() => setTheme(undefined)}
+                />
+              </div>
             </div>
-            <AddFiltersPanel
-              open={addFiltersOpen}
-              onOpenChange={(o) => {
-                setAddFiltersOpen(o);
-                if (o) setHeadCollapsed(false);
-              }}
+            <DimensionFilters
               season={season}
               tripType={tripType}
               theme={theme}
+              openDim={openDim}
+              onOpenDim={setOpenDim}
               onSeason={(s) => {
                 setSeason(s);
                 setTab("all");
@@ -425,13 +457,7 @@ export function ChinaMapExplorer() {
                 setTripType(t);
                 setTab("all");
               }}
-              onTheme={toggleTheme}
-              onClear={() => {
-                setSeason(undefined);
-                setTripType(undefined);
-                setTheme(undefined);
-              }}
-              filtersDirty={extraFiltersDirty || !seasonIsCalendarDefault}
+              onTheme={setThemeFilter}
             />
           </div>
         ) : null}
@@ -442,28 +468,19 @@ export function ChinaMapExplorer() {
           <p className="font-display text-[0.95rem] font-bold leading-snug text-sky-950 sm:text-lg">
             {resultsTitle}
           </p>
-          {seasonIsCalendarDefault &&
-          !searchActive &&
-          !drilled &&
-          tripType === undefined &&
-          theme === undefined ? (
+          {catalogClean && seasonIsCalendarDefault ? (
             <p className="text-xs text-sky-700/85 sm:text-sm">
               已按当季（{SEASON_FULL_LABELS[currentSeason]}
-              ）显示 · 先名景；点季节芯片或「添加筛选」→全部季节可看全年
+              ）显示 · 先名景；点「季节」→全季节可看全年
             </p>
-          ) : season === undefined &&
-            !searchActive &&
-            !drilled &&
-            tripType === undefined &&
-            theme === undefined ? (
+          ) : catalogClean && season === undefined ? (
             <p className="text-xs text-sky-700/85 sm:text-sm">
-              全年未筛季节 · 先显示名景，可点「添加筛选」收窄
+              全年未筛季节 · 先显示名景；点季节 / 长短 / 主题可收窄
             </p>
           ) : null}
         </div>
       ) : null}
 
-      {/* —— Cover: search + map only —— */}
       {coverMode ? (
         <section className="space-y-1.5 sm:space-y-3" aria-label="地图选区">
           <div>
@@ -489,7 +506,6 @@ export function ChinaMapExplorer() {
         </section>
       ) : null}
 
-      {/* —— Search results —— */}
       {searchActive ? (
         <section aria-label="搜索结果" className="space-y-2">
           {searchHits.length === 0 ? (
@@ -509,7 +525,6 @@ export function ChinaMapExplorer() {
         </section>
       ) : null}
 
-      {/* —— 全部景点 / theme list (china level) —— */}
       {!searchActive && level.kind === "china" && allListMode ? (
         <section aria-label="全部景点" className="space-y-2">
           <RouteCardGrid
@@ -541,7 +556,6 @@ export function ChinaMapExplorer() {
         </section>
       ) : null}
 
-      {/* —— Map still available under results when china + filters but not theme/all list —— */}
       {!searchActive &&
         level.kind === "china" &&
         resultsMode &&
@@ -563,7 +577,6 @@ export function ChinaMapExplorer() {
           </section>
         )}
 
-      {/* —— 大区：点省份 —— */}
       {!searchActive && level.kind === "region" && regionMeta && (
         <section className="space-y-3">
           <div className="min-w-0 max-w-2xl">
@@ -616,7 +629,6 @@ export function ChinaMapExplorer() {
         </section>
       )}
 
-      {/* —— 省份：路线列表 —— */}
       {!searchActive && level.kind === "province" && provinceMeta && (
         <section className="space-y-3">
           <div className="min-w-0 max-w-2xl">
@@ -674,6 +686,7 @@ function ActiveFilterChips({
   searchQuery,
   level,
   season,
+  hideSeasonChip = false,
   tripType,
   theme,
   onDismissSearch,
@@ -686,6 +699,7 @@ function ActiveFilterChips({
   searchQuery?: string;
   level: MapLevel;
   season?: Season;
+  hideSeasonChip?: boolean;
   tripType?: TripType;
   theme?: RouteTheme;
   onDismissSearch: () => void;
@@ -724,7 +738,7 @@ function ActiveFilterChips({
       onDismiss: onDismissProvince,
     });
   }
-  if (season) {
+  if (season && !hideSeasonChip) {
     chips.push({
       key: "season",
       label: SEASON_FULL_LABELS[season],
@@ -773,153 +787,210 @@ function ActiveFilterChips({
   );
 }
 
-function AddFiltersPanel({
-  open,
-  onOpenChange,
+function DimTrigger({
+  label,
+  active,
+  pressed,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  pressed: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={pressed}
+      aria-haspopup="dialog"
+      className={`inline-flex min-h-7 shrink-0 items-center rounded-full px-2.5 text-[0.72rem] font-semibold transition-colors sm:min-h-8 sm:text-xs ${
+        active || pressed
+          ? "bg-sky-800 text-white"
+          : "bg-white/90 text-sky-900 ring-1 ring-sky-200/90 hover:bg-sky-50"
+      }`}
+    >
+      {label}
+    </button>
+  );
+}
+
+function DimensionFilters({
   season,
   tripType,
   theme,
+  openDim,
+  onOpenDim,
   onSeason,
   onTripType,
   onTheme,
-  onClear,
-  filtersDirty,
 }: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
   season?: Season;
   tripType?: TripType;
   theme?: RouteTheme;
+  openDim: OpenDim;
+  onOpenDim: (d: OpenDim) => void;
   onSeason: (s: Season | undefined) => void;
   onTripType: (t: TripType | undefined) => void;
-  onTheme: (t: RouteTheme) => void;
-  onClear: () => void;
-  filtersDirty: boolean;
+  onTheme: (t: RouteTheme | undefined) => void;
 }) {
+  const seasonLabel = season
+    ? `季节·${SEASON_FULL_LABELS[season]}`
+    : "季节·全季节";
+  const tripLabel = tripType
+    ? `长短·${TRIP_TYPE_LABELS[tripType]}`
+    : "长短·全部";
+  const themeLabel = theme
+    ? `主题·${THEME_CHIP_LABELS[theme]}`
+    : "主题·全部";
+
+  const sheetTitle =
+    openDim === "season"
+      ? "季节"
+      : openDim === "trip"
+        ? "长短"
+        : openDim === "theme"
+          ? "主题"
+          : "";
+
   return (
     <>
-      <button
-        type="button"
-        onClick={() => onOpenChange(true)}
-        aria-expanded={open}
-        aria-haspopup="dialog"
-        className="inline-flex min-h-7 shrink-0 items-center gap-1 rounded-full bg-white/90 px-2 text-[0.7rem] font-semibold text-sky-900 ring-1 ring-sky-300/90 hover:bg-sky-50 sm:min-h-8 sm:px-2.5 sm:text-xs"
+      <div
+        aria-label="筛选维度"
+        className="flex flex-nowrap items-center gap-1.5 overflow-x-auto"
       >
-        <span aria-hidden className="text-sky-500">
-          +
-        </span>
-        添加筛选
-      </button>
-      {open ? (
+        <DimTrigger
+          label={seasonLabel}
+          active={season !== undefined}
+          pressed={openDim === "season"}
+          onClick={() =>
+            onOpenDim(openDim === "season" ? null : "season")
+          }
+        />
+        <DimTrigger
+          label={tripLabel}
+          active={tripType !== undefined}
+          pressed={openDim === "trip"}
+          onClick={() => onOpenDim(openDim === "trip" ? null : "trip")}
+        />
+        <DimTrigger
+          label={themeLabel}
+          active={theme !== undefined}
+          pressed={openDim === "theme"}
+          onClick={() => onOpenDim(openDim === "theme" ? null : "theme")}
+        />
+      </div>
+
+      {openDim ? (
         <div className="fixed inset-0 z-50" role="presentation">
           <button
             type="button"
             aria-label="关闭筛选"
             className="absolute inset-0 bg-sky-950/35"
-            onClick={() => onOpenChange(false)}
+            onClick={() => onOpenDim(null)}
           />
           <div
             role="dialog"
             aria-modal="true"
-            aria-label="路线筛选"
-            className="absolute inset-x-0 bottom-0 flex max-h-[85vh] flex-col rounded-t-2xl bg-[#f5fafc] outline-none ring-1 ring-sky-900/10"
+            aria-label={sheetTitle}
+            className="absolute inset-x-0 bottom-0 flex max-h-[70vh] flex-col rounded-t-2xl bg-[#f5fafc] outline-none ring-1 ring-sky-900/10"
           >
             <div className="mx-auto mt-2.5 h-1 w-10 shrink-0 rounded-full bg-sky-300/80" />
             <div className="flex items-center justify-between gap-3 px-4 pb-1 pt-3">
               <h2 className="font-display text-base font-bold text-sky-950">
-                添加筛选
+                {sheetTitle}
               </h2>
               <button
                 type="button"
-                onClick={() => onOpenChange(false)}
+                onClick={() => onOpenDim(null)}
                 className="min-h-9 rounded-lg px-2.5 text-sm font-semibold text-sky-800 hover:bg-sky-100/80"
               >
                 完成
               </button>
             </div>
-            <p className="sr-only">按季节、短线/长线与主题筛选路线</p>
-            <div className="space-y-3 overflow-y-auto px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-1">
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-                <span className="font-display shrink-0 text-sm font-semibold text-orange-950">
-                  季节
-                </span>
-                <FilterChip
-                  active={!season}
-                  onClick={() => onSeason(undefined)}
-                  label="全部季节"
-                  ariaLabel="全部季节"
-                  tone="orange"
-                />
-                {(Object.entries(SEASON_FULL_LABELS) as [Season, string][]).map(
-                  ([id, label]) => (
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-1">
+              {openDim === "season" ? (
+                <>
+                  <FilterChip
+                    active={!season}
+                    onClick={() => {
+                      onSeason(undefined);
+                      onOpenDim(null);
+                    }}
+                    label="全部季节"
+                    ariaLabel="全部季节"
+                    tone="orange"
+                  />
+                  {(
+                    Object.entries(SEASON_FULL_LABELS) as [Season, string][]
+                  ).map(([id, label]) => (
                     <FilterChip
                       key={id}
                       active={season === id}
-                      onClick={() => onSeason(season === id ? undefined : id)}
+                      onClick={() => {
+                        onSeason(season === id ? undefined : id);
+                        onOpenDim(null);
+                      }}
                       label={label}
                       tone="orange"
                     />
-                  ),
-                )}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 border-t border-sky-100 pt-3">
-                <span className="font-display shrink-0 text-sm font-semibold text-amber-950">
-                  行程
-                </span>
-                <FilterChip
-                  active={!tripType}
-                  onClick={() => onTripType(undefined)}
-                  label="全部"
-                  ariaLabel="全部行程类型"
-                  tone="amber"
-                />
-                {(Object.entries(TRIP_TYPE_LABELS) as [TripType, string][]).map(
-                  ([id, label]) => (
+                  ))}
+                </>
+              ) : null}
+              {openDim === "trip" ? (
+                <>
+                  <FilterChip
+                    active={!tripType}
+                    onClick={() => {
+                      onTripType(undefined);
+                      onOpenDim(null);
+                    }}
+                    label="全部"
+                    ariaLabel="全部长短"
+                    tone="amber"
+                  />
+                  {(
+                    Object.entries(TRIP_TYPE_LABELS) as [TripType, string][]
+                  ).map(([id, label]) => (
                     <FilterChip
                       key={id}
                       active={tripType === id}
-                      onClick={() =>
-                        onTripType(tripType === id ? undefined : id)
-                      }
+                      onClick={() => {
+                        onTripType(tripType === id ? undefined : id);
+                        onOpenDim(null);
+                      }}
                       label={label}
                       tone="amber"
                     />
-                  ),
-                )}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 border-t border-sky-100 pt-3">
-                <span className="font-display shrink-0 text-sm font-semibold text-sky-950">
-                  主题
-                </span>
-                {(
-                  [
-                    "famous-scenic",
-                    "long-stay",
-                    "corridor",
-                    "grand-loop",
-                    "frontier",
-                  ] as RouteTheme[]
-                ).map((id) => (
+                  ))}
+                </>
+              ) : null}
+              {openDim === "theme" ? (
+                <>
                   <FilterChip
-                    key={id}
-                    active={theme === id}
-                    onClick={() => onTheme(id)}
-                    label={THEME_CHIP_LABELS[id]}
+                    active={!theme}
+                    onClick={() => {
+                      onTheme(undefined);
+                      onOpenDim(null);
+                    }}
+                    label="全部主题"
+                    ariaLabel="全部主题"
                     tone="amber"
                   />
-                ))}
-                {filtersDirty ? (
-                  <button
-                    type="button"
-                    onClick={onClear}
-                    className="min-h-9 rounded-lg px-2 py-1 text-sm font-semibold text-sky-800 underline decoration-sky-300 underline-offset-4 hover:text-sky-950"
-                  >
-                    清除筛选
-                  </button>
-                ) : null}
-              </div>
+                  {THEME_ORDER.map((id) => (
+                    <FilterChip
+                      key={id}
+                      active={theme === id}
+                      onClick={() => {
+                        onTheme(theme === id ? undefined : id);
+                        onOpenDim(null);
+                      }}
+                      label={THEME_CHIP_LABELS[id]}
+                      tone="amber"
+                    />
+                  ))}
+                </>
+              ) : null}
             </div>
           </div>
         </div>

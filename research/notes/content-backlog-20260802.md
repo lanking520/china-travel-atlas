@@ -24,6 +24,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Pilot schema** — `compositionKind?: leg | compose | base` + `legIds` / `glue` / `nearbyLegs`；filter labels 短线/长线（长居仍用 theme）
 - [x] **南疆 pilot migration** — `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi`；`xibei-xinjiang-south` → `compose-nanjiang-kuqa-kashi`
 - [x] **Explore compose / base UX** — timeline + sticky「组合」+ sky chrome（河西/南疆 verify PASS）；短线/长线 chips 已有；长居仍靠 theme；base 详情 polish 可选
+- [x] **Compose intro → leg links** — 全部 compose 页 intro 下「嵌入短线」可点进各 leg（`3930888`）
 - [x] **Second corridor sketch** — 河西优先 / 川西备选；见 IA note
 - [x] **Second corridor pilot** — 河西：`leg-dunhuang-mogao` + `leg-zhangye-danxia` + `compose-hexi-dunhuang-zhangye`（嘉峪关 glue）；`xibei-dunhuang-zhangye` 已退役
 - [x] **川西 B corridor** — `leg-chengdu-adapt` + reuse `xinan-sichuan-leshan-emei` / `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役极端 `xinan-chuanxi-slow`（不强制四姑娘/新都桥/稻城）

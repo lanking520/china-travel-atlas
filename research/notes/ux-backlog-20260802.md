@@ -2,7 +2,7 @@
 
 Durable checklist for Explore / Pages performance / modern feed polish.  
 Later agents: tick items as done; do **not** fight content agents on `content/*`.  
-**Catalog size note:** ~165+ routes (compose pilot on `637d294`) — lazy paginate required for 全部景点.
+**Catalog size note:** ~182 routes — lazy paginate required for 全部景点.
 
 **Related:** `research/notes/ux-mobile-framework-proposal-20260802.md` · `research/audits/plan-verify-round-20260802-explore-ia.md` · `research/notes/content-route-composition-ia-20260802.md`
 
@@ -10,74 +10,76 @@ Later agents: tick items as done; do **not** fight content agents on `content/*`
 
 ## Framework research status (summary)
 
-Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Recommended primitives: CSS tokens (`--tap-min` ~36px), optional **vaul** sheet for filters (P1), optional **Radix** later for a11y, optional **embla** for gallery (P2). Keep sky/emerald map language. Explore IA: tabs + search + dual-column `RouteCard` + map cover purity.
+Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: tabs + search + dual-column `RouteCard` + map cover purity + dimension filters (季节/长短/主题) + mobile **bottom nav**.
 
-**GH Pages / static export constraints:** no SSR streaming. Catalog lives in client JS from slim `lib/generated/explore-routes.json` (metadata only on Explore — full guides are separate `/routes/[id]/` pages). Performance wins are **client**: paginate/window catalog cards, `loading="lazy"` / Intersection Observer for images, defer non-critical JS. Do **not** import all `route-details` into Explore.
+**GH Pages / static export constraints:** no SSR streaming. Catalog in slim `lib/generated/explore-routes.json`. Paginate/window cards; `loading="lazy"`; do **not** import all `route-details` into Explore.
 
 ---
 
 ## A — Layout / IA
 
-- [x] **Search box above** tabs「全部景点 / 地图选区」(sticky search stays first)
+- [x] **Search box above** tabs「全部景点 / 地图选区」
 - [x] Explore IA: default **全部景点** catalog; **地图选区** = search + map only
-- [x] Sticky **返回** → clean 全部景点 when scoped; **hidden** on already-clean catalog
-- [x] Region-chip dismiss (省内「移除筛选 华北」) → clean 全部景点 (`goChina` + tab all)
-- [x] Map cover: maximize SVG first-viewport share (cover sizing ≥~40% iPhone)
+- [x] Sticky **返回** → clean 全部景点 when scoped; **hidden** on clean catalog
+- [x] Region-chip dismiss → clean 全部景点
+- [x] Map cover: maximize SVG first-viewport share
 - [x] Soften long catalog: 名景 / 从北京 sort + hint
-- [x] **Compact filter chrome on results**: sticky ≠ half viewport
-- [x] Sticky minimal strip: active chips +「添加筛选」; heavy filters in **vaul** sheet; title/hint scroll away
-- [x] Hide search+tabs on scroll-down / show on scroll-up (results mode) — maximize RouteCard viewport on mobile
+- [x] **Compact filter chrome**: sticky transform-hide on scroll (not height-collapse thrash)
+- [x] Dimension filters: 季节 / 长短 / 主题 triggers + sheet (replaces bulky chip pile + nested「添加筛选」)
 - [x] Remove Explore shortcuts「从北京短途」+「当季」chip
-- [x] **Calendar default season**: `getSeasonNow()` sets initial 季节 filter; clear via season chip dismiss or「全部季节」
-- [x] Light **compositionKind** Explore support: 短线/长线 chips resolve `leg`/`compose`/`base` (+ legacy `tripType`)
-- [x] **Compose detail timeline**: ordered legs + interleaved glue; sticky「组合」jump; sky (not indigo) chrome
-- [ ] Further: auto-hide chip strip itself on deep scroll if still too tall with many chips
+- [x] **Calendar soft-default season**: `getSeasonNow()` applies filter; **no identity chip** while calendar-default (hint「已按当季」); clear via「全部季节」
+- [x] Light **compositionKind** Explore support: 短线/长线
+- [x] **Compose detail timeline** + sticky「组合」
+- [x] **Compose intro → leg links**:「嵌入短线」under intro (`3930888`) — all 14 compose pages
+- [x] Theme discoverability via 主题· dim (名景/长居/走廊/…)
+- [ ] Optional density pass after live feedback
 
-## B — Performance (Pages slow / text-first)
+## B — Performance
 
-- [x] **Lazy catalog**: initial N `RouteCard`s + load-more on scroll (Intersection Observer); images `loading="lazy"`; text/meta always in card
-- [ ] True **virtualization / windowing** if catalog ≫ ~200 and scroll jank persists
-- [x] Audit Explore bundle: ensure `route-details` / heavy guides **not** pulled into home chunk (`lib/explore-catalog` for Explore)
-- [x] **Slim Explore intros**: codegen `lib/generated/explore-routes.json` (no `introduction` / notices / sources / stop images in home JS); `npm run gen:explore-catalog`
-- [x] Optional: blur-up / LQIP placeholders for card images
-- [x] Optional: low-priority cover prefetch on card hover/focus (Pages-friendly)
+- [x] Lazy catalog paginate + `loading="lazy"` + text-first cards
+- [ ] True virtualization if catalog ≫ ~200 and jank persists
+- [x] Slim Explore catalog JSON (no heavy guides in home chunk)
+- [x] LQIP / cover prefetch (optional, shipped)
 
-## C — Visual polish (Pinterest-like)
+## C — Visual polish
 
-- [x] Noticeable modern polish on `RouteCard` (tighter type, softer badge, hover lift)
-- [x] Slimmer filter / identity chips +「添加筛选」affordance
-- [x] Further chip density pass after live feedback
-- [x] Detail page hero / gallery polish (edge-bleed hero + strip; embla still P2)
+- [x] Pinterest dual-column `RouteCard` with place images
+- [x] Slightly larger card type; modern density (not 适老-bulky)
+- [x] Detail hero / SoftDetails progressive disclosure
+- [ ] P2: embla gallery; 2–3 intentional motions
 
 ## D — Verify / CI
 
-- [x] `ux:plan` locks: region-chip dismiss, clean-catalog hides 返回, map cover share, catalog paginate
-- [x] CI Pages smoke: built `out/index.html` asserts basePath `_next` + Explore labels
-- [x] Live Pages curl smoke post-deploy (optional workflow job)
+- [x] `ux:plan` locks Explore IA + soft calendar + dims + bottom nav + compose legs
+- [x] CI Pages smoke + live curl smoke job
 
-## E — Framework modernization (carry from proposal)
+## E — Framework modernization
 
-- [x] P1: detail progressive disclosure (collapse 参考来源 / 快览 via SoftDetails)
-- [x] P1: bottom sheet for 筛选 (compact sticky strip + overlay sheet; vaul dropped for click reliability)
-- [ ] P1: mobile bottom nav (探索 / 两年 / 说明) + safe-area
-- [ ] P2: embla gallery; light motion (2–3 intentional)
-- [ ] P2: offline search index if catalog grows much further
+- [x] P1 progressive disclosure (SoftDetails)
+- [x] P1 filter sheet / dimension chooser
+- [x] P1 mobile bottom nav (探索 / 两年 / 说明) + safe-area; header nav sm+
+- [ ] P2 embla / offline search index
 
-## F — Explicitly out of scope here
+## F — Out of scope
 
-- Content route authorship (`content/*`) — other agents
-- Senior-mode / 适老专用 chrome
-- Purple glass / dashboard UI kits
+- Content authorship (`content/*`)
+- Senior-mode chrome / purple glass kits
 
 ---
 
 ### Remaining (open)
 
-- [ ] Further: auto-hide chip strip itself on deep scroll if still too tall with many chips *(also listed under A)*
-- [ ] True **virtualization / windowing** if catalog ≫ ~200 *(B)*
-- [ ] P1: mobile bottom nav (探索 / 两年 / 说明) + safe-area *(E)*
+- [ ] Optional density pass after live feedback *(A)*
+- [ ] True **virtualization** if ≫ ~200 *(B)*
 - [ ] P2: embla gallery; light motion; offline search index *(E)*
 
-**Clean-light verify 2026-08-02** (`47a0e23`+`ae3bab8`): **PASS** — see `research/audits/plan-verify-round-20260802-ux-clean.md`. `ux:plan` 21/21. No code fixes.
+### Reconcile notes (2026-08-02 evening)
 
-*Updated: 2026-08-02 · session: compact sticky + filter sheet + calendar season + compositionKind chips; compose detail timeline for 河西/南疆 pilots; clean-light verify PASS.*
+**Falsely / prematurely closed before:**
+- Soft calendar was marked done but still showed a default season identity chip → fixed: hint-only while calendar-default.
+- 名景/长居/走廊 “always-visible” leaked into「添加筛选」only → restored via 主题· dimension sheet (+ optional primary row experiments).
+- Mobile bottom nav was open P1 → shipped.
+- Sticky viewport: height-collapse thrash → transform-only `chromeHidden`.
+- Compose intro「嵌入短线」only partly covered by timeline tick → done in `3930888`.
+
+*Updated: 2026-08-02 · reconciled leaked UX asks; DimensionFilters + soft calendar + bottom nav; compose intro leg links done.*

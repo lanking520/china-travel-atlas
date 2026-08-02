@@ -78,25 +78,33 @@ Do **not** duplicate stop text inside every compose.
 
 ## Second corridor sketch (notes only — not migrated)
 
-### Option A — 河西 `xibei-dunhuang-zhangye`（已分段感强，优先）
+**Decision lean（20260802）**：下一走廊 pilot **优先河西 A**（既有 `xibei-dunhuang-zhangye` 分段感强、海拔友好、适老摩擦低于川西）。川西 B 仅 sketch，待河西 compose 形态稳定后再做；高反政策必须写进 glue，默认可删亚丁。
 
-| Proposed leg | Role | Days |
-| --- | --- | --- |
-| `leg-dunhuang-mogao` *(extract)* | 莫高预约 + 鸣沙浅尝 | ~4–7 |
-| `leg-jiayuguan-buffer` *(thin or glue)* | 嘉峪关过夜缓冲 | 1–2 |
-| `leg-zhangye-danxia` *(extract)* | 七彩丹霞观光车 | ~2–3 |
-| Compose `compose-hexi-dunhuang-zhangye` | ordered legs + glue（敦煌→嘉峪关→张掖，单日≤4–5h） | ~2–3周 |
+### Option A — 河西（优先 migrate）
 
-### Option B — 川西 `xinan-chuanxi-slow`（高反诚实优先）
+现卡：`xibei-dunhuang-zhangye`（长线，待拆）。不新建景点正文——从现卡抽出 stops。
 
-| Proposed leg | Role | Days |
-| --- | --- | --- |
-| `leg-chengdu-adapt` | 平原适应/回撤锚 | 2–3 |
-| `leg-xinduqiao-view` | 新都桥观景浅停（约3300m） | ~2 |
-| `leg-daocheng-optional` | 稻城/亚丁高可选·默认可删 | ~3 |
-| Compose | 成都→新都桥→（可选亚丁）→下撤成都；glue=车程与高反政策 | 约10天–2周 |
+| Proposed leg | Role | Days | Notes |
+| --- | --- | --- | --- |
+| `leg-dunhuang-mogao` | 莫高预约 + 鸣沙浅尝 | ~4–7 | 预约失败日改鸣沙/市区空白 |
+| `leg-jiayuguan-buffer` | 嘉峪关过夜缓冲 | 1–2 | 可 glue-only，不必厚 stops |
+| `leg-zhangye-danxia` | 七彩丹霞观光车 | ~2–3 | 台阶量力；一日足够可压天 |
+| Compose `compose-hexi-dunhuang-zhangye` | 敦煌 → 嘉峪关 → 张掖 | ~2–3周 | glue：单日车/铁 ≤4–5h；段间空白；不环线硬赶 |
 
-Do **not** national-migrate until one of A/B ships like 南疆.
+可选 base（未立项）：兰州或张掖城住仅当日归辐射——须先过三甲/物资门槛再开 `base-*`。
+
+### Option B — 川西（备选，高反诚实）
+
+现卡：`xinan-chuanxi-slow`。平原回撤锚 = 成都（医疗 PASS）；高原段不是长居。
+
+| Proposed leg | Role | Days | Notes |
+| --- | --- | --- | --- |
+| `leg-chengdu-adapt` | 平原适应/回撤锚 | 2–3 | 华西下撤叙事 |
+| `leg-xinduqiao-view` | 新都桥观景浅停（约3300m） | ~2 | 头两日放慢 |
+| `leg-daocheng-optional` | 稻城/亚丁 | ~3 | **默认可删**；不适即下撤 |
+| Compose | 成都→新都桥→（可选亚丁）→成都 | 约10天–2周 | glue=车程+高反+氧气/医院预案 |
+
+Do **not** national-migrate until **河西 A** ships like 南疆.
 
 ## What NOT to do
 

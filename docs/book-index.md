@@ -125,7 +125,7 @@
 - **中山 · 孙中山故居浅住** (`huanan-guangdong-zhongshan`) · 短途 · 秋/冬/春/夏
 - **潮汕 · 潮州古城与汕头骑楼** (`huanan-guangdong-chaoshan`) · 短途 · 秋/冬/春/夏
 - **东兴 · 中越边境浅游** (`frontier-dongxing`) · 短途 · 秋/冬/春
-- **阳朔 · 漓江慢居约一个月** (`longstay-yangshuo`) · 长旅行 · 春/秋
+- **阳朔 · 漓江山水短住** (`longstay-yangshuo`) · 短途 · 春/秋
 - **万宁/琼海 · 非暑期海岸慢居** (`longstay-hainan-east`) · 长旅行 · 冬/春/秋
 - **珠海滨海 · 两三天** (`huanan-zhuhai-3d`) · 短途 · 冬/春/秋
 - **广州慢住 · 潮汕或珠海可选** (`huanan-guangzhou-chaoshan`) · 长旅行 · 冬/春
@@ -155,7 +155,7 @@
 - **大理 · 洱海慢居约一个月** (`longstay-dali`) · 长旅行 · 春/秋
 - **昆明 · 春城慢居约一个月** (`longstay-kunming`) · 长旅行 · 春/秋/冬
 - **都江堰 · 平原边缘清新慢居** (`longstay-dujiangyan`) · 长旅行 · 春/秋
-- **镇远 · 黔东南江城慢居** (`longstay-zhenyuan`) · 长旅行 · 春/秋/夏
+- **镇远 · 舞阳河江城短住** (`longstay-zhenyuan`) · 短途 · 春/秋/夏
 - **川滇慢环 · 成都大理丽江** (`national-chuandian-slow`) · 长旅行 · 春/秋/冬
 - **都江堰 · 青城山两日** (`xinan-dujiangyan-2d`) · 短途 · 春/秋
 - **大理州 · 洱源剑川日归表** (`xinan-yunnan-dali-daytrips`) · 短途 · 春/秋/夏
@@ -265,9 +265,9 @@
 - 苏州园林 · 南京可选 (`huadong-suzhou-nanjing`) · 华东水乡
 - 大理 · 洱海慢居约一个月 (`longstay-dali`) · 西南秘境
 - 昆明 · 春城慢居约一个月 (`longstay-kunming`) · 西南秘境
-- 阳朔 · 漓江慢居约一个月 (`longstay-yangshuo`) · 华南岭南
+- 阳朔 · 漓江山水短住 (`longstay-yangshuo`) · 华南岭南
 - 都江堰 · 平原边缘清新慢居 (`longstay-dujiangyan`) · 西南秘境
-- 镇远 · 黔东南江城慢居 (`longstay-zhenyuan`) · 西南秘境
+- 镇远 · 舞阳河江城短住 (`longstay-zhenyuan`) · 西南秘境
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
 - 丝路慢段 · 西安到吐鲁番 (`national-silkroad-slow`) · 西北丝路
 - 川滇慢环 · 成都大理丽江 (`national-chuandian-slow`) · 西南秘境
@@ -365,7 +365,7 @@
 - 苏杭徽 · 水乡慢住两三周 (`huadong-suhan-slow`) · 华东水乡
 - 威海 · 海岸慢居约一个月 (`longstay-weihai`) · 京畿华北
 - 呼伦贝尔 · 夏季草原慢居 (`longstay-hulunbuir`) · 京畿华北
-- 镇远 · 黔东南江城慢居 (`longstay-zhenyuan`) · 西南秘境
+- 镇远 · 舞阳河江城短住 (`longstay-zhenyuan`) · 西南秘境
 - 青甘慢环 · 湖光丹霞两三周 (`national-qinggan-slow`) · 青藏高地
 - 呼伦贝尔 · 草原慢住两周 (`huabei-neimeng-summer`) · 京畿华北
 - 青岛慢住 · 崂山即墨与烟威 (`huabei-shandong-coast`) · 京畿华北
@@ -482,10 +482,10 @@
 - 苏州园林 · 南京可选 (`huadong-suzhou-nanjing`) · 华东水乡
 - 大理 · 洱海慢居约一个月 (`longstay-dali`) · 西南秘境
 - 昆明 · 春城慢居约一个月 (`longstay-kunming`) · 西南秘境
-- 阳朔 · 漓江慢居约一个月 (`longstay-yangshuo`) · 华南岭南
+- 阳朔 · 漓江山水短住 (`longstay-yangshuo`) · 华南岭南
 - 威海 · 海岸慢居约一个月 (`longstay-weihai`) · 京畿华北
 - 都江堰 · 平原边缘清新慢居 (`longstay-dujiangyan`) · 西南秘境
-- 镇远 · 黔东南江城慢居 (`longstay-zhenyuan`) · 西南秘境
+- 镇远 · 舞阳河江城短住 (`longstay-zhenyuan`) · 西南秘境
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
 - 青甘慢环 · 湖光丹霞两三周 (`national-qinggan-slow`) · 青藏高地
 - 丝路慢段 · 西安到吐鲁番 (`national-silkroad-slow`) · 西北丝路

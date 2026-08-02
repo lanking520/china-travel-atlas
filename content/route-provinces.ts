@@ -108,7 +108,7 @@ export const routeProvinces: Record<
   'frontier-erlian': { primary: 'neimenggu' },
   'frontier-dongxing': { primary: 'guangxi' },
   'frontier-ruili': { primary: 'yunnan' },
-  // 长居推荐（城市基地）
+  // 长居推荐（城市基地）；yangshuo/zhenyuan 已降级为名景短腿，id 保留
   'longstay-dali': { primary: 'yunnan' },
   'longstay-kunming': { primary: 'yunnan' },
   'longstay-yangshuo': { primary: 'guangxi' },

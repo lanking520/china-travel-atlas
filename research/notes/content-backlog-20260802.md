@@ -24,9 +24,10 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Pilot schema** — `compositionKind?: leg | compose | base` + `legIds` / `glue` / `nearbyLegs`；filter labels 短线/长线（长居仍用 theme）
 - [x] **南疆 pilot migration** — `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi`；`xibei-xinjiang-south` → `compose-nanjiang-kuqa-kashi`
 - [ ] **Explore compose / base UX** — timeline of embedded legs； compositionKind chips（短线/长线/长居）；详情「周边短线」已接 `nearbyLegs`
-- [ ] **Second corridor pilot** — 川西 or 河西敦煌–张掖（sketch only in IA note）
+- [x] **Second corridor sketch** — 河西优先 / 川西备选；见 IA note（未 migrate）
+- [ ] **Second corridor pilot** — 实施拆 leg + compose（优先河西敦煌–张掖）
 - [ ] **National long→compose migration** — after second pilot
-- [ ] **Rethink weak longstay** — `longstay-zhenyuan`（无本地三甲）；`longstay-yangshuo`（桂林下撤）持续告警或降级
+- [x] **Rethink weak longstay** — `longstay-yangshuo` / `longstay-zhenyuan` **降级**为名景短腿（theme 离 long-stay；枢纽桂林/贵阳）
 
 ## Open — quality (prior)
 
@@ -42,11 +43,12 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **长居三门槛** — backlog + `long-stay-cities` audit；8 longstay PG 交通/物资/三甲加厚；`base-kashi` 对照门槛
 - [x] **`base-kashi`** — nearbyLegs = `xibei-xinjiang-kashi`, `leg-kuqa-canyon`, `compose-nanjiang-kuqa-kashi`
 - [x] **南疆 compose pilot** — `leg-kuqa-canyon` + `compose-nanjiang-kuqa-kashi`（legIds→库车/喀什；阿克苏 glue）；schema `compositionKind`/`legIds`/`glue`
+- [x] **弱长居降级** — yangshuo / zhenyuan 离 long-stay 芯片；名景短腿 + 桂林/贵阳枢纽叙事
 - [x] Mid NCF deepen: **黄山** / **张家界** / **桂林阳朔**
 - [x] Wave 2 prior: frontier six + prefecture-f + famous THIN slice
 - [x] PG dining batch for many hubs (leftovers remain)
 - [x] **喀什 densify (leg shape)** — `xibei-xinjiang-kashi` → ~4–6天
-- [x] Composition IA note written；national split **not** started
+- [x] Composition IA note written；national split **not** started；河西/川西 sketch 加厚
 
 ## Notes
 
@@ -57,8 +59,8 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Suggested next session order
 
-1. Second corridor pilot: 川西 or 河西敦煌–张掖（按 IA sketch 拆 leg + compose）
+1. Second corridor pilot **migrate**：优先河西 `compose-hexi-dunhuang-zhangye`（按 IA sketch）
 2. Explore compose UX chips / timeline polish
-3. Decide zhenyuan / yangshuo rethink（告警保留 vs 降级短线）
+3. Optional：桂林/贵阳是否立项为新 `base`/`longstay`（现仅下撤枢纽叙事）
 4. Duration-honesty pass on other padded longs
 5. Image 404 audit + famous THIN + leftover PG dining

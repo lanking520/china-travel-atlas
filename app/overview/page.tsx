@@ -200,13 +200,12 @@ export default function OverviewPage() {
               <p className="mt-2">
                 <RouteLink id="longstay-dali">大理洱海</RouteLink>、
                 <RouteLink id="longstay-kunming">昆明春城</RouteLink>、
-                <RouteLink id="longstay-yangshuo">阳朔漓江</RouteLink>、
                 <RouteLink id="longstay-weihai">威海海岸</RouteLink>、
                 <RouteLink id="longstay-hulunbuir">呼伦贝尔夏</RouteLink>、
                 <RouteLink id="longstay-dujiangyan">都江堰西缘</RouteLink>、
-                <RouteLink id="longstay-zhenyuan">镇远江城</RouteLink>、
-                <RouteLink id="longstay-hainan-east">琼海万宁</RouteLink>
-                ——约三四周慢居，空气与自然优先，不是打卡清单。
+                <RouteLink id="longstay-hainan-east">琼海万宁</RouteLink>、
+                <RouteLink id="base-kashi">喀什丝路</RouteLink>
+                ——约三四周慢居，须过交通/物资/本地三甲门槛；阳朔、镇远已降为山水短腿（枢纽分别下撤桂林、贵阳），不与昆明级并列。
               </p>
             </div>
           </div>

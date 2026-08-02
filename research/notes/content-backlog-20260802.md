@@ -38,10 +38,10 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [ ] **Image query optimization** — better place-image matching; fix wrong / soft / 404; prefer verified Wikimedia Commons; improve lookup scripts/pipeline; no Unsplash-as-attraction for covers/stops
   - *2026-08-02 wave:* 长春/海口/呼市 **错城 soft 已纠**（延吉/三亚湾/呼伦贝尔 → 长春天际线+南湖 / 世纪桥+骑楼 / 大召）；`PLACE_SOFT_IDS` 收缩；`resolve-place-images.py` FILES 同步。仍 open：乐亭/左云 blocked、qiziwan gen、其余同廊 soft
 - [ ] **Regional / attraction character** — each route should convey 地区特色、文化、美食 beyond thin logistics stubs
-  - *2026-08-02 wave:* **25** city/famous THIN → `city-character-20260802` detailPatches（文化+饮食 framing；preferRicherText）
+  - *2026-08-02 wave:* **26** city/famous THIN → `city-character-20260802` detailPatches（文化+饮食 framing；preferRicherText）
 - [x] **Itinerary density honesty（batch）** — 日喀则浅尝缩短；青海湖/成都 densify-or-shorten；渝桂黔腾冲内蒙厦西安标签与基地天数对齐（喀什 pattern）；华南广州等仍待扫
 - [ ] **逐条精细化补充** — route-by-route enrichment (stops, tips, culture, food, practical), priority famous → city → prefecture
-  - *partial:* 本波 25 城/名景 intros；coverage/prefecture 主体仍待
+  - *partial:* 本波 26 城/名景 intros；coverage/prefecture 主体仍待
 - [ ] **Remaining THIN (~55–70 / ~182)** — coverage/prefecture fills, leftover famous-p stubs beyond wave-2 + city-character batch（估：本波约 −20）
 - [ ] **Leftover one-line PG dining** — expand remaining short `dining` lines to 2–4 dishes + 清淡/适老（compose/leg 一批已扩；coverage/prefecture 仍短）
   - *2026-08-02 wave:* **+41** 城/省会/名景 one-liner → 2–4 菜 + 适老；`<35` 字约 **52** 仍短（估原 ~90+ stub 量级）
@@ -67,7 +67,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Image fixes (touched/high-traffic)** — `leg-sayram-lake` 去错用喀纳斯；崂山盖/仰口→太清附近 Commons；`hks-kunming-buffer`→Kunming.jpg
 - [x] **PG dining expand batch** — ~22 compose/leg/hub one-liners → 2–4 dishes + 清淡/适老
 - [x] **Wrong-city image fixes** — 长春≠延吉、海口≠三亚湾、呼市≠呼伦贝尔；南湖/骑楼/大召 Commons HEAD 200；pipeline FILES 同步
-- [x] **City-character deepen (25)** — 长春/海口/呼市/武汉/长沙/南京/重庆/京城/北戴河/大连/沈阳/福州/泉州/无锡/水乡/版纳/腾冲/呼伦贝尔/伊犁/洛汴/广潮/深圳/兰夏/婺源/宜昌/镇远
+- [x] **City-character deepen (26)** — 长春/海口/呼市/武汉/长沙/南京/重庆/京城/北戴河/大连/沈阳/福州/泉州/无锡/水乡/版纳/腾冲/呼伦贝尔/伊犁/洛汴/广潮/深圳/兰夏/婺源/宜昌/镇远
 - [x] **PG dining expand batch 2** — +41 coverage/city one-liners → 2–4 dishes + 适老
 
 ## Notes

@@ -101,7 +101,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-2. 仍缺名胜廊（可选下一波）：桂北海、武夷–厦、皖南九华、鄂西恩施/三峡、宁夏沙坡头–兰、藏东南延伸以外的浅段
+2. ~~名胜廊 batch 5~~ — `compose-gui-beihai` / `compose-wuyi-xiamen` / `compose-wantan-jiuhua` / `compose-exi-enshi-sanxia` / `compose-ningxia-shapotou-lanzhou` → **31** compose. 仍缺：粤西开平–湛江（无湛江 leg）、东北冬冰雪专廊
 3. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
 4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
 5. 有意同廊 soft：若日后出现专用 Commons，可升出 `PLACE_SOFT_IDS`（非错城；优先级低于产品 polish）

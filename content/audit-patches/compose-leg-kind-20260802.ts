@@ -29,4 +29,14 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
   'huazhong-hunan-changsha': { compositionKind: 'leg' },
   'huazhong-hunan-fenghuang': { compositionKind: 'leg' },
   'huabei-shandong-taishan': { compositionKind: 'leg' },
+  // Famous compose batch 5 embedded legs
+  'huanan-guilin-yangshuo': { compositionKind: 'leg' },
+  'huanan-guangxi-beihai': { compositionKind: 'leg' },
+  'huanan-fujian-wuyi': { compositionKind: 'leg' },
+  'huadong-anhui-jiuhua': { compositionKind: 'leg' },
+  'huazhong-hubei-enshi': { compositionKind: 'leg' },
+  'huazhong-yichang-three-gorges': { compositionKind: 'leg' },
+  'xibei-ningxia-3d': { compositionKind: 'leg' },
+  'xibei-ningxia-shapotou': { compositionKind: 'leg' },
+  'xibei-gansu-lanzhou-huanghe': { compositionKind: 'leg' },
 };

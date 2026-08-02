@@ -264,4 +264,13 @@ export const routeProvinces: Record<
   },
   'compose-xiangxi-changsha-fenghuang': { primary: 'hunan' },
   'compose-lu-taishan-qingdao': { primary: 'shandong' },
+  // Famous compose batch 5 (20260802)
+  'compose-gui-beihai': { primary: 'guangxi' },
+  'compose-wuyi-xiamen': { primary: 'fujian' },
+  'compose-wantan-jiuhua': { primary: 'anhui' },
+  'compose-exi-enshi-sanxia': { primary: 'hubei' },
+  'compose-ningxia-shapotou-lanzhou': {
+    primary: 'ningxia',
+    also: ['gansu'],
+  },
 };

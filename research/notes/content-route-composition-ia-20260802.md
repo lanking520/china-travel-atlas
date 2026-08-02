@@ -83,8 +83,9 @@ Do **not** duplicate stop text inside every compose.
 - Shipped national batch 2 (20260802): `compose-beijiang-sayram-kanas` / `compose-suhan-hangzhou-huangshan` / `compose-yunnan-dali-lijiang` / `compose-shandong-qingdao-yantai`；退役 `xibei-xinjiang-north` / `huadong-suhan-slow` / `yunnan-dali-lijiang` / `huabei-shandong-coast`；`xibei-xinjiang-yili` 收为 leg；`longstay-dali` nearbyLegs 链滇西短线/组合。
 - Shipped national batch 3 (20260802): `compose-qingzang-railway-lhasa` / `compose-qingzang-lhasa-nyingchi` / `compose-yunnan-hekou-sapa`；`leg-qingzang-railway` / `leg-hekou-border` / `leg-sapa-vietnam`；`qingzang-lhasa-slow` densify 为 leg（海拔诚实，非极端高山）；退役 `qingzang-railway-slow` / `qingzang-g318-lhasa-nyingchi` / `yunnan-hekou-sapa-corridor`；reuse `qingzang-xining-3d` / `qingzang-nyingchi-slow` 为 leg。
 - Shipped famous corridor batch 4 (20260802): **12** new compose → catalog **26** total. Extracted `leg-hainan-west-shallow` / `leg-sanya-beach` (keep west/sanya long cards). Embedded city/famous cards marked `compositionKind: leg` via `compose-leg-kind-20260802`. Full id list in backlog + below.
+- Shipped famous corridor batch 5 (20260802): **5** new compose → catalog **31** total. Reuse existing legs only; skip 粤西开平–湛江 (no zhanjiang leg / no multi-discovery for new id).
 
-### Full compose inventory (26)
+### Full compose inventory (31)
 
 | id | Corridor |
 | --- | --- |
@@ -114,10 +115,15 @@ Do **not** duplicate stop text inside every compose.
 | `compose-chuanyu-chengdu-chongqing` | 川渝 |
 | `compose-xiangxi-changsha-fenghuang` | 湘西名景 |
 | `compose-lu-taishan-qingdao` | 齐鲁泰青 |
+| `compose-gui-beihai` | 桂北海 |
+| `compose-wuyi-xiamen` | 武夷–厦 |
+| `compose-wantan-jiuhua` | 皖南九华 |
+| `compose-exi-enshi-sanxia` | 鄂西恩施/三峡 |
+| `compose-ningxia-shapotou-lanzhou` | 宁夏沙坡头–兰州 |
 
 ### Still missing / optional next corridors
 
-- 桂北海（阳朔→北海）、武夷–厦（与闽粤部分重叠）、皖南九华、鄂西恩施/三峡、宁夏沙坡头–兰州、粤西开平–湛江、东北冬冰雪专廊（与夏环分流）
+- 粤西开平–湛江（缺湛江 leg / multi-discovery）、东北冬冰雪专廊（与夏环分流）
 
 ## Second corridor — 河西（shipped 20260802）
 

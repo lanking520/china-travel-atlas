@@ -36,6 +36,7 @@ import { patchRoutes as prefectureWave20260802dRoutes } from "@/content/patches/
 import { patchRoutes as prefectureWave20260802eRoutes } from "@/content/patches/routes-prefecture-wave-20260802e";
 import { patchRoutes as prefectureWave20260802fRoutes } from "@/content/patches/routes-prefecture-wave-20260802f";
 import { patchRoutes as composeFamous20260802Routes } from "@/content/patches/routes-compose-famous-20260802";
+import { patchRoutes as composeFamousB20260802Routes } from "@/content/patches/routes-compose-famous-b-20260802";
 import { routeProvinces } from "@/content/route-provinces";
 import type { Route } from "@/content/types";
 import { placeCoverForRoute } from "@/lib/place-images";
@@ -140,6 +141,7 @@ function collectRawRoutes(): Route[] {
     ...prefectureWave20260802eRoutes,
     ...prefectureWave20260802fRoutes,
     ...composeFamous20260802Routes,
+    ...composeFamousB20260802Routes,
   ]) {
     map.set(r.id, r);
   }

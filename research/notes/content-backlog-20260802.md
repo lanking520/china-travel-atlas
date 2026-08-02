@@ -91,17 +91,27 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Image leftovers (乐亭/左云/棋子湾)** — Commons+Openverse 空 → 专用示意生成图；出 soft、入 `PLACE_GENERATED_IDS`；pipeline FILES 注释同步
 - [x] **Famous compose batch 4** — 12 新长线组合 + `leg-hainan-west-shallow` / `leg-sanya-beach`；嵌入腿 `compositionKind: leg` 字段补丁；catalog compose **26**
 
+## Open — polish (optional)
+
+- [ ] Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
+- [ ] 逐条精细化 — stops/tips beyond character framing for high-traffic hubs（部分高流量 tip overlays 已上）
+- [ ] Soft→Commons image upgrades only if dedicated scenic appears（乐亭/左云/qiziwan 已 gen）
+- [ ] Optional corridors if product asks：粤西开平–湛江（需湛江 leg）、东北冬冰雪专廊
+- [ ] Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
+
 ## Notes
 
 - Discovery gate remains multi-source (`research/notes/multi-discovery/`); XHS optional review only.
 - Prefer richer patch intros over thin `route-details` stubs (runtime `preferRicherText`).
-- Content agents avoid `ChinaMapExplorer` unless asked.
+- Content agents avoid Explore chrome (`ChinaMapExplorer`) unless asked.
 - Related: `research/audits/content-quality-screen-20260802.md`
+- Catalog snapshot **~201** routes · **31** compose · **3** base（2026-08-02 evening）
+- Mainland phone access research: `research/notes/china-mainland-access-20260802.md`
 
 ## Suggested next session order
 
-1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-2. ~~名胜廊 batch 5~~ — `compose-gui-beihai` / `compose-wuyi-xiamen` / `compose-wantan-jiuhua` / `compose-exi-enshi-sanxia` / `compose-ningxia-shapotou-lanzhou` → **31** compose. 仍缺：粤西开平–湛江（无湛江 leg）、东北冬冰雪专廊
-3. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
-4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
-5. 有意同廊 soft：若日后出现专用 Commons，可升出 `PLACE_SOFT_IDS`（非错城；优先级低于产品 polish）
+1. Optional：Explore 长居 chip / base 详情 polish
+2. 逐条精细化 — stops/tips for remaining high-traffic hubs
+3. Soft→Commons only if dedicated scenic appears
+4. New prefecture / corridor coverage only if product asks（粤西、东北冬等）
+5. China CDN dual-deploy when ICP/domain ready（see mainland-access note）

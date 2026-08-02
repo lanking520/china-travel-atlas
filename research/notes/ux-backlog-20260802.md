@@ -2,7 +2,7 @@
 
 Durable checklist for Explore / Pages performance / modern feed polish.  
 Later agents: tick items as done; do **not** fight content agents on `content/*`.  
-**Catalog size note:** ~182 routes — lazy paginate required for 全部景点.
+**Catalog size note:** ~201 routes — lazy paginate required for 全部景点.
 
 **Related:** `research/notes/ux-mobile-framework-proposal-20260802.md` · `research/audits/plan-verify-round-20260802-explore-ia.md` · `research/notes/content-route-composition-ia-20260802.md`
 
@@ -10,7 +10,7 @@ Later agents: tick items as done; do **not** fight content agents on `content/*`
 
 ## Framework research status (summary)
 
-Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: **single catalog** + search + dual-column `RouteCard` + four dimension filters (季节/长短/主题/**地区**) + mobile **bottom nav**. Map is **not** an Explore entry (RegionMap may remain unused).
+Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: **single catalog** + search + dual-column `RouteCard` + four dimension filters (季节/长短/主题/**地区**) + mobile **bottom nav**. Map tab / Explore map cover **removed**; detail corridor maps still use `RouteOverviewMap` + `lib/china-geo` (keep).
 
 **GH Pages / static export constraints:** no SSR streaming. Catalog in slim `lib/generated/explore-routes.json`. Paginate/window cards; `loading="lazy"`; do **not** import all `route-details` into Explore.
 
@@ -82,4 +82,4 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 - Mobile bottom nav shipped; compose intro「嵌入短线」done in `3930888`.
 - **Redundant dim identity chips** removed (incl. region/province). Clear via 全部* / 全部地区 or sheet「重置」. Search keyword chip only.
 
-*Updated: 2026-08-02 · Region as 4th dim; drop map tab; ux:plan + Pages smoke updated.*
+*Updated: 2026-08-02 evening · Region as 4th dim; drop map tab; catalog ~201; RegionMap deleted (geo kept for detail maps).*

@@ -40,8 +40,11 @@ jobs:
           test -f out/index.html
           grep -qE '/china-travel-atlas/_next/' out/index.html \
             || (echo 'FAIL: missing /china-travel-atlas/_next in out/index.html' && exit 1)
-          grep -qE '探索方式|全部景点|地图选区' out/index.html \
-            || (echo 'FAIL: Explore IA tabs/labels missing from static HTML' && exit 1)
+          grep -qE '全部景点|筛选维度|地区' out/index.html \
+            || (echo 'FAIL: Explore IA labels missing from static HTML' && exit 1)
+          if grep -q '地图选区' out/index.html; then
+            echo 'FAIL: map tab 地图选区 should be removed from Explore' && exit 1
+          fi
           echo 'OK: Pages static smoke (basePath + Explore IA)'
 
       - name: Pack offline zip

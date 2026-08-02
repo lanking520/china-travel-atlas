@@ -1,0 +1,54 @@
+# STUB — copy into `.github/workflows/deploy-china-oss.yml` only after
+# Aliyun secrets + ICP/domain are ready. Do NOT place this file under
+# `.github/workflows/` until then (Actions picks up every `*.yml` there).
+# See research/notes/china-mainland-access-20260802.md
+
+name: Deploy China OSS mirror
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build root-path export (no GITHUB_PAGES basePath)
+        run: npm run build
+        # Do NOT set GITHUB_PAGES — China mirror should be site root.
+
+      - name: Smoke out/
+        run: |
+          test -f out/index.html
+          if grep -q '/china-travel-atlas/_next/' out/index.html; then
+            echo 'FAIL: China build must not embed Pages basePath' && exit 1
+          fi
+          grep -qE '全部景点|筛选维度|地区' out/index.html
+          if grep -q '地图选区' out/index.html; then
+            echo 'FAIL: map tab should be absent' && exit 1
+          fi
+
+      - uses: manyuanrong/setup-ossutil@v3.0
+        with:
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          access-key-id: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+
+      - name: Sync to OSS
+        run: ossutil cp -rf out/ "oss://${{ secrets.OSS_BUCKET }}/" --meta=Cache-Control:no-cache

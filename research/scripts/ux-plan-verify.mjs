@@ -35,10 +35,15 @@ function mustInclude(text, patterns, label) {
 async function openAddFilters(page) {
   const btn = page.getByRole("button", { name: "添加筛选" });
   if (!(await btn.count())) throw new Error("添加筛选 missing");
-  if ((await btn.getAttribute("aria-expanded")) !== "true") {
+  // Sheet chips are in a portal; wait for 全部季节 (not aria-label — Title names the dialog)
+  if (!(await page.getByRole("button", { name: "全部季节" }).isVisible().catch(() => false))) {
     await btn.click();
-    await page.waitForTimeout(200);
+    await page.getByRole("button", { name: "全部季节" }).waitFor({
+      state: "visible",
+      timeout: 8000,
+    });
   }
+  await page.waitForTimeout(150);
 }
 
 async function goMapCover(page) {
@@ -97,10 +102,14 @@ await check("P1 home: 全部景点 default + tabs (no cover filter pile)", async
   if ((await grid.locator('a[href*="/routes/"]').count()) < 6) {
     throw new Error("全部景点 dual-col has too few cards");
   }
-  if (!/先显示名景/.test(t)) {
-    throw new Error("missing 先显示名景 catalog hint");
+  // Calendar season default + 名景 hint (not unfiltered "未筛选")
+  if (!/已按当季|先名景|先显示名景/.test(t)) {
+    throw new Error("missing calendar-season / 名景 catalog hint");
   }
-  // Clean catalog: no sticky 返回
+  if (/从北京短途/.test(t)) {
+    throw new Error("removed shortcut 从北京短途 should not appear on home");
+  }
+  // Clean catalog (calendar season only): no sticky 返回
   if (await page.getByRole("button", { name: "返回" }).count()) {
     throw new Error("clean catalog should hide sticky 返回");
   }
@@ -185,23 +194,47 @@ await check("P6 season filter via 添加筛选 on results", async () => {
   // Default 全部景点 results — open add filters
   await openAddFilters(page);
   if (!(await page.getByRole("button", { name: "全部季节" }).count())) {
-    throw new Error("season chip missing after 添加筛选");
+    throw new Error("全部季节 chip missing after 添加筛选");
   }
   if (!(await page.getByRole("button", { name: "全部行程类型" }).count())) {
     throw new Error("tripType chip missing after 添加筛选");
   }
+  // Removed shortcuts
+  if (await page.getByRole("button", { name: "从北京短途" }).count()) {
+    throw new Error("从北京短途 shortcut should be removed");
+  }
+  if (await page.getByRole("button", { name: /^当季/ }).count()) {
+    throw new Error("当季 shortcut chip should be removed");
+  }
+  // 短线 / 长线 composition-aware trip chips
+  if (!(await page.getByRole("button", { name: "短线", exact: true }).count())) {
+    throw new Error("短线 chip missing");
+  }
+  if (!(await page.getByRole("button", { name: "长线", exact: true }).count())) {
+    throw new Error("长线 chip missing");
+  }
   await page.getByRole("button", { name: "冬季" }).click();
+  await page.getByRole("button", { name: "完成" }).click();
   await page.waitForTimeout(300);
   // Identity chip for 冬季
-  const body = await page.locator("body").innerText();
-  if (!/冬季/.test(body)) throw new Error("winter filter not reflected");
+  if (!(await page.getByRole("button", { name: /移除筛选 冬季/ }).count())) {
+    throw new Error("winter identity chip missing");
+  }
+  // Clear to 全部季节 is easy (dead-lead)
+  await openAddFilters(page);
+  await page.getByRole("button", { name: "全部季节" }).click();
+  await page.getByRole("button", { name: "完成" }).click();
+  await page.waitForTimeout(200);
+  if (await page.getByRole("button", { name: /移除筛选 冬季/ }).count()) {
+    throw new Error("全部季节 should clear season chip");
+  }
   // Map drill with season
   await goMapCover(page);
-  // Switching to map clears filters by design — re-apply on results after region
   await page.getByRole("button", { name: /^华北/ }).first().click();
   await page.waitForTimeout(500);
   await openAddFilters(page);
   await page.getByRole("button", { name: "冬季" }).click();
+  await page.getByRole("button", { name: "完成" }).click();
   await page.waitForTimeout(400);
   const winterText = await page.locator("body").innerText();
   if (!/选择省份|没有匹配|返回|条路线/.test(winterText)) {
@@ -321,23 +354,37 @@ await check("P15 名景 via 添加筛选 → dual-column RouteCards", async () =
   const mingjing = page.getByRole("button", { name: "名景", exact: true });
   if (!(await mingjing.count())) throw new Error("名景 chip missing in 添加筛选");
   await mingjing.click();
+  await page.getByRole("button", { name: "完成" }).click();
   await page.waitForTimeout(600);
   const t = await page.locator("body").innerText();
   if (!/名景/.test(t)) throw new Error("名景 theme list missing title cue");
-  // Identity chip dismissible
   if (!(await page.getByRole("button", { name: /移除筛选 名景/ }).count())) {
     throw new Error("名景 identity chip missing");
   }
-  const grid = page.locator('[aria-label*="名景"][class*="grid-cols-2"]');
-  if (!(await grid.count())) {
+  const mingGrid = page.locator('[aria-label*="名景"][class*="grid-cols-2"]');
+  if (!(await mingGrid.count())) {
     const anyGrid = page.locator(".grid.grid-cols-2");
     if ((await anyGrid.count()) < 1)
       throw new Error("名景 list missing grid-cols-2");
     if ((await anyGrid.first().locator('a[href*="/routes/"]').count()) < 3) {
       throw new Error("名景 dual-col grid has too few route cards");
     }
-  } else if ((await grid.first().locator('a[href*="/routes/"]').count()) < 3) {
+  } else if ((await mingGrid.first().locator('a[href*="/routes/"]').count()) < 3) {
     throw new Error("名景 dual-col grid has too few route cards");
+  }
+  // Demoted yangshuo/zhenyuan must not appear under 长居推荐
+  await openAddFilters(page);
+  await page.getByRole("button", { name: "全部季节" }).click();
+  await page.getByRole("button", { name: "长居", exact: true }).click();
+  await page.getByRole("button", { name: "完成" }).click();
+  await page.waitForTimeout(400);
+  const hrefs = await page.locator('a[href*="/routes/"]').evaluateAll((as) =>
+    as.map((a) => a.getAttribute("href") || ""),
+  );
+  for (const bad of ["longstay-yangshuo", "longstay-zhenyuan"]) {
+    if (hrefs.some((h) => h.includes(bad))) {
+      throw new Error(`${bad} should not appear in 长居推荐`);
+    }
   }
   await page.screenshot({ path: path.join(outDir, "07-mingjing-grid.png") });
 });

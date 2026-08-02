@@ -157,26 +157,40 @@ No other hard geography/danger ERRORS confirmed in this pass (九寨/拉萨/华�
 
 ### P1 follow-up count (heuristic after deepen)
 
-Catalog ~**164** routes. Rough re-score: deepish ~8–15, mid ~40+, **thinish ~100–115** (down slightly from audit 111 THIN; remaining mass is coverage/prefecture/frontier famous stubs). Long-stay 8/8 no longer stub-clobbered.
+Catalog ~**164** routes. After P1: deepish ~8–15, mid ~40+, **thinish ~100–115**. Long-stay 8/8 no longer stub-clobbered.
+
+### Wave 2 deepen (2026-08-02, after UX `e0a382b`)
+
+Deepened culture + dining (intros multi-段落 / notices≥4–5 / PG dining ≥~40字) for:
+
+| Batch | ids |
+| --- | --- |
+| **Frontier six** | `frontier-dandong`, `manzhouli`, `mohe`, `erlian`, `dongxing`, `ruili` |
+| **Prefecture f (5)** | `huabei-shanxi-yuncheng`, `linfen`, `huabei-shandong-weifang`, `huazhong-hubei-jingzhou`, `huadong-anhui-xuancheng` |
+| **Famous THIN slice** | `huadong-jiangxi-lushan`, `huabei-shanxi-wutai`, `huanan-fujian-wuyi`, `huadong-zhejiang-putuo` / `qiandao` / `wenzhou` / `shaoxing`, `huanan-guangdong-kaiping` / `danxia` / `huizhou` / `zhongshan` / `chaoshan`, `huazhong-hubei-shennongjia` / `enshi` |
+
+**New THIN estimate: ~80–90 / 164** (down from ~106 post-P1). Frontier 6/6 + prefecture f 5/5 + ~14 famous moved out of stub class into mid/NCF-ish. Remaining mass: coverage/prefecture fills, other famous-p stubs, leftover one-line PG dining.
 
 ### P2 — polish
 
-1. Expand **all** `practical-guides` dining from one-liners → 2–4 specific dishes + 清淡/适老 options (batch by hub city) — *PASS+NCF+P1 hubs done; rest still short*
+1. Expand **all** `practical-guides` dining from one-liners → 2–4 specific dishes + 清淡/适老 options (batch by hub city) — *PASS+NCF+P1+wave2 hubs done; rest still short*
 2. Add culture paragraphs to coverage/prefecture stubs **or** demote from `famous-scenic` until filled
 3. ~~Reconcile generator~~ **documented**; runtime prefer-richer already shipped
 4. Soft leftover images (per prior verify-loop) — out of this audit scope
+5. ~~Frontier six~~ **done wave2**; remaining famous THIN beyond 浙粤/鄂西 slice still open
 
 ## Method notes
 
 - Scored merged runtime fields (intro length, notices, dining length, culture keyword hits, altitude keywords, `fromTemplate`).
 - Manually read famous-p1/p2/stitch, long-stay, national-loops, Lhasa, and `route-details` overwrite cases.
 - P1 rewrite wave executed after audit (longstay un-clobber + famous deepen + dining + grand-loop + merge fix).
-- Did **not** touch ChinaMapExplorer.
+- Wave 2: frontier + prefecture-f + famous THIN slice; pulled UX `e0a382b` first; did **not** touch ChinaMapExplorer.
 
 ## Next tasks for parent agent
 
-1. Frontier six deepen
-2. Remaining famous THIN (庐山/五台/武夷/浙粤等) culture+dining
+1. ~~Frontier six deepen~~ **done**
+2. Remaining famous THIN beyond wave2 slice (coverage/prefecture famous fills, other 浙闽粤 stubs)
 3. Broader PG dining wave for leftover one-liners
 4. Refresh verify-loop catalog metrics to current count (~164)
 5. Optional plan-verify Task against this audit
+6. Mid NCF deepen: 黄山 / 张家界 / 桂林阳朔 culture+food (deferred from P1)

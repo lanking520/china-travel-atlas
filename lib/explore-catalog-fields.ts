@@ -353,7 +353,7 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
 
   'compose-yunnan-hekou-sapa': {
     summary:
-      '中越慢廊组合：嵌入河口边贸与沙巴跨境短线。沙巴在越南——须护照与合法签证；只走正式口岸。',
+      '中越慢廊：嵌入河口（中国）边贸与沙巴（Sa Pa，越南）跨境短线。须护照与合法签证；只走正式口岸。',
     transport:
       '飞昆明→河口短线→正式口岸→沙巴短线→原路返回→昆明飞京',
   },

@@ -371,7 +371,7 @@ export const routeDetails: Record<string, RouteDetailFields> = {
 
   'compose-yunnan-hekou-sapa': {
     introduction:
-      '河口→沙巴中越慢廊是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 河口边贸短线 → ② 正式口岸通关 glue → ③ 沙巴跨境短线。沙巴在越南——须护照与合法签证；只走正式口岸。',
+      '本卡串两条短线：① 河口（中国）口岸边贸浅住 → ② 正式口岸通关 glue → ③ 沙巴（Sa Pa，越南）镇区慢住。景点正文只在各短线；本卡管衔接。\n\n沙巴在越南——须护照与合法签证；只走河口—老街正式口岸。可只订河口段不出境。',
     seasonGuide: '主推秋冬春。沙巴约1500m 级，备薄外套；雨季路滑。',
     notices: [
       '可只订河口短线不出境。',

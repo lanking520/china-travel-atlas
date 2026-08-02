@@ -946,7 +946,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'leg-hekou-border': {
     routeGuide:
-      '昆明缓冲核验证件→河口慢住熟悉口岸→老码头浅逛。本腿止于中国境内侧；出境见沙巴短线/中越组合。\n\n可跳过：昆明缓冲、老码头。',
+      '昆明缓冲核验证件→河口慢住熟悉口岸→老码头浅逛。本腿止于中国境内侧；接沙巴（Sa Pa，越南）见跨境短线/中越组合。\n\n可跳过：昆明缓冲、老码头。',
     timePlan: [
       'D1：昆明缓冲（可删）',
       'D2–3：河口慢住',
@@ -993,7 +993,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'compose-yunnan-hekou-sapa': {
     routeGuide:
-      '长线组合：河口边贸短线 → 正式口岸通关 glue → 沙巴跨境短线 → 原路返回昆明飞京。景点细节只在各短线。\n\n可跳过：昆明缓冲、Fansipan。禁止非正式通道。可只订河口短线不出境。',
+      '长线组合：河口（中国）边贸短线 → 正式口岸通关 glue → 沙巴（Sa Pa，越南）跨境短线 → 原路返回昆明飞京。景点细节只在各短线。\n\n可跳过：昆明缓冲、Fansipan。禁止非正式通道。可只订河口短线不出境。',
     timePlan: [
       '段1：河口短线约3–4天（见 leg-hekou-border）',
       '衔接：正式口岸通关（见 glue / 沙巴短线通关站）',

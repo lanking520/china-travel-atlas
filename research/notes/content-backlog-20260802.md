@@ -37,10 +37,10 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 - [ ] **Image query optimization** — better place-image matching; fix wrong / soft / 404; prefer verified Wikimedia Commons; improve lookup scripts/pipeline; no Unsplash-as-attraction for covers/stops
 - [ ] **Regional / attraction character** — each route should convey 地区特色、文化、美食 beyond thin logistics stubs
-- [ ] **Itinerary density honesty** — don’t pad empty days; expand worth-seeing stops **or** shorten duration (喀什 pattern)
+- [x] **Itinerary density honesty（batch）** — 日喀则浅尝缩短；青海湖/成都 densify-or-shorten；渝桂黔腾冲内蒙厦西安标签与基地天数对齐（喀什 pattern）；华南广州等仍待扫
 - [ ] **逐条精细化补充** — route-by-route enrichment (stops, tips, culture, food, practical), priority famous → city → prefecture
-- [ ] **Remaining THIN (~80–90 / ~164)** — coverage/prefecture fills, leftover famous-p stubs beyond wave-2 slice
-- [ ] **Leftover one-line PG dining** — expand remaining short `dining` lines to 2–4 dishes + 清淡/适老
+- [ ] **Remaining THIN (~70–85 / ~164)** — coverage/prefecture fills, leftover famous-p stubs beyond wave-2 + dining batch
+- [ ] **Leftover one-line PG dining** — expand remaining short `dining` lines to 2–4 dishes + 清淡/适老（compose/leg 一批已扩；coverage/prefecture 仍短）
 
 ## Done this stream (2026-08-02)
 
@@ -59,6 +59,9 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] PG dining batch for many hubs (leftovers remain)
 - [x] **喀什 densify (leg shape)** — `xibei-xinjiang-kashi` → ~4–6天
 - [x] Composition IA note written；南疆/河西/川西 pilots + national batch 1–3 shipped（青藏铁路·林芝·拉萨海拔诚实 + 河口沙巴拆腿）
+- [x] **Duration honesty batch** — `qingzang-shigatse-taste`→约3–4天；`qingzang-qinghai-lake`→约6–8天；`xinan-chengdu-slow` densify→约10–12天；渝/桂/黔/腾冲/内蒙夏/厦/西安 shorten
+- [x] **Image fixes (touched/high-traffic)** — `leg-sayram-lake` 去错用喀纳斯；崂山盖/仰口→太清附近 Commons；`hks-kunming-buffer`→Kunming.jpg
+- [x] **PG dining expand batch** — ~22 compose/leg/hub one-liners → 2–4 dishes + 清淡/适老
 
 ## Notes
 
@@ -70,6 +73,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-2. Duration-honesty pass on other padded longs（含日喀则浅尝等仍独立短线）
-3. Image 404 audit + famous THIN + leftover PG dining
-4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
+2. Duration-honesty 续扫：广州潮汕、琼西、版纳等仍 2–3周大 blob
+3. Image：残余 PLACE_SOFT + 错城 soft（海口/长春/呼和浩特等）+ qiziwan gen
+4. Remaining famous THIN + coverage/prefecture one-line PG dining
+5. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose

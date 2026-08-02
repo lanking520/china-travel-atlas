@@ -114,8 +114,9 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
 
   'huabei-neimeng-summer': {
     fromHome: false,
+    daysLabel: '约10–14天',
     summary:
-      '北京直飞海拉尔，以城区为慢住基地两三周：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
+      '北京直飞海拉尔，以城区为慢住基地约十到十四日：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。不垫三周空日。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
   },
 
   'huabei-shandong-coast': {

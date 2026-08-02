@@ -164,14 +164,14 @@ export const patchRoutes: Route[] = [
     seasons: ['spring', 'autumn'],
     tripType: 'long',
     fromHome: false,
-    daysLabel: '约10天–2周',
+    daysLabel: '约8–10天',
     transport:
       '北京飞保山或腾冲驼峰机场，市区打车；和顺/热海包车或景区摆渡；结束飞回北京',
-    budgetLabel: '对照月预算约1.5–2万（含机票与温泉）',
+    budgetLabel: '本趟约6000–11000元（含机票与温泉；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
     summary:
-      '腾冲当慢住基地：和顺古镇石板平缓、热海温泉休整，火山地质公园按体力选段。海拔约1600米，多数人可适应；别把高黎贡硬徒步塞进日程。结束后飞回北京。',
+      '腾冲：市区安顿+和顺+热海/火山选段，约八到十日够充实，不垫两周空日。海拔约1600米，多数人可适应；别把高黎贡硬徒步塞进日程。',
     whyFast:
       '火山公园观光车半日足够；主体时间留给和顺慢走与温泉，勿赶边境口岸环线。',
     researchKeywords: [
@@ -197,14 +197,14 @@ export const patchRoutes: Route[] = [
       {
         id: 'tengchong-base',
         name: '腾冲市区（慢住基地）',
-        days: 7,
+        days: 4,
         pace: 'slow',
         lat: 25.02,
         lng: 98.499,
         summary:
-          '选近医院电梯酒店，每天最多一处：市区散步、超市补给、温泉休整日穿插。',
+          '近医院电梯酒店：市区散步、超市补给、温泉休整日穿插；不垫七日空转。',
         tips:
-          '直飞腾冲或保山再转；行李一次放稳。春秋早晚凉，备薄外套。饮食少油辣。每周留空白日。',
+          '直飞腾冲或保山再转；行李一次放稳。春秋早晚凉，备薄外套。饮食少油辣。留空白日。',
         image:
           'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
       },

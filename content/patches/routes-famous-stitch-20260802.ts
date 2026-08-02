@@ -128,14 +128,14 @@ export const patchRoutes: Route[] = [
     tripType: 'long',
     fromHome: false,
     themes: ['famous-scenic'],
-    daysLabel: '约8–12天（土楼可删）',
+    daysLabel: '约7–9天（土楼可删）',
     transport:
       '北京飞厦门高崎；市区地铁/打车。鼓浪屿须「厦门轮渡」公众号提前预约。南靖/永定土楼包车日归或一夜（约2.5小时）。结束飞回北京',
-    budgetLabel: '对照约1.2–2万（含机票分摊+土楼包车；双人；可删土楼缩短）',
+    budgetLabel: '本趟约6000–11000元（含机票分摊+土楼包车；双人；可删土楼缩短）',
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Gulangyu_Island.jpg/1280px-Gulangyu_Island.jpg',
     summary:
-      '厦鼓名景主线 + 闽南土楼浅挂：思明慢住、菽庄花园平路、日光岩可免；田螺坑「四菜一汤」包车一日或过夜。勿一日连赶鼓浪屿与土楼。',
+      '厦鼓主线 + 土楼浅挂：思明慢住约五日、菽庄半日、田螺坑可删；不垫十二日空转。',
     introduction:
       '父母搜「厦门」「鼓浪屿」「土楼」常期望一条线。本产品以厦门市区电梯酒店为基地：环岛路与植物园观光车打底，鼓浪屿半日到一日；南靖田螺坑作为可删的地理挂接，山路备晕车药，只看一处土楼群即可。\n\n土楼不是必须——腿脚紧或晕车整段删除，厦鼓仍成立。',
     seasonGuide:

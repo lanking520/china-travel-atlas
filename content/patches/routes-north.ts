@@ -5,19 +5,19 @@ export const patchRoutes: Route[] = [
   // ── 华北 · 呼伦贝尔夏 ──────────────────────────────────────────
   {
     id: 'huabei-neimeng-summer',
-    title: '呼伦贝尔 · 草原慢住两周',
+    title: '呼伦贝尔 · 草原慢住',
     region: 'huabei',
     seasons: ['summer'],
     tripType: 'long',
     fromHome: true,
-    daysLabel: '约2–3周',
+    daysLabel: '约10–14天',
     transport:
       '飞海拉尔（或高铁/自驾经张家口出京），当地包车或租车；结束后飞回北京',
-    budgetLabel: '对照月预算约2万（含往返机票分摊）',
+    budgetLabel: '本趟约8000–14000元（含往返机票分摊；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200',
     summary:
-      '夏季草原凉爽，以海拉尔为慢住基地，每天最多一处：草原骑马、额尔古纳河、满洲里口岸任选。紫外线强、温差大，备防晒与薄外套。两三周后飞回北京休整。',
+      '海拉尔城住为锚，陈巴尔虎草原选段+额尔古纳/满洲里可选；约十到十四日，不垫三周空日。更紧凑见呼伦贝尔短线；月租见 longstay-hulunbuir。',
     whyFast:
       '满洲里与莫尔道嘎可各排一日快览；主体时间在海拉尔周边草原慢走，勿赶环线。',
     researchKeywords: [
@@ -49,14 +49,14 @@ export const patchRoutes: Route[] = [
       {
         id: 'hailar-base',
         name: '海拉尔（慢住基地）',
-        days: 10,
+        days: 6,
         pace: 'slow',
         lat: 49.215,
         lng: 119.736,
         summary:
-          '城区住电梯酒店，近医院与超市。白天短途出城看草原，下午回城歇；每周留空白日。',
+          '城区电梯酒店近医院超市；短途出城看草原后回城歇；空白穿插，不垫十日空转。',
         tips:
-          '北京直飞海拉尔约2.5小时最省心；也可经张家口自驾北上，但路途长，适合腿脚好且愿分段住。夏日白天晒、早晚凉，备防晒帽与薄羽绒。蚊虫多，草原边备驱蚊。别天天换酒店，行李一放稳再周边日归。',
+          '北京直飞海拉尔约2.5小时最省心。夏日白天晒、早晚凉，备防晒帽与薄羽绒。蚊虫多备驱蚊。别天天换酒店。',
         image:
           'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
       },
@@ -208,19 +208,19 @@ export const patchRoutes: Route[] = [
   // ── 华中 · 西安慢住 ──────────────────────────────────────────
   {
     id: 'huazhong-xian-slow',
-    title: '西安 · 慢住两周',
+    title: '西安 · 慢住',
     region: 'huazhong',
     seasons: ['spring', 'autumn'],
     tripType: 'long',
     fromHome: false,
-    daysLabel: '约2–3周',
+    daysLabel: '约10–12天',
     transport:
       '北京西/丰台高铁至西安北约4.5–5.5小时，或直飞咸阳机场；市区地铁+打车；结束后高铁或飞回北京',
-    budgetLabel: '对照月预算约2万（含往返分摊）',
+    budgetLabel: '本趟约8000–14000元（含往返分摊；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1200',
     summary:
-      '以城墙内或大雁塔附近为慢住基地，每天最多一馆一寺。兵马俑排一日快看；华山仅缆车上下、按体力决定。春秋最舒适。结束后高铁或飞回北京。',
+      '城墙内/雁塔电梯房为锚：市区安顿与空白→城墙/陕历博→兵马俑一日→华山缆车可选；约十到十二日，不垫三周空日。',
     whyFast:
       '兵马俑与华山（缆车）各作一日快览；市区博物馆、城墙、回民街以慢游为主。',
     researchKeywords: [
@@ -258,14 +258,14 @@ export const patchRoutes: Route[] = [
       {
         id: 'xian-base',
         name: '西安市区（慢住基地）',
-        days: 12,
+        days: 6,
         pace: 'slow',
         lat: 34.341,
         lng: 108.94,
         summary:
-          '近地铁电梯酒店，城墙骑行/步行选一段，陕西历史博物馆预约参观，下午回酒店歇。',
+          '近地铁电梯酒店：回民街浅逛、永兴坊/公园空白穿插；不垫十二日空转。',
         tips:
-          '高铁或飞机均可；行李多优先直飞。回民街浅逛尝小吃，别空腹久站。每周留空白日喝茶、逛永兴坊或公园。春秋花粉与沙尘偶发，备口罩。回京订高铁夜宿或白天飞均可。',
+          '高铁或飞机均可；行李多优先直飞。回民街别空腹久站。春秋花粉与沙尘偶发，备口罩。',
         image:
           'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
       },

@@ -272,47 +272,69 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
   },
 
   'huazhong-xian-slow': {
-    introduction:
-      '北京西/丰台高铁至西安北约 4.5–5.5 小时，或直飞咸阳机场；行李多优先飞机。以城墙内或大雁塔附近为慢住基地两到三周：每天最多一馆一寺，下午回酒店歇。回民街浅逛尝小吃，别空腹久站；每周留空白日喝茶、逛公园。对照月预算约两万。\n\n城墙选南门一段走或骑即可，不必环全城。陕历博须提前预约，空调足，细看半日。市区节奏留给生活感，别排成景点清单。\n\n兵马俑排一日早场：优先一号坑，二、三号坑按体力；累了坐观光车。别跟低价团塞华清池连环。园区大但平地多，穿舒适鞋、带水。\n\n华山仅可选：西峰或北峰索道上下，短走观景台看景。勿夜爬、勿赶长空栈道；大风常停运，停运即改市区休息日。有明显不适建议放弃华山——索道是选项，不是必选项。\n\n结束后高铁或飞回北京，回京前留一日休整再出发下一段。',
-    seasonGuide:
-      '春秋最舒适。夏季正午闷热，博物馆与城墙改早晚；冬季干冷，短途仍可。沙尘与花粉偶发，备口罩。华山索道遇大风停运属常态，出发前查官方公告。',
-    notices: [
-      '高铁约 4.5–5.5 小时或直飞；市区地铁+打车，少天天换酒店。',
-      '陕历博须官网/小程序预约；城墙走南门一段即可。',
-      '兵马俑旺季早场，优先一号坑；别跟团硬塞华清池。',
-      '华山只坐缆车、短走观景台；勿夜爬、勿赶长空栈道。',
-      '索道大风停运即改市区休息日，别硬等硬上。',
-      '回民街浅逛，每周留空白日；春秋备口罩防沙尘/花粉。',
-      '对照月预算约 2 万（含往返分摊）。',
-      '结束后高铁或飞回北京；回京前留一日休整。',
-    ],
-    gallery: [
+    summary:
+      '城墙内或大雁塔慢住约十到十二日，每天最多一馆一寺。兵马俑一日快看；华山仅缆车短停、可删。不垫三周空日。结束后高铁或飞回北京。',
+    daysLabel: '约10–12天',
+    stops: [
       {
-        url: 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1200',
-        caption: '西安 · 慢住两周 · 封面景色',
+        id: 'xian-base',
+        name: '西安市区（慢住基地）',
+        days: 6,
+        pace: 'slow',
+        lat: 34.341,
+        lng: 108.94,
+        summary:
+          '近地铁电梯酒店：回民街浅逛、永兴坊/公园空白穿插；不垫十二日空转。',
+        tips:
+          '高铁或飞机均可；行李多优先直飞。回民街别空腹久站。春秋花粉与沙尘偶发，备口罩。',
+        image:
+          'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
       },
       {
-        url: 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
-        caption: '西安市区（慢住基地）',
-        stopId: 'xian-base',
+        id: 'city-wall-museum',
+        name: '城墙 + 陕历博',
+        days: 2,
+        pace: 'slow',
+        lat: 34.266,
+        lng: 108.947,
+        summary:
+          '城墙平地可走可骑，选南门一段即可；陕历博空调足、电梯有，适合细看半日。',
+        tips:
+          '陕历博须提前预约（以官网/小程序为准）。城墙骑行顺时针走一段下城，不必环全城。夏天正午热，春秋最舒服。',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800',
       },
       {
-        url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800',
-        caption: '城墙 + 陕历博',
-        stopId: 'city-wall-museum',
+        id: 'terracotta',
+        name: '兵马俑（一日快看）',
+        days: 1,
+        pace: 'fast',
+        lat: 34.385,
+        lng: 109.278,
+        summary:
+          '一早进一号坑看主阵，二、三号坑按体力选看；馆内平地多，可租讲解器。',
+        tips:
+          '官网或正规渠道预约，旺季早场。园区大，优先一号坑；累了坐观光车往返停车场。别跟低价团赶华清池连环，体力留给主坑。带水、穿舒适鞋。',
+        image:
+          'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?w=800',
       },
       {
-        url: 'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?w=800',
-        caption: '兵马俑（一日快看）',
-        stopId: 'terracotta',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800',
-        caption: '华山缆车（可选1日）',
-        stopId: 'huashan-optional',
+        id: 'huashan-optional',
+        name: '华山缆车（可选1日）',
+        days: 1,
+        pace: 'fast',
+        lat: 34.483,
+        lng: 110.086,
+        summary:
+          '西峰或北峰索道上下，只走索道站附近平缓段看景；恐高、膝踝不适、大风天气勿上。',
+        tips:
+          '华山陡峭，腿脚好也建议只坐缆车、短走观景台，勿夜爬、勿赶长空栈道。索道常因大风停运，出发前查官方公告；停运即改市区休息日。备薄外套、防滑鞋；有明显不适建议放弃。结束后当日返西安，次日休整后再回京。',
+        image:
+          'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800',
       },
     ],
   },
+
 };
 
 export const routeFieldPatches: Record<string, Partial<Route>> = {
@@ -427,12 +449,13 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
 
   'huazhong-xian-slow': {
     summary:
-      '城墙内或大雁塔慢住两到三周，每天最多一馆一寺。兵马俑一日快看；华山仅缆车短停、可删。结束后高铁或飞回北京。',
+      '城墙内或大雁塔慢住约十到十二日，每天最多一馆一寺。兵马俑一日快看；华山仅缆车短停、可删。不垫三周空日。结束后高铁或飞回北京。',
+    daysLabel: '约10–12天',
     stops: [
       {
         id: 'xian-base',
         name: '西安市区（慢住基地）',
-        days: 12,
+        days: 6,
         pace: 'slow',
         lat: 34.341,
         lng: 108.94,

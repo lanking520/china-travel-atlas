@@ -104,14 +104,14 @@ export const patchRoutes: Route[] = [
     seasons: ['spring', 'autumn'],
     tripType: 'long',
     fromHome: false,
-    daysLabel: '约2–3周',
+    daysLabel: '约10–14天',
     transport:
       '北京飞桂林两江，市区打车；漓江游船磨盘山/竹江码头接驳；阳朔租电动车或包车；结束飞回北京',
-    budgetLabel: '对照月预算约2万（含机票与船票）',
+    budgetLabel: '本趟约8000–14000元（含机票与船票；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=1200',
     summary:
-      '春秋漓江最舒服：桂林歇两日适应，再坐星级游船顺流到阳朔，之后在峰林田园慢住。遇龙河竹筏、西街浅逛按体力选；龙脊梯田另排，别塞进同一周。',
+      '春秋漓江：桂林歇两三日→星级游船顺流阳朔→峰林田园慢住约一周，不垫三周空日。月租级见 base-guilin。',
     whyFast:
       '漓江游船一日完成桂林→阳朔转移；遇龙河竹筏半日快览，其余时间田园慢住。',
     researchKeywords: [
@@ -171,14 +171,14 @@ export const patchRoutes: Route[] = [
       {
         id: 'yangshuo-slow',
         name: '阳朔（慢住）',
-        days: 10,
+        days: 7,
         pace: 'slow',
         lat: 24.778,
         lng: 110.496,
         summary:
-          '遇龙河沿线或兴坪民宿，骑电动车逛十里画廊，西街傍晚浅逛。留下白日发呆的时间。',
+          '遇龙河沿线或兴坪民宿：竹筏/画廊选段 + 西街浅逛 + 空白穿插；不垫十日无活动日。',
         tips:
-          '电动车选助力缓速，雨天不骑；山路弯多备晕车药。遇龙河竹筏选短段即可，过坝有颠簸，腰椎不好可改骑行看景。西街夜市人挤，早去早撤。暑热与黄金周避开；春秋最宜长住。',
+          '电动车选助力缓速，雨天不骑；山路弯多备晕车药。遇龙河竹筏选短段即可，过坝有颠簸，腰椎不好可改骑行看景。西街夜市人挤，早去早撤。暑热与黄金周避开；春秋最宜。更长慢居走 base-guilin。',
         image:
           'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
       },
@@ -193,14 +193,14 @@ export const patchRoutes: Route[] = [
     seasons: ['spring', 'autumn'],
     tripType: 'long',
     fromHome: false,
-    daysLabel: '约2–3周（或压缩1–2周）',
+    daysLabel: '约8–12天',
     transport:
       '北京飞重庆江北，市区地铁+轻轨+打车；武隆高铁或包车一日/过夜；结束飞回北京',
-    budgetLabel: '对照月预算约2万；1–2周版约7000–12000元',
+    budgetLabel: '本趟约7000–12000元（含机票分摊；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
     summary:
-      '山城用腿也用轨：解放碑、李子坝轻轨穿楼、南山看江景，坡道多但可分段歇。火锅选清汤或微辣。武隆天生三桥作可选快看——电梯下坑，不必硬爬完。',
+      '山城用腿也用轨：解放碑、李子坝、南山分段歇，主城约一周够充实，不垫三周空日。武隆天生三桥可选一日。',
     whyFast:
       '武隆天生三桥一日快览（电梯+核心桥段），主城以慢走与轨道交通为主。',
     researchKeywords: [
@@ -232,14 +232,14 @@ export const patchRoutes: Route[] = [
       {
         id: 'chongqing-base',
         name: '重庆主城（慢走基地）',
-        days: 10,
+        days: 6,
         pace: 'slow',
         lat: 29.563,
         lng: 106.552,
         summary:
-          '住解放碑或江北嘴电梯酒店，轻轨看山城，洪崖洞外观夜景，磁器口浅逛即可。',
+          '住解放碑或江北嘴电梯酒店：轻轨看山城、洪崖洞外观、磁器口浅逛；隔日空白，不垫十日空转。',
         tips:
-          '山城台阶多，路线用地铁/轻轨拆段，一天一个片区。李子坝观景平台人多，错开早晚高峰。火锅选清油微辣，备肠胃药；脚力好再加鹅岭或长江索道。雨天路面滑，穿防滑鞋。1–2周版把基地压到6–8天。',
+          '山城台阶多，路线用地铁/轻轨拆段，一天一个片区。李子坝观景平台人多，错开早晚高峰。火锅选清油微辣，备肠胃药；脚力好再加鹅岭或长江索道。雨天路面滑，穿防滑鞋。',
         image:
           'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
       },
@@ -280,14 +280,14 @@ export const patchRoutes: Route[] = [
     seasons: ['spring', 'autumn'],
     tripType: 'long',
     fromHome: false,
-    daysLabel: '约2–3周',
+    daysLabel: '约10–12天',
     transport:
       '北京飞贵阳龙洞堡，市区打车/地铁；黄果树高速约1.5–2小时或跟团；镇远/黔东南高铁或包车；结束飞回北京',
-    budgetLabel: '对照月预算约2万（含机票与景区观光车）',
+    budgetLabel: '本趟约8000–14000元（含机票与景区观光车；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
     summary:
-      '贵阳当大本营：气候温凉、吃饭看病方便。黄果树用观光车+扶梯看大瀑布；另线选镇远古城慢走，或黔东南侗寨浅访——两线勿硬拼一周。春秋最宜，夏湿冬阴冷。',
+      '贵阳大本营数日+黄果树+镇远/黔东南二选一；不垫三周空日。月租级见 base-guiyang。',
     whyFast:
       '黄果树一日（或过夜）快看大瀑布；镇远与黔东南二选一，其余时间贵阳休整。',
     researchKeywords: [
@@ -319,14 +319,14 @@ export const patchRoutes: Route[] = [
       {
         id: 'guiyang-base',
         name: '贵阳（慢住基地）',
-        days: 8,
+        days: 5,
         pace: 'slow',
         lat: 26.647,
         lng: 106.63,
         summary:
-          '住观山湖或喷水池附近电梯酒店，黔味酸汤鱼、丝娃娃，花溪或公园散步恢复体力。',
+          '观山湖或喷水池电梯酒店：黔味浅尝、花溪/公园散步；为黄果树与黔东留体力，不垫八日空转。',
         tips:
-          '贵阳多雨阴凉，薄羽绒或抓绒常备。辣椒重，点菜说「微辣」或「免辣」。每天一个轻松点，为黄果树与黔东留体力。近贵州医科大学附属医院更安心。',
+          '贵阳多雨阴凉，薄羽绒或抓绒常备。辣椒重，点菜说「微辣」或「免辣」。每天一个轻松点。近贵州医科大学附属医院更安心。更长慢居走 base-guiyang。',
         image:
           'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
       },
@@ -347,7 +347,7 @@ export const patchRoutes: Route[] = [
       {
         id: 'zhenyuan-or-qiandongnan',
         name: '镇远古城或黔东南（二选一）',
-        days: 4,
+        days: 3,
         pace: 'slow',
         lat: 27.049,
         lng: 108.43,

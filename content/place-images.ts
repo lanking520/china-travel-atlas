@@ -150,8 +150,7 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'manting-park', // 曼听无专用 Commons → 版纳同城示意
   'menghai-day-optional', // 勐海日归 ↔ 普洱茶题材示意（非错省）
   'mengla-buffer-optional', // 勐腊缓冲 ↔ 勐仑植物园同廊
-  // hekou-sapa soft
-  'hks-kunming-buffer', // 昆明缓冲无专用 → 河口同廊衔接示意
+  // hekou-sapa soft（昆明缓冲已升 Kunming.jpg）
   'hks-border-crossing', // 口岸通关 ↔ 河口老码头同城动线示意
   'hks-return-hekou', // 返回河口 ↔ 河口主图同城
   // famous stitch soft
@@ -301,7 +300,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'xibei-xinjiang-kashi': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
   'compose-beijiang-sayram-kanas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
   'leg-kanas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
-  'leg-sayram-lake': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+  'leg-sayram-lake': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E8%BF%9C%E6%99%AF%EF%BC%8C%E6%91%84%E4%BA%8E%E6%B9%96%E7%95%94%E5%B1%B1%E4%B8%98.jpg/1280px-%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E8%BF%9C%E6%99%AF%EF%BC%8C%E6%91%84%E4%BA%8E%E6%B9%96%E7%95%94%E5%B1%B1%E4%B8%98.jpg',
   'compose-nanjiang-kuqa-kashi':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
   'base-kashi':
@@ -401,7 +400,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'leg-qingdao-coast':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
   'leg-qingdao-laoshan':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Laoshan_rocky_beach_near_taiqing_gong.jpg/1280px-Laoshan_rocky_beach_near_taiqing_gong.jpg',
   'yunnan-g214-shangri-la-taste':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Roofs_of_Shangri-La_Old_Town_1.JPG/1280px-Roofs_of_Shangri-La_Old_Town_1.JPG',
   // famous stitch 20260802 (new ids)
@@ -475,7 +474,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'chengde-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg/1280px-Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg',
   'changli-goldcoast': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Beidaihe_panorama_from_the_south.jpg/1280px-Beidaihe_panorama_from_the_south.jpg',
   'jimo-oldtown': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
-  'laoshan-yangkou': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+  'laoshan-yangkou': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Laoshan_rocky_beach_near_taiqing_gong.jpg/1280px-Laoshan_rocky_beach_near_taiqing_gong.jpg',
   'ls-dali-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
   'ls-erhai-days': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
   'ls-cangshan-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
@@ -606,7 +605,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'mengla-buffer-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg/1280px-Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg',
   'hks-kunming-buffer':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hekou%2C_Yunnan%2C_China.jpg/1280px-Hekou%2C_Yunnan%2C_China.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
   'hks-hekou-base':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hekou%2C_Yunnan%2C_China.jpg/1280px-Hekou%2C_Yunnan%2C_China.jpg',
   'hks-hekou-wharf':

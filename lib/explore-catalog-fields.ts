@@ -10,8 +10,9 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
 
   'huabei-neimeng-summer': {
     fromHome: false,
+    daysLabel: '约10–14天',
     summary:
-      '北京直飞海拉尔，以城区为慢住基地两三周：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
+      '北京直飞海拉尔，以城区为慢住基地约十到十四日：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。不垫三周空日。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
   },
 
   'compose-shandong-qingdao-yantai': {
@@ -150,19 +151,20 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
 
   'huazhong-xian-slow': {
     summary:
-      '城墙内或大雁塔慢住两到三周，每天最多一馆一寺。兵马俑一日快看；华山仅缆车短停、可删。结束后高铁或飞回北京。',
+      '城墙内或大雁塔慢住约十到十二日，每天最多一馆一寺。兵马俑一日快看；华山仅缆车短停、可删。不垫三周空日。结束后高铁或飞回北京。',
+    daysLabel: '约10–12天',
     stops: [
       {
         id: 'xian-base',
         name: '西安市区（慢住基地）',
-        days: 12,
+        days: 6,
         pace: 'slow',
         lat: 34.341,
         lng: 108.94,
         summary:
-          '近地铁电梯酒店，城墙骑行/步行选一段，陕西历史博物馆预约参观，下午回酒店歇。',
+          '近地铁电梯酒店：回民街浅逛、永兴坊/公园空白穿插；不垫十二日空转。',
         tips:
-          '高铁或飞机均可；行李多优先直飞。回民街浅逛尝小吃，别空腹久站。每周留空白日喝茶、逛永兴坊或公园。春秋花粉与沙尘偶发，备口罩。回京订高铁夜宿或白天飞均可。',
+          '高铁或飞机均可；行李多优先直飞。回民街别空腹久站。春秋花粉与沙尘偶发，备口罩。',
         image:
           'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
       },
@@ -218,8 +220,9 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
   },
   'huanan-guilin-yangshuo': {
     themes: ['famous-scenic'],
+    daysLabel: '约10–14天',
     summary:
-      '飞两江。桂林米粉歇脚后漓江顺流至阳朔慢住：十里画廊缓骑、竹筏短段，壮瑶田园点到为止。春秋最宜，对照月预算约两万，结束后飞回北京。',
+      '飞两江。桂林米粉歇脚后漓江顺流至阳朔慢住约一周：十里画廊缓骑、竹筏短段。不垫三周空日；月租见 base-guilin。春秋最宜，结束后飞回北京。',
   },
   'xinan-sichuan-leshan-emei': {
     themes: ['famous-scenic'],
@@ -242,8 +245,10 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
   },
   'xinan-chengdu-slow': {
     transport: '北京飞成都双流/天府机场，市区地铁+打车；结束飞回北京',
+    daysLabel: '约10–12天',
     summary:
-      '成都平原地势平、节奏慢，大熊猫基地、人民公园喝茶、博物馆空调足。每天1–2个景点，下午回酒店歇。飞进飞出北京，对照月预算约2万。',
+      '平原慢住约十到十二日：安顿→茶馆/博物馆→宽窄浅逛→空白；熊猫与都江堰各一日可删。不垫三周空日。',
+    budgetLabel: '本趟约8000–14000元（含机票分摊；双人）',
   },
   'xinan-dujiangyan-2d': {
     summary:
@@ -354,10 +359,12 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
   },
 
   'qingzang-qinghai-lake': {
+    daysLabel: '约6–8天',
     summary:
-      '西宁（约 2260 米）先适应 2–3 日，再包车青海湖（湖面约 3200 米）。环湖拆段看，不赶全日骑行。强日照与高反须重视，结束后飞回北京。',
+      '西宁（约 2260 米）先适应 2–3 日，再包车青海湖选段（湖面约 3200 米）。不垫两周空日；更短浅段见 leg-xining-qinghai-lake。结束后飞回北京。',
     transport:
       '飞西宁曹家堡，市区适应后再包车环湖（优先于自驾）；二郎剑等景区限流须预约；结束后飞回北京',
+    budgetLabel: '本趟约5000–9000元（含机票与包车；双人）',
   },
 
   'qingzang-xining-3d': {

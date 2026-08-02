@@ -165,8 +165,9 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
   },
   'huanan-guilin-yangshuo': {
     themes: ['famous-scenic'],
+    daysLabel: '约10–14天',
     summary:
-      '飞两江。桂林米粉歇脚后漓江顺流至阳朔慢住：十里画廊缓骑、竹筏短段，壮瑶田园点到为止。春秋最宜，对照月预算约两万，结束后飞回北京。',
+      '飞两江。桂林米粉歇脚后漓江顺流至阳朔慢住约一周：十里画廊缓骑、竹筏短段，壮瑶田园点到为止。不垫三周空日；月租见 base-guilin。春秋最宜，结束后飞回北京。',
   },
   'xinan-sichuan-leshan-emei': {
     themes: ['famous-scenic'],
@@ -187,8 +188,10 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
   },
   'xinan-chengdu-slow': {
     transport: '北京飞成都双流/天府机场，市区地铁+打车；结束飞回北京',
+    daysLabel: '约10–12天',
     summary:
-      '成都平原地势平、节奏慢，大熊猫基地、人民公园喝茶、博物馆空调足。每天1–2个景点，下午回酒店歇。飞进飞出北京，对照月预算约2万。',
+      '平原慢住约十到十二日：安顿→茶馆/博物馆→宽窄浅逛→空白；熊猫与都江堰各一日可删。不垫三周空日。',
+    budgetLabel: '本趟约8000–14000元（含机票分摊；双人）',
   },
   'xinan-dujiangyan-2d': {
     summary:

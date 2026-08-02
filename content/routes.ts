@@ -1057,21 +1057,21 @@ export const routes: Route[] = [
   // ── 西南 · 成都慢住 ──────────────────────────────────────────
   {
     id: 'xinan-chengdu-slow',
-    title: '成都 · 平原慢住两周',
+    title: '成都 · 平原慢住',
     region: 'xinan',
     seasons: ['spring', 'autumn'],
     tripType: 'long',
     fromHome: false,
-    daysLabel: '约2–3周',
+    daysLabel: '约10–12天',
     transport: '飞成都双流/天府机场，市区地铁+打车',
-    budgetLabel: '对照月预算约2万（含机票分摊）',
+    budgetLabel: '本趟约8000–14000元（含机票分摊；双人）',
     coverImage:
       'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
     summary:
-      '成都平原地势平、节奏慢，大熊猫基地、人民公园喝茶、博物馆空调足。每天1–2个景点，下午回酒店歇。',
-    whyFast: '熊猫基地与都江堰各排一日快览；市区以慢游为主，宽窄巷子浅逛即可。',
+      '平原慢住不垫三周空日：安顿→茶馆/博物馆→宽窄浅逛→空白穿插；熊猫与都江堰各一日可删。月租级见长居/川西组合另卡。',
+    whyFast: '熊猫基地与都江堰各排一日快览；宽窄巷子半日浅逛即可。',
     researchKeywords: [
-      '成都 慢游 两周 退休',
+      '成都 慢游 退休',
       '成都 熊猫基地 攻略',
       '成都 宽窄巷子 人民公园',
     ],
@@ -1091,15 +1091,50 @@ export const routes: Route[] = [
     ],
     stops: [
       {
-        id: 'chengdu-base',
-        name: '成都市区（慢游基地）',
-        days: 10,
+        id: 'chengdu-settle',
+        name: '抵达安顿',
+        days: 2,
         pace: 'slow',
         lat: 30.659,
         lng: 104.065,
-        summary: '选一环内电梯酒店，人民公园喝盖碗茶，成都博物馆吹空调看展。',
-        tips:
-          '宽窄巷子、锦里宜上午9点前或傍晚浅逛，人多即撤。饮食选清淡——豆花、抄手，少辣。每天下午留3小时回酒店午睡。',
+        summary: '一环内电梯酒店放稳行李；近药店超市踩点，不赶景点。',
+        tips: '饮食选清淡——豆花、抄手，少辣。每天下午留午睡。',
+        image:
+          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+      },
+      {
+        id: 'chengdu-tea-museum',
+        name: '人民公园与博物馆',
+        days: 3,
+        pace: 'slow',
+        lat: 30.66,
+        lng: 104.06,
+        summary: '盖碗茶半日、成都博物馆/永陵择一空调看展；隔日空白。',
+        tips: '每天最多一个主点；人多即撤。',
+        image:
+          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+      },
+      {
+        id: 'chengdu-kuanzhai',
+        name: '宽窄/锦里浅逛',
+        days: 2,
+        pace: 'slow',
+        lat: 30.67,
+        lng: 104.05,
+        summary: '上午9点前或傍晚浅逛一段；看够即回，不钻满每条巷。',
+        tips: '石板湿滑穿防滑鞋；备肠胃药。',
+        image:
+          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+      },
+      {
+        id: 'chengdu-blank',
+        name: '空白休整',
+        days: 2,
+        pace: 'slow',
+        lat: 30.659,
+        lng: 104.065,
+        summary: '强制空白：洗衣补货、公园散步，不加点。',
+        tips: '可穿插在茶馆日与熊猫日之间。',
         image:
           'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
       },

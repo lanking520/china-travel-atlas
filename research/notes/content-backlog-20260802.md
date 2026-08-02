@@ -37,14 +37,16 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 - [ ] **Image query optimization** — better place-image matching; fix wrong / soft / 404; prefer verified Wikimedia Commons; improve lookup scripts/pipeline; no Unsplash-as-attraction for covers/stops
   - *2026-08-02 wave:* 长春/海口/呼市 **错城 soft 已纠**（延吉/三亚湾/呼伦贝尔 → 长春天际线+南湖 / 世纪桥+骑楼 / 大召）；`PLACE_SOFT_IDS` 收缩；`resolve-place-images.py` FILES 同步。仍 open：乐亭/左云 blocked、qiziwan gen、其余同廊 soft
+  - *2026-08-02 re-search:* Commons 仍无适老可用风景（乐亭/月坨/菩提仅地图文书；左云仅教堂/地图；棋子湾无风景）→ **keep soft/gen**
 - [ ] **Regional / attraction character** — each route should convey 地区特色、文化、美食 beyond thin logistics stubs
   - *2026-08-02 wave:* **26** city/famous THIN → `city-character-20260802` detailPatches（文化+饮食 framing；preferRicherText）
+  - *2026-08-02 wave 3:* **30** coverage/prefecture THIN → `coverage-character-20260802`（省会/地市廊：南宁贵阳济南昆明太原等；文化+饮食+notices≥5）
 - [x] **Itinerary density honesty（batch）** — 日喀则浅尝缩短；青海湖/成都 densify-or-shorten；渝桂黔腾冲内蒙厦西安标签与基地天数对齐（喀什 pattern）；华南广州等仍待扫
 - [ ] **逐条精细化补充** — route-by-route enrichment (stops, tips, culture, food, practical), priority famous → city → prefecture
-  - *partial:* 本波 26 城/名景 intros；coverage/prefecture 主体仍待
-- [ ] **Remaining THIN (~55–70 / ~182)** — coverage/prefecture fills, leftover famous-p stubs beyond wave-2 + city-character batch（估：本波约 −20）
-- [ ] **Leftover one-line PG dining** — expand remaining short `dining` lines to 2–4 dishes + 清淡/适老（compose/leg 一批已扩；coverage/prefecture 仍短）
-  - *2026-08-02 wave:* **+41** 城/省会/名景 one-liner → 2–4 菜 + 适老；`<35` 字约 **52** 仍短（估原 ~90+ stub 量级）
+  - *partial:* city-character 26 + coverage-character 30；仍余 leg/compose stubs、部分 famous-p / 高原线
+- [ ] **Remaining THIN (~25–40 / ~182)** — leftover leg/compose thin intros、部分 famous-p / 高原与边境深化以外的浅卡（估：本波 coverage −30）
+- [x] **Leftover one-line PG dining** — expand remaining short `dining` lines to 2–4 dishes + 清淡/适老
+  - *2026-08-02 wave 3:* 清零 `<35`（原 ≈52 → **0**）；全量 hand PG dining ≥35 字
 
 ## Done this stream (2026-08-02)
 
@@ -60,7 +62,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **`base-guilin` / `base-guiyang`** — 三门槛 PASS；nearbyLegs 辐射 demoted legs + 漓江/黔东相关卡
 - [x] Mid NCF deepen: **黄山** / **张家界** / **桂林阳朔**
 - [x] Wave 2 prior: frontier six + prefecture-f + famous THIN slice
-- [x] PG dining batch for many hubs (leftovers remain)
+- [x] PG dining batch for many hubs（`<35` 已清零于 batch 3）
 - [x] **喀什 densify (leg shape)** — `xibei-xinjiang-kashi` → ~4–6天
 - [x] Composition IA note written；南疆/河西/川西 pilots + national batch 1–3 shipped（青藏铁路·林芝·拉萨海拔诚实 + 河口沙巴拆腿）
 - [x] **Duration honesty batch** — `qingzang-shigatse-taste`→约3–4天；`qingzang-qinghai-lake`→约6–8天；`xinan-chengdu-slow` densify→约10–12天；渝/桂/黔/腾冲/内蒙夏/厦/西安 shorten
@@ -69,6 +71,8 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Wrong-city image fixes** — 长春≠延吉、海口≠三亚湾、呼市≠呼伦贝尔；南湖/骑楼/大召 Commons HEAD 200；pipeline FILES 同步
 - [x] **City-character deepen (26)** — 长春/海口/呼市/武汉/长沙/南京/重庆/京城/北戴河/大连/沈阳/福州/泉州/无锡/水乡/版纳/腾冲/呼伦贝尔/伊犁/洛汴/广潮/深圳/兰夏/婺源/宜昌/镇远
 - [x] **PG dining expand batch 2** — +41 coverage/city one-liners → 2–4 dishes + 适老
+- [x] **Coverage-character deepen (30)** — 南宁/贵阳/济南/昆明/太原/哈尔滨夏/常州/南昌/合肥/邯郸/佛山/九华/湖州/宁波/东莞/岳阳/南通/嘉兴/郑州/安阳/北海/焦作/兰州黄河/乌市/侗廊/阿尔山/烟台/苏州县域/镇江/扬州
+- [x] **PG dining expand batch 3** — 清零 `<35`（52→0）
 
 ## Notes
 
@@ -81,6 +85,6 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
 2. Duration-honesty 续扫：广州潮汕、琼西、版纳等仍 2–3周大 blob
-3. Image：残余同廊 soft（乐亭/左云 blocked）+ qiziwan gen + 伪满馆专用照若出现
-4. Remaining famous/coverage THIN + leftover PG dining（`<35` ≈52）
+3. Image：残余同廊 soft（乐亭/左云 blocked）+ qiziwan gen + 伪满馆专用照若出现（本波 re-search 仍无安全 Commons）
+4. Remaining THIN（~25–40）：leg/compose 空/浅 intro、部分高原与名景浅卡
 5. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose

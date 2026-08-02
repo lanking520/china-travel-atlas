@@ -201,4 +201,10 @@ export const routeProvinces: Record<
   'huadong-zhejiang-huzhou': { primary: 'zhejiang' },
   'huazhong-hunan-yueyang': { primary: 'hunan' },
   'huabei-hebei-handan': { primary: 'hebei' },
+  // Prefecture wave 20260802f
+  'huabei-shanxi-yuncheng': { primary: 'shanxi' },
+  'huabei-shanxi-linfen': { primary: 'shanxi' },
+  'huabei-shandong-weifang': { primary: 'shandong' },
+  'huazhong-hubei-jingzhou': { primary: 'hubei' },
+  'huadong-anhui-xuancheng': { primary: 'anhui' },
 };

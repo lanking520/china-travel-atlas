@@ -2,6 +2,12 @@
 /**
  * Generate content/route-details.ts with introduction / seasonGuide / notices / gallery
  * for every route. Safe to re-run; hand-tuned fields in EXTRA below win.
+ *
+ * IMPORTANT (content-quality 2026-08-02): do NOT emit thin stub intros for routes
+ * that already ship rich `introduction`/`notices` in patches (e.g. longstay-*).
+ * Runtime merge in content/index.ts uses preferRicherText / preferRicherNotices
+ * so longer patch copy wins over short details — but stubs still pollute diffs.
+ * Prefer skipping an id, or only writing gallery, when patch intro is already ≥200字.
  */
 import fs from "node:fs";
 import path from "node:path";

@@ -30,7 +30,12 @@
 | 浙江 | 嘉兴 | `huadong-zhejiang-jiaxing`（新建） | multi-discovery wave e |
 | 浙江 | 湖州南浔 | `huadong-zhejiang-huzhou`（新建） | multi-discovery wave e |
 | 湖南 | 岳阳 | `huazhong-hunan-yueyang`（新建） | multi-discovery wave e |
-| 河北 | 邯郸 | `huabei-hebei-handan`（新建；图 soft） | multi-discovery wave e |
+| 河北 | 邯郸 | `huabei-hebei-handan`（新建；丛台图已升） | multi-discovery wave e/f |
+| 山西 | 运城 | `huabei-shanxi-yuncheng`（新建） | [shanxi-yuncheng.md](./shanxi-yuncheng.md) |
+| 山西 | 临汾 | `huabei-shanxi-linfen`（新建） | [shanxi-linfen.md](./shanxi-linfen.md) |
+| 山东 | 潍坊 | `huabei-shandong-weifang`（新建） | [shandong-weifang.md](./shandong-weifang.md) |
+| 湖北 | 荆州 | `huazhong-hubei-jingzhou`（新建） | [hubei-jingzhou.md](./hubei-jingzhou.md) |
+| 安徽 | 宣城/泾县 | `huadong-anhui-xuancheng`（新建） | [anhui-xuancheng.md](./anhui-xuancheng.md) |
 
 关联长居（城市基地，非县域深挖）：见 `research/notes/long-stay-cities-20260802.md`。
 
@@ -39,8 +44,8 @@
 1. ~~**忻州**~~ → 已完成 `huabei-shanxi-xinzhou-county`（2026-08-02e）  
 2. ~~**河南洛阳**（孟津/偃师县域）~~ → 已完成 `huazhong-henan-luoyang-county`（2026-08-02d）  
 3. ~~**晋中**（太谷/祁县与平遥织紧）~~ → 已完成 `huabei-shanxi-pingyao-deep`（2026-08-02 P2）  
-4. **运城 / 临汾**（盐湖/尧庙浅线，父母友好）  
-5. **潍坊**（鲁中城市补线）  
+4. ~~**运城 / 临汾**~~ → 已完成 `huabei-shanxi-yuncheng` / `huabei-shanxi-linfen`（2026-08-02f）  
+5. ~~**潍坊**~~ → 已完成 `huabei-shandong-weifang`（2026-08-02f）  
 
 ## 再下一批（走廊向）
 
@@ -48,8 +53,8 @@
 - ~~江苏：苏州（昆山/常熟日归）~~ → 已完成 `huadong-jiangsu-suzhou-county`  
 - ~~江苏：扬州县域~~ → 已完成 `huadong-jiangsu-yangzhou-county`  
 - ~~云南：大理州（洱源/剑川表格式）~~ → 已完成 `xinan-yunnan-dali-daytrips`（与 `longstay-dali` 分卡）  
-- 湖北：荆州古城浅住  
-- 安徽：宣城/泾县（与黄山分周）  
+- ~~湖北：荆州古城浅住~~ → 已完成 `huazhong-hubei-jingzhou`（2026-08-02f）  
+- ~~安徽：宣城/泾县（与黄山分周）~~ → 已完成 `huadong-anhui-xuancheng`（2026-08-02f）  
 
 ## 暂缓
 

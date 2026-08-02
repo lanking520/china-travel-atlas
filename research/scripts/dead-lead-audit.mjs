@@ -147,6 +147,18 @@ const expectSearch = [
   "南浔",
   "岳阳楼",
   "邯郸",
+  "运城",
+  "盐湖",
+  "关帝庙",
+  "临汾",
+  "广胜寺",
+  "尧庙",
+  "潍坊",
+  "十笏园",
+  "荆州",
+  "查济",
+  "泾县",
+  "宣城",
 ];
 
 const searchReport = {};
@@ -162,7 +174,7 @@ for (const q of expectSearch) {
 const searchMiss = expectSearch.filter((q) => searchReport[q].count === 0);
 const searchNotOnFamous = expectSearch.filter((q) => {
   const r = searchReport[q];
-  return r.count > 0 && r.onFamousChip.length === 0 && ["梵净","荔波","神农架","恩施","西江","肇兴","潮州","平遥","黄果树","武夷","千岛湖","婺源","北海","普陀","开平","九华","武隆","乔家","开封","周庄","沙溪","白马寺","雁门关","高邮","金山寺","阿尔山","殷墟","云台山","南浔","岳阳楼"].includes(q);
+  return r.count > 0 && r.onFamousChip.length === 0 && ["梵净","荔波","神农架","恩施","西江","肇兴","潮州","平遥","黄果树","武夷","千岛湖","婺源","北海","普陀","开平","九华","武隆","乔家","开封","周庄","沙溪","白马寺","雁门关","高邮","金山寺","阿尔山","殷墟","云台山","南浔","岳阳楼","运城","广胜寺","十笏园","荆州","查济"].includes(q);
 });
 
 const out = {
@@ -214,7 +226,7 @@ console.log(JSON.stringify({
   searchMiss: out.searchMiss,
   searchNotOnFamous: out.searchNotOnFamous,
   sampleSearch: Object.fromEntries(
-    ["梵净","开封","周庄","沙溪","孟津","洱源","白马寺","同里"].map((q) => [q, out.searchReport[q]]),
+    ["运城","广胜寺","十笏园","荆州","查济","丛台","濠河"].map((q) => [q, out.searchReport[q]]),
   ),
 }, null, 2));
 console.error(`Wrote ${outPath}`);

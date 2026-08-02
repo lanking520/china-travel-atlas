@@ -606,7 +606,7 @@ export const patchRoutes: Route[] = [
       '北京高铁至南通/南通西；濠河沿线电梯酒店。结束后高铁返京。可作苏北缓冲，勿与上海同日特种兵',
     budgetLabel: '本趟约1500–3000元（高铁+电梯酒店+门票；双人）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Buddhist_temple_on_Wolf_Hill.JPG/1280px-Buddhist_temple_on_Wolf_Hill.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nantong_skyline_flanking_the_Hao_River.jpg/1280px-Nantong_skyline_flanking_the_Hao_River.jpg',
     summary:
       '南通补线：濠河环城平路慢走 + 狼山寺观选段；博物苑室内可选。台阶量力，适合苏北短假。',
     introduction:
@@ -643,7 +643,7 @@ export const patchRoutes: Route[] = [
         summary: '环濠河电梯酒店；平路散步。',
         tips: '游船减步可选。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Haohe_Tour_Bus_Line_at_Haonan_Lu_in_Nantong%2C_Jiangsu%2C_China_20260219.jpg/1280px-Haohe_Tour_Bus_Line_at_Haonan_Lu_in_Nantong%2C_Jiangsu%2C_China_20260219.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nantong_skyline_flanking_the_Hao_River.jpg/1280px-Nantong_skyline_flanking_the_Hao_River.jpg',
       },
       {
         id: 'nt-haohe',
@@ -655,7 +655,7 @@ export const patchRoutes: Route[] = [
         summary: '选一段岸线；勿强求环城。',
         tips: '防晒；长椅多歇。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Haohe_Tour_Bus_Line_at_Haonan_Lu_in_Nantong%2C_Jiangsu%2C_China_20260219.jpg/1280px-Haohe_Tour_Bus_Line_at_Haonan_Lu_in_Nantong%2C_Jiangsu%2C_China_20260219.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/City_of_Nantong_and_the_River_Hao.jpg/1280px-City_of_Nantong_and_the_River_Hao.jpg',
       },
       {
         id: 'nt-langshan',
@@ -950,18 +950,17 @@ export const patchRoutes: Route[] = [
       '北京高铁至邯郸/邯郸东；丛台附近电梯酒店。结束后高铁返京。响堂山日归可选可删，勿与正定同日两城',
     budgetLabel: '本趟约1400–2800元（高铁+电梯酒店+门票；双人）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg/1280px-Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/%E6%AD%A6%E7%81%B5%E4%B8%9B%E5%8F%B0_1.jpg/1280px-%E6%AD%A6%E7%81%B5%E4%B8%9B%E5%8F%B0_1.jpg',
     summary:
       '邯郸冀南补线：丛台公园平地 + 古城街区浅逛；响堂山石窟日归量力可删。填河北南部高铁缺口。',
     introduction:
-      '搜「邯郸」「丛台」应命中本卡。主体平地公园与街区；响堂山台阶多，默认可删。\n\n与石家庄正定分次出门。封面暂用冀中园林同省示意，现场以丛台实景为准。',
+      '搜「邯郸」「丛台」应命中本卡。主体平地公园与街区；响堂山台阶多，默认可删。\n\n与石家庄正定分次出门。',
     seasonGuide:
       '春秋舒适。夏闷热改早晚。冬干冷缩短户外。',
     whyFast: '只丛台半日也成立；响堂可删。',
     notices: [
       '响堂山台阶多，约60默认可删。',
       '勿与正定隆兴寺同日连赶。',
-      '封面为同省示意，非丛台专用照。',
     ],
     researchKeywords: [
       '邯郸 丛台 父母',
@@ -987,7 +986,7 @@ export const patchRoutes: Route[] = [
         summary: '近丛台电梯酒店。',
         tips: '抵达歇脚。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg/1280px-Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/%E9%82%AF%E9%83%B8%E4%B8%9B%E5%8F%B0%E5%85%AC%E5%9B%AD_1.jpg/1280px-%E9%82%AF%E9%83%B8%E4%B8%9B%E5%8F%B0%E5%85%AC%E5%9B%AD_1.jpg',
       },
       {
         id: 'hd-congtai',
@@ -999,7 +998,7 @@ export const patchRoutes: Route[] = [
         summary: '公园平地浅逛；登台量力。',
         tips: '防晒；久站带凳。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg/1280px-Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/%E6%AD%A6%E7%81%B5%E4%B8%9B%E5%8F%B0_1.jpg/1280px-%E6%AD%A6%E7%81%B5%E4%B8%9B%E5%8F%B0_1.jpg',
       },
       {
         id: 'hd-xiangtang-optional',
@@ -1011,7 +1010,7 @@ export const patchRoutes: Route[] = [
         summary: '日归；台阶多默认跳过。',
         tips: '默认可删。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg/1280px-Zhengding_Longxing_Si_2013.08.31_15-50-10.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Xiangtangshan_Southern_Grottoes_17.jpg/1280px-Xiangtangshan_Southern_Grottoes_17.jpg',
       },
     ],
   },

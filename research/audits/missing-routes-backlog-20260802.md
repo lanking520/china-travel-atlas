@@ -1,35 +1,30 @@
-# Missing / thin routes backlog · 2026-08-02（updated after prefecture-wave e）
+# Missing / thin routes backlog · 2026-08-02（updated after prefecture-wave f）
 
-> Catalog size: **159** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
-> Was 148 (post prefecture-d / Explore IA)；**+11 new** this wave.  
+> Catalog size: **164** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
+> Was 159 (post prefecture-e)；**+5 new** this wave（+丛台/濠河图升）。  
 > Legend: **M** = no dedicated route · **T** = thin · **C** = dedicated covered · **D** = discoverability fixed.
 
 ---
 
-## Closed this wave（prefecture e）
+## Closed this wave（prefecture f）
 
 | Item | Status | id |
 |------|--------|-----|
-| 忻州县域 | **C** | `huabei-shanxi-xinzhou-county` |
-| 扬州县域 | **C** | `huadong-jiangsu-yangzhou-county` |
-| 镇江三山 | **C** | `huadong-jiangsu-zhenjiang` |
-| 阿尔山 | **C** | `huabei-neimeng-aershan` |
-| 安阳殷墟 | **C** | `huazhong-henan-anyang` |
-| 焦作云台山 | **C** | `huazhong-henan-jiaozuo` |
-| 南通濠河 | **C** | `huadong-jiangsu-nantong` |
-| 嘉兴南湖/西塘 | **C** | `huadong-zhejiang-jiaxing` |
-| 湖州南浔 | **C** | `huadong-zhejiang-huzhou` |
-| 岳阳楼 | **C** | `huazhong-hunan-yueyang` |
-| 邯郸丛台 | **C**（图 soft） | `huabei-hebei-handan` |
+| 运城盐湖/关帝庙 | **C** | `huabei-shanxi-yuncheng` |
+| 临汾广胜/尧都 | **C** | `huabei-shanxi-linfen` |
+| 潍坊 | **C** | `huabei-shandong-weifang` |
+| 荆州古城 | **C** | `huazhong-hubei-jingzhou` |
+| 宣城/泾县 | **C** | `huadong-anhui-xuancheng` |
+| 邯郸丛台图升 | **D** | `huabei-hebei-handan`（专用 Commons） |
+| 南通濠河图升 | **D** | `huadong-jiangsu-nantong`（岸线风景） |
 
 ---
 
 ## Still open（next）
 
-- **图升**：邯郸丛台专用 Commons；南通濠河岸线风景（现公交廊 soft）  
-- **地级再挖**：运城/临汾、潍坊、皖南宣城、湖北荆州等（见 `research/notes/prefecture-depth/backlog.md`）  
 - **走廊浅段**：G210 非延安段（低优先）  
-- shortlist 仍「待评估」且未立项：天津海河加深、阿尔山已 C、景德镇独立（刻意并入婺源廊）等  
+- shortlist 仍「待评估」且未立项：天津海河加深、景德镇独立（刻意并入婺源廊）等  
+- 地级再挖：见 `research/notes/prefecture-depth/backlog.md`（本批晋南/鲁中/荆州/宣城已关）  
 
 ---
 

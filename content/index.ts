@@ -28,6 +28,7 @@ import { patchRoutes as famousP120260802Routes } from './patches/routes-famous-p
 import { patchRoutes as famousP220260802Routes } from './patches/routes-famous-p2-20260802';
 import { patchRoutes as prefectureWave20260802dRoutes } from './patches/routes-prefecture-wave-20260802d';
 import { patchRoutes as prefectureWave20260802eRoutes } from './patches/routes-prefecture-wave-20260802e';
+import { patchRoutes as prefectureWave20260802fRoutes } from './patches/routes-prefecture-wave-20260802f';
 import {
   applyRouteFieldPatches,
   getMergedRouteDetails,
@@ -55,6 +56,33 @@ function withProvince(route: Route): Route {
     primaryProvince: map.primary,
     provinces: [map.primary, ...(map.also ?? [])],
   };
+}
+
+/**
+ * Prefer longer non-empty copy so thin `route-details` stubs cannot clobber
+ * richer patch / route intros (see longstay-* overwrite in content-quality audit).
+ */
+function preferRicherText(
+  detail?: string,
+  route?: string,
+): string | undefined {
+  const d = detail?.trim() ?? '';
+  const r = route?.trim() ?? '';
+  if (!d) return route;
+  if (!r) return detail;
+  return d.length >= r.length ? detail : route;
+}
+
+function preferRicherNotices(
+  detail?: string[],
+  route?: string[],
+): string[] | undefined {
+  const d = detail?.filter(Boolean) ?? [];
+  const r = route?.filter(Boolean) ?? [];
+  if (d.length === 0) return route;
+  if (r.length === 0) return detail;
+  if (d.length !== r.length) return d.length > r.length ? detail : route;
+  return d.join('').length >= r.join('').length ? detail : route;
 }
 
 /** 基线路 + 各省补丁（按 id 去重）+ 审核补丁 + 详情文案 + 省份 */
@@ -90,6 +118,7 @@ export const routes: Route[] = (() => {
     ...famousP220260802Routes,
     ...prefectureWave20260802dRoutes,
     ...prefectureWave20260802eRoutes,
+    ...prefectureWave20260802fRoutes,
   ]) {
     map.set(r.id, r);
   }
@@ -100,9 +129,15 @@ export const routes: Route[] = (() => {
     const withDetail = detail
       ? {
           ...patched,
-          introduction: detail.introduction ?? patched.introduction,
-          seasonGuide: detail.seasonGuide ?? patched.seasonGuide,
-          notices: detail.notices ?? patched.notices,
+          introduction: preferRicherText(
+            detail.introduction,
+            patched.introduction,
+          ),
+          seasonGuide: preferRicherText(
+            detail.seasonGuide,
+            patched.seasonGuide,
+          ),
+          notices: preferRicherNotices(detail.notices, patched.notices),
           // Place-image layer overwrites wrong Unsplash galleries below.
           gallery: detail.gallery ?? patched.gallery,
           practicalGuide: detail.practicalGuide ?? patched.practicalGuide,

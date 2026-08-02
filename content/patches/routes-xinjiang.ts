@@ -303,6 +303,97 @@ export const patchRoutes: Route[] = [
     ],
   },
   {
+    id: 'base-kashi',
+    title: '喀什 · 丝路慢居枢纽',
+    region: 'xibei',
+    seasons: ['spring', 'autumn'],
+    tripType: 'long',
+    compositionKind: 'base',
+    themes: ['long-stay'],
+    fromHome: false,
+    daysLabel: '约三四周',
+    nearbyLegs: [
+      'xibei-xinjiang-kashi',
+      'leg-kuqa-canyon',
+      'compose-nanjiang-kuqa-kashi',
+    ],
+    transport:
+      '直飞或经乌市转喀什；市区电梯短租连住。周边短线包车/打车；库车方向经阿克苏过夜，单日车程≤5小时。段末喀什或乌市飞回北京。',
+    budgetLabel:
+      '对照月预算约1.5–2.5万（短租电梯房+机票+每周1–2次包车/短线；双人）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+    summary:
+      '以南疆喀什为慢居基地（本地有三甲、机场与市区商超）：固定电梯短租；周边辐射「喀什老城短线」、可选「库车峡谷」过夜短线，或串「南疆组合长线」。景点正文在各短线。',
+    introduction:
+      '把喀什当「丝路第二居所」而不是两周特种兵：固定电梯短租，先熟悉地区三甲医院、超市与老城外围平路，再按周展开周边短线。干燥、强日照与温差是日常课题——润唇膏、防晒帽与早晚外套比口罩更常用。\n\n长居三门槛诚实对照：① 交通——喀什机场直飞/经乌市转，市区包车；无高铁。② 物资——地州首府级商超菜市场与药店够撑约一个月日常，品牌/专科药深度弱于乌市昆明。③ 医疗——喀什地区第一人民医院为三甲；高难度专科仍建议下撤乌鲁木齐三甲。\n\n周边短线不复述景点正文：市内气质走「喀什·老城与帕米尔」短线（帕米尔一日默认可删）；东行库车峡谷经阿克苏过夜（单日≤5小时），见「库车」短线；若想一次走满人文走廊，点「南疆·库车喀什」组合长线（阿克苏只 glue）。每周至少两天完全空白。不环塔、不挑战独库。',
+    seasonGuide:
+      '春秋最宜慢居（干爽、少极热）。夏季极热须早晚出门、多空白；冬季干冷可缩户外、以市区散步为主。高原/帕米尔日看天气与通行证。',
+    notices: [
+      '长居门槛：本地三甲+机场+市区商超达标；专科深度弱于省会，复杂病症预留乌市下撤。',
+      '短租先试住一周再续；问清电梯、热水与退租规则。',
+      '周边短线见 nearbyLegs；景点细节只在各短线卡片。',
+      '库车方向经阿克苏过夜，勿一日硬赶；疲劳多留空白。',
+      '帕米尔/边境通行与证件出行前核实；不适立即下撤。',
+      '清真餐饮区；水果洗净；段末预留弹性回程机票。',
+    ],
+    researchKeywords: [
+      '喀什 长住 父母',
+      '喀什 短租 电梯',
+      '喀什 周边 库车',
+      '南疆 慢居',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：喀什',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%96%80%E4%BB%80',
+        kind: 'other',
+        note: '进出、气候与老城节奏概览，已改写',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-kashi-base',
+        name: '喀什慢居基地（市区电梯短租）',
+        days: 18,
+        pace: 'slow',
+        lat: 39.468,
+        lng: 75.994,
+        summary:
+          '固定电梯短租，熟悉超市、医院与老城外围散步；每周至少两天完全空白。',
+        tips: '优先市区安静带，少搬运行李。近地区医院更安心。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+      },
+      {
+        id: 'ls-kashi-local-days',
+        name: '老城选段分散日归',
+        days: 6,
+        pace: 'slow',
+        lat: 39.472,
+        lng: 75.984,
+        summary:
+          '把艾提尕尔外观、高台远眺、巴扎浅逛拆进多周；细节见短线 xibei-xinjiang-kashi。',
+        tips: '人多即撤；台阶多随时歇。勿一日特种兵。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Id_Kah_Mosque_Kashgar.jpg/1280px-Id_Kah_Mosque_Kashgar.jpg',
+      },
+      {
+        id: 'ls-kashi-overnight-optional',
+        name: '库车过夜短线（可选）',
+        days: 3,
+        pace: 'slow',
+        lat: 41.718,
+        lng: 82.962,
+        summary:
+          '经阿克苏缓冲东行库车峡谷观光车半日；见 leg-kuqa-canyon。疲劳则整段删。',
+        tips: '单日车程≤5小时；可改订南疆组合长线一次走完。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+      },
+    ],
+  },
+  {
     id: 'xibei-xinjiang-turpan',
     title: '吐鲁番 · 火焰山葡萄沟短住',
     region: 'xibei',

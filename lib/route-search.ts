@@ -39,6 +39,15 @@ function haystackForRoute(route: Route): string {
   const region =
     getRegionById(route.region)?.name ?? REGION_SHORT[route.region] ?? "";
 
+  const compositionBits =
+    route.compositionKind === "leg"
+      ? "短线 leg"
+      : route.compositionKind === "compose"
+        ? "长线 compose"
+        : route.compositionKind === "base"
+          ? "长居 base"
+          : "";
+
   const parts = [
     route.id,
     route.title,
@@ -51,6 +60,9 @@ function haystackForRoute(route: Route): string {
     ...(route.themes ?? []),
     seasonLabels,
     TRIP_TYPE_LABELS[route.tripType],
+    compositionBits,
+    route.compositionKind ?? "",
+    ...(route.legIds ?? []),
     region,
     route.region,
     stopBits,

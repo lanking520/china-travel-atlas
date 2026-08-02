@@ -63,17 +63,40 @@ Do **not** duplicate stop text inside every compose.
 | --- | --- | --- |
 | `compose-nanjiang-kuqa-kashi` *(evolves today’s `xibei-xinjiang-south`)* | kuqa → aksu overnight → kashi | single-day drive ≤5h; no ring-Tarim; rest days between legs |
 
-### Base (later)
+### Base (pilot)
 
-| id | Radiates |
-| --- | --- |
-| future `base-kashi` or link from longstay if any | `xibei-xinjiang-kashi`, Pamir day as optional leg |
+| id | Radiates | Hub bar |
+| --- | --- | --- |
+| `base-kashi` | `xibei-xinjiang-kashi`, `leg-kuqa-canyon`, `compose-nanjiang-kuqa-kashi` | 机场+市区物资+本地三甲（地区一院）；专科下撤乌市 |
 
-### Pilot status (20260802 later session)
+### Pilot status (20260802)
 
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
+- Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: Explore compose timeline UX; `base-kashi` / longstay `nearbyLegs`; national long→compose migration.
+- Still open: Explore compose timeline / compositionKind chips; national long→compose migration; second corridor pilot.
+
+## Second corridor sketch (notes only — not migrated)
+
+### Option A — 河西 `xibei-dunhuang-zhangye`（已分段感强，优先）
+
+| Proposed leg | Role | Days |
+| --- | --- | --- |
+| `leg-dunhuang-mogao` *(extract)* | 莫高预约 + 鸣沙浅尝 | ~4–7 |
+| `leg-jiayuguan-buffer` *(thin or glue)* | 嘉峪关过夜缓冲 | 1–2 |
+| `leg-zhangye-danxia` *(extract)* | 七彩丹霞观光车 | ~2–3 |
+| Compose `compose-hexi-dunhuang-zhangye` | ordered legs + glue（敦煌→嘉峪关→张掖，单日≤4–5h） | ~2–3周 |
+
+### Option B — 川西 `xinan-chuanxi-slow`（高反诚实优先）
+
+| Proposed leg | Role | Days |
+| --- | --- | --- |
+| `leg-chengdu-adapt` | 平原适应/回撤锚 | 2–3 |
+| `leg-xinduqiao-view` | 新都桥观景浅停（约3300m） | ~2 |
+| `leg-daocheng-optional` | 稻城/亚丁高可选·默认可删 | ~3 |
+| Compose | 成都→新都桥→（可选亚丁）→下撤成都；glue=车程与高反政策 | 约10天–2周 |
+
+Do **not** national-migrate until one of A/B ships like 南疆.
 
 ## What NOT to do
 
@@ -81,9 +104,11 @@ Do **not** duplicate stop text inside every compose.
 - Copy-paste 艾提尕尔 / 峡谷 paragraphs into every compose.
 - Force every longstay to become a compose (bases stay place-first).
 - Block image / culture / dining backlog on schema work.
+- Ship new `base` / `longstay` that fails 交通/物资/三甲 without honesty caveats.
 
 ## Success criteria for pilot
 
 - Parent can book **only 喀什 4–6 天** without reading a 2–3 week corridor.
 - Parent who wants南疆走廊 sees the same喀什 leg embedded, not a second conflicting write-up.
+- Parent who wants约一个月喀什慢居 finds `base-kashi` + nearbyLegs, not a padded long corridor.
 - Catalog count may rise (more legs) while **unique stop prose** does not double.

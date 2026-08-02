@@ -293,6 +293,8 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'xibei-xinjiang-north': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
   'compose-nanjiang-kuqa-kashi':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+  'base-kashi':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
   'leg-kuqa-canyon':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
   'xibei-xinjiang-turpan': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Grape_Valley.jpg/1280px-Grape_Valley.jpg',

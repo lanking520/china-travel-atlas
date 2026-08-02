@@ -236,6 +236,33 @@ export default async function RouteDetailPage({
           </section>
         ) : null}
 
+        {route.nearbyLegs && route.nearbyLegs.length > 0 ? (
+          <section className="mt-10 rounded-2xl border border-teal-200 bg-teal-50 p-6">
+            <h2 className="text-2xl font-bold text-teal-950">周边短线</h2>
+            <p className="mt-2 text-base text-teal-800">
+              从本枢纽可辐射的交通方便短线 / 过夜日归 / 可选组合长线；景点正文在各卡。
+            </p>
+            <ul className="mt-4 list-disc space-y-3 pl-6 text-lg text-teal-950">
+              {route.nearbyLegs.map((legId) => {
+                const leg = getRouteById(legId);
+                return (
+                  <li key={legId}>
+                    <Link
+                      href={`/routes/${legId}`}
+                      className="font-semibold text-teal-900 underline-offset-2 hover:underline"
+                    >
+                      {leg?.title ?? legId}
+                    </Link>
+                    {leg?.daysLabel ? (
+                      <span className="text-teal-700"> · {leg.daysLabel}</span>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ) : null}
+
         <section id="guide" className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50 p-6">
           <h2 className="text-2xl font-bold text-sky-950">路线指南</h2>
           <p className="mt-2 text-base text-sky-700">

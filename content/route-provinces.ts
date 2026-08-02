@@ -80,6 +80,7 @@ export const routeProvinces: Record<
   'compose-nanjiang-kuqa-kashi': { primary: 'xinjiang' },
   'leg-kuqa-canyon': { primary: 'xinjiang' },
   'xibei-xinjiang-kashi': { primary: 'xinjiang' },
+  'base-kashi': { primary: 'xinjiang' },
   'xibei-xinjiang-turpan': { primary: 'xinjiang' },
   'xibei-xinjiang-duku': { primary: 'xinjiang' },
   'qingzang-qinghai-lake': { primary: 'qinghai' },

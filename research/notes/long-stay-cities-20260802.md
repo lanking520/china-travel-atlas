@@ -2,9 +2,32 @@
 
 > 面向北京约60父母、私家车、月预算心态约2万、慢居后回京。  
 > 筛选：**空气相对清新** + **周边自然/日归丰富**；避开雾霾核心作主基地。  
+> **站立门槛（所有 `longstay-*` / `compositionKind: base` 必须对照）**：  
+> 1. **交通便利** — 机场 / 高铁 / 高速等进出可靠  
+> 2. **生活物资丰富** — 约一个月日常采购与药店可本地解决  
+> 3. **医疗资源丰富** — **优先本地三甲**；仅有二甲/县医院须诚实写明并给出可下撤三甲  
 > 证据：`multi-discovery/*` + Wikivoyage/文旅；非 XHS 门禁。
 
-## 入选（8）
+## 门槛审计（20260802）
+
+| id | 交通 | 物资 | 三甲 | 总评 |
+|----|------|------|------|------|
+| `longstay-kunming` | 长水+地铁 | 省会级 | 本地多所三甲 | **PASS**（最强） |
+| `longstay-dali` | 机场/高铁 | 州市级够用 | 州内两所三甲 | **PASS** |
+| `longstay-weihai` | 机场+高铁 | 地级市够用 | 市立三甲；青岛可下撤 | **PASS** |
+| `longstay-dujiangyan` | 借成都机场+城际 | 县城够日常 | 本地三甲；华西专科下撤 | **PASS** |
+| `longstay-hulunbuir` | 海拉尔机场 | 城住够；草原无 | 市人民医院三甲 | **PASS**（仅夏；须城住） |
+| `longstay-hainan-east` | 环岛高铁+两端机场 | 琼海/万宁够 | **优先琼海三甲**；海口专科 | **PASS**（锚琼海） |
+| `longstay-yangshuo` | 经桂林进出 | 镇区中等 | **本地无三甲**→桂林下撤 | **CAVEAT** |
+| `longstay-zhenyuan` | 高铁便利 | 县城偏薄 | **本地无三甲**→贵阳下撤 | **CAVEAT / rethink** |
+| `base-kashi` | 机场（无高铁） | 地州首府够一月 | 地区一院三甲；乌市专科 | **PASS + caveat**（专科/气候/距京） |
+
+### Rethink 队列
+
+- **`longstay-zhenyuan`**：空气/江城气质仍好，但三甲与物资弱于门槛主叙事；保留卡须持续醒目告警，或未来改短线/并入贵阳枢纽辐射。
+- **`longstay-yangshuo`**：山水强、本地医疗弱；适合「能接受桂林下撤」的家庭，不适合作无医疗顾虑的首选月租。
+
+## 入选（8 + pilot base）
 
 | id | 基地 | 空气/自然理由 | 季节 | 月预算粗估（双人） |
 |----|------|---------------|------|-------------------|
@@ -14,8 +37,9 @@
 | `longstay-weihai` | 威海 | 胶东空气口碑海岸；刘公岛/成山头日归 | 夏秋 | 1.3–1.8万 |
 | `longstay-hulunbuir` | 海拉尔锚 | 盛夏通透草原；城住+日归 | 仅夏 | 1.8–2.2万 |
 | `longstay-dujiangyan` | 都江堰 | 成都平原**西缘**相对清新；青城前山/熊猫日归 | 春秋 | 1.4–1.9万 |
-| `longstay-zhenyuan` | 镇远 | 夏凉江城；舞阳河；医疗弱须能下撤贵阳 | 春夏秋 | 1.2–1.7万 |
+| `longstay-zhenyuan` | 镇远 | 夏凉江城；舞阳河；**医疗弱须能下撤贵阳** | 春夏秋 | 1.2–1.7万 |
 | `longstay-hainan-east` | 琼海/万宁 | 非暑期湿润海岸；人少于三亚核心 | 冬春秋 | 1.5–2万 |
+| `base-kashi` | 喀什 | 丝路西端气质；`nearbyLegs` 辐射库车/南疆组合 | 春秋 | 1.5–2.5万 |
 
 ## 评估后未作主推
 
@@ -27,9 +51,12 @@
 
 ## UI
 
-Explore 首页快捷芯片 **「长居推荐」**（theme=`long-stay`）；详情页青绿标签同名。
+Explore 首页快捷芯片 **「长居推荐」**（theme=`long-stay`）；详情页青绿标签同名。  
+`base` 详情：实用指南优先 +「周边短线」自 `nearbyLegs`。
 
 ## 产品文件
 
 - `content/patches/routes-long-stay.ts`  
+- `content/patches/routes-xinjiang.ts`（`base-kashi`）  
 - `content/route-provinces.ts` / `content/practical-guides.ts`  
+- IA：`content-route-composition-ia-20260802.md`  

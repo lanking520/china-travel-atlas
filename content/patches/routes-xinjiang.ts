@@ -103,10 +103,10 @@ export const patchRoutes: Route[] = [
       '飞库车或乌市转南疆；库车→阿克苏→喀什分段，单日车程≤5小时。边境县需提前了解通行政策。结束后喀什或乌市飞回北京。',
     budgetLabel: '对照月预算约2万（含机票与包车/租车）',
     coverImage:
-      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
     summary:
-      '南疆古城与峡谷慢看：库车天山神秘大峡谷、阿克苏休整、喀什老城与香妃墓。夏酷冬冷，春秋更稳；不赶环塔特种兵。',
-    whyFast: '大峡谷观光车半日；喀什老城半日慢走即可。',
+      '南疆古城与峡谷慢看：库车天山神秘大峡谷、阿克苏休整，喀什以艾提尕尔/老城/巴扎两日为主（勿空垫到四五天）。夏酷冬冷，春秋更稳；不赶环塔。',
+    whyFast: '大峡谷观光车半日；喀什两日够看，香妃墓可半日或删。',
     researchKeywords: [
       '南疆 自驾 攻略',
       '库车 喀什 路线',
@@ -137,7 +137,7 @@ export const patchRoutes: Route[] = [
         summary: '天山神秘大峡谷观光车为主；市区休整补水。',
         tips: '夏季极热，早晚出游；防晒补水。峡谷内少爬台阶。',
         image:
-          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
       },
       {
         id: 'aksu-rest',
@@ -149,39 +149,46 @@ export const patchRoutes: Route[] = [
         summary: '长车程缓冲站，电梯酒店休息，不硬加点。',
         tips: '水果丰富注意清洗；留空白日。',
         image:
-          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Aksu_City.jpg/1280px-Aksu_City.jpg',
       },
       {
         id: 'kashi-old',
         name: '喀什古城',
-        days: 4,
+        days: 2,
         pace: 'slow',
         lat: 39.468,
         lng: 75.994,
-        summary: '老城街巷与巴扎慢逛，避开正午暴晒。',
-        tips: '尊重宗教习俗；部分巷弄台阶多，量力。返程机票提前定。',
+        summary:
+          '艾提尕尔广场外观、老城选段巷弄与东门一带巴扎；两日够看，勿硬排五天空转。细节见独立「喀什」短线。',
+        tips:
+          '尊重宗教习俗与安检；巷弄台阶多量力。正午歇酒店，早晚出门。返程机票提前定。',
         image:
-          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
       },
     ],
   },
   {
     id: 'xibei-xinjiang-kashi',
-    title: '喀什 · 帕米尔浅尝',
+    title: '喀什 · 老城与帕米尔浅尝',
     region: 'xibei',
     seasons: ['summer', 'autumn'],
     tripType: 'short',
     fromHome: false,
-    daysLabel: '约5–8天',
+    daysLabel: '约4–6天',
     transport:
-      '直飞或经乌市转喀什；白沙湖/卡拉库里可包车一日或两日，高原路段量力。结束后飞回北京。',
-    budgetLabel: '本趟约4000–8000元（机票浮动大）',
+      '直飞或经乌市转喀什；市区打车/包车。白沙湖/卡拉库里可选包车一日（高原路段量力，默认可删）。结束后飞回北京。',
+    budgetLabel: '本趟约3500–7000元（机票浮动大；含可选帕米尔日）',
     coverImage:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
     summary:
-      '喀什慢住加帕米尔观景台浅尝，不挑战独库或全线环塔。注意海拔、证件与天气窗口。',
-    whyFast: '白沙湖观景台即可，不上长徒步。',
-    researchKeywords: ['喀什 帕米尔 攻略', '白沙湖 卡拉库里', '喀什 老年 旅行'],
+      '丝路西端气质：艾提尕尔、高台民居外观、巴扎与抓饭酸奶；帕米尔观景台一日可选。市区约三到四天够充实，不垫空日；不挑战独库或环塔。',
+    whyFast: '帕米尔整段可删；香妃墓可改半日或跳过。',
+    researchKeywords: [
+      '喀什 老城 慢游',
+      '艾提尕尔 高台民居',
+      '白沙湖 卡拉库里 一日',
+      '喀什 老年 旅行',
+    ],
     sources: [
       {
         title: 'Wikivoyage：喀什',
@@ -193,27 +200,53 @@ export const patchRoutes: Route[] = [
     stops: [
       {
         id: 'kashi-stay',
-        name: '喀什市区',
-        days: 3,
+        name: '喀什市区慢住',
+        days: 1.5,
         pace: 'slow',
         lat: 39.468,
         lng: 75.994,
-        summary: '适应作息、老城浅逛，再决定是否上高原观景。',
-        tips: '有高原不适史可只留市区。备常用药与防晒。',
+        summary: '电梯酒店安顿、适应时差与干燥；傍晚老城外围平地散步即可。',
+        tips: '备防晒、润唇膏与常用药；勿抵达当日赶景。',
         image:
-          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+      },
+      {
+        id: 'kashi-idkah',
+        name: '艾提尕尔与老城选段',
+        days: 1.5,
+        pace: 'slow',
+        lat: 39.472,
+        lng: 75.984,
+        summary:
+          '艾提尕尔清真寺广场外观（礼仪与开放以现场为准）、高台民居外观远眺、选一两段石巷慢走。',
+        tips: '尊重宗教场所；台阶多随时歇。人多即撤，不钻满每条巷。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Id_Kah_Mosque_Kashgar.jpg/1280px-Id_Kah_Mosque_Kashgar.jpg',
+      },
+      {
+        id: 'kashi-bazaar-xiangfei',
+        name: '巴扎与香妃墓（半日级）',
+        days: 1,
+        pace: 'slow',
+        lat: 39.49,
+        lng: 76.02,
+        summary:
+          '东门/中西亚巴扎一带浅逛买果干；香妃墓（阿帕克霍加麻扎）半日外观+院落即可。',
+        tips: '巴扎防暑补水，少久站；香妃墓体力紧可整段删。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
       },
       {
         id: 'baisha-lake',
         name: '白沙湖/卡拉库里（可选）',
-        days: 2,
+        days: 1,
         pace: 'fast',
         lat: 38.6,
         lng: 75.0,
-        summary: '包车观景台拍照即返，不安排高强度徒步。',
-        tips: '海拔明显升高：头痛呕吐立即下撤。通行证政策以出行前核实为准。',
+        summary: '包车观景台看慕士塔格与湖景即返，不上长徒步；高原不适史默认删除。',
+        tips: '海拔明显升高：头痛呕吐立即下撤。通行证与天气出行前核实。',
         image:
-          'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg/1280px-Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg',
       },
     ],
   },

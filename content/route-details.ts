@@ -601,61 +601,61 @@ export const routeDetails: Record<string, RouteDetailFields> = {
   },
   'xibei-xinjiang-south': {
     introduction:
-      '南疆古城与峡谷慢看：库车天山神秘大峡谷、阿克苏缓冲休整、喀什老城与巴扎。不赶环塔特种兵，适合愿意分段走、每天留空白的北京退休父母。\n\n飞库车或乌市转南疆；库车→阿克苏→喀什拆开，单日车程≤5小时。夏酷冬冷，春秋更稳；边境县通行政策出行前核实。\n\n大峡谷以观光车半日为主；喀什老城半日慢走即可，避开正午暴晒。结束后喀什或乌市飞回北京。',
+      '南疆人文走廊按「短线串起来」走：库车看峡谷两三天 → 阿克苏电梯酒店缓冲过夜 → 喀什老城与巴扎约两天（详见独立「喀什·老城与帕米尔」短线，勿在走廊里再空垫四五天）。不环塔特种兵。\n\n飞库车或乌市转南疆；单日车程≤5小时。夏酷冬冷，春秋更稳；边境通行政策出行前核实。大峡谷以观光车半日为主；喀什尊重宗教习俗与安检，正午歇、早晚逛。\n\n吃抓饭少油、酸奶与清汤面；水果洗净。结束后喀什或乌市飞回北京。对照月预算约两万。',
     seasonGuide:
-      '更适合：春季、秋季。相对不主推：夏季、冬季（仍可去，但体验或体力负担可能更重）。出发前查看当地气温、风雨与景区开放公告；极端天气果断改期或缩短户外。',
+      '主推春秋。夏季极热须早晚出门；冬季干冷缩短户外。极端天气缩短当日车程或改期。',
     notices: [
-      '行程约2–3周：库车→阿克苏缓冲→喀什，不环塔硬赶。',
-      '交通：飞库车或乌市转；单日≤5小时；结束喀什或乌市回京。',
-      '库车大峡谷：观光车为主，少爬台阶；夏季早晚出游，防晒补水。',
-      '阿克苏：长车程缓冲站，电梯酒店休息，不硬加点。',
-      '喀什老城：尊重宗教习俗；部分巷弄台阶多，量力；返程机票提前定。',
-      '饮食注意清洗水果；穆斯林餐饮区回避猪肉。',
-      '票务、证件与通行政策以当地官方公告为准。',
+      '约2–3周走廊：库车段 + 阿克苏缓冲 + 喀什约2日（可挂接独立喀什短线）。',
+      '飞库车或乌市转；单日≤5小时；不环塔硬赶。',
+      '库车大峡谷：观光车为主，少爬台阶；防晒补水。',
+      '阿克苏只作缓冲过夜，不硬加点。',
+      '喀什两日够看；细节与帕米尔可选项见喀什专线。',
+      '清真餐饮区；水果洗净；证件与通行以官方为准。',
+      '结束后喀什或乌市飞回北京。',
     ],
     gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
         caption: '南疆 · 库车喀什人文走廊 · 封面景色',
       },
       {
-        url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-        caption: '库车 · 天山神秘大峡谷',
-        stopId: 'kuqa',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-        caption: '喀什古城',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+        caption: '喀什古城（走廊末段约两日）',
         stopId: 'kashi-old',
       },
     ],
   },
   'xibei-xinjiang-kashi': {
     introduction:
-      '喀什慢住加帕米尔观景台浅尝：先市区适应作息、老城浅逛，再决定是否包车上看白沙湖/卡拉库里。不挑战独库或全线环塔。\n\n直飞或经乌市转喀什；高原路段量力，观景台拍照即返，不上长徒步。有高原不适史可只留市区。\n\n注意海拔、证件与天气窗口；结束后飞回北京。适合身体尚可、愿短途加餐的北京退休父母。',
+      '喀什是丝路西端的城市气质，不是「住满五天空转酒店」。约四到六天短线：抵达歇半日→艾提尕尔广场外观与老城选段、高台民居远眺→巴扎浅逛与香妃墓半日→帕米尔白沙湖/卡拉库里观景台一日可选（高原不适史默认删）。不挑战独库或环塔。\n\n直飞或经乌市转喀什；市区电梯酒店连住。宗教场所遵守礼仪与安检；巷弄台阶多随时歇，人多即撤。日照强备帽与润唇膏。\n\n吃抓饭少油、烤包子浅尝、酸奶与清汤面保底；少生冷油炸烧烤。结束后飞回北京。本趟约三千五到七千（机票浮动大）。',
     seasonGuide:
-      '更适合：夏季、秋季。相对不主推：春季、冬季（仍可去，但体验或体力负担可能更重）。出发前查看当地气温、风雨与景区开放公告；极端天气果断改期或缩短户外。',
+      '主推夏末秋初：户外可走、帕米尔窗口相对稳。春季风沙、冬季干冷仍可只逛市区。高原日看天气与通行证；不适立即下撤。',
     notices: [
-      '行程约5–8天：喀什市区慢住 + 帕米尔观景可选。',
-      '交通：直飞或经乌市转喀什；白沙湖/卡拉库里包车一日或两日。',
-      '预算：本趟约4000–8000元（机票浮动大）。',
-      '市区先适应；有高原不适史可取消上山段。',
-      '白沙湖/卡拉库里：观景台即可；头痛呕吐立即下撤。',
-      '通行证与边境通行政策出行前核实。',
-      '备常用药与防晒；结束后飞回北京休整。',
+      '约4–6天：市区充实安排，不垫空日；帕米尔整段可删。',
+      '直飞或乌市转喀什；白沙湖/卡拉库里最多包车一日。',
+      '预算约3500–7000元（含可选帕米尔）。',
+      '艾提尕尔以广场外观与开放规定为准；尊重宗教习俗。',
+      '巴扎少久站；香妃墓半日或删。',
+      '高原：观景台即返；头痛呕吐立即下撤。',
+      '证件与边境通行出行前核实；结束后飞回北京。',
     ],
     gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
-        caption: '喀什 · 帕米尔浅尝 · 封面景色',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+        caption: '喀什 · 老城与帕米尔浅尝 · 封面景色',
       },
       {
-        url: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-        caption: '喀什市区',
-        stopId: 'kashi-stay',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Id_Kah_Mosque_Kashgar.jpg/1280px-Id_Kah_Mosque_Kashgar.jpg',
+        caption: '艾提尕尔与老城选段',
+        stopId: 'kashi-idkah',
       },
       {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+        caption: '巴扎与香妃墓',
+        stopId: 'kashi-bazaar-xiangfei',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg/1280px-Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg',
         caption: '白沙湖 / 卡拉库里（可选）',
         stopId: 'baisha-lake',
       },

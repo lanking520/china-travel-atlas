@@ -433,7 +433,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
 export const PLACE_STOP_IMAGES: Record<string, string> = {
   'aksu-rest': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Aksu_City.jpg/1280px-Aksu_City.jpg',
   'badaguan': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Badaguan.jpg/1280px-Badaguan.jpg',
-  'baisha-lake': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Karakul_Lake_%28Xinjiang%29.jpg/1280px-Karakul_Lake_%28Xinjiang%29.jpg',
+  'baisha-lake': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg/1280px-Mt_Kongur_Lake_Karakul_Xinjiang_China.jpg',
   'beidaihe-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Beidaihe_panorama_from_the_south.jpg/1280px-Beidaihe_panorama_from_the_south.jpg',
   'beiji-village': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Beijicun.jpg/1280px-Beijicun.jpg',
   'beiling-park': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Zhao_Mausoleum_%28Beiling_Park%29.jpg/1280px-Zhao_Mausoleum_%28Beiling_Park%29.jpg',
@@ -581,6 +581,10 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'kanas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
   'kashi-old': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
   'kashi-stay': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
+  'kashi-idkah':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Id_Kah_Mosque_Kashgar.jpg/1280px-Id_Kah_Mosque_Kashgar.jpg',
+  'kashi-bazaar-xiangfei':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
   'kuitun-buffer': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Karamay.jpg/1280px-Karamay.jpg',
   'kunming-transfer': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
   'kuqa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',

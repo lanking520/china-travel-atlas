@@ -713,7 +713,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '经桂林飞京',
     ],
     sightsTips: '· 游船在正规票点购票。\n· 竹筏湿滑量力，可改电瓶车看画廊。',
-    dining: '啤酒鱼适量；清蒸河鲜；少油炸；备雨具。',
+    dining: '桂菜适老：桂林原汤米粉（少油少卤）、清蒸漓江鱼/河鲜、荔浦芋浅尝；啤酒鱼适量，酿皮与田园青菜清淡吃。少油炸烧烤，备雨具与肠胃药。',
     longStay: '阳朔稍离西街的电梯民宿；复杂就医转桂林三甲。',
     hospitals: [
       { name: '桂林医学院附属医院', level: '三甲', area: '桂林', note: '请用高德核实' },
@@ -733,7 +733,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
     ],
     sightsTips:
       '· 索道与天梯排队长，错峰工作日。\n· 玻璃栈道恐高可整段删除。\n· 防滑鞋必带。',
-    dining: '少油辣；清蒸鱼与青菜；山上简餐别久等。',
+    dining: '湘西适老：清汤米粉、土家腊肉浅尝、三下锅分餐少油；点微辣或免辣。山上简餐别久等，酒店附近清蒸鱼与青菜更稳。',
     longStay: '景区门口或武陵源电梯酒店连住，减少每日通勤。',
     hospitals: [
       { name: '张家界市人民医院', level: '三甲', area: '张家界市区', note: '请用高德核实' },
@@ -751,7 +751,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D4–5：休整或加汤口半日→返京',
     ],
     sightsTips: '· 只做索道+短段步道。\n· 山上温差大备外套。\n· 宏村石板防滑。',
-    dining: '徽菜少油重；清汤面与时蔬；山上简餐即可。',
+    dining: '徽菜适老：黄山烧饼趁热、一品锅少油分餐、毛豆腐浅尝；臭鳜鱼点清蒸/少油版。清汤面与时蔬保底，山上简餐即可，少油重硬吃。',
     longStay: '优先屯溪或汤口电梯酒店；山顶住可选但父母睡眠优先山下。',
     hospitals: [
       { name: '黄山市人民医院', level: '三甲', area: '屯溪', note: '请用高德核实' },
@@ -910,7 +910,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D2（可选）：本地慢走或返成都基地',
     ],
     sightsTips: '· 都江堰台阶段可坐观光车接驳。\n· 青城只前山。',
-    dining: '清汤火锅/豆花；少麻辣油烟。',
+    dining: '都江堰适老：清汤火锅/豆花、抄手少油；少麻辣油烟。景区日简餐即可。',
     longStay: '可挂在成都慢住线下的短途；都江堰住电梯酒店亦可。',
     hospitals: [
       { name: '都江堰市人民医院', level: '三级', area: '都江堰', note: '请用高德核实' },
@@ -1015,16 +1015,19 @@ export const practicalGuides: Record<string, PracticalGuide> = {
   },
   'xibei-xinjiang-kashi': {
     routeGuide:
-      '飞乌鲁木齐中转或直飞喀什→老城周边电梯酒店→高台民居外观与艾提尕尔浅访→香妃墓半日→帕米尔方向仅作可选且高原风险高默认删。注意安检与证件。\n\n可跳过：塔县深度、夜间巴扎久逛。',
+      '直飞或乌市转喀什→电梯酒店连住→艾提尕尔广场+老城选段+高台外观→巴扎/香妃墓半日级→帕米尔观景台一日可选（默认删）。不钻满巷、不垫空日。\n\n可跳过：帕米尔、香妃墓、夜间巴扎久逛、塔县深度。',
     timePlan: [
-      'D1–2：抵达适应、老城外围散步',
-      'D3：艾提尕尔 + 老城浅逛',
-      'D4：香妃墓或空白',
-      'D5：按体力补点或返乌飞京',
+      'D1：抵达歇脚、老城外围散步',
+      'D2：艾提尕尔 + 老城选段 + 高台外观',
+      'D3：巴扎浅逛 ± 香妃墓半日',
+      'D4（可选）：白沙湖/卡拉库里一日或空白返程',
+      'D5–6：缓冲或飞回北京',
     ],
-    sightsTips: '· 遵守安检与宗教场所礼仪。\n· 强日照防晒。\n· 高原段约60默认不排。',
-    dining: '抓饭少油；酸奶与清汤面；少生冷。',
-    longStay: '喀什市电梯酒店；不在牧区逐日换住。',
+    sightsTips:
+      '· 遵守安检与宗教场所礼仪。\n· 强日照防晒、润唇膏。\n· 帕米尔高原段默认不排；不适立即下撤。',
+    dining:
+      '喀什适老：抓饭少油、烤包子浅尝、酸奶与清汤面保底；果干适量洗净。少生冷油炸烧烤；肠胃弱改清淡面粥。',
+    longStay: '喀什市电梯酒店连住；不在牧区逐日换住。复杂就医转乌鲁木齐三甲。',
     hospitals: [
       { name: '喀什地区第一人民医院', level: '三甲', area: '喀什', note: '请用高德核实' },
       { name: '新疆医科大学第一附属医院', level: '三甲', area: '乌鲁木齐', note: '下撤；请用高德核实' },
@@ -1040,7 +1043,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返乌飞京',
     ],
     sightsTips: '· 出行前查路况与限行。\n· 备薄羽绒与防晒。\n· 高原反应不适立即折返。',
-    dining: '清淡面食；少油腻；多温水。',
+    dining: '独库适老：清淡面食、抓饭少油；少油腻烧烤。山路日简餐，多温水。',
     longStay: '低海拔城镇电梯酒店；不上山过夜。',
     hospitals: [
       { name: '克拉玛依市独山子人民医院', level: '综合医院', area: '独山子', note: '就近；请用高德核实' },
@@ -1074,7 +1077,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '不适即留成都空白后飞京',
     ],
     sightsTips: '· 备血氧仪与常用药。\n· 不安排长徒步。\n· 雨雪封路服从交管。',
-    dining: '清淡川菜少麻辣；粥面为主。',
+    dining: '川西慢住适老：清淡川菜少麻辣、豆花抄手；粥面为主。少油烟火锅。',
     longStay: '成都电梯酒店为锚；山区不住高海拔民宿。',
     hospitals: [
       { name: '四川大学华西医院', level: '三甲', area: '成都', note: '请用高德核实' },
@@ -1122,7 +1125,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D3（可选）：明仕或南宁空白后飞京',
     ],
     sightsTips: '· 瀑布观景台防滑。\n· 晒强备帽。\n· 竹筏可改电瓶车。',
-    dining: '清淡壮家菜；少生冷；备温水。',
+    dining: '德天适老：清淡壮家菜、米饭青菜；少生冷河鲜。备温水，简餐即可。',
     longStay: '大新或崇左短住电梯酒店；复杂就医回南宁。',
     hospitals: [
       { name: '广西医科大学第一附属医院', level: '三甲', area: '南宁', note: '请用高德核实' },
@@ -1190,7 +1193,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D3：空白或返程',
     ],
     sightsTips: '· 强日照防晒。\n· 索道恐高可改平路。\n· 门票以景区当日为准。',
-    dining: '清淡宁菜；少油腻羊杂过量。',
+    dining: '沙坡头适老：清淡宁菜、手抓羊肉浅尝；少羊杂过量。清汤面多温水。',
     longStay: '中卫市区电梯酒店；景区不住蒙古包连轴。',
     hospitals: [
       { name: '中卫市人民医院', level: '三甲', area: '中卫', note: '请用高德核实' },
@@ -1313,7 +1316,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D4–6：按体力补点或返哈飞京',
     ],
     sightsTips: '· 玄武岩路面防滑。\n· 温差大备外套。\n· 腿脚紧只车览。',
-    dining: '矿泉区清淡餐；少油炸。',
+    dining: '五大连池适老：矿泉区清淡炖菜、清汤面；少油炸冷饮。多温水。',
     longStay: '景区或镇上电梯酒店连住。',
     hospitals: [
       { name: '哈尔滨医科大学附属第一医院', level: '三甲', area: '哈尔滨', note: '下撤；请用高德核实' },
@@ -1399,7 +1402,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D3：空白或返京',
     ],
     sightsTips: '· 海风凉备外套。\n· 紫外线强防晒。\n· 乐园排队约60默认删。',
-    dining: '海鲜清蒸；少生冷；控盐。',
+    dining: '珠海适老：海鲜清蒸、烧腊浅尝；白粥青菜保底。少生冷，控盐。',
     longStay: '香洲情侣路附近电梯酒店。',
     hospitals: [
       { name: '中山大学附属第五医院', level: '三甲', area: '香洲', note: '请用高德核实' },
@@ -1432,7 +1435,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D3：按体力补点或下山返程',
     ],
     sightsTips: '· 索道与开放以景区为准。\n· 石阶防滑。\n· 高原感不强仍防疲劳。',
-    dining: '山门清淡餐；少油腻；多温水。',
+    dining: '武当适老：山门清淡餐、素面青菜；少油腻辛辣。金顶日简餐，多温水。',
     longStay: '山下或太子坡电梯/少台阶住宿。',
     hospitals: [
       { name: '十堰市太和医院', level: '三甲', area: '十堰', note: '请用高德核实' },
@@ -1466,7 +1469,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D5–7：空白或返京',
     ],
     sightsTips: '· 盆地湿气备薄外套。\n· 寺庙台阶量力。\n· 县域只日归。',
-    dining: '热米皮少辣；菜豆腐；清淡面。',
+    dining: '汉中适老：热米皮少辣、菜豆腐；清淡面与青菜保底。少油腻。',
     longStay: '汉台区电梯酒店连住。',
     hospitals: [
       { name: '汉中市中心医院', level: '三甲', area: '汉中', note: '请用高德核实' },
@@ -1482,7 +1485,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D3–4：按计划接青海湖或返京',
     ],
     sightsTips: '· 防高反：慢动少酒。\n· 强日照防晒。\n· 晚上早睡。',
-    dining: '清淡面食；少饮酒；多温水。',
+    dining: '西宁三日适老：清淡面食、酸奶浅尝；少饮酒油腻。多温水，勿暴食。',
     longStay: '西宁市区电梯酒店；海拔适应优先。',
     hospitals: [
       { name: '青海大学附属医院', level: '三甲', area: '西宁', note: '请用高德核实' },
@@ -1499,7 +1502,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京',
     ],
     sightsTips: '· 陵区风沙防晒。\n· 沙湖码头量力。\n· 干燥多饮水。',
-    dining: '手抓羊肉浅尝；清汤面；少油。',
+    dining: '宁夏短途适老：手抓羊肉浅尝、清汤面；少油羊杂过量。多温水。',
     longStay: '兴庆区电梯酒店连住。',
     hospitals: [
       { name: '宁夏医科大学总医院', level: '三甲', area: '银川', note: '请用高德核实' },
@@ -1516,7 +1519,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D4–5：返乌或接南疆',
     ],
     sightsTips: '· 极端干热防晒补水。\n· 遗址石板防滑。\n· 午睡避暑。',
-    dining: '拌面少油；葡萄洗净；少生冷。',
+    dining: '吐鲁番适老：拌面少油、烤包子浅尝；葡萄洗净控量。少生冷油炸。',
     longStay: '吐鲁番市区电梯酒店；中午回房。',
     hospitals: [
       { name: '吐鲁番市人民医院', level: '三甲', area: '吐鲁番', note: '请用高德核实' },
@@ -1605,17 +1608,17 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'xibei-xinjiang-south': {
     routeGuide:
-      '飞库车或乌市转南疆：库车天山神秘大峡谷以观光车半日为主→阿克苏电梯酒店缓冲→喀什老城与巴扎半日慢走。不环塔特种兵；单日车程 ≤5 小时。夏酷冬冷，春秋更稳；边境通行政策出行前核实。\n\n可跳过：大峡谷台阶硬爬、喀什巷弄深逛、夜间久站巴扎。',
+      '飞库车或乌市转南疆：库车大峡谷观光车半日→阿克苏电梯酒店缓冲→喀什老城/巴扎约两日（可挂接独立喀什短线，勿空垫四五天）。不环塔；单日车程≤5小时。\n\n可跳过：大峡谷硬爬、喀什巷弄深逛、夜间巴扎久站。',
     timePlan: [
       'D1–3：库车安顿 + 大峡谷观光车半日 + 空白',
-      'D4–6：阿克苏缓冲休整，不硬加点',
-      'D7–12：喀什老城浅逛、巴扎量力、空白日',
-      '末段：喀什或乌市飞回北京',
+      'D4–5：阿克苏缓冲，不硬加点',
+      'D6–7：喀什两日（艾提尕尔/老城/巴扎）',
+      '可选：挂接喀什专线帕米尔一日或飞回北京',
     ],
     sightsTips:
-      '· 库车大峡谷：观光车串联，少爬台阶；早晚出，防晒补水。\n· 喀什老城：尊重宗教习俗与安检；部分巷弄台阶多，量力。\n· 证件与通行政策以当地官方公告为准。',
+      '· 库车大峡谷：观光车串联，少爬台阶；早晚出，防晒补水。\n· 喀什：尊重宗教习俗与安检；两日够看，细节见喀什短线。\n· 证件与通行政策以当地官方公告为准。',
     dining:
-      '拌面/抓饭少油；清炖羊肉；酸奶。水果洗净。穆斯林餐饮区回避猪肉；少过辣过烫。',
+      '南疆适老：抓饭少油、拌面清淡、清炖羊肉浅尝；酸奶与清汤面保底。水果洗净；清真区回避猪肉；少过辣过烫。',
     longStay:
       '库车、阿克苏、喀什分段电梯酒店连住，少换店。阿克苏当作长车程缓冲站，父母以休息为主。',
     hospitals: [
@@ -1696,7 +1699,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       'D4：省博或返京',
     ],
     sightsTips: '· 少林步行距离长。\n· 暑热改早晚。\n· 雾霾改室内。',
-    dining: '烩面清汤；少油炸；多温水。',
+    dining: '郑州适老：烩面清汤少油、胡辣汤浅尝；少油炸。多温水，肠胃弱改粥。',
     longStay: '郑东或金水电梯酒店连住。',
     hospitals: [
       { name: '郑州大学第一附属医院', level: '三甲', area: '郑州', note: '请用高德核实' },
@@ -1713,7 +1716,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转黄山',
     ],
     sightsTips: '· 三河石板防滑。\n· 梅雨防滑鞋。',
-    dining: '合肥小吃浅尝；清淡面粥。',
+    dining: '合肥适老：李鸿章杂烩浅尝、面条粥清淡；少油炸重辣。蒸蛋时蔬保底。',
     longStay: '政务区或包河电梯酒店。',
     hospitals: [
       { name: '安徽医科大学第一附属医院', level: '三甲', area: '合肥', note: '请用高德核实' },
@@ -1746,7 +1749,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转婺源',
     ],
     sightsTips: '· 台阶量力。\n· 暑热午休。',
-    dining: '瓦罐汤清淡；少辣油。',
+    dining: '南昌适老：瓦罐汤清淡、米粉少辣油；清炒时蔬蒸蛋。少油炸。',
     longStay: '红谷滩电梯酒店连住。',
     hospitals: [
       { name: '南昌大学第一附属医院', level: '三甲', area: '南昌', note: '请用高德核实' },
@@ -1763,7 +1766,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转平遥',
     ],
     sightsTips: '· 晋祠石径防滑。\n· 省博预约。',
-    dining: '面食清汤；莜面适量；少油腻。',
+    dining: '太原适老：刀削面清汤、莜面适量；少油腻过油肉。青菜豆腐保底。',
     longStay: '迎泽或小店电梯酒店。',
     hospitals: [
       { name: '山西医科大学第一医院', level: '三甲', area: '太原', note: '请用高德核实' },
@@ -1796,7 +1799,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转青岛',
     ],
     sightsTips: '· 石板防滑。\n· 暑热午休。',
-    dining: '鲁菜少油；甜沫浅尝；清汤面。',
+    dining: '济南适老：鲁菜少油、甜沫浅尝、把子肉适量；清汤面保底。少油炸。',
     longStay: '泉城广场附近电梯酒店。',
     hospitals: [
       { name: '山东大学齐鲁医院', level: '三甲', area: '济南', note: '请用高德核实' },
@@ -1813,7 +1816,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转长白',
     ],
     sightsTips: '· 室内展为主。\n· 南湖风大备外套。',
-    dining: '东北炖菜少油；清汤面粥。',
+    dining: '长春适老：东北炖菜少油、锅包肉浅尝；清汤面粥。少油腻。',
     longStay: '朝阳或南关电梯酒店。',
     hospitals: [
       { name: '吉林大学第一医院', level: '三甲', area: '长春', note: '请用高德核实' },
@@ -1847,7 +1850,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转黄果树',
     ],
     sightsTips: '· 雨天石板防滑。\n· 不硬爬山。',
-    dining: '酸汤鱼少酸辣；清粥；多温水。',
+    dining: '贵阳适老：酸汤鱼少酸辣、丝娃娃浅尝；清粥青菜。多温水，少油炸。',
     longStay: '南明河附近电梯酒店。',
     hospitals: [
       { name: '贵州医科大学附属医院', level: '三甲', area: '贵阳', note: '请用高德核实' },
@@ -1864,7 +1867,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转桂林/德天',
     ],
     sightsTips: '· 观光车减负。\n· 蚊虫防晒。',
-    dining: '粉面清汤；少生冷；水果浅尝。',
+    dining: '南宁适老：老友粉改清汤少辣、粉面清淡；水果浅尝洗净。少生冷河鲜。',
     longStay: '青秀区电梯酒店。',
     hospitals: [
       { name: '广西医科大学第一附属医院', level: '三甲', area: '南宁', note: '请用高德核实' },
@@ -1881,7 +1884,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转三亚',
     ],
     sightsTips: '· 台风天改室内。\n· 海边防晒。',
-    dining: '清淡海鲜；白粥；少生冷。',
+    dining: '海口适老：清淡海鲜清蒸、椰子鸡适量；白粥青菜。少生冷刺身。',
     longStay: '海岸或骑楼附近电梯酒店。',
     hospitals: [
       { name: '海南省人民医院', level: '三甲', area: '海口', note: '请用高德核实' },
@@ -1899,7 +1902,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转大理',
     ],
     sightsTips: '· 紫外线强。\n· 西山索道减负。',
-    dining: '过桥米线清汤；少油辣。',
+    dining: '昆明适老：过桥米线清汤少油辣、汽锅鸡浅尝；少生冷不明菌。',
     longStay: '翠湖或地铁沿线电梯酒店。',
     hospitals: [
       { name: '昆明医科大学第一附属医院', level: '三甲', area: '昆明', note: '请用高德核实' },
@@ -1916,7 +1919,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞返经成都回京后休整≥1周',
     ],
     sightsTips: '· 血氧仪每日测。\n· 动作慢多饮水。\n· 不做徒步进峡谷。',
-    dining: '清淡面粥；少饮酒；勿暴食。',
+    dining: '林芝慢住适老：清淡面粥、清炒时蔬；少饮酒。高原勿暴食，多温水。',
     longStay: '巴宜供氧电梯酒店；近医院。',
     hospitals: [
       { name: '林芝市人民医院', level: '综合', area: '巴宜', note: '高原急诊参考；请用高德核实' },
@@ -1933,7 +1936,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '下撤飞返并京休整',
     ],
     sightsTips: '· 单日车程严控。\n· 勿夜赶山路。\n· 血氧与氧气方案遵医嘱。',
-    dining: '清淡易消化；禁酒；多温水。',
+    dining: '拉萨林芝适老：清淡易消化面粥、蒸蛋青菜；禁酒。多温水，勿油腻暴食。',
     longStay: '拉萨与林芝均选供氧电梯酒店。',
     hospitals: [
       { name: '西藏自治区人民医院', level: '三甲', area: '拉萨', note: '请用高德核实' },
@@ -1951,7 +1954,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '成都飞京',
     ],
     sightsTips: '· 海拔跳变大。\n· 雨季勿硬开。\n· 不贯通进藏。',
-    dining: '清淡；少饮酒；高原勿暴食。',
+    dining: '川藏东段适老：清淡面粥、清炒时蔬；少饮酒。高原勿暴食，多温水。',
     longStay: '成都近华西；康定选供氧更好的住宿。',
     hospitals: [
       { name: '四川大学华西医院', level: '三甲', area: '成都', note: '请用高德核实' },
@@ -2003,7 +2006,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京',
     ],
     sightsTips: '· 江风备外套。\n· 石板防滑。',
-    dining: '红肠浅尝；清汤面粥；少油腻。',
+    dining: '哈尔滨夏日适老：红肠浅尝、锅包肉少油；清汤面粥与酸菜炖菜分餐。少油腻。',
     longStay: '道里中央大街附近电梯酒店。',
     hospitals: [
       { name: '哈尔滨医科大学附属第一医院', level: '三甲', area: '哈尔滨', note: '请用高德核实' },
@@ -2020,7 +2023,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京',
     ],
     sightsTips: '· 草原防晒。\n· 勿剧烈马术。',
-    dining: '奶茶适量；清淡面食；少油。',
+    dining: '呼和浩特适老：奶茶适量控糖、手把肉浅尝；清淡面食。少油腻烧烤。',
     longStay: '呼市城区电梯酒店。',
     hospitals: [
       { name: '内蒙古医科大学附属医院', level: '三甲', area: '呼和浩特', note: '请用高德核实' },
@@ -2056,7 +2059,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转杭州',
     ],
     sightsTips: '· 天一阁预约。\n· 海鲜少生冷。\n· 台风天改室内。',
-    dining: '海鲜清蒸；白粥面；少生冷。',
+    dining: '宁波适老：海鲜清蒸、汤圆浅尝；白粥面青菜。少生冷油炸，控盐。',
     longStay: '海曙近天一阁电梯酒店。',
     hospitals: [
       { name: '宁波市第一医院', level: '三甲', area: '宁波', note: '请用高德核实' },
@@ -2073,7 +2076,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转广深',
     ],
     sightsTips: '· 暑热改室内。\n· 炮台台阶量力。',
-    dining: '粤式早茶少油；白粥青菜。',
+    dining: '东莞适老：粤式早茶少油、白粥青菜；蒸鱼清淡。少油炸过量。',
     longStay: '莞城近可园电梯酒店。',
     hospitals: [
       { name: '东莞市人民医院', level: '三甲', area: '东莞', note: '请用高德核实' },
@@ -2090,7 +2093,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或转广州',
     ],
     sightsTips: '· 石板防滑。\n· 表演场人多早撤。',
-    dining: '蒸鱼白粥；少油炸；多温水。',
+    dining: '佛山适老：蒸鱼白粥、双皮奶浅尝；少油炸煲仔。多温水。',
     longStay: '祖庙或岭南天地附近电梯酒店。',
     hospitals: [
       { name: '佛山市第一人民医院', level: '三甲', area: '佛山', note: '请用高德核实' },
@@ -2107,7 +2110,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞京',
     ],
     sightsTips: '· 海拔仍须缓行。\n· 湖区风大紫外强。\n· 不适立即回撤。',
-    dining: '清淡面粥；少饮酒；勿暴食。',
+    dining: '西宁品味适老：清淡面粥、酸奶浅尝；少饮酒酥油硬吃。勿暴食，多温水缓行。',
     longStay: '西宁近医院电梯酒店。',
     hospitals: [
       { name: '青海大学附属医院', level: '三甲', area: '西宁', note: '请用高德核实' },
@@ -2124,7 +2127,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '返京或经西安',
     ],
     sightsTips: '· 坡地量力。\n· 缆车减负。\n· 沙尘改室内。',
-    dining: '陕北菜少油盐；小米粥清淡。',
+    dining: '延安适老：陕北菜少油盐、油糕浅尝；小米粥清汤面。少油炸。',
     longStay: '宝塔区电梯酒店连住。',
     hospitals: [
       { name: '延安大学附属医院', level: '三甲', area: '延安', note: '请用高德核实' },
@@ -2159,7 +2162,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞返并京休整≥1周',
     ],
     sightsTips: '· 血氧每日测。\n· 软卧优先。\n· 高反加重下撤。',
-    dining: '清淡易消化；禁酒；多温水。',
+    dining: '青藏铁路适老：列车/站内清淡易消化；禁酒。多温水，抵达后勿暴食。',
     longStay: '西宁与拉萨均选近医院供氧电梯酒店。',
     hospitals: [
       { name: '青海大学附属医院', level: '三甲', area: '西宁', note: '请用高德核实' },
@@ -2259,7 +2262,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞京',
     ],
     sightsTips: '· 补水防晒。\n· 红山台阶量力。\n· 博物馆周一常闭。',
-    dining: '清真清淡面粥；少生冷；尊重饮食习惯。',
+    dining: '乌鲁木齐适老：清真清淡面粥、烤包子浅尝；少生冷油炸。尊重饮食习惯，多温水。',
     longStay: '近地铁电梯酒店；复杂就医转三甲。',
     hospitals: [
       { name: '新疆医科大学第一附属医院', level: '三甲', area: '乌鲁木齐', note: '请用高德核实' },
@@ -2335,7 +2338,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞北海或经南宁→银滩海景电梯房→老街浅逛→涠洲船渡可选→回京。\n\n可跳过：涠洲。',
     timePlan: ['D1–3：银滩慢住', 'D4：老街或涠洲（可删）', '回京'],
     sightsTips: '· 防晒补水。\n· 停航勿强渡涠洲。',
-    dining: '海鲜清蒸；少生冷。',
+    dining: '北海适老：海鲜清蒸白灼、沙虫浅尝；白粥青菜。少生冷，控盐多温水。',
     longStay: '银滩电梯海景房连住。',
     hospitals: [
       { name: '北海市人民医院', level: '三甲', area: '北海', note: '请用高德核实' },
@@ -2383,7 +2386,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁池州/九华山站→九华街或山下电梯酒店→缆车+核心寺→回京。\n\n可跳过：百岁宫长台阶；勿同周黄山。',
     timePlan: ['D1：抵达', 'D2–3：缆车浅朝', '回京'],
     sightsTips: '· 缆车预约。\n· 台阶量力。',
-    dining: '素斋清淡。',
+    dining: '九华适老：寺院素斋清淡、清汤面青菜；少油腻荤腥。登山日简餐。',
     longStay: '九华街/山下电梯酒店。',
     hospitals: [
       { name: '池州市人民医院', level: '三甲', area: '池州', note: '请用高德核实' },
@@ -2433,7 +2436,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '沪宁高铁常州→天宁浅访→淹城可选→回京。\n\n可跳过：淹城、主题乐园。',
     timePlan: ['D1：抵达', 'D2：天宁', 'D3：淹城或回京'],
     sightsTips: '· 登塔可删。\n· 勿同日苏州园林。',
-    dining: '苏式面点清淡。',
+    dining: '常州适老：天目湖鱼头浅尝、苏式面点少油；清汤面粥。少甜腻。',
     longStay: '市区电梯酒店。',
     hospitals: [
       { name: '常州市第一人民医院', level: '三甲', area: '常州', note: '请用高德核实' },
@@ -2521,7 +2524,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞贵阳→凯里中转→西江或肇兴二选一加深（可两寨分住）→回贵阳飞京。\n\n可跳过：任一寨；勿再塞镇远黄果树同周。',
     timePlan: ['D1：凯里缓冲', 'D2–3：西江', 'D4–5：肇兴（可删）', '回筑飞京'],
     sightsTips: '· 坡道量力。\n· 包车少换乘。\n· 勿一日三寨。',
-    dining: '酸辣改清淡；少强劝酒。',
+    dining: '侗乡适老：酸汤鱼改清淡少辣、米豆腐；少强劝酒。清粥面保底。',
     longStay: '西江/肇兴选电梯或低楼层。',
     hospitals: [
       { name: '黔东南州人民医院', level: '三甲', area: '凯里', note: '请用高德核实' },
@@ -2545,7 +2548,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞/高铁兰州→滨河电梯酒店→中山桥+滨河平走→省博可选→回京。\n\n可跳过：省博；勿同短假上夏河。',
     timePlan: ['D1：抵达', 'D2：中山桥滨河', 'D3：室内或回京'],
     sightsTips: '· 风大备外套。\n· 勿硬接河西/夏河。',
-    dining: '牛肉面清汤少辣油。',
+    dining: '兰州黄河适老：牛肉面清汤少辣油、烤肉浅尝；酸奶素菜。少油炸。',
     longStay: '滨河或近地铁电梯酒店。',
     hospitals: [
       { name: '兰州大学第一医院', level: '三甲', area: '兰州', note: '请用高德核实' },
@@ -2569,7 +2572,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞成都缓冲→雅安歇脚→泸定桥外观可选→必须回撤成都飞京。\n\n可跳过：泸定；禁止西进康定理塘/贯通拉萨。',
     timePlan: ['D1–2：成都', 'D3：雅安', 'D4：泸定或回撤', '飞京'],
     sightsTips: '· 雨季关注塌方。\n· 不适即撤。',
-    dining: '川菜微辣；成都清淡可选。',
+    dining: '川藏中段适老：川菜微辣或免辣、清汤面；少麻辣油烟。高原勿暴食。',
     longStay: '成都近华西；雅安电梯酒店。',
     hospitals: [
       { name: '四川大学华西医院', level: '三甲', area: '成都', note: '下撤首选；请用高德核实' },
@@ -2583,7 +2586,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁洛阳→市区电梯酒店→白马寺+二里头（可同廊勿赶）→孟津小浪底另日可选→回京。\n\n可跳过：小浪底、卫坡；勿串龙门少林开封。',
     timePlan: ['D1：抵达休整', 'D2：白马寺', 'D3：二里头', 'D4：小浪底或空白', '回京'],
     sightsTips: '· 二里头查闭馆日。\n· 小浪底观光车优先。\n· 龙门/开封另卡。',
-    dining: '洛阳水席浅尝；汤面清淡少辣。',
+    dining: '洛阳县域适老：水席浅尝少油、汤面清淡少辣；粥面保底。少油炸。',
     longStay: '洛阳市区近医院电梯酒店连住。',
     hospitals: [
       { name: '河南科技大学第一附属医院', level: '三甲', area: '洛阳', note: '请用高德核实' },
@@ -2595,7 +2598,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁/城际开封→鼓楼电梯酒店→清明上河园宜早→铁塔/龙亭选段→城墙可删→经郑州回京。\n\n可跳过：城墙；勿与洛阳龙门同日。',
     timePlan: ['D1：抵达鼓楼', 'D2：清明上河园', 'D3：铁塔龙亭或回京'],
     sightsTips: '· 园内早到。\n· 登塔可删。\n· 夜市控油。',
-    dining: '灌汤包浅尝；少油炸少冷饮。',
+    dining: '开封适老：灌汤包浅尝、鲤鱼焙面少油；粥面保底。少油炸冷饮。',
     longStay: '鼓楼附近电梯酒店。',
     hospitals: [
       { name: '开封市中心医院', level: '三甲', area: '开封', note: '请用高德核实' },
@@ -2607,7 +2610,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁苏州/昆山→园区或水乡电梯酒店→周庄与同里二选一加深→常熟方塔可选→回京。\n\n可跳过：常熟、另一水乡；园林走专线。',
     timePlan: ['D1：抵达', 'D2–3：周庄或同里', 'D4：常熟或空白', '回京'],
     sightsTips: '· 石板防滑。\n· 勿同日两水乡。\n· 不排拙政园连刷。',
-    dining: '苏帮菜清淡；少甜腻。',
+    dining: '苏州县域适老：苏帮菜少油少甜、清蒸河鲜；汤面清淡。少甜腻。',
     longStay: '园区或水乡电梯酒店连住。',
     hospitals: [
       { name: '苏州大学附属第一医院', level: '三甲', area: '苏州', note: '请用高德核实' },
@@ -2631,7 +2634,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁忻州/原平→电梯酒店→代县古城+阿育王塔→雁门关关城外观→定襄河边可选→回京。\n\n可跳过：河边、宁武芦芽；五台走专线。',
     timePlan: ['D1：抵达', 'D2：代县', 'D3：雁门关', 'D4：可选或回京'],
     sightsTips: '· 雁门只外观。\n· 勿串五台顶峰。\n· 山路少夜赶。',
-    dining: '面食少油；慎生冷。',
+    dining: '忻州适老：刀削面少油、莜面浅尝；清汤面粥。慎生冷，多温水。',
     longStay: '忻州或代县电梯酒店连住。',
     hospitals: [
       { name: '忻州市人民医院', level: '三甲', area: '忻州', note: '请用高德核实' },
@@ -2655,7 +2658,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁镇江→市区电梯酒店→金山选段→焦山分日→北固可删→回京。\n\n可跳过：北固、焦山轮渡。',
     timePlan: ['D1：抵达', 'D2：金山', 'D3：焦山或回京'],
     sightsTips: '· 每天一山。\n· 台阶防滑。\n· 勿与扬州同日。',
-    dining: '锅盖面少油；慎河鲜过敏。',
+    dining: '镇江适老：锅盖面少油、肴肉浅尝；慎河鲜过敏。清汤面粥保底。',
     longStay: '大市口/金山方向电梯酒店。',
     hospitals: [
       { name: '江苏大学附属医院', level: '三甲', area: '镇江', note: '请用高德核实' },
@@ -2667,7 +2670,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '飞乌兰浩特/海拉尔转阿尔山→温泉镇电梯酒店→森林公园观光车→天池外观→五里泉可选→返京。\n\n可跳过：天池、长徒步。',
     timePlan: ['D1：抵达适应', 'D2–3：公园', 'D4：天池或空白', '返京'],
     sightsTips: '· 观光车减步。\n· 温差分层穿衣。\n· 泡汤遵医嘱。',
-    dining: '清淡牛羊肉；少生冷。',
+    dining: '阿尔山适老：清炖牛羊肉、热汤面；少生冷烧烤。林区凉备热饮。',
     longStay: '温泉镇电梯/温泉酒店连住。',
     hospitals: [
       { name: '阿尔山市人民医院', level: '二级', area: '阿尔山', note: '急转乌兰浩特；请用高德核实' },
@@ -2679,7 +2682,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁安阳→市区电梯酒店→殷墟博物馆→遗址选段→文峰塔可选→回京。\n\n可跳过：文峰塔、红旗渠。',
     timePlan: ['D1：抵达', 'D2：博物馆+遗址', '回京'],
     sightsTips: '· 室内优先。\n· 查闭馆。\n· 勿串洛阳同日。',
-    dining: '安阳烩菜少油；面食为主。',
+    dining: '安阳适老：烩菜少油、粉浆饭浅尝；清汤面粥。少油炸冷饮。',
     longStay: '市区电梯酒店。',
     hospitals: [
       { name: '安阳市人民医院', level: '三甲', area: '安阳', note: '请用高德核实' },
@@ -2691,7 +2694,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁焦作/修武→景区口电梯酒店→红石峡或泉瀑峡二选一观光车→茱萸峰可删→回京。\n\n可跳过：另一峡谷、茱萸峰。',
     timePlan: ['D1：抵达', 'D2：一峡', 'D3：空白或回京'],
     sightsTips: '· 二选一峡谷。\n· 观光车优先。\n· 雨后防滑。',
-    dining: '怀药炖品浅尝；少油炸。',
+    dining: '焦作适老：怀药炖品浅尝、清汤面；少油炸。肠胃弱改粥青菜。',
     longStay: '景区口或修武电梯酒店。',
     hospitals: [
       { name: '焦作市人民医院', level: '三甲', area: '焦作', note: '请用高德核实' },
@@ -2703,7 +2706,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁南通→濠河电梯酒店→濠河浅走→狼山选段→博物苑可选→回京。\n\n可跳过：狼山登高、博物苑。',
     timePlan: ['D1：抵达濠河', 'D2：狼山或空白', '回京'],
     sightsTips: '· 濠河平路。\n· 狼山台阶量力。\n· 游船可选。',
-    dining: '江海鲜清蒸；少生冷。',
+    dining: '南通适老：江海鲜清蒸、文蛤豆腐浅尝；清汤面粥。少生冷控盐。',
     longStay: '濠河沿线电梯酒店。',
     hospitals: [
       { name: '南通大学附属医院', level: '三甲', area: '南通', note: '请用高德核实' },
@@ -2715,7 +2718,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁嘉兴→市区电梯酒店→南湖→西塘连住可选→回京。\n\n可跳过：西塘；勿与乌镇同日。',
     timePlan: ['D1：抵达', 'D2：南湖', 'D3：西塘或回京'],
     sightsTips: '· 石板防滑。\n· 西塘乌镇二选一。\n· 南湖游船量力。',
-    dining: '嘉兴粽浅尝；少甜腻。',
+    dining: '嘉兴适老：粽子浅尝控糖、南湖菱适量；清汤面粥。少甜腻油炸。',
     longStay: '市区或西塘电梯酒店。',
     hospitals: [
       { name: '嘉兴学院附属医院', level: '三甲', area: '嘉兴', note: '请用高德核实' },
@@ -2727,7 +2730,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁湖州→南浔电梯酒店→小莲庄选段→百间楼→飞英塔可选→回京。\n\n可跳过：飞英塔；勿与西塘同日。',
     timePlan: ['D1：抵达南浔', 'D2：园林+水巷', '回京'],
     sightsTips: '· 园林二选一。\n· 石板防滑。\n· 勿一日三镇。',
-    dining: '湖羊浅尝；粥面为主。',
+    dining: '湖州适老：湖羊浅尝、百鱼清蒸选；粥面青菜。少油腻烧烤。',
     longStay: '南浔古镇外电梯酒店。',
     hospitals: [
       { name: '湖州市中心医院', level: '三甲', area: '湖州', note: '请用高德核实' },
@@ -2739,7 +2742,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁岳阳东→近楼电梯酒店→岳阳楼选段→洞庭湖岸→回京。\n\n可跳过：登楼、游船。',
     timePlan: ['D1：抵达', 'D2：岳阳楼+湖岸', '回京'],
     sightsTips: '· 登楼可删。\n· 湖风备外套。\n· 勿串张家界。',
-    dining: '鱼鲜清蒸；少油炸。',
+    dining: '岳阳适老：洞庭鱼鲜清蒸、米粉清汤；少油炸重辣。粥面保底。',
     longStay: '近岳阳楼电梯酒店。',
     hospitals: [
       { name: '岳阳市中心医院', level: '三甲', area: '岳阳', note: '请用高德核实' },
@@ -2751,7 +2754,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '高铁邯郸→丛台电梯酒店→丛台公园→响堂山可删→回京。\n\n可跳过：响堂山。',
     timePlan: ['D1：抵达', 'D2：丛台', '回京'],
     sightsTips: '· 平地优先。\n· 响堂默认可删。\n· 勿与正定同日。',
-    dining: '邯郸捞面少油；慎生冷。',
+    dining: '邯郸适老：捞面少油、驴肉火烧浅尝；清汤面粥。慎生冷。',
     longStay: '丛台附近电梯酒店。',
     hospitals: [
       { name: '邯郸市中心医院', level: '三甲', area: '邯郸', note: '请用高德核实' },

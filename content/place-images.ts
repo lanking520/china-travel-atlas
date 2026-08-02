@@ -284,7 +284,12 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'qingzang-shigatse-taste': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tashilhunpo.jpg/1280px-Tashilhunpo.jpg',
   'qingzang-xining-3d': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Xining_-_Dongguan_mosque_Minaret_2024.jpg/1280px-Xining_-_Dongguan_mosque_Minaret_2024.jpg',
   'tianjin-day': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Tianjin_Eye_and_Tianjin.jpg/1280px-Tianjin_Eye_and_Tianjin.jpg',
-  'xibei-dunhuang-zhangye': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/1280px-Mogao_Caves_%2854376969262%29.jpg',
+  'compose-hexi-dunhuang-zhangye':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/1280px-Mogao_Caves_%2854376969262%29.jpg',
+  'leg-dunhuang-mogao':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/1280px-Mogao_Caves_%2854376969262%29.jpg',
+  'leg-zhangye-danxia':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/1280px-Zhangye_National_Geopark_5.jpg',
   'xibei-lanzhou-xiahe': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Labrang_Monastery.jpg/1280px-Labrang_Monastery.jpg',
   'xibei-ningxia-3d': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Western_Xia_tombs.jpg/1280px-Western_Xia_tombs.jpg',
   'xibei-ningxia-shapotou': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Shapotou.jpg/1280px-Shapotou.jpg',

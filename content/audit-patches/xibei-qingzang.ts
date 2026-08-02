@@ -3,46 +3,57 @@ import type { RouteDetailFields } from '../route-details';
 
 /** Northwest + Qingzang audit patches (2026-08-02) */
 export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
-  'xibei-dunhuang-zhangye': {
+  'compose-hexi-dunhuang-zhangye': {
     introduction:
-      '飞敦煌取车，河西走廊经典组合约三周：敦煌慢住看窟，嘉峪关一日歇脚，张掖快览丹霞。河西干燥风大、日照强——多饮水，备润唇膏、防尘口罩与防晒帽。每日车程尽量控制在 3–4 小时内；敦煌→张掖约六百公里，中间务必在嘉峪关过夜，不建议一天赶完。\n\n莫高窟是预约重点：只走官方「莫高窟参观预约网」小程序或 mgk.org.cn，可约 30 天内。旺季常规票紧俏，社区经验是早 7 点前后多刷新，别只在页面死磕一次。优惠票、特优票同样须提前网上订后窗口取；抢不到常规票还有应急票，但看窟更少，仍须亲友陪同——别信第三方代抢。\n\n所约时段前 30 分钟到数字展示中心；建议分两日各看一次。鸣沙山骑骆驼或观光车即可，不必爬沙。嘉峪关关城平坦可歇一晚；悬壁长城台阶多，登一段或远观。敦煌每周留 1–2 个空白日，别连轴转。\n\n张掖七彩丹霞乘区间车串观景台，下午 4 点后入园等日落最艳，观景台间风大备外套。可在张掖还车，飞回北京休整再排下一段。对照月预算约 2 万（含租车与机票分摊）。',
+      '河西走廊是「短线串起来」的长线卡：敦煌莫高短线 → 嘉峪关缓冲过夜 → 张掖丹霞短线。景点正文只在各短线维护；本卡只管衔接与租车节奏。单日车程尽量 ≤4–5 小时；敦煌→张掖勿一日赶完。干燥多饮水，备润唇膏、防尘口罩与防晒帽。对照月预算约 2 万。结束后张掖还车或飞回北京休整。',
     seasonGuide:
-      '主推秋（约 9–10 月）：天高气爽、丹霞色彩稳、风沙相对可控。春季风沙大，缩短户外；夏季正午地表烫，宜早晚活动并加强补水；冬季莫高窟淡季票更便宜但干冷，缩短户外。莫高窟上午光线通常更好。极端沙尘暴果断改室内日。',
+      '主推秋（约 9–10 月）：天高气爽、丹霞色彩稳、风沙相对可控。春季风沙大，缩短户外；夏季正午地表烫，宜早晚活动并加强补水；冬季莫高窟淡季票更便宜但干冷，缩短户外。极端沙尘暴果断改室内日。',
     notices: [
-      '飞敦煌机场取车，张掖还或反之；单日车程尽量 ≤4 小时，敦煌→张掖勿一日赶完。',
-      '河西干燥：多饮水，备润唇膏、防尘口罩、防晒帽；风大备薄外套。',
-      '莫高窟只走官方预约；旺季早 7 点前后多刷新，别死磕一次。',
-      '优惠票亦须网上预订后窗口取；时段前 30 分钟到数字中心。',
-      '应急票看窟少，仍须陪同；别信第三方代抢代订。',
-      '鸣沙山骑骆驼或观光车即可；敦煌每周留 1–2 休息日。',
-      '嘉峪关作中途站：关城够看，悬壁长城可远观。',
-      '丹霞下午入园等日落；对照月预算约 2 万；结束后飞回北京休整。',
+      '约2–3周组合：leg-dunhuang-mogao → 嘉峪关 glue → leg-zhangye-danxia。',
+      '飞敦煌取车，张掖还或反之；单日车程尽量 ≤4–5 小时。',
+      '嘉峪关只过夜+关城浅看，悬壁长城可远观。',
+      '可只订其中一条短线，不必走满走廊。',
+      '河西干燥：多饮水，备润唇膏、防尘口罩、防晒帽。',
+      '结束后飞回北京休整。',
     ],
     gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200',
-        caption: '河西走廊 · 敦煌张掖租车 · 封面景色',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/1280px-Mogao_Caves_%2854376969262%29.jpg',
+        caption: '走廊前段 · 敦煌（见短线）',
       },
       {
-        url: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800',
-        caption: '敦煌（慢游基地）',
-        stopId: 'dunhuang-base',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
-        caption: '莫高窟',
-        stopId: 'mogao',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
-        caption: '嘉峪关',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Jiayuguan_20151012.jpg/1280px-Jiayuguan_20151012.jpg',
+        caption: '嘉峪关缓冲过夜（glue）',
         stopId: 'jiayuguan',
       },
       {
-        url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
-        caption: '张掖七彩丹霞',
-        stopId: 'zhangye-danxia',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/1280px-Zhangye_National_Geopark_5.jpg',
+        caption: '走廊末段 · 张掖（见短线）',
       },
+    ],
+  },
+
+  'leg-dunhuang-mogao': {
+    introduction:
+      '敦煌独立短线约五到七天：莫高官方预约分次入场，鸣沙浅尝；市区电梯连住留空白。只走官方「莫高窟参观预约网」小程序或 mgk.org.cn；旺季早 7 点前后多刷新。干燥多饮水。可单飞往返或东行接河西组合。',
+    seasonGuide:
+      '主推秋。春季风沙大；夏午烫；冬干冷可缩程。莫高上午光线通常更好。',
+    notices: [
+      '莫高只走官方预约；别信第三方代抢。',
+      '鸣沙骑骆驼或观光车即可，不必爬沙。',
+      '机场约 13 公里，建议酒店接送。',
+      '可接 compose-hexi-dunhuang-zhangye（经嘉峪关）。',
+    ],
+  },
+
+  'leg-zhangye-danxia': {
+    introduction:
+      '张掖独立短线约两到三天：七彩丹霞区间车串观景台，下午入园等日落最艳。观景台间风大备外套。可单订或作河西组合末段还车。',
+    seasonGuide: '主推秋。大风沙尘改期；夏午烫宜傍晚场。',
+    notices: [
+      '区间车串联，少步行；台阶量力。',
+      '65+ 门票优惠以现场为准。',
+      '河西租车可在此还车后飞返。',
     ],
   },
 
@@ -238,11 +249,11 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
 
 /** 仅覆盖需要改的顶层字段，如 summary/transport/budgetLabel/fromHome/stops */
 export const routeFieldPatches: Record<string, Partial<Route>> = {
-  'xibei-dunhuang-zhangye': {
+  'compose-hexi-dunhuang-zhangye': {
     summary:
-      '飞敦煌取车，大漠与丹霞约三周。河西干燥多饮水；单日车程 ≤4 小时，敦煌→张掖经嘉峪关过夜。莫高窟官方预约，张掖丹霞半日看日落。结束后飞回北京休整。',
+      '河西组合长线：嵌入敦煌莫高短线与张掖丹霞短线，嘉峪关只过夜衔接。单日车程 ≤4–5 小时；景点正文见各短线。结束后飞回北京休整。',
     transport:
-      '飞敦煌，机场取车自驾（张掖还车或反之）；每日车程控制在 3–4 小时内，嘉峪关作中途歇脚，勿一日赶完敦煌→张掖',
+      '飞敦煌进、张掖还车或出；敦煌短线 → 嘉峪关缓冲 → 张掖短线；每日车程 3–4 小时内，勿一日赶完敦煌→张掖',
   },
 
   'xibei-xinjiang-north': {

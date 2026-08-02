@@ -1,6 +1,6 @@
 # 成书路线索引
 
-> 由 `npm run export:book-index` 生成，勿手改。共 166 条。
+> 由 `npm run export:book-index` 生成，勿手改。共 168 条。
 
 ## 按地区
 
@@ -165,8 +165,10 @@
 
 ### 西北丝路
 
-- **河西走廊 · 敦煌张掖租车** (`xibei-dunhuang-zhangye`) · 长旅行 · 秋
 - **甘肃 · 兰州夏河短住** (`xibei-lanzhou-xiahe`) · 短途 · 夏/秋
+- **敦煌 · 莫高窟与鸣沙浅尝** (`leg-dunhuang-mogao`) · 短途 · 秋
+- **张掖 · 七彩丹霞快览** (`leg-zhangye-danxia`) · 短途 · 秋
+- **河西走廊 · 敦煌张掖租车** (`compose-hexi-dunhuang-zhangye`) · 长旅行 · 秋
 - **中卫 · 沙坡头黄河浅游** (`xibei-ningxia-shapotou`) · 短途 · 春/秋
 - **兰州黄河 · 中山桥浅住** (`xibei-gansu-lanzhou-huanghe`) · 短途 · 春/秋/夏
 - **乌鲁木齐 · 市区慢住** (`xibei-xinjiang-urumqi-city`) · 短途 · 夏/秋/春
@@ -407,7 +409,6 @@
 - 古北水镇 · 司马台可选过夜 (`gubei-overnight`) · 京畿华北
 - 晋北古建 · 大同慢住三周 (`huabei-shanxi-loop`) · 京畿华北
 - 云南 · 大理慢住丽江快览 (`yunnan-dali-lijiang`) · 西南秘境
-- 河西走廊 · 敦煌张掖租车 (`xibei-dunhuang-zhangye`) · 西北丝路
 - 杭州西湖 · 浙江五日 (`huadong-hangzhou-suzhou`) · 华东水乡
 - 厦门鼓浪屿 · 土楼浅挂 (`huanan-xiamen-winter`) · 华南岭南
 - 武当山 · 问道三日 (`huazhong-wudang-3d`) · 中原华中
@@ -426,6 +427,9 @@
 - 京沪沿海慢串 · 津青苏沪高铁廊 (`national-jinghu-coast-slow`) · 华东水乡
 - G214 · 香格里拉浅住 (`yunnan-g214-shangri-la-taste`) · 西南秘境
 - 甘肃 · 兰州夏河短住 (`xibei-lanzhou-xiahe`) · 西北丝路
+- 敦煌 · 莫高窟与鸣沙浅尝 (`leg-dunhuang-mogao`) · 西北丝路
+- 张掖 · 七彩丹霞快览 (`leg-zhangye-danxia`) · 西北丝路
+- 河西走廊 · 敦煌张掖租车 (`compose-hexi-dunhuang-zhangye`) · 西北丝路
 - 泉州 · 古城宗教史迹 (`huanan-fujian-quanzhou`) · 华南岭南
 - 镇远 · 舞阳河古城 (`xinan-guizhou-zhenyuan`) · 西南秘境
 - 扬州 · 瘦西湖慢走 (`huadong-jiangsu-yangzhou`) · 华东水乡

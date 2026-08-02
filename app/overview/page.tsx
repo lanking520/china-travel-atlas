@@ -132,7 +132,8 @@ export default function OverviewPage() {
                 <strong>西北丝路</strong>——飞敦煌，租车走河西走廊，莫高窟慢读、张掖丹霞快览。
               </p>
               <p className="mt-2">
-                参考：<RouteLink id="xibei-dunhuang-zhangye">河西走廊 · 敦煌张掖</RouteLink>、
+                参考：<RouteLink id="compose-hexi-dunhuang-zhangye">河西走廊 · 敦煌张掖</RouteLink>、
+                <RouteLink id="leg-dunhuang-mogao">敦煌短线</RouteLink>、
                 <RouteLink id="xibei-xinjiang-north">北疆租车</RouteLink>、
                 <RouteLink id="xibei-ningxia-3d">宁夏银川</RouteLink>
               </p>

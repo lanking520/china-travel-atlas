@@ -71,7 +71,9 @@ export const routeProvinces: Record<
   'yunnan-xishuangbanna-winter': { primary: 'yunnan' },
   'yunnan-dianxi-tengchong': { primary: 'yunnan' },
   // 西北 / 青藏
-  'xibei-dunhuang-zhangye': { primary: 'gansu' },
+  'compose-hexi-dunhuang-zhangye': { primary: 'gansu' },
+  'leg-dunhuang-mogao': { primary: 'gansu' },
+  'leg-zhangye-danxia': { primary: 'gansu' },
   'xibei-lanzhou-xiahe': { primary: 'gansu' },
   'xibei-ningxia-3d': { primary: 'ningxia' },
   'xibei-ningxia-shapotou': { primary: 'ningxia' },

@@ -42,7 +42,7 @@ Do **not** duplicate stop text inside every compose.
 ## Migration order
 
 1. **Pilot corridor: 南疆 / 喀什周边** (sketch below) — split `xibei-xinjiang-south` + densify `xibei-xinjiang-kashi` as legs; compose = ordered legs.
-2. Second pilot: **川西** or **河西敦煌–张掖** (already segmented feeling).
+2. Second pilot: **河西敦煌–张掖** (shipped) → next **川西** sketch.
 3. Only then national rewrite of remaining `long` stubs.
 4. Wire `compositionKind` + Explore filters after one pilot ships in data (UI can lag one session).
 
@@ -74,22 +74,22 @@ Do **not** duplicate stop text inside every compose.
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
 - Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: Explore compose timeline / compositionKind chips; national long→compose migration; second corridor pilot.
+- Still open: Explore compose timeline / compositionKind chips polish; national long→compose migration; 川西 B corridor; optional 桂林/贵阳 `base`.
 
-## Second corridor sketch (notes only — not migrated)
+## Second corridor — 河西（shipped 20260802）
 
-**Decision lean（20260802）**：下一走廊 pilot **优先河西 A**（既有 `xibei-dunhuang-zhangye` 分段感强、海拔友好、适老摩擦低于川西）。川西 B 仅 sketch，待河西 compose 形态稳定后再做；高反政策必须写进 glue，默认可删亚丁。
+**Decision lean**：河西 A 优先于川西 B（海拔友好、适老摩擦更低）。川西 B 仅 sketch，待河西 compose 形态稳定后再做；高反政策必须写进 glue，默认可删亚丁。
 
-### Option A — 河西（优先 migrate）
+### Option A — 河西（migrated）
 
-现卡：`xibei-dunhuang-zhangye`（长线，待拆）。不新建景点正文——从现卡抽出 stops。
+退役：`xibei-dunhuang-zhangye`。不新建景点正文——从现卡抽出 stops。
 
-| Proposed leg | Role | Days | Notes |
+| Leg / compose | Role | Days | Notes |
 | --- | --- | --- | --- |
-| `leg-dunhuang-mogao` | 莫高预约 + 鸣沙浅尝 | ~4–7 | 预约失败日改鸣沙/市区空白 |
-| `leg-jiayuguan-buffer` | 嘉峪关过夜缓冲 | 1–2 | 可 glue-only，不必厚 stops |
+| `leg-dunhuang-mogao` | 莫高预约 + 鸣沙浅尝 | ~5–7 | 预约失败日改鸣沙/市区空白；已 densify（不垫十日） |
+| *(glue)* 嘉峪关 | 关城半日+过夜缓冲 | 1–2 | glue-only stop on compose；不硬爬悬壁 |
 | `leg-zhangye-danxia` | 七彩丹霞观光车 | ~2–3 | 台阶量力；一日足够可压天 |
-| Compose `compose-hexi-dunhuang-zhangye` | 敦煌 → 嘉峪关 → 张掖 | ~2–3周 | glue：单日车/铁 ≤4–5h；段间空白；不环线硬赶 |
+| `compose-hexi-dunhuang-zhangye` | 敦煌 → 嘉峪关 → 张掖 | ~2–3周 | glue：单日车/铁 ≤4–5h；段间空白；不环线硬赶 |
 
 可选 base（未立项）：兰州或张掖城住仅当日归辐射——须先过三甲/物资门槛再开 `base-*`。
 
@@ -104,7 +104,7 @@ Do **not** duplicate stop text inside every compose.
 | `leg-daocheng-optional` | 稻城/亚丁 | ~3 | **默认可删**；不适即下撤 |
 | Compose | 成都→新都桥→（可选亚丁）→成都 | 约10天–2周 | glue=车程+高反+氧气/医院预案 |
 
-Do **not** national-migrate until **河西 A** ships like 南疆.
+Do **not** national-migrate until **川西 B** (or next long corridor) ships like 南疆/河西.
 
 ## What NOT to do
 

@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 中国旅行地图 · China Travel Atlas
 
-## Getting Started
+为父母定制的国内旅行路线参考：从北京出发、私家车出行、按季节与区域筛选，月旅行预算约 **2 万元**。
 
-First, run the development server:
+## 在线访问
+
+部署完成后预计地址：
+
+**https://lanking520.github.io/china-travel-atlas/**
+
+（GitHub Pages 首次发布可能需要几分钟生效。）
+
+## 本地开发
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+浏览器打开 [http://localhost:3000](http://localhost:3000)。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 给父母怎么用
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **微信**：把上面的链接发给父母，或保存到「收藏」，需要时点链接打开即可。
+2. **加到主屏幕（像 App 一样）**：
+   - iPhone：Safari 打开链接 → 底部分享 →「添加到主屏幕」
+   - 安卓：Chrome 打开链接 → 菜单 →「添加到主屏幕」或「安装应用」
+3. 无需注册登录，打开就能看路线与说明。
 
-## Learn More
+## 使用背景
 
-To learn more about Next.js, take a look at the following resources:
+- **出发地**：北京（家）
+- **交通**：以私家车为主
+- **预算**：约 2 万/月（含油费、住宿、门票等，具体见各路线说明）
+- **节奏**：兼顾「慢游」与「快打卡」两种偏好
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 筛选维度
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 维度 | 说明 |
+|------|------|
+| **区域** | 华北、东北、华东、华中、华南、西南、西北、青藏 |
+| **季节** | 春 / 夏 / 秋 / 冬（可按当前季节推荐） |
+| **行程类型** | 长途（多日）/ 短途（周末或邻近） |
+| **节奏** | 慢游 / 快打卡（各站点标注） |
 
-## Deploy on Vercel
+## 离线说明
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+无网络时可参考 [`docs/离线打开说明.md`](docs/离线打开说明.md)。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 技术栈
+
+Next.js 静态导出，通过 GitHub Actions 部署到 GitHub Pages。

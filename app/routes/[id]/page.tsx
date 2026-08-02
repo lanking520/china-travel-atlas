@@ -51,72 +51,99 @@ export default async function RouteDetailPage({
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+      <main className="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-8">
         <Link
           href="/"
-          className="mb-6 inline-flex min-h-[48px] items-center text-lg font-medium text-sky-700 hover:text-sky-900"
+          className="mb-4 inline-flex min-h-9 items-center text-base font-medium text-sky-700 hover:text-sky-900"
         >
           ← 返回探索
         </Link>
 
-        <h1 className="text-3xl font-bold leading-tight text-sky-950 sm:text-4xl">
+        <h1 className="text-2xl font-bold leading-tight text-sky-950 sm:text-4xl">
           {route.title}
         </h1>
-        <p className="mt-3 text-xl leading-relaxed text-sky-800">{route.summary}</p>
+        <p className="mt-2 text-base leading-relaxed text-sky-800 sm:text-xl">
+          {route.summary}
+        </p>
 
-        <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-lg font-semibold leading-snug text-amber-950 ring-1 ring-amber-200/80">
+        <p className="mt-3 rounded-xl bg-amber-50 px-3 py-2.5 text-base font-semibold leading-snug text-amber-950 ring-1 ring-amber-200/80 sm:px-4 sm:py-3 sm:text-lg">
           大致金额估算：{route.budgetLabel}
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span className="rounded-lg bg-sky-100 px-3 py-1.5 text-lg font-medium text-sky-900">
+        <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
+          <span className="rounded-lg bg-sky-100 px-2.5 py-1 text-sm font-medium text-sky-900 sm:px-3 sm:py-1.5 sm:text-lg">
             {region?.name ?? REGION_SHORT[route.region]}
           </span>
-          <span className="rounded-lg bg-emerald-100 px-3 py-1.5 text-lg font-medium text-emerald-900">
+          <span className="rounded-lg bg-emerald-100 px-2.5 py-1 text-sm font-medium text-emerald-900 sm:px-3 sm:py-1.5 sm:text-lg">
             {route.daysLabel}
           </span>
-          <span className="rounded-lg bg-amber-100 px-3 py-1.5 text-lg font-medium text-amber-900">
+          <span className="rounded-lg bg-amber-100 px-2.5 py-1 text-sm font-medium text-amber-900 sm:px-3 sm:py-1.5 sm:text-lg">
             {TRIP_TYPE_LABELS[route.tripType]}
           </span>
           {route.seasons.map((season) => (
             <span
               key={season}
-              className="rounded-lg bg-orange-100 px-3 py-1.5 text-lg font-medium text-orange-900"
+              className="rounded-lg bg-orange-100 px-2.5 py-1 text-sm font-medium text-orange-900 sm:px-3 sm:py-1.5 sm:text-lg"
             >
               {SEASON_LABELS[season]}季宜游
             </span>
           ))}
           {route.fromHome && (
-            <span className="rounded-lg bg-emerald-700 px-3 py-1.5 text-lg font-medium text-white">
+            <span className="rounded-lg bg-emerald-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               从北京家出发
             </span>
           )}
           {route.themes?.includes("famous-scenic") && (
-            <span className="rounded-lg bg-rose-700 px-3 py-1.5 text-lg font-medium text-white">
+            <span className="rounded-lg bg-rose-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               名景
             </span>
           )}
           {route.themes?.includes("grand-loop") && (
-            <span className="rounded-lg bg-amber-700 px-3 py-1.5 text-lg font-medium text-white">
+            <span className="rounded-lg bg-amber-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               全国大环线
             </span>
           )}
           {route.themes?.includes("frontier") && (
-            <span className="rounded-lg bg-slate-700 px-3 py-1.5 text-lg font-medium text-white">
+            <span className="rounded-lg bg-slate-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               边陲城市
             </span>
           )}
           {route.themes?.includes("long-stay") && (
-            <span className="rounded-lg bg-teal-700 px-3 py-1.5 text-lg font-medium text-white">
+            <span className="rounded-lg bg-teal-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               长居推荐
             </span>
           )}
           {route.themes?.includes("corridor") && (
-            <span className="rounded-lg bg-indigo-700 px-3 py-1.5 text-lg font-medium text-white">
+            <span className="rounded-lg bg-indigo-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               经典走廊
             </span>
           )}
         </div>
+
+        <nav
+          aria-label="本页目录"
+          className="sticky top-0 z-10 -mx-4 mt-5 border-b border-sky-200/70 bg-[color-mix(in_srgb,var(--background)_92%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-xl sm:border sm:border-sky-200/60"
+        >
+          <ul className="flex gap-1 overflow-x-auto text-sm font-semibold text-sky-800 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {[
+              ["#guide", "怎么走"],
+              ["#time", "时间"],
+              ["#sights", "景点"],
+              ["#dining", "吃住"],
+              ["#hospital", "就医"],
+              ["#notices", "须知"],
+            ].map(([href, label]) => (
+              <li key={href} className="shrink-0">
+                <a
+                  href={href}
+                  className="inline-flex min-h-8 items-center rounded-lg px-2.5 py-1 hover:bg-sky-100/80 hover:text-sky-950"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="mt-6">
           <RouteMapWithExpand
@@ -149,7 +176,7 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-sky-200 bg-sky-50 p-6">
+        <section id="guide" className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50 p-6">
           <h2 className="text-2xl font-bold text-sky-950">路线指南</h2>
           <p className="mt-2 text-base text-sky-700">
             怎么走、什么节奏、哪些可以跳过——给约 60 岁健康父母的实用版。
@@ -163,7 +190,7 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
+        <section id="time" className="mt-10 scroll-mt-14 rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
           <h2 className="text-2xl font-bold text-cyan-950">时间规划</h2>
           <p className="mt-2 text-base text-cyan-800">
             按本线「{route.daysLabel}」拆块；可整块删减，勿排满。
@@ -218,7 +245,7 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        <section className="mt-10 space-y-4">
+        <section id="sights" className="mt-10 scroll-mt-14 space-y-4">
           <h2 className="text-2xl font-bold text-sky-950">旅游景点</h2>
           <p className="text-lg text-sky-700">
             站点顺序与停留节奏如下；可对照「路线指南」删减。
@@ -234,7 +261,7 @@ export default async function RouteDetailPage({
           )}
         </section>
 
-        <section className="mt-10 rounded-2xl border border-rose-200 bg-rose-50 p-6">
+        <section id="dining" className="mt-10 scroll-mt-14 rounded-2xl border border-rose-200 bg-rose-50 p-6">
           <h2 className="text-2xl font-bold text-rose-950">餐饮</h2>
           <p className="mt-2 text-base text-rose-800">
             地方特色可浅尝；优先清淡、少油少辣，照顾肠胃。
@@ -259,7 +286,7 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-slate-300 bg-slate-50 p-6">
+        <section id="hospital" className="mt-10 scroll-mt-14 rounded-2xl border border-slate-300 bg-slate-50 p-6">
           <h2 className="text-2xl font-bold text-slate-900">附近医院</h2>
           <p className="mt-2 text-base text-slate-600">
             主基地附近常见三甲 / 可信医院，出行前用官网或高德核对。
@@ -290,7 +317,7 @@ export default async function RouteDetailPage({
           ) : null}
         </section>
 
-        <section className="mt-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+        <section id="notices" className="mt-10 scroll-mt-14 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
           <h2 className="text-2xl font-bold text-emerald-950">旅行须知</h2>
           <ul className="mt-4 list-inside list-disc space-y-3 text-lg text-emerald-950">
             {notices.map((n) => (

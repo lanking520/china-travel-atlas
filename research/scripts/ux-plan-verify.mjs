@@ -113,12 +113,16 @@ await check("P4 map drill: 省份 → 路线列表", async () => {
   }
   await page.waitForTimeout(800);
   const t = await page.locator("body").innerText();
-  mustInclude(t, ["选择路线", "查看详细旅行攻略"], "province view");
+  mustInclude(t, ["选择路线"], "province view");
+  const routeCards = page.locator('a[href*="/routes/"]');
+  if ((await routeCards.count()) < 1) {
+    throw new Error("province view missing dual-column route cards");
+  }
   await page.screenshot({ path: path.join(outDir, "03-province.png"), fullPage: true });
 });
 
 await check("P5 click route → detail guide", async () => {
-  const link = page.getByRole("link", { name: /查看详细旅行攻略/ }).first();
+  const link = page.locator('a[href*="/routes/"]').first();
   await link.click();
   await page.waitForURL(/\/routes\//, { timeout: 15000 });
   await page.waitForTimeout(800);
@@ -248,7 +252,7 @@ const md = [
   "- 季节筛选：春夏秋冬大按钮",
   "- 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算",
   "- 两年总览含回京；长途含飞入/回京线索",
-  "- 适老：大按钮、手机视口验证",
+  "- 现代双列图卡 + 适度字号（非适老专用大按钮）",
   "",
   `截图目录：\`${outDir}/\``,
   "",

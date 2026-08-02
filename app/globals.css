@@ -9,6 +9,10 @@
   --surface: #f8fcff;
   --ink: #0b2538;
   --muted: #3d657a;
+  /* Modest bump vs default 16px — modern feed, not senior-mode */
+  --text-body: 1rem;
+  --text-title: 1.125rem;
+  --tap-min: 36px;
 }
 
 @theme inline {
@@ -21,7 +25,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 17px;
   scroll-behavior: smooth;
 }
 

@@ -104,8 +104,8 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'sz-dameisha-optional',
   'jn-lishi-base',
   'jn-quancheng-optional',
-  'cc-chaoyang-base',
-  'cc-cultural-optional',
+  // cc-chaoyang / cc-cultural / cc-puppet：已升长春专用 Commons（离延吉错城）
+
   'nj-xuanwu-base',
   'nj-zijin-optional',
   'gy-nanming-base',
@@ -113,8 +113,7 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'gy-museum-optional',
   'nn-qingxiu-base',
   'nn-museum-optional',
-  'hk-longhua-base',
-  'hk-volcano-optional',
+  'hk-volcano-optional', // 火山口无专用风景 → 海口世纪桥同城示意（勿用三亚湾）
   'km-cuihu-base',
   'km-xishan-optional',
   'lz-bayi-base',
@@ -130,9 +129,8 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'le-emei-optional',
   'hrb-daoli-base',
   'hrb-sun-island-optional',
-  'hh-city-base',
-  'hh-xilamuren-optional',
-  'hh-buffer-optional',
+  'hh-xilamuren-optional', // 希拉穆仁无稳定专用 → 呼伦贝尔草浪同廊示意（勿用呼市大召顶替草原）
+  // hh-city / hh-buffer：已升呼市大召专用 Commons（离呼伦贝尔错城）
   // coverage wave 20260802b soft same-city / same-corridor
   // (可园/莞城/虎门馆/岭南天地=东华里/古运河/普达措/枣园/西宁适应/京沪出京 等已升专用 Commons)
   'wx-liangxi-base', // 梁溪慢住 ↔ 鼋头渚同城
@@ -350,7 +348,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'huabei-shandong-jinan':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Jinan_Baotu_Spring-20150519-RM-165055.jpg/1280px-Jinan_Baotu_Spring-20150519-RM-165055.jpg',
   'dongbei-jilin-changchun':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Yanji.jpg/1280px-Yanji.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Changchun_skyline_with_Ji_Tower_-_panoramio.jpg/1280px-Changchun_skyline_with_Ji_Tower_-_panoramio.jpg',
   'huadong-jiangsu-nanjing':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nanjing_Museum.jpg/1280px-Nanjing_Museum.jpg',
   'xinan-guizhou-guiyang':
@@ -358,7 +356,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'huanan-guangxi-nanning':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Nanning.jpg/1280px-Nanning.jpg',
   'huanan-hainan-haikou':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sanya_Bay_panorama.jpg/1280px-Sanya_Bay_panorama.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Haikou_Century_Bridge_in_2015.jpg/1280px-Haikou_Century_Bridge_in_2015.jpg',
   'xinan-yunnan-kunming-city':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
   'qingzang-nyingchi-slow':
@@ -374,7 +372,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'dongbei-heilongjiang-harbin-summer':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Saint_Sophia_Cathedral_in_Harbin.jpg/1280px-Saint_Sophia_Cathedral_in_Harbin.jpg',
   'huabei-neimeng-hohhot':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hulunbuir.jpg/1280px-Hulunbuir.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Da_Zhao_Temple_in_Hohhot3.JPG/1280px-Da_Zhao_Temple_in_Hohhot3.JPG',
   // coverage wave 20260802b
   'huadong-jiangsu-wuxi':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%97%A0%E9%94%A1%E9%BC%8B%E5%A4%B4%E6%B8%9A%2C_2007-01-02.jpg/1280px-%E6%97%A0%E9%94%A1%E9%BC%8B%E5%A4%B4%E6%B8%9A%2C_2007-01-02.jpg',
@@ -842,10 +840,10 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'jn-baotu': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Jinan_Baotu_Spring-20150519-RM-165055.jpg/1280px-Jinan_Baotu_Spring-20150519-RM-165055.jpg',
   'jn-daming': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Jinan_Baotu_Spring-20150519-RM-165055.jpg/1280px-Jinan_Baotu_Spring-20150519-RM-165055.jpg',
   'jn-quancheng-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Jinan_Baotu_Spring-20150519-RM-165055.jpg/1280px-Jinan_Baotu_Spring-20150519-RM-165055.jpg',
-  'cc-chaoyang-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Yanji.jpg/1280px-Yanji.jpg',
-  'cc-puppet-palace': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Yanji.jpg/1280px-Yanji.jpg',
-  'cc-nanhu': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/%E4%BB%8E%E9%95%BF%E7%99%BD%E5%B1%B1%E8%A5%BF%E5%9D%A1%E7%9C%8B%E5%A4%A9%E6%B1%A0-2017-08-24_1.jpg/1280px-%E4%BB%8E%E9%95%BF%E7%99%BD%E5%B1%B1%E8%A5%BF%E5%9D%A1%E7%9C%8B%E5%A4%A9%E6%B1%A0-2017-08-24_1.jpg',
-  'cc-cultural-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Yanji.jpg/1280px-Yanji.jpg',
+  'cc-chaoyang-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Changchun_skyline_with_Ji_Tower_-_panoramio.jpg/1280px-Changchun_skyline_with_Ji_Tower_-_panoramio.jpg',
+  'cc-puppet-palace': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Changchun_skyline_with_Ji_Tower_-_panoramio.jpg/1280px-Changchun_skyline_with_Ji_Tower_-_panoramio.jpg',
+  'cc-nanhu': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Nanhu_Lake_park_-_panoramio.jpg/1280px-Nanhu_Lake_park_-_panoramio.jpg',
+  'cc-cultural-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Changchun_skyline_with_Ji_Tower_-_panoramio.jpg/1280px-Changchun_skyline_with_Ji_Tower_-_panoramio.jpg',
   'nj-xuanwu-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nanjing_Museum.jpg/1280px-Nanjing_Museum.jpg',
   'nj-museum': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nanjing_Museum.jpg/1280px-Nanjing_Museum.jpg',
   'nj-xuanwu-lake': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Humble_Administrator%27s_Garden_2015.JPG/1280px-Humble_Administrator%27s_Garden_2015.JPG',
@@ -858,10 +856,10 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'nn-qingxiu-mountain': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Nanning.jpg/1280px-Nanning.jpg',
   'nn-yongjiang': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Nanning.jpg/1280px-Nanning.jpg',
   'nn-museum-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Detian_Falls.jpg/1280px-Detian_Falls.jpg',
-  'hk-longhua-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sanya_Bay_panorama.jpg/1280px-Sanya_Bay_panorama.jpg',
-  'hk-qilou': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sanya_Bay_panorama.jpg/1280px-Sanya_Bay_panorama.jpg',
-  'hk-west-coast': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sanya_Bay_panorama.jpg/1280px-Sanya_Bay_panorama.jpg',
-  'hk-volcano-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sanya_Bay_panorama.jpg/1280px-Sanya_Bay_panorama.jpg',
+  'hk-longhua-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Haikou_Century_Bridge_in_2015.jpg/1280px-Haikou_Century_Bridge_in_2015.jpg',
+  'hk-qilou': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/%E6%B5%B7%E5%8F%A3%E9%AA%91%E6%A5%BC%E8%80%81%E8%A1%97_-_Haikou_Arcaded_Streets_-_2016.01_-_panoramio.jpg/1280px-%E6%B5%B7%E5%8F%A3%E9%AA%91%E6%A5%BC%E8%80%81%E8%A1%97_-_Haikou_Arcaded_Streets_-_2016.01_-_panoramio.jpg',
+  'hk-west-coast': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Haikou_Century_Bridge_in_2015.jpg/1280px-Haikou_Century_Bridge_in_2015.jpg',
+  'hk-volcano-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Haikou_Century_Bridge_in_2015.jpg/1280px-Haikou_Century_Bridge_in_2015.jpg',
   'km-cuihu-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
   'km-cuihu': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
   'km-dianchi': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
@@ -890,10 +888,10 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'hrb-central-street': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Saint_Sophia_Cathedral_in_Harbin.jpg/1280px-Saint_Sophia_Cathedral_in_Harbin.jpg',
   'hrb-songhua': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Songhua_River.jpg/1280px-Songhua_River.jpg',
   'hrb-sun-island-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Songhua_River.jpg/1280px-Songhua_River.jpg',
-  'hh-city-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hulunbuir.jpg/1280px-Hulunbuir.jpg',
-  'hh-museum': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hulunbuir.jpg/1280px-Hulunbuir.jpg',
+  'hh-city-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Da_Zhao_Temple_in_Hohhot3.JPG/1280px-Da_Zhao_Temple_in_Hohhot3.JPG',
+  'hh-museum': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Altan_Khan_statue_in_Hohhot%2C_Inner_Mongolia.jpg/1280px-Altan_Khan_statue_in_Hohhot%2C_Inner_Mongolia.jpg',
   'hh-xilamuren-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hulunbuir.jpg/1280px-Hulunbuir.jpg',
-  'hh-buffer-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hulunbuir.jpg/1280px-Hulunbuir.jpg',
+  'hh-buffer-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Da_Zhao_Temple_in_Hohhot3.JPG/1280px-Da_Zhao_Temple_in_Hohhot3.JPG',
   // coverage wave 20260802b stops
   'wx-liangxi-base':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%97%A0%E9%94%A1%E9%BC%8B%E5%A4%B4%E6%B8%9A%2C_2007-01-02.jpg/1280px-%E6%97%A0%E9%94%A1%E9%BC%8B%E5%A4%B4%E6%B8%9A%2C_2007-01-02.jpg',

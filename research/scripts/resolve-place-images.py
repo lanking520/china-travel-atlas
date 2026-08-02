@@ -314,7 +314,24 @@ FILES: dict[str, str] = {
     "menyuan-flowers": "Menyuan_County.jpg",
     "qilian-town": "Qilian_Mountains.jpg",
     "qingzang-qilian-optional": "Menyuan_County.jpg",
+    # wrong-city soft upgrades 20260802 (Changchun/Haikou/Hohhot)
+    "dongbei-jilin-changchun": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
+    "cc-chaoyang-base": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
+    "cc-puppet-palace": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
+    "cc-cultural-optional": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
+    "cc-nanhu": "Nanhu_Lake_park_-_panoramio.jpg",
+    "huanan-hainan-haikou": "Haikou_Century_Bridge_in_2015.jpg",
+    "hk-longhua-base": "Haikou_Century_Bridge_in_2015.jpg",
+    "hk-west-coast": "Haikou_Century_Bridge_in_2015.jpg",
+    "hk-volcano-optional": "Haikou_Century_Bridge_in_2015.jpg",
+    "hk-qilou": "海口骑楼老街_-_Haikou_Arcaded_Streets_-_2016.01_-_panoramio.jpg",
+    "huabei-neimeng-hohhot": "Da_Zhao_Temple_in_Hohhot3.JPG",
+    "hh-city-base": "Da_Zhao_Temple_in_Hohhot3.JPG",
+    "hh-buffer-optional": "Da_Zhao_Temple_in_Hohhot3.JPG",
+    "hh-museum": "Altan_Khan_statue_in_Hohhot,_Inner_Mongolia.jpg",
+    # hh-xilamuren-optional stays Hulunbuir soft grassland corridor
 }
+
 
 # Alternate filenames when primary 404s (same place / city landmark)
 ALTS: dict[str, list[str]] = {

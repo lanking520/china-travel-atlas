@@ -147,3 +147,17 @@ Sparse HEAD: Puning / Ge Yuan / Nanjing Museum → 200; Sangke original briefly 
 **PLACE_SOFT_IDS now:** `ts-laoting-optional`, `xinghan-optional`, `lianfengshan-optional`, `pingyao-wall-optional`, `zhuhai-optional`, `shapotou-optional`, `datong-zuoyun-optional`.
 
 未重跑 `/places/` stand-in regenerators；未引入 Unsplash。
+
+---
+
+## Wrong-city soft upgrades — 2026-08-02 (post-ac819a0)
+
+| ID | Was (wrong city) | Now (HEAD 200 Commons) |
+|----|------------------|------------------------|
+| `dongbei-jilin-changchun` + `cc-*` | `Yanji.jpg` | `Changchun_skyline_with_Ji_Tower_-_panoramio.jpg`；`cc-nanhu`→`Nanhu_Lake_park_-_panoramio.jpg` |
+| `huanan-hainan-haikou` + `hk-*` | `Sanya_Bay_panorama.jpg` | `Haikou_Century_Bridge_in_2015.jpg`；`hk-qilou`→骑楼老街 panoramio |
+| `huabei-neimeng-hohhot` + `hh-city/museum/buffer` | `Hulunbuir.jpg` | `Da_Zhao_Temple_in_Hohhot3.JPG`；馆线 `Altan_Khan_statue…` |
+| `hh-xilamuren-optional` | Hulunbuir | **仍 soft** 草浪同廊（拒大召顶替草原） |
+| `hk-volcano-optional` | Sanya | 世纪桥同城 soft（无火山专用风景） |
+
+Pipeline: `research/scripts/resolve-place-images.py` FILES 同步上述文件名。出 soft：`cc-chaoyang/cultural`、`hk-longhua`、`hh-city/buffer`。

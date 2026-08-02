@@ -174,4 +174,14 @@ export const routeProvinces: Record<
   'huadong-jiangsu-changzhou': { primary: 'jiangsu' },
   'huadong-zhejiang-wenzhou': { primary: 'zhejiang' },
   'huanan-guangdong-huizhou': { primary: 'guangdong' },
+  // Famous P2 20260802 (pingyao overwrite keeps key)
+  'xinan-guizhou-fanjing': { primary: 'guizhou' },
+  'xinan-guizhou-libo': { primary: 'guizhou' },
+  'huazhong-hubei-shennongjia': { primary: 'hubei' },
+  'huazhong-hubei-enshi': { primary: 'hubei' },
+  'xinan-guizhou-dong-corridor': { primary: 'guizhou' },
+  'huanan-guangdong-zhongshan': { primary: 'guangdong' },
+  'xibei-gansu-lanzhou-huanghe': { primary: 'gansu' },
+  'huanan-guangdong-chaoshan': { primary: 'guangdong' },
+  'xinan-sichuan-g318-mid': { primary: 'sichuan' },
 };

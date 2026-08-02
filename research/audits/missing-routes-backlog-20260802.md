@@ -1,34 +1,32 @@
-# Missing / thin routes backlog · 2026-08-02（updated after famous-P1）
+# Missing / thin routes backlog · 2026-08-02（updated after famous-P2 + dead-lead）
 
-> Catalog size: **135** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
-> Was 123 (post famous-stitch)；**+12 new** this wave；**1 overwrite**（泰山串曲阜）。  
+> Catalog size: **144** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
+> Was 135 (post famous-P1)；**+9 new** this wave；**1 overwrite**（晋中平遥织太谷祁县）。  
 > Legend: **M** = no dedicated route · **T** = thin · **C** = dedicated covered · **D** = discoverability fixed.
 
 ---
 
-## Closed this wave（P1 高搜）
+## Closed this wave（P2）
 
 | Item | Status | id |
 |------|--------|-----|
-| 武夷浅尝 | **C** | `huanan-fujian-wuyi` |
-| 北海银滩(+涠洲可选) | **C** | `huanan-guangxi-beihai` |
-| 普陀/舟山 | **C** | `huadong-zhejiang-putuo` |
-| 曲阜三孔 | **C** | stitched into `huabei-shandong-taishan` |
-| 开平碉楼 | **C** | `huanan-guangdong-kaiping` |
-| 韶关丹霞 | **C** | `huanan-guangdong-danxia` |
-| 九华山 | **C** | `huadong-anhui-jiuhua` |
-| 千岛湖 | **C** | `huadong-zhejiang-qiandao` |
-| 武隆独立 | **C** | `xinan-chongqing-wulong` |
-| 黄果树独立 | **C** | `xinan-guizhou-huangguoshu` |
-| 常州 | **C** | `huadong-jiangsu-changzhou` |
-| 温州/雁荡 | **C** | `huadong-zhejiang-wenzhou` |
-| 惠州 | **C** | `huanan-guangdong-huizhou` |
+| 梵净 | **C** | `xinan-guizhou-fanjing` |
+| 荔波 | **C** | `xinan-guizhou-libo` |
+| 神农架 | **C** | `huazhong-hubei-shennongjia` |
+| 恩施 | **C** | `huazhong-hubei-enshi` |
+| 西江/肇兴 | **C** | `xinan-guizhou-dong-corridor` |
+| 中山 | **C** | `huanan-guangdong-zhongshan` |
+| 兰州黄河 | **C** | `xibei-gansu-lanzhou-huanghe` |
+| 汕头潮州加深 | **C** | `huanan-guangdong-chaoshan` |
+| G318 川藏中段浅尝 | **C** | `xinan-sichuan-g318-mid`（雅安–泸定；非全线） |
+| 晋中太谷祁县↔平遥 | **C** | `huabei-shanxi-pingyao-deep` overwrite |
+| 名景当季死链（婺源等） | **D** | see `dead-lead-visibility-20260802.md` |
 
 ---
 
 ## Still open（next）
 
-梵净/荔波 · 神农架/恩施 · 西江/肇兴独立 · 中山 · 兰州黄河独立 · 汕头潮州加深 · G318 川藏中段浅尝 · 晋中太谷祁县↔平遥 …
+忻州五台减负已有 · 洛阳孟津/偃师 · 开封 · 苏州县域 · 大理州表格式 · 其余地级深挖见 prefecture backlog …
 
 ---
 
@@ -41,4 +39,5 @@
 ## Method notes
 
 - Count = keys in `route-provinces.ts`（须与 routes merge 1:1）.  
-- Image note: `research/audits/image-completeness-famous-p1-20260802.md`
+- Image: `research/audits/image-completeness-famous-p2-20260802.md`  
+- Visibility: `research/audits/dead-lead-visibility-20260802.md`

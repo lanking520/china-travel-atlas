@@ -43,6 +43,23 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'hz-shuangyue-optional', // 双月湾无专用 → 惠州西湖同市示意
   'qd-hangzhou-note', // 返杭缓冲：西湖专用照，标注同廊衔接
   'qufu-exit', // 曲阜东 ↔ 孔庙同城
+  // famous P2 soft same-corridor
+  'fj-gate', // 铜仁缓冲 ↔ 梵净同廊
+  'fj-jinding-optional', // 金顶 ↔ 梵净同景区
+  'lb-base', // 荔波住 ↔ 小七孔同廊
+  'lb-daqikong-optional', // 大七孔 ↔ 小七孔同廊示意
+  'snj-gate', // 宜昌/襄阳缓冲 ↔ 木鱼同廊示意
+  'snj-scenic', // 神农顶选段 ↔ 木鱼同廊
+  'es-dislot-optional', // 地缝 ↔ 大峡谷同景区
+  'qd-kaili-gate', // 凯里中转 ↔ 西江同廊
+  'zs-base', // 中山住 ↔ 故居同城
+  'zs-park-optional', // 公园 ↔ 中山同城
+  'lz-huanghe-base', // 兰州住 ↔ 黄河同城（skyline）
+  'lz-museum-optional', // 省博 ↔ 兰州同城
+  'cs-shantou', // 汕头 ↔ 潮汕同廊（骑楼/港湾）
+  'g318m-chengdu', // 成都缓冲 ↔ 川西廊
+  'g318m-descend', // 下撤成都 ↔ 同廊
+  'taiyuan-hub', // 太原枢纽 ↔ 平遥廊示意（既有）
 
   'wh-wuchang-base',
   'wh-jianghan-optional',
@@ -329,6 +346,25 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/China2011_Zhejiang_YandangShan.jpg/1280px-China2011_Zhejiang_YandangShan.jpg',
   'huanan-guangdong-huizhou':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
+  // famous P2 20260802
+  'xinan-guizhou-fanjing':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fanjingshan-new.jpg/1280px-Fanjingshan-new.jpg',
+  'xinan-guizhou-libo':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Xiaoqikong.JPG/1280px-Xiaoqikong.JPG',
+  'huazhong-hubei-shennongjia':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/VM_5318_Muyu_Town.jpg/1280px-VM_5318_Muyu_Town.jpg',
+  'huazhong-hubei-enshi':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Enshi_grand_canyon.jpg/1280px-Enshi_grand_canyon.jpg',
+  'xinan-guizhou-dong-corridor':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Xijiang_Miao_Village.jpg/1280px-Xijiang_Miao_Village.jpg',
+  'huanan-guangdong-zhongshan':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Former_Residence_of_Mr._Sun_Yat-sen.jpg/1280px-Former_Residence_of_Mr._Sun_Yat-sen.jpg',
+  'xibei-gansu-lanzhou-huanghe':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Lanzhou_Zhongshan_Qiao_2013.12.28_17-26-24.jpg/1280px-Lanzhou_Zhongshan_Qiao_2013.12.28_17-26-24.jpg',
+  'huanan-guangdong-chaoshan':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Paifangjie_%28cropped%29.jpg/1280px-Paifangjie_%28cropped%29.jpg',
+  'xinan-sichuan-g318-mid':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Luding_Bridge_June_07_350D_127.jpg/1280px-Luding_Bridge_June_07_350D_127.jpg',
 };
 
 export const PLACE_STOP_IMAGES: Record<string, string> = {
@@ -947,6 +983,65 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
   'hz-shuangyue-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
+  // famous P2 20260802 stops
+  'fj-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fanjingshan-new.jpg/1280px-Fanjingshan-new.jpg',
+  'fj-cable':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fanjingshan-new.jpg/1280px-Fanjingshan-new.jpg',
+  'fj-jinding-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fanjingshan-new.jpg/1280px-Fanjingshan-new.jpg',
+  'lb-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Xiaoqikong.JPG/1280px-Xiaoqikong.JPG',
+  'lb-xiaoqikong':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Xiaoqikong.JPG/1280px-Xiaoqikong.JPG',
+  'lb-daqikong-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Xiaoqikong.JPG/1280px-Xiaoqikong.JPG',
+  'snj-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/VM_5318_Muyu_Town.jpg/1280px-VM_5318_Muyu_Town.jpg',
+  'snj-muyu':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/VM_5318_Muyu_Town.jpg/1280px-VM_5318_Muyu_Town.jpg',
+  'snj-scenic':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/VM_5318_Muyu_Town.jpg/1280px-VM_5318_Muyu_Town.jpg',
+  'es-city':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/202309_Enshi_City%2C_Hubei_at_Night.jpg/1280px-202309_Enshi_City%2C_Hubei_at_Night.jpg',
+  'es-canyon':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Enshi_grand_canyon.jpg/1280px-Enshi_grand_canyon.jpg',
+  'es-dislot-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Enshi_grand_canyon.jpg/1280px-Enshi_grand_canyon.jpg',
+  'qd-kaili-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Xijiang_Miao_Village.jpg/1280px-Xijiang_Miao_Village.jpg',
+  'qd-xijiang':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Xijiang_Miao_Village.jpg/1280px-Xijiang_Miao_Village.jpg',
+  'qd-zhaoxing':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/1_zhaoxing_2015.jpg/1280px-1_zhaoxing_2015.jpg',
+  'zs-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Former_Residence_of_Mr._Sun_Yat-sen.jpg/1280px-Former_Residence_of_Mr._Sun_Yat-sen.jpg',
+  'zs-cuiheng':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Former_Residence_of_Mr._Sun_Yat-sen.jpg/1280px-Former_Residence_of_Mr._Sun_Yat-sen.jpg',
+  'zs-park-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Former_Residence_of_Mr._Sun_Yat-sen.jpg/1280px-Former_Residence_of_Mr._Sun_Yat-sen.jpg',
+  'lz-huanghe-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Skyline_Lanzhou_August_2025.jpg/1280px-Skyline_Lanzhou_August_2025.jpg',
+  'lz-zhongshan-qiao':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Lanzhou_Zhongshan_Qiao_2013.12.28_17-26-24.jpg/1280px-Lanzhou_Zhongshan_Qiao_2013.12.28_17-26-24.jpg',
+  'lz-museum-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Skyline_Lanzhou_August_2025.jpg/1280px-Skyline_Lanzhou_August_2025.jpg',
+  'cs-chaozhou-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Paifangjie_%28cropped%29.jpg/1280px-Paifangjie_%28cropped%29.jpg',
+  'cs-guangji':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Paifangjie_%28cropped%29.jpg/1280px-Paifangjie_%28cropped%29.jpg',
+  'cs-shantou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Shantou_harbour_and_skyline_viewed_from_Double_Island_June_2022.jpg/1280px-Shantou_harbour_and_skyline_viewed_from_Double_Island_June_2022.jpg',
+  'g318m-chengdu':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+  'g318m-yaan':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Ya%27an%2C_August_2020.jpg/1280px-Ya%27an%2C_August_2020.jpg',
+  'g318m-luding':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Luding_Bridge_June_07_350D_127.jpg/1280px-Luding_Bridge_June_07_350D_127.jpg',
+  'g318m-descend':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+  'qixian-qiao-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qiao_Family_Compound%2C_Jinyiyuan.JPG/1280px-Qiao_Family_Compound%2C_Jinyiyuan.JPG',
 };
 
 /** Neutral China fallback (Great Wall) — never foreign Unsplash scenery. */

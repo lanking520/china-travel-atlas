@@ -25,6 +25,7 @@ import { patchRoutes as coverageWave20260802cRoutes } from './patches/routes-cov
 import { patchRoutes as yunnanHekouSapaRoutes } from './patches/routes-yunnan-hekou-sapa';
 import { patchRoutes as famousStitch20260802Routes } from './patches/routes-famous-stitch-20260802';
 import { patchRoutes as famousP120260802Routes } from './patches/routes-famous-p1-20260802';
+import { patchRoutes as famousP220260802Routes } from './patches/routes-famous-p2-20260802';
 import {
   applyRouteFieldPatches,
   getMergedRouteDetails,
@@ -84,6 +85,7 @@ export const routes: Route[] = (() => {
     ...yunnanHekouSapaRoutes,
     ...famousStitch20260802Routes,
     ...famousP120260802Routes,
+    ...famousP220260802Routes,
   ]) {
     map.set(r.id, r);
   }

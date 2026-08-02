@@ -467,7 +467,7 @@ export function ChinaMapExplorer() {
             </h2>
             <p className="mt-1 max-w-2xl text-base leading-relaxed text-sky-800/90">
               {theme === "famous-scenic"
-                ? "名景专线：武夷北海普陀、泰山曲阜、开平丹霞、九华千岛湖、武隆黄果树，以及九寨婺源厦鼓土楼乐山峨眉等；点标题即可，不必先钻地图。"
+                ? "名景专线：梵净荔波、神农恩施、西江肇兴、潮汕兰州黄河、中山惠州，以及武夷北海普陀、泰山曲阜、开平丹霞、九华千岛湖、武隆黄果树、九寨婺源厦鼓等；点标题即可，不必先钻地图。"
                 : theme === "grand-loop"
                   ? "跨省慢环：拆段走、日驾短、段末可回京；不是特种兵一天一千公里。"
                   : theme === "frontier"

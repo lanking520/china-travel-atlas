@@ -157,7 +157,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'huabei-shanxi-pingyao-deep': {
     routeGuide:
-      '高铁进太原先休整 1–2 日，再平遥慢住。古城内以票号外观+一两处室内为主，城墙只走平坦选段。勿一日内赶乔家大院+平遥+太原。\n\n可跳过：城墙全程、密集室内展馆。',
+      '高铁太原休整→平遥古城慢住→城墙选段可删→祁县乔家/太谷晋商院落日归一处可删→回京。\n\n可跳过：乔家、城墙、晋祠；勿一日三线。',
     timePlan: [
       'D1–2：太原南站入住、市区慢走/博物馆空调日',
       'D3 转平遥：城外停车→近城门电梯客栈',
@@ -2447,6 +2447,116 @@ export const practicalGuides: Record<string, PracticalGuide> = {
     hospitals: [
       { name: '惠州市中心人民医院', level: '三甲', area: '惠州', note: '请用高德核实' },
       { name: '中山大学附属第一医院', level: '三甲', area: '广州', note: '下撤；请用高德核实' },
+    ],
+  },
+
+  // ── Famous P2 20260802 ────────────────────────────────────
+  'xinan-guizhou-fanjing': {
+    routeGuide:
+      '飞铜仁或贵阳→景区口电梯酒店→观光车+索道→金顶窄桥可删→回京。\n\n可跳过：红云金顶；勿串荔波。',
+    timePlan: ['D1：抵达休整', 'D2：索道观景', 'D3：金顶或空白', '回京'],
+    sightsTips: '· 索道预约。\n· 台阶景点默认删。\n· 勿与荔波同短假。',
+    dining: '黔味微辣或免辣。',
+    longStay: '景区口电梯酒店连住。',
+    hospitals: [
+      { name: '铜仁市人民医院', level: '三甲', area: '铜仁', note: '请用高德核实' },
+      { name: '贵州医科大学附属医院', level: '三甲', area: '贵阳', note: '下撤；请用高德核实' },
+    ],
+  },
+  'xinan-guizhou-libo': {
+    routeGuide:
+      '飞贵阳/荔波→县城电梯酒店→小七孔观光车精华段→大七孔可删→回京。\n\n可跳过：大七孔、漂流；勿串梵净。',
+    timePlan: ['D1：抵达', 'D2：小七孔', 'D3：可选大七孔或空白', '回京'],
+    sightsTips: '· 栈道防滑。\n· 雨天量力。',
+    dining: '黔南菜清淡吃。',
+    longStay: '荔波电梯酒店。',
+    hospitals: [
+      { name: '荔波县人民医院', level: '二级', area: '荔波', note: '请用高德核实' },
+      { name: '贵州医科大学附属医院', level: '三甲', area: '贵阳', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huazhong-hubei-shennongjia': {
+    routeGuide:
+      '飞襄阳/宜昌/红坪→木鱼电梯酒店→观光车选段→回京。\n\n可跳过：长徒步；勿串恩施。',
+    timePlan: ['D1：进出缓冲', 'D2–3：木鱼慢住+观光', '回京'],
+    sightsTips: '· 盘山慎夜赶。\n· 高海拔感监测。',
+    dining: '清淡鄂菜；少油炸。',
+    longStay: '木鱼镇电梯酒店。',
+    hospitals: [
+      { name: '神农架林区人民医院', level: '二级', area: '松柏/木鱼方向', note: '请用高德核实' },
+      { name: '宜昌市中心人民医院', level: '三甲', area: '宜昌', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huazhong-hubei-enshi': {
+    routeGuide:
+      '飞恩施→市区电梯酒店→大峡谷观光车+垂直电梯→地缝可删→回京。\n\n可跳过：云龙地缝；勿串神农架。',
+    timePlan: ['D1：市区休整', 'D2：峡谷电梯', 'D3：地缝或回京'],
+    sightsTips: '· 恐高选段外观。\n· 栈道防滑。',
+    dining: '土家菜微辣或免辣。',
+    longStay: '恩施市区电梯酒店。',
+    hospitals: [
+      { name: '恩施州中心医院', level: '三甲', area: '恩施', note: '请用高德核实' },
+      { name: '武汉协和医院', level: '三甲', area: '武汉', note: '下撤；请用高德核实' },
+    ],
+  },
+  'xinan-guizhou-dong-corridor': {
+    routeGuide:
+      '飞贵阳→凯里中转→西江或肇兴二选一加深（可两寨分住）→回贵阳飞京。\n\n可跳过：任一寨；勿再塞镇远黄果树同周。',
+    timePlan: ['D1：凯里缓冲', 'D2–3：西江', 'D4–5：肇兴（可删）', '回筑飞京'],
+    sightsTips: '· 坡道量力。\n· 包车少换乘。\n· 勿一日三寨。',
+    dining: '酸辣改清淡；少强劝酒。',
+    longStay: '西江/肇兴选电梯或低楼层。',
+    hospitals: [
+      { name: '黔东南州人民医院', level: '三甲', area: '凯里', note: '请用高德核实' },
+      { name: '贵州医科大学附属医院', level: '三甲', area: '贵阳', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huanan-guangdong-zhongshan': {
+    routeGuide:
+      '经深穗城际中山→翠亨故居→市区公园可选→回京。\n\n可跳过：公园、主题园。',
+    timePlan: ['D1：抵达', 'D2：故居', 'D3：公园或回京'],
+    sightsTips: '· 故居预约。\n· 暑热缩短午后。',
+    dining: '粤菜清淡。',
+    longStay: '市区电梯酒店。',
+    hospitals: [
+      { name: '中山市人民医院', level: '三甲', area: '中山', note: '请用高德核实' },
+      { name: '中山大学附属第一医院', level: '三甲', area: '广州', note: '下撤；请用高德核实' },
+    ],
+  },
+  'xibei-gansu-lanzhou-huanghe': {
+    routeGuide:
+      '飞/高铁兰州→滨河电梯酒店→中山桥+滨河平走→省博可选→回京。\n\n可跳过：省博；勿同短假上夏河。',
+    timePlan: ['D1：抵达', 'D2：中山桥滨河', 'D3：室内或回京'],
+    sightsTips: '· 风大备外套。\n· 勿硬接河西/夏河。',
+    dining: '牛肉面清汤少辣油。',
+    longStay: '滨河或近地铁电梯酒店。',
+    hospitals: [
+      { name: '兰州大学第一医院', level: '三甲', area: '兰州', note: '请用高德核实' },
+      { name: '甘肃省人民医院', level: '三甲', area: '兰州', note: '请用高德核实' },
+    ],
+  },
+  'huanan-guangdong-chaoshan': {
+    routeGuide:
+      '飞揭阳潮汕或高铁潮汕站→潮州古城慢住→牌坊街/广济桥→汕头骑楼可选→回京。\n\n可跳过：汕头、南澳。',
+    timePlan: ['D1–3：潮州', 'D4：汕头或空白', '回京'],
+    sightsTips: '· 别自驾进窄巷。\n· 暑热上午出门。',
+    dining: '工夫茶浅尝；牛肉火锅别贪凉；卤味控盐。',
+    longStay: '潮州近牌坊街电梯酒店。',
+    hospitals: [
+      { name: '潮州市中心医院', level: '三甲', area: '潮州', note: '请用高德核实' },
+      { name: '汕头大学医学院第一附属医院', level: '三甲', area: '汕头', note: '请用高德核实' },
+    ],
+  },
+  'xinan-sichuan-g318-mid': {
+    routeGuide:
+      '飞成都缓冲→雅安歇脚→泸定桥外观可选→必须回撤成都飞京。\n\n可跳过：泸定；禁止西进康定理塘/贯通拉萨。',
+    timePlan: ['D1–2：成都', 'D3：雅安', 'D4：泸定或回撤', '飞京'],
+    sightsTips: '· 雨季关注塌方。\n· 不适即撤。',
+    dining: '川菜微辣；成都清淡可选。',
+    longStay: '成都近华西；雅安电梯酒店。',
+    hospitals: [
+      { name: '四川大学华西医院', level: '三甲', area: '成都', note: '下撤首选；请用高德核实' },
+      { name: '雅安市人民医院', level: '三甲', area: '雅安', note: '请用高德核实' },
     ],
   },
 };

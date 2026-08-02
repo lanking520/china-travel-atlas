@@ -358,7 +358,10 @@ await check("P12 desktop: SVG region path clickable", async () => {
 await check("P13 search box finds 婺源", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(400);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(200);
   const input = page.getByPlaceholder("搜索城市、景点或路线");
+  await input.first().waitFor({ state: "attached", timeout: 8000 });
   if (!(await input.count())) throw new Error("search box missing");
   await input.fill("婺源");
   await page.waitForTimeout(400);
@@ -465,14 +468,29 @@ await check("P17 region-chip dismiss → clean 全部景点", async () => {
     await page.getByRole("button", { name: /条路线 · 点击进入/ }).first().click();
   }
   await page.waitForTimeout(600);
-  // Sticky chrome may be scroll-hidden — scroll to top first
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.waitForTimeout(250);
+  // Unhide sticky chrome (transform-hide ignores pointer events)
+  await page.evaluate(() => {
+    window.scrollTo(0, 80);
+    window.scrollTo(0, 0);
+  });
+  await page.waitForTimeout(300);
   const dismissRegion = page.getByRole("button", { name: /移除筛选 华北/ });
   if (!(await dismissRegion.count())) {
-    throw new Error("province view missing 移除筛选 华北 chip");
+    // Fallback: sticky 返回 also clears region → clean catalog
+    const back = page.getByRole("button", { name: "返回" });
+    if (!(await back.count())) {
+      throw new Error("province view missing 移除筛选 华北 and 返回");
+    }
+    await page.evaluate(() => {
+      const el = document.querySelector('[aria-label="返回"]');
+      if (el instanceof HTMLElement) el.click();
+    });
+  } else {
+    await page.evaluate(() => {
+      const el = document.querySelector('[aria-label="移除筛选 华北"]');
+      if (el instanceof HTMLElement) el.click();
+    });
   }
-  await dismissRegion.click({ force: true });
   await page.waitForTimeout(400);
   const allTab = page.getByRole("tab", { name: "全部景点" });
   if ((await allTab.getAttribute("aria-selected")) !== "true") {

@@ -29,7 +29,6 @@ import {
   TRIP_TYPE_LABELS,
 } from "@/lib/labels";
 import { searchRoutes } from "@/lib/route-search";
-import { getSeasonNow } from "@/lib/season-now";
 import { RegionMap } from "./RegionMap";
 import { RouteCardGrid } from "./RouteCard";
 
@@ -88,10 +87,9 @@ function resolvedTripType(route: Route): TripType {
 }
 
 export function ChinaMapExplorer() {
-  const currentSeason = getSeasonNow();
   const [tab, setTab] = useState<ExploreTab>("all");
-  /** Soft calendar default: filter on; no identity chip while default. */
-  const [season, setSeason] = useState<Season | undefined>(() => getSeasonNow());
+  /** Defaults: 全季节 / 全部长短 / 全部主题 (supersedes calendar soft-default). */
+  const [season, setSeason] = useState<Season | undefined>(undefined);
   const [tripType, setTripType] = useState<TripType | undefined>(undefined);
   const [theme, setTheme] = useState<RouteTheme | undefined>(undefined);
   const [level, setLevel] = useState<MapLevel>({ kind: "china" });
@@ -156,7 +154,6 @@ export function ChinaMapExplorer() {
   );
   const searchActive = searchQuery.trim().length > 0;
 
-  const seasonIsCalendarDefault = season === currentSeason;
 
   const filtersDirty =
     tripType !== undefined ||
@@ -258,7 +255,7 @@ export function ChinaMapExplorer() {
   }
 
   function resetCatalogDefaults() {
-    setSeason(getSeasonNow());
+    setSeason(undefined);
     setTripType(undefined);
     setTheme(undefined);
   }
@@ -302,8 +299,7 @@ export function ChinaMapExplorer() {
     drilled ||
     tripType !== undefined ||
     theme !== undefined ||
-    season === undefined ||
-    (season !== undefined && !seasonIsCalendarDefault);
+    season !== undefined;
 
   const showExitBack = hasExtraScope;
 
@@ -320,9 +316,10 @@ export function ChinaMapExplorer() {
   const catalogClean =
     !searchActive &&
     !drilled &&
+    season === undefined &&
     tripType === undefined &&
-    theme === undefined &&
-    (seasonIsCalendarDefault || season === undefined);
+    theme === undefined;
+
 
   const chromeOff = resultsMode && chromeHidden;
 
@@ -425,7 +422,6 @@ export function ChinaMapExplorer() {
                   searchQuery={searchActive ? searchQuery.trim() : undefined}
                   level={level}
                   season={season}
-                  hideSeasonChip={seasonIsCalendarDefault}
                   tripType={tripType}
                   theme={theme}
                   onDismissSearch={clearSearch}
@@ -468,14 +464,9 @@ export function ChinaMapExplorer() {
           <p className="font-display text-[0.95rem] font-bold leading-snug text-sky-950 sm:text-lg">
             {resultsTitle}
           </p>
-          {catalogClean && seasonIsCalendarDefault ? (
+          {catalogClean ? (
             <p className="text-xs text-sky-700/85 sm:text-sm">
-              已按当季（{SEASON_FULL_LABELS[currentSeason]}
-              ）显示 · 先名景；点「季节」→全季节可看全年
-            </p>
-          ) : catalogClean && season === undefined ? (
-            <p className="text-xs text-sky-700/85 sm:text-sm">
-              全年未筛季节 · 先显示名景；点季节 / 长短 / 主题可收窄
+              未加筛选 · 先显示名景；点季节 / 长短 / 主题可收窄
             </p>
           ) : null}
         </div>
@@ -686,7 +677,6 @@ function ActiveFilterChips({
   searchQuery,
   level,
   season,
-  hideSeasonChip = false,
   tripType,
   theme,
   onDismissSearch,
@@ -699,7 +689,6 @@ function ActiveFilterChips({
   searchQuery?: string;
   level: MapLevel;
   season?: Season;
-  hideSeasonChip?: boolean;
   tripType?: TripType;
   theme?: RouteTheme;
   onDismissSearch: () => void;
@@ -738,7 +727,7 @@ function ActiveFilterChips({
       onDismiss: onDismissProvince,
     });
   }
-  if (season && !hideSeasonChip) {
+  if (season) {
     chips.push({
       key: "season",
       label: SEASON_FULL_LABELS[season],

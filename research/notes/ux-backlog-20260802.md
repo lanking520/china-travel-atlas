@@ -75,11 +75,9 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ### Reconcile notes (2026-08-02 evening)
 
-**Falsely / prematurely closed before:**
-- Soft calendar was marked done but still showed a default season identity chip → fixed: hint-only while calendar-default.
-- 名景/长居/走廊 “always-visible” leaked into「添加筛选」only → restored via 主题· dimension sheet (+ optional primary row experiments).
-- Mobile bottom nav was open P1 → shipped.
-- Sticky viewport: height-collapse thrash → transform-only `chromeHidden`.
-- Compose intro「嵌入短线」only partly covered by timeline tick → done in `3930888`.
+**User overrides / leaked asks:**
+- Nested「添加筛选」→ **3 direct buttons** 季节 / 长短 / 主题 (per-dim sheet). Defaults **全季节 / 全部 / 全部主题** (`undefined`). **Supersedes** earlier calendar soft-default season.
+- Sticky **flicker** on scroll reverse: dual collapse + `max-h-0` changed document height → scrollY thrash. **Fixed:** single `chromeHidden`, rAF + hysteresis, hide via `-translate-y-full` only.
+- Mobile bottom nav shipped; compose intro「嵌入短线」done in `3930888`.
 
-*Updated: 2026-08-02 · reconciled leaked UX asks; DimensionFilters + soft calendar + bottom nav; compose intro leg links done.*
+*Updated: 2026-08-02 · DimensionFilters + 全季节 defaults + sticky flicker fix; ux:plan 25/25.*

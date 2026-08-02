@@ -65,33 +65,38 @@ Content may still say “适老节奏” (trip pacing); **UI chrome is modern mo
 - Keep **sky / emerald / amber** travel map language — refine tokens, don’t purple-wash.
 - Display serif for titles; body Noto Sans SC.
 - Soft paper/sky gradient background; reduce ring/card chrome on pick tiles.
-- Explore first viewport: **search → primary chips → map**.
+- Explore first viewport: **全部景点 tab → search → dual-column catalog** (not season/theme chip clutter on cover).
 
 ---
 
 ## 3. Mobile information architecture
 
-### 3.1 Home / Explore
+### 3.1 Home / Explore (approved IA · 2026-08-02)
 
 ```
 ┌─────────────────────────────────────┐
-│ Brand (compact) · 探索 | 两年 | 说明 │
+│ Brand · 探索 | 两年 | 说明          │
 ├─────────────────────────────────────┤
-│ [🔍 搜索城市、景点或路线     ][清除] │
+│ [全部景点]  [地图选区]   ← top tabs │
 ├─────────────────────────────────────┤
-│ IF searching: sticky ← 返回 · hits  │
+│ 全部景点 (default):                 │
+│   sticky ←返回 · search             │
+│   identity chips (dismiss) · empty  │
+│   「添加筛选」→ 季节/行程/名景…     │
+│   dual-column RouteCards (catalog)  │
 ├─────────────────────────────────────┤
-│ ELSE: 季节 · 长短                   │
-│   从北京短途 | 名景 | 长居 | 走廊   │
-│   更多 ▸ 当季 / 大环线 / 边陲       │
-│   地图点大区 → 省 → 双列图卡片      │
+│ 地图选区 (cover): search + map ONLY │
+│   tap 大区 → results + region chip  │
 └─────────────────────────────────────┘
 ```
 
-**Two parallel entry paths:**
+**Entry paths:**
 
-1. **Search** — typed keywords → route cards → detail  
-2. **Map + filters** — season/trip/theme → 大区→省→路线  
+1. **全部景点** — default unfiltered catalog (results mode, zero chips)  
+2. **Search** — keyword → results + chip  
+3. **地图选区** — cover search+map; region pick → results + region chip  
+4. **添加筛选** — season / trip / 名景·长居·走廊… only on results, not cover  
+
 
 ### 3.2 Route detail
 
@@ -186,15 +191,15 @@ Content may still say “适老节奏” (trip pacing); **UI chrome is modern mo
 ╔══════════════════════════╗
 ║ 爸妈中国旅游地图  探索… ║
 ╠══════════════════════════╣
-║ 🔍 搜索城市、景点或路线  ║
-║ 季节 · 长短              ║
-║ 短途  名景  长居  走廊   ║
-║ 更多 ▸                   ║
-║     【 中国地图 SVG 】   ║
-╠══════════════════════════╣
+║ [全部景点] [地图选区]    ║
+║ 🔍 搜索 · ←返回          ║
+║ (chips) · 添加筛选       ║
 ║ ┌──────┐ ┌──────┐        ║
 ║ │ 图+字│ │ 图+字│  2列  ║
 ║ └──────┘ └──────┘        ║
+╠══ 地图选区 cover ════════╣
+║ 🔍 搜索                  ║
+║     【 中国地图 SVG 】   ║
 ╚══════════════════════════╝
 ```
 

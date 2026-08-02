@@ -18,6 +18,7 @@ import {
   detailPatches as p9,
   routeFieldPatches as r5,
 } from './soft-short-character-20260802';
+import { stopTipPatches } from './high-traffic-stops-20260802';
 
 const detailPatchList = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
 const routePatchList = [r1, r2, r3, r4, r5];
@@ -41,13 +42,24 @@ export function applyDetailPatches(
   return out;
 }
 
+function applyStopTipPatches(route: Route): Route {
+  const tips = stopTipPatches[route.id];
+  if (!tips) return route;
+  return {
+    ...route,
+    stops: route.stops.map((s) =>
+      tips[s.id] ? { ...s, tips: tips[s.id] } : s,
+    ),
+  };
+}
+
 export function applyRouteFieldPatches(route: Route): Route {
   let next = route;
   for (const patch of routePatchList) {
     const p = patch?.[route.id];
     if (p) next = { ...next, ...p };
   }
-  return next;
+  return applyStopTipPatches(next);
 }
 
 export function getMergedRouteDetails(): Record<string, RouteDetailFields> {

@@ -39,6 +39,7 @@ import { routeProvinces } from "@/content/route-provinces";
 import type { Route } from "@/content/types";
 import { placeCoverForRoute } from "@/lib/place-images";
 import { exploreRouteFieldPatchList } from "@/lib/explore-catalog-fields";
+import { stopTipPatches } from "@/content/audit-patches/high-traffic-stops-20260802";
 
 
 function applyRouteFieldPatches(route: Route): Route {
@@ -47,7 +48,14 @@ function applyRouteFieldPatches(route: Route): Route {
     const p = patch?.[route.id];
     if (p) next = { ...next, ...p };
   }
-  return next;
+  const tips = stopTipPatches[next.id];
+  if (!tips) return next;
+  return {
+    ...next,
+    stops: next.stops.map((s) =>
+      tips[s.id] ? { ...s, tips: tips[s.id] } : s,
+    ),
+  };
 }
 
 function withProvince(route: Route): Route {

@@ -30,7 +30,7 @@ Audience note confirmed: UI is modern feed density (`html` 17px, `--tap-min: 36p
 
 | Note | Severity | Detail |
 |------|----------|--------|
-| Live catalog behind local | Low → **done pending deploy** | Content+dead-lead landed `f30c500` (catalog 144). UX P1 push triggers Pages redeploy for live parity. |
+| Live catalog behind local | Low → **done** | Content `f30c500` (catalog 144) + UX `2b2d3f7` Pages deploy **success** ([run 30766854141](https://github.com/lanking520/china-travel-atlas/actions/runs/30766854141)). |
 | `ux:plan` coverage lag | Med → **done** | Extended: P13 婺源 search, P14 九寨 search, P15 名景→`grid-cols-2`, P16 sticky「本页目录」+ guide/time open. **17 PASS**. |
 | P1 progressive disclosure | — → **done** | `SoftDetails`: 路线指南+时间规划 stay open; 长居建议 / 快览说明 / 参考来源 collapsed by default. |
 | Explore first-viewport | — → **done (light)** | Search + primary chips (名景/长居/走廊) one band; season/长短 below; tighter rhythm. |
@@ -43,7 +43,7 @@ No tiny broken UI found this follow-up beyond locator strict-mode in new ux:plan
 ## Next tasks (3–5) — prior round status
 
 1. **Extend `ux:plan`** — **DONE** (17 PASS).
-2. **Redeploy GitHub Pages** — content on `f30c500`; UX push continues deploy for live 名景 parity.
+2. **Redeploy GitHub Pages** — **DONE** (`2b2d3f7` deploy success).
 3. **P1 progressive disclosure** — **DONE** (`SoftDetails` on detail).
 4. **P1 explore first-viewport polish** — **DONE** (light).
 5. **Optional rail scrollspy** — skipped.

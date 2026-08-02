@@ -84,6 +84,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Leg/compose-character deepen (39+5)** — 全部 leg/compose 浅 intro → `leg-compose-character-20260802`；顺手日喀则/祁连/G318东中/G214西宁入口；乐亭/左云/qiziwan 无安全 Commons 未换图
 - [x] **Famous-p / 县域 / frontier deepen (58)** — `famous-frontier-character-20260802`；含河北四市、浙闽粤鄂晋名景、frontier 六卡、县域廊续批；strict THIN 清零；乐亭/左云/qiziwan Commons 仍不可用（API 403 / 无适老风景）未换图
 - [x] **Soft-short deepen (49)** — `soft-short-character-20260802`；先前 city/coverage 浅 intro 全部加厚至 200–280；catalog intro&lt;200 清零；乐亭/左云/qiziwan 仍无安全 Commons 未换图
+- [x] **Duration honesty batch 2** — 广潮 → 约7–10天（可延2周）；琼西 → 约10–14天；版纳 → 约10–14天（可延2–3周）
 
 ## Notes
 
@@ -95,6 +96,6 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-2. Duration-honesty 续扫：广州潮汕、琼西、版纳等仍 2–3周大 blob
-3. Image：残余同廊 soft（乐亭/左云 blocked）+ qiziwan gen + 伪满馆专用照若出现（本波仍无安全 Commons）
+2. Image：残余同廊 soft（乐亭/左云 blocked）+ qiziwan gen + 伪满馆专用照若出现（本波仍无安全 Commons）
+3. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
 4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose

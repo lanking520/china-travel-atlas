@@ -74,7 +74,8 @@ Do **not** duplicate stop text inside every compose.
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
 - Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: Explore compose timeline / compositionKind chips polish; national long→compose migration; 川西 B corridor; optional 桂林/贵阳 `base`.
+- Still open: national long→compose migration; 川西 B corridor; optional 桂林/贵阳 `base`.
+- Shipped UX: Explore 短线/长线 chips + compose detail **组合时间线** (legs + glue).
 
 ## Second corridor — 河西（shipped 20260802）
 

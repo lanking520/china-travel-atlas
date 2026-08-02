@@ -79,7 +79,13 @@ export default async function RouteDetailPage({
             {route.daysLabel}
           </span>
           <span className="rounded-lg bg-amber-100 px-2.5 py-1 text-sm font-medium text-amber-900 sm:px-3 sm:py-1.5 sm:text-lg">
-            {TRIP_TYPE_LABELS[route.tripType]}
+            {route.compositionKind === "leg"
+              ? "短线"
+              : route.compositionKind === "compose"
+                ? "长线组合"
+                : route.compositionKind === "base"
+                  ? "长居枢纽"
+                  : TRIP_TYPE_LABELS[route.tripType]}
           </span>
           {route.seasons.map((season) => (
             <span
@@ -126,14 +132,19 @@ export default async function RouteDetailPage({
           className="sticky top-0 z-10 -mx-4 mt-5 border-b border-sky-200/70 bg-[color-mix(in_srgb,var(--background)_92%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-xl sm:border sm:border-sky-200/60"
         >
           <ul className="flex gap-1 overflow-x-auto text-sm font-semibold text-sky-800 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {[
-              ["#guide", "怎么走"],
-              ["#time", "时间"],
-              ["#sights", "景点"],
-              ["#dining", "吃住"],
-              ["#hospital", "就医"],
-              ["#notices", "须知"],
-            ].map(([href, label]) => (
+            {(
+              [
+                ...(route.compositionKind === "compose" && route.legIds?.length
+                  ? ([["#compose-timeline", "组合"]] as [string, string][])
+                  : []),
+                ["#guide", "怎么走"],
+                ["#time", "时间"],
+                ["#sights", "景点"],
+                ["#dining", "吃住"],
+                ["#hospital", "就医"],
+                ["#notices", "须知"],
+              ] as [string, string][]
+            ).map(([href, label]) => (
               <li key={href} className="shrink-0">
                 <a
                   href={href}
@@ -203,33 +214,71 @@ export default async function RouteDetailPage({
         {route.compositionKind === "compose" &&
         route.legIds &&
         route.legIds.length > 0 ? (
-          <section className="mt-10 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
-            <h2 className="text-2xl font-bold text-indigo-950">嵌入短线</h2>
-            <p className="mt-2 text-base text-indigo-800">
-              长线只负责顺序与衔接；景点正文在各短线卡片。
+          <section
+            id="compose-timeline"
+            className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50/90 p-6"
+          >
+            <h2 className="text-2xl font-bold text-sky-950">组合时间线</h2>
+            <p className="mt-2 text-base text-sky-800">
+              长线只负责顺序与衔接；景点正文在各短线。点进短线看详情。
             </p>
-            <ol className="mt-4 list-decimal space-y-3 pl-6 text-lg text-indigo-950">
-              {route.legIds.map((legId) => {
+            <ol className="mt-5 space-y-0">
+              {route.legIds.map((legId, index) => {
                 const leg = getRouteById(legId);
+                const glueAfter = route.glue?.[index];
                 return (
-                  <li key={legId}>
-                    <Link
-                      href={`/routes/${legId}`}
-                      className="font-semibold text-indigo-900 underline-offset-2 hover:underline"
+                  <li key={legId} className="relative pl-8">
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-sky-700 text-[0.7rem] font-bold text-white"
                     >
-                      {leg?.title ?? legId}
-                    </Link>
-                    {leg?.daysLabel ? (
-                      <span className="text-indigo-700"> · {leg.daysLabel}</span>
+                      {index + 1}
+                    </span>
+                    {index < route.legIds!.length - 1 ? (
+                      <span
+                        aria-hidden
+                        className="absolute bottom-0 left-[0.55rem] top-7 w-0.5 bg-sky-300/90"
+                      />
+                    ) : null}
+                    <div className="pb-4">
+                      <Link
+                        href={`/routes/${legId}`}
+                        className="font-semibold text-sky-950 underline-offset-2 hover:underline"
+                      >
+                        {leg?.title ?? legId}
+                      </Link>
+                      {leg?.daysLabel ? (
+                        <span className="text-sky-700"> · {leg.daysLabel}</span>
+                      ) : null}
+                      {leg?.summary ? (
+                        <p className="mt-1 text-base leading-snug text-sky-800/90">
+                          {leg.summary.length > 72
+                            ? `${leg.summary.slice(0, 72)}…`
+                            : leg.summary}
+                        </p>
+                      ) : null}
+                    </div>
+                    {glueAfter ? (
+                      <div className="relative mb-4 rounded-xl bg-white/80 px-3 py-2 text-base leading-relaxed text-sky-900 ring-1 ring-sky-200/80">
+                        <span className="font-semibold text-amber-900">
+                          衔接
+                        </span>
+                        <span className="text-sky-800"> · {glueAfter}</span>
+                      </div>
                     ) : null}
                   </li>
                 );
               })}
             </ol>
-            {route.glue && route.glue.length > 0 ? (
-              <ul className="mt-4 space-y-2 text-base leading-relaxed text-indigo-900">
-                {route.glue.map((g) => (
-                  <li key={g.slice(0, 40)}>衔接：{g}</li>
+            {route.glue &&
+            route.glue.length > 0 &&
+            route.glue.length >= route.legIds.length ? (
+              <ul className="mt-2 space-y-2 text-base leading-relaxed text-sky-900">
+                {route.glue.slice(route.legIds.length).map((g) => (
+                  <li key={g.slice(0, 40)}>
+                    <span className="font-semibold text-amber-900">总述</span>
+                    <span className="text-sky-800"> · {g}</span>
+                  </li>
                 ))}
               </ul>
             ) : null}

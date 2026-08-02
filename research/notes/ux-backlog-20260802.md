@@ -30,6 +30,7 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 - [x] Remove Explore shortcuts「从北京短途」+「当季」chip
 - [x] **Calendar default season**: `getSeasonNow()` sets initial 季节 filter; clear via season chip dismiss or「全部季节」
 - [x] Light **compositionKind** Explore support: 短线/长线 chips resolve `leg`/`compose`/`base` (+ legacy `tripType`)
+- [x] **Compose detail timeline**: ordered legs + interleaved glue; sticky「组合」jump; sky (not indigo) chrome
 - [ ] Further: auto-hide chip strip itself on deep scroll if still too tall with many chips
 
 ## B — Performance (Pages slow / text-first)
@@ -70,4 +71,4 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ---
 
-*Updated: 2026-08-02 · session: compact sticky + filter sheet + calendar season default + drop 从北京短途/当季 + compositionKind 短线/长线; longstay set excludes demoted yangshuo/zhenyuan.*
+*Updated: 2026-08-02 · session: compact sticky + filter sheet + calendar season + compositionKind chips; compose detail timeline for 河西/南疆 pilots.*

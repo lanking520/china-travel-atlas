@@ -9,28 +9,28 @@ export default function HomePage() {
     <>
       <Header />
       <main>
-        <section className="relative overflow-hidden bg-gradient-to-b from-sky-100 via-sky-50 to-emerald-50/30">
+        <section className="relative overflow-hidden">
           {heroImage && (
             <div
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center opacity-[0.12]"
               style={{ backgroundImage: `url(${heroImage})` }}
               aria-hidden
             />
           )}
-          <div className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-            <p className="text-lg font-medium tracking-wide text-sky-700 sm:text-xl">
-              china-travel-atlas
+          <div className="relative mx-auto max-w-5xl px-4 pb-0.5 pt-1.5 sm:px-6 sm:pb-3 sm:pt-8">
+            <p className="hidden text-sm font-medium tracking-[0.08em] text-sky-700 sm:block sm:text-base">
+              从北京出发 · 慢慢看中国
             </p>
-            <h1 className="mt-2 text-4xl font-bold leading-tight text-sky-950 sm:text-5xl">
+            <h1 className="font-display mt-0.5 hidden text-[1.65rem] font-bold leading-[1.2] text-sky-950 sm:mt-1 sm:block sm:text-4xl">
               爸妈中国旅游地图
             </h1>
-            <p className="mt-4 max-w-2xl text-xl leading-relaxed text-sky-800 sm:text-2xl">
-              从北京出发，按季节与节奏挑选慢游路线——字大、好点、少折腾。
+            <p className="mt-1 hidden max-w-xl text-base leading-snug text-sky-800/90 sm:mt-2 sm:block sm:text-lg sm:leading-relaxed">
+              选季节与旅途长短，在地图上点大区，再选省份与路线。
             </p>
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+        <section className="mx-auto max-w-5xl px-4 pb-10 pt-1 sm:px-6">
           <ExploreClient />
         </section>
       </main>

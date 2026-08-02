@@ -1,4 +1,4 @@
-import type { Pace, RegionId, Season, TripType } from "@/content/types";
+import type { Pace, RegionId, RouteTheme, Season, TripType } from "@/content/types";
 
 export const SEASON_LABELS: Record<Season, string> = {
   spring: "春",
@@ -17,6 +17,12 @@ export const SEASON_FULL_LABELS: Record<Season, string> = {
 export const TRIP_TYPE_LABELS: Record<TripType, string> = {
   long: "长旅行",
   short: "短途",
+};
+
+export const THEME_LABELS: Record<RouteTheme, string> = {
+  "grand-loop": "全国大环线",
+  frontier: "边陲城市",
+  "long-stay": "长居推荐",
 };
 
 export const PACE_LABELS: Record<Pace, string> = {

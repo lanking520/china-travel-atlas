@@ -1,0 +1,287 @@
+{
+  "purpose": "Nationwide Xiaohongshu discovery queries — find candidate self-drive routes per mainland province before shortlist / 立项. Audience: healthy ~60 Beijing retirees. Slow-batch only; do not invent routes without discovery evidence.",
+  "audience": "60岁上下 身体健康 腿脚好 退休旅行 自驾 北京出发",
+  "national": [
+    "中国自驾路线",
+    "中国自驾 攻略",
+    "退休 自驾 中国"
+  ],
+  "provinces": [
+    {
+      "id": "beijing",
+      "name": "北京",
+      "queries": [
+        "北京 自驾旅行路线",
+        "北京 自驾 攻略"
+      ]
+    },
+    {
+      "id": "tianjin",
+      "name": "天津",
+      "queries": [
+        "天津 自驾旅行路线",
+        "天津 自驾 攻略"
+      ]
+    },
+    {
+      "id": "hebei",
+      "name": "河北",
+      "queries": [
+        "河北 自驾旅行路线",
+        "河北 自驾 攻略"
+      ]
+    },
+    {
+      "id": "shanxi",
+      "name": "山西",
+      "queries": [
+        "山西 旅游 攻略",
+        "平遥古城 攻略"
+      ]
+    },
+    {
+      "id": "neimenggu",
+      "name": "内蒙古",
+      "queries": [
+        "内蒙古 草原 旅游",
+        "呼伦贝尔 攻略"
+      ]
+    },
+    {
+      "id": "liaoning",
+      "name": "辽宁",
+      "queries": [
+        "辽宁 自驾旅行路线",
+        "辽宁 自驾 攻略"
+      ]
+    },
+    {
+      "id": "jilin",
+      "name": "吉林",
+      "queries": [
+        "吉林 自驾旅行路线",
+        "吉林 自驾 攻略"
+      ]
+    },
+    {
+      "id": "heilongjiang",
+      "name": "黑龙江",
+      "queries": [
+        "黑龙江 自驾旅行路线",
+        "黑龙江 自驾 攻略"
+      ]
+    },
+    {
+      "id": "shanghai",
+      "name": "上海",
+      "queries": [
+        "上海 自驾旅行路线",
+        "上海 自驾 攻略"
+      ]
+    },
+    {
+      "id": "jiangsu",
+      "name": "江苏",
+      "queries": [
+        "江苏 自驾旅行路线",
+        "江苏 自驾 攻略"
+      ]
+    },
+    {
+      "id": "zhejiang",
+      "name": "浙江",
+      "queries": [
+        "浙江 自驾旅行路线",
+        "浙江 自驾 攻略"
+      ]
+    },
+    {
+      "id": "anhui",
+      "name": "安徽",
+      "queries": [
+        "安徽 自驾旅行路线",
+        "安徽 自驾 攻略"
+      ]
+    },
+    {
+      "id": "fujian",
+      "name": "福建",
+      "queries": [
+        "福建 自驾旅行路线",
+        "福建 自驾 攻略"
+      ]
+    },
+    {
+      "id": "jiangxi",
+      "name": "江西",
+      "queries": [
+        "江西 自驾旅行路线",
+        "江西 自驾 攻略"
+      ]
+    },
+    {
+      "id": "shandong",
+      "name": "山东",
+      "queries": [
+        "山东 自驾旅行路线",
+        "山东 自驾 攻略"
+      ]
+    },
+    {
+      "id": "henan",
+      "name": "河南",
+      "queries": [
+        "河南 自驾旅行路线",
+        "河南 自驾 攻略"
+      ]
+    },
+    {
+      "id": "hubei",
+      "name": "湖北",
+      "queries": [
+        "湖北 自驾旅行路线",
+        "湖北 自驾 攻略"
+      ]
+    },
+    {
+      "id": "hunan",
+      "name": "湖南",
+      "queries": [
+        "湖南 自驾旅行路线",
+        "湖南 自驾 攻略"
+      ]
+    },
+    {
+      "id": "guangdong",
+      "name": "广东",
+      "queries": [
+        "广东 自驾旅行路线",
+        "广东 自驾 攻略"
+      ]
+    },
+    {
+      "id": "guangxi",
+      "name": "广西",
+      "queries": [
+        "广西 自驾旅行路线",
+        "广西 自驾 攻略"
+      ]
+    },
+    {
+      "id": "hainan",
+      "name": "海南",
+      "queries": [
+        "海南 自驾旅行路线",
+        "海南 自驾 攻略"
+      ]
+    },
+    {
+      "id": "chongqing",
+      "name": "重庆",
+      "queries": [
+        "重庆 自驾旅行路线",
+        "重庆 自驾 攻略"
+      ]
+    },
+    {
+      "id": "sichuan",
+      "name": "四川",
+      "queries": [
+        "四川 自驾旅行路线",
+        "四川 自驾 攻略"
+      ]
+    },
+    {
+      "id": "guizhou",
+      "name": "贵州",
+      "queries": [
+        "贵州 自驾旅行路线",
+        "贵州 自驾 攻略"
+      ]
+    },
+    {
+      "id": "yunnan",
+      "name": "云南",
+      "queries": [
+        "云南 自驾旅行路线",
+        "云南 自驾 攻略"
+      ]
+    },
+    {
+      "id": "xizang",
+      "name": "西藏",
+      "queries": [
+        "西藏 自驾旅行路线",
+        "西藏 自驾 攻略"
+      ]
+    },
+    {
+      "id": "shaanxi",
+      "name": "陕西",
+      "queries": [
+        "陕西 自驾旅行路线",
+        "陕西 自驾 攻略"
+      ]
+    },
+    {
+      "id": "gansu",
+      "name": "甘肃",
+      "queries": [
+        "甘肃 自驾旅行路线",
+        "甘肃 自驾 攻略"
+      ]
+    },
+    {
+      "id": "qinghai",
+      "name": "青海",
+      "queries": [
+        "青海 自驾旅行路线",
+        "青海 自驾 攻略"
+      ]
+    },
+    {
+      "id": "ningxia",
+      "name": "宁夏",
+      "queries": [
+        "宁夏 自驾旅行路线",
+        "宁夏 自驾 攻略"
+      ]
+    },
+    {
+      "id": "xinjiang",
+      "name": "新疆",
+      "queries": [
+        "新疆 旅游 攻略",
+        "北疆 喀纳斯"
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "id": "xinjiang",
+      "queries": [
+        "北疆自驾",
+        "南疆自驾",
+        "伊犁自驾",
+        "喀什自驾",
+        "独库公路",
+        "环塔里木"
+      ]
+    },
+    {
+      "id": "yunnan",
+      "queries": [
+        "大理丽江自驾",
+        "西双版纳 慢游",
+        "滇西自驾"
+      ]
+    },
+    {
+      "id": "sichuan",
+      "queries": [
+        "川西自驾",
+        "九寨沟 攻略"
+      ]
+    }
+  ]
+}

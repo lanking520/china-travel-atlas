@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0f9ff;
+  --background: #eef6fb;
   --foreground: #0c4a6e;
   --accent: #0369a1;
   --accent-soft: #bae6fd;
-  --warm: #d97706;
+  --warm: #c2410c;
+  --surface: #f8fcff;
+  --ink: #0b2538;
+  --muted: #3d657a;
 }
 
 @theme inline {
@@ -13,6 +16,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans-sc), "PingFang SC", "Microsoft YaHei",
     sans-serif;
+  --font-display: var(--font-noto-serif-sc), "Songti SC", "Noto Serif SC",
+    serif;
 }
 
 html {
@@ -21,10 +26,28 @@ html {
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      ellipse 120% 80% at 10% -10%,
+      rgba(125, 211, 252, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 90% 60% at 100% 0%,
+      rgba(167, 243, 208, 0.22),
+      transparent 50%
+    ),
+    linear-gradient(180deg, #e8f4fb 0%, #f0f7fb 40%, #eef6f2 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
 }
 
 :focus-visible {

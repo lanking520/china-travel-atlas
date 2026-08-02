@@ -1,0 +1,47 @@
+import type { Route } from '../types';
+import type { RouteDetailFields } from '../route-details';
+import { routeDetails } from '../route-details';
+import { practicalGuides } from '../practical-guides';
+
+/**
+ * Merge audit detail patches. Add new bundle imports below as agents finish.
+ */
+import { detailPatches as p1, routeFieldPatches as r1 } from './huabei-dongbei';
+import { detailPatches as p2, routeFieldPatches as r2 } from './huadong-huazhong';
+import { detailPatches as p3, routeFieldPatches as r3 } from './huanan-xinan';
+import { detailPatches as p4, routeFieldPatches as r4 } from './xibei-qingzang';
+
+const detailPatchList = [p1, p2, p3, p4];
+const routePatchList = [r1, r2, r3, r4];
+
+export function applyDetailPatches(
+  details: Record<string, RouteDetailFields>,
+): Record<string, RouteDetailFields> {
+  const out = { ...details };
+  for (const patch of detailPatchList) {
+    for (const [id, fields] of Object.entries(patch || {})) {
+      out[id] = { ...out[id], ...fields } as RouteDetailFields;
+    }
+  }
+  // Wave-1 practical guides (hand-written); do not overwrite if a patch already set one
+  for (const [id, guide] of Object.entries(practicalGuides)) {
+    out[id] = {
+      ...out[id],
+      practicalGuide: out[id]?.practicalGuide ?? guide,
+    };
+  }
+  return out;
+}
+
+export function applyRouteFieldPatches(route: Route): Route {
+  let next = route;
+  for (const patch of routePatchList) {
+    const p = patch?.[route.id];
+    if (p) next = { ...next, ...p };
+  }
+  return next;
+}
+
+export function getMergedRouteDetails(): Record<string, RouteDetailFields> {
+  return applyDetailPatches(routeDetails);
+}

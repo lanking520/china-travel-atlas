@@ -1,0 +1,39 @@
+{
+  "purpose": "North-patch search queries for active ~60 retirees. Companion to content/patches/routes-north.ts.",
+  "audience": "60岁上下 身体健康 腿脚好 大学学历 英语不错 北京退休自驾",
+  "platforms": ["xiaohongshu", "zhihu", "official"],
+  "routes": [
+    {
+      "id": "huabei-neimeng-summer",
+      "queries": [
+        "呼伦贝尔 海拉尔 慢住 夏天",
+        "呼伦贝尔 草原 包车 路线",
+        "额尔古纳 莫尔道嘎 退休旅行"
+      ]
+    },
+    {
+      "id": "huabei-shandong-coast",
+      "queries": [
+        "青岛 慢住 海边 退休",
+        "青岛 八大关 栈道 路线",
+        "烟台 威海 高铁 两日"
+      ]
+    },
+    {
+      "id": "dongbei-dalian-summer",
+      "queries": [
+        "大连 滨海路 夏天 攻略",
+        "大连 星海广场 老虎滩",
+        "大连 一周 退休旅行"
+      ]
+    },
+    {
+      "id": "huazhong-xian-slow",
+      "queries": [
+        "西安 慢住 两周 退休",
+        "兵马俑 预约 攻略 老人",
+        "华山 索道 西峰 体力"
+      ]
+    }
+  ]
+}

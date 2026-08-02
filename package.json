@@ -14,7 +14,23 @@
     "research:xhs-mcp:login": "research/tools/xiaohongshu-mcp/xiaohongshu-login-darwin-arm64",
     "research:xhs-mcp:serve": "research/tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64 -port :18060",
     "research:xhs-batch": "node research/scripts/xhs-batch-search.mjs",
-    "preview": "next dev --port 3000"
+    "research:xhs-digest": "node research/scripts/xhs-digest.mjs",
+    "research:xhs-discover": "node research/scripts/xhs-discovery-batch.mjs",
+    "research:xhs-discover-digest": "node research/scripts/xhs-discover-digest.mjs",
+    "research:xhs-loop": "node research/scripts/xhs-slow-loop.mjs",
+    "preview": "next dev --hostname 127.0.0.1 --port 3000",
+    "ux:smoke": "node research/scripts/ux-smoke.mjs",
+    "ux:plan": "node research/scripts/ux-plan-verify.mjs",
+    "pack:offline": "GITHUB_PAGES=true npm run build:pages && cp docs/离线打开说明.md out/离线打开说明.md && cd out && zip -r ../china-travel-atlas-offline.zip . && echo packed china-travel-atlas-offline.zip",
+    "export:book-index": "node research/scripts/export-book-index.mjs",
+    "gen:route-details": "node research/scripts/generate-route-details.mjs",
+    "research:xhs-status": "node research/scripts/xhs-status.mjs",
+    "research:xhs-apply": "node research/scripts/xhs-apply-digest.mjs",
+    "research:xhs-discover-status": "node research/scripts/xhs-discovery-status.mjs",
+    "research:xhs-discover-keep": "node research/scripts/xhs-discover-watchdog.mjs",
+    "research:multi-status": "node research/scripts/multi-discovery-status.mjs",
+    "research:multi-ingest": "node research/scripts/multi-manual-ingest.mjs",
+    "research:verify-loop": "node research/scripts/verify-loop.mjs"
   },
   "dependencies": {
     "next": "16.2.12",
@@ -29,6 +45,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "playwright": "^1.62.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

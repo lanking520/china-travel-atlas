@@ -1,0 +1,27 @@
+{
+  "purpose": "Search queries for east-central patch routes (Shanghai, Anhui, Jiangxi, Henan, Hunan). Not used by website build.",
+  "audience": "60岁上下 身体健康 腿脚好 大学学历 英语不错 北京退休",
+  "platforms": ["xiaohongshu", "zhihu", "official"],
+  "routes": [
+    {
+      "id": "huadong-shanghai-short",
+      "queries": ["上海 外滩 步行 攻略", "上海博物馆 预约 东馆", "朱家角 一日 退休"]
+    },
+    {
+      "id": "huadong-huangshan-hui",
+      "queries": ["黄山 索道 云谷 玉屏 老人", "黄山 预约 分时 攻略", "宏村 屯溪老街 慢游"]
+    },
+    {
+      "id": "huadong-wuyuan-spring",
+      "queries": ["婺源 油菜花 花期", "婺源 江岭 篁岭 攻略", "婺源 高铁 三日"]
+    },
+    {
+      "id": "huazhong-luoyang-kaifeng",
+      "queries": ["龙门石窟 预约 60岁", "少林寺 一日 登封", "开封 清明上河 城墙"]
+    },
+    {
+      "id": "huazhong-zhangjiajie",
+      "queries": ["张家界 三索一梯 攻略", "张家界 分时预约 东门", "芙蓉镇 凤凰 挂接"]
+    }
+  ]
+}

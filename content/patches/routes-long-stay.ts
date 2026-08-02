@@ -1,0 +1,819 @@
+import type { Route } from '../types';
+
+/**
+ * 长居/慢居城市基地：空气相对清新 + 周边自然/短途日归丰富。
+ * 约三四周节奏；非特种兵清单。证据：multi-discovery + Wikivoyage/文旅骨架。
+ */
+export const patchRoutes: Route[] = [
+  // ── 大理 ──────────────────────────────────────────────────
+  {
+    id: 'longstay-dali',
+    title: '大理 · 洱海慢居约一个月',
+    region: 'xinan',
+    seasons: ['spring', 'autumn'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约一个月',
+    transport:
+      '北京飞大理（或经昆明转），住下洱海侧电梯短租；环海/沙溪包车日归；段末大理或昆明飞回北京',
+    budgetLabel:
+      '对照月预算约1.5–2万（短租电梯房+机票+每周1–2次包车日归；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
+    summary:
+      '长居首选之一：苍洱之间空气明显好于华北城区，平缓廊道与小镇日归够撑三四周。以才村/龙龛一带为基地，每周最多两三个半日点，留空白日晒太阳喝茶；丽江雪山另线，不硬塞进本月。',
+    introduction:
+      '把大理当「第二居所」而不是景点打卡：固定电梯短租，熟悉菜市场与州医院方位，再慢慢扩日归半径。\n\n空气与紫外线并存——防晒与早晚外套比口罩更常用。海拔约1900m，头两天放慢。\n\n周边自然：洱海生态廊道、喜洲/双廊浅逛、苍山索道量力、沙溪周末过夜可选。勿一日环海特种兵。',
+    seasonGuide:
+      '春秋最宜长居。夏季游客与雨季湿滑增多；冬季干冷、部分湖岸风大。暑热与雨季可缩短停留或改昆明中转休整。',
+    notices: [
+      '短租先试住一周再续；问清电梯、热水与退租规则。',
+      '环海骑行量力，父母优先电瓶车/包车选段。',
+      '菌类与生冷野菜遵当地安全提示；少饮酒。',
+      '段末预留弹性回程机票，高原感不适可提前下撤昆明。',
+    ],
+    researchKeywords: [
+      '大理 长住 父母',
+      '大理 洱海 短租 电梯',
+      '大理 空气质量 慢居',
+      '沙溪 周末 包车',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：大理',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%A4%A7%E7%90%86',
+        kind: 'other',
+        note: '进出、洱海与古城节奏概览，已改写',
+      },
+      {
+        title: '大理白族自治州人民政府',
+        url: 'https://www.dali.gov.cn/',
+        kind: 'official',
+        note: '文旅与交通公告以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-dali-base',
+        name: '大理慢居基地（才村/龙龛一带）',
+        days: 16,
+        pace: 'slow',
+        lat: 25.606,
+        lng: 100.267,
+        summary:
+          '固定电梯短租，熟悉超市与散步路线；每周至少两天完全空白。',
+        tips: '优先湖岸安静带，少搬运行李。近州医院更安心。',
+        image:
+          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+      },
+      {
+        id: 'ls-erhai-days',
+        name: '洱海选段日归',
+        days: 6,
+        pace: 'slow',
+        lat: 25.7,
+        lng: 100.2,
+        summary:
+          '分散在四周里：喜洲、双廊或生态廊道各半日，勿一天跑完。',
+        tips: '包车优于自驾疲劳；防晒与饮水。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-cangshan-optional',
+        name: '苍山索道（量力）',
+        days: 2,
+        pace: 'fast',
+        lat: 25.68,
+        lng: 100.14,
+        summary: '索道观景即可，不安排高强度徒步。',
+        tips: '高原感明显则改平路廊道。',
+        image:
+          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
+      },
+      {
+        id: 'ls-shaxi-weekend',
+        name: '沙溪周末浅住（可选）',
+        days: 3,
+        pace: 'slow',
+        lat: 26.32,
+        lng: 99.85,
+        summary: '古镇平缓散步，换一换节奏后回大理基地。',
+        tips: '山路夜间少赶；可整段删除。',
+        image:
+          'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800',
+      },
+    ],
+  },
+
+  // ── 昆明 ──────────────────────────────────────────────────
+  {
+    id: 'longstay-kunming',
+    title: '昆明 · 春城慢居约一个月',
+    region: 'xinan',
+    seasons: ['spring', 'autumn', 'winter'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约一个月',
+    transport:
+      '北京直飞长水；住翠湖/呈贡或机场可达电梯公寓；石林/安宁/抚仙湖等地包车或大巴日归；段末飞回北京',
+    budgetLabel:
+      '对照月预算约1.4–1.9万（短租+机票+周边日归；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200',
+    summary:
+      '「四季如春」的枢纽型长居：医疗与补给完善，空气与温差通常好于华北冬季。以市区公园步道为主节奏，穿插石林、抚仙湖、安宁温泉等日归；不把昆明当仅中转，也不硬塞滇西高原线。',
+    introduction:
+      '昆明适合「想长居又不想远离三甲医院」的父母：电梯公寓、菜市场与公园体系完整。城区仍有车流扬尘，选绿化好的居住带、避开施工扬尘路段。\n\n周边自然日归半径大：石林观光车、抚仙湖沿岸散步、西山索道量力。滇西大理/丽江另作专题，本月以昆明盆地与近郊为主。',
+    seasonGuide:
+      '春秋冬皆可长居。夏季阵雨与紫外线仍强。冬季干暖相对华北舒适，注意昼夜温差。',
+    notices: [
+      '长水机场往返预留拥堵时间。',
+      '石林景区步行距离不短，用观光车串联。',
+      '野生菌季遵官方安全提示。',
+      '雾霾偶发日改室内博物馆/茶馆。',
+    ],
+    researchKeywords: [
+      '昆明 长住 退休',
+      '昆明 空气 短租',
+      '抚仙湖 日归 父母',
+      '石林 观光车',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：昆明',
+        url: 'https://zh.wikivoyage.org/wiki/%E6%98%86%E6%98%8E',
+        kind: 'other',
+        note: '城市与近郊概览，已改写',
+      },
+      {
+        title: '昆明市文化和旅游局',
+        url: 'https://whhly.km.gov.cn/',
+        kind: 'official',
+        note: '景区与文旅公告以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-kunming-base',
+        name: '昆明慢居基地',
+        days: 18,
+        pace: 'slow',
+        lat: 25.038,
+        lng: 102.718,
+        summary:
+          '翠湖周边或呈贡安静小区；每天公园散步即可，不必赶景点。',
+        tips: '近三甲医院片区更安心；备薄外套。',
+        image:
+          'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
+      },
+      {
+        id: 'ls-dianchi-xishan',
+        name: '滇池/西山浅走',
+        days: 3,
+        pace: 'slow',
+        lat: 24.85,
+        lng: 102.65,
+        summary: '湖岸平路与索道二选一，分散在不同周。',
+        tips: '风大备外套；索道恐高可只走平路。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-shilin-day',
+        name: '石林日归',
+        days: 2,
+        pace: 'fast',
+        lat: 24.82,
+        lng: 103.32,
+        summary: '观光车为主，短段步行即可。',
+        tips: '暑热日早出早归。',
+        image:
+          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
+      },
+      {
+        id: 'ls-fuxian-optional',
+        name: '抚仙湖/安宁（可选）',
+        days: 4,
+        pace: 'slow',
+        lat: 24.5,
+        lng: 102.9,
+        summary: '湖岸或温泉休整，可不过夜。',
+        tips: '可整段删，留给更多空白日。',
+        image:
+          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+      },
+    ],
+  },
+
+  // ── 阳朔 ──────────────────────────────────────────────────
+  {
+    id: 'longstay-yangshuo',
+    title: '阳朔 · 漓江慢居约一个月',
+    region: 'huanan',
+    seasons: ['spring', 'autumn'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约一个月',
+    transport:
+      '北京飞桂林两江，高铁/包车至阳朔住镇；漓江游船、遇龙河竹筏、周边村寨日归；段末经桂林飞回北京',
+    budgetLabel:
+      '对照月预算约1.5–2万（阳朔短租+机票+游船/包车；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
+    summary:
+      '喀斯特山水里的慢居：空气与视野明显「出城感」，镇区平坦好走。以阳朔为基地，每周一次漓江/遇龙河水上半日，其余空白日喝茶骑行量力；桂林市区只作进出港，不住喧闹西街夜场。',
+    introduction:
+      '阳朔比桂林市区更适合长居：尺度小、山水近、步行可控。避开暑热暴雨与西街酒吧嘈杂带，选稍离核心街的电梯民宿/公寓。\n\n自然节奏：漓江游船观景、遇龙河竹筏、十里画廊电瓶车、兴坪或杨堤半日。攀岩与特种兵骑行默认不排。',
+    seasonGuide:
+      '春秋最舒适。夏季湿热与暴雨；冬季阴冷潮湿，体感偏凉。台风外围影响偶发，关注预警。',
+    notices: [
+      '游船/竹筏选正规票点，备救生衣与防滑鞋。',
+      '雨后山路湿滑，日归改室内或茶馆。',
+      '桂林两江机场往返预留堵车与接驳时间。',
+      '复杂就医可转桂林市区三甲。',
+    ],
+    researchKeywords: [
+      '阳朔 长住 慢游',
+      '阳朔 父母 漓江',
+      '遇龙河 竹筏 适老',
+      '阳朔 短租',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：阳朔',
+        url: 'https://zh.wikivoyage.org/wiki/%E9%98%B3%E6%9C%94',
+        kind: 'other',
+        note: '漓江与镇区节奏概览，已改写',
+      },
+      {
+        title: '桂林市文化广电和旅游局',
+        url: 'https://wglj.guilin.gov.cn/',
+        kind: 'official',
+        note: '景区开放以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-yangshuo-base',
+        name: '阳朔慢居基地',
+        days: 18,
+        pace: 'slow',
+        lat: 24.778,
+        lng: 110.496,
+        summary: '镇区或稍外安静电梯房；西街夜场可绕开。',
+        tips: '先熟悉菜市场与诊所；备雨具。',
+        image:
+          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+      },
+      {
+        id: 'ls-lijiang-boat',
+        name: '漓江游船选段',
+        days: 3,
+        pace: 'slow',
+        lat: 24.9,
+        lng: 110.4,
+        summary: '正规游船观景，分散到不同周各一次即可。',
+        tips: '早班人少；甲板风大备外套。',
+        image:
+          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
+      },
+      {
+        id: 'ls-yulong-raft',
+        name: '遇龙河竹筏（量力）',
+        days: 2,
+        pace: 'fast',
+        lat: 24.75,
+        lng: 110.45,
+        summary: '短段竹筏，湿滑小心上下。',
+        tips: '膝关节不好可改电瓶车观景。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-xingping-day',
+        name: '兴坪/十里画廊日归',
+        days: 4,
+        pace: 'slow',
+        lat: 24.92,
+        lng: 110.55,
+        summary: '电瓶车或包车浅逛，不必徒步全程。',
+        tips: '可删减留给空白日。',
+        image:
+          'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800',
+      },
+    ],
+  },
+
+  // ── 威海 ──────────────────────────────────────────────────
+  {
+    id: 'longstay-weihai',
+    title: '威海 · 海岸慢居约一个月',
+    region: 'huabei',
+    seasons: ['summer', 'autumn'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约一个月',
+    transport:
+      '北京高铁经济南/青岛至威海，或飞威海/烟台再短驳；住海边或市区电梯公寓；刘公岛、成山头、乳山等日归；段末高铁或飞机回北京',
+    budgetLabel:
+      '对照月预算约1.3–1.8万（短租+交通+船票日归；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200',
+    summary:
+      '胶东「空气口碑」海岸长居：节奏慢、海鲜清淡、平缓滨海步道适合约60父母。以威海市区/环翠为基地，刘公岛日归，荣成成山头与乳山银滩作县域可选日归；文登温泉可作空白休整。青岛只作中转。',
+    introduction:
+      '威海长期出现在宜居与空气相关公开讨论中，相对华北内陆城区更适合夏季慢住。海风大、紫外线强，防晒与防风比「赶景点」更重要。\n\n县域：荣成（成山头/浅湾）、乳山（银滩外观）分周日归，勿一日连轴；文登温泉可留空白日。泰山式登山不排本线。',
+    seasonGuide:
+      '夏秋最佳。冬季干冷风大，非刚需可不排长居。暑期周末景区拥堵，错峰订船票。',
+    notices: [
+      '海鲜适量，肠胃敏感改清蒸河鲜/蔬菜。',
+      '轮渡关注大风停航。',
+      '荣成与乳山分日，疲劳即删。',
+      '回京高铁票预留弹性。',
+      '复杂就医可转青岛或济南三甲。',
+    ],
+    researchKeywords: [
+      '威海 长住 空气',
+      '威海 退休 慢游',
+      '刘公岛 轮渡 父母',
+      '荣成 成山头 日归',
+      '乳山 银滩 适老',
+      '威海 短租 海边',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：威海',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%A8%81%E6%B5%B7',
+        kind: 'other',
+        note: '海岸与进出概览，已改写',
+      },
+      {
+        title: '威海市文化和旅游局',
+        url: 'https://whlyj.weihai.gov.cn/',
+        kind: 'official',
+        note: '景区与船票公告以官方为准',
+      },
+      {
+        title: '地级深挖：威海县域',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%A8%81%E6%B5%B7',
+        kind: 'other',
+        note: 'research/notes/prefecture-depth/shandong-weihai.md',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-weihai-base',
+        name: '环翠慢居基地',
+        days: 16,
+        pace: 'slow',
+        lat: 37.513,
+        lng: 122.12,
+        summary: '环翠/海边电梯公寓；每日滨海步道即可。',
+        tips: '选避风楼层；备薄羽绒服早晚用。',
+        image:
+          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+      },
+      {
+        id: 'ls-liugong-day',
+        name: '刘公岛日归',
+        days: 2,
+        pace: 'fast',
+        lat: 37.5,
+        lng: 122.18,
+        summary: '轮渡上岛浅逛，台阶量力；岛上优先观光车。',
+        tips: '大风停航改市区公园。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-rongcheng-day',
+        name: '荣成·成山头浅湾（县域日归）',
+        days: 2,
+        pace: 'slow',
+        lat: 37.38,
+        lng: 122.7,
+        summary: '荣成县域：成山头外观或浅湾车览；风大少久站。',
+        tips: '与乳山分日；天鹅湖仅季节浅看。可整段删。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/%E6%88%90%E5%B1%B1%E5%A4%B4_-_panoramio.jpg/1280px-%E6%88%90%E5%B1%B1%E5%A4%B4_-_panoramio.jpg',
+      },
+      {
+        id: 'ls-rushan-optional',
+        name: '乳山银滩（县域可选）',
+        days: 3,
+        pace: 'slow',
+        lat: 36.92,
+        lng: 121.54,
+        summary: '乳山县域银滩/海岸浅走；大乳山只外观，不排游乐满日程。',
+        tips: '车程预留午休；疲劳整段跳过。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rushan%2C_Weihai%2C_Shandong%2C_China_-_panoramio.jpg/1280px-Rushan%2C_Weihai%2C_Shandong%2C_China_-_panoramio.jpg',
+      },
+    ],
+  },
+
+  // ── 呼伦贝尔 ──────────────────────────────────────────────
+  {
+    id: 'longstay-hulunbuir',
+    title: '呼伦贝尔 · 夏季草原慢居',
+    region: 'huabei',
+    seasons: ['summer'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约3–4周',
+    transport:
+      '北京飞海拉尔；住海拉尔电梯酒店/短租为基地；陈巴尔虎、满洲里、额尔古纳等分段包车日归或一两夜；段末海拉尔飞回北京',
+    budgetLabel:
+      '对照月预算约1.8–2.2万（机票波动+基地住宿+包车分段；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200',
+    summary:
+      '盛夏清凉与开阔草原的长居向：空气通透，但医疗与补给以海拉尔为锚。不在草原逐日换民宿，而是「城住+短途日归」；骑马短段即可，天路不自驾赶全程。',
+    introduction:
+      '呼伦贝尔适合7–8月慢住，不是四季长居。紫外线、温差与蚊虫是主要不适源。\n\n以海拉尔为医疗与休息锚点，把草原、森林与口岸风情拆成每周一两次半日/一日，中间大量空白。满洲里可浅住一两晚，但不与草原特种兵连轴。',
+    seasonGuide:
+      '仅夏季推荐长居向。春秋短暂且温差大；冬季极寒不适合约一个月慢居。',
+    notices: [
+      '备强防晒、驱蚊、薄羽绒。',
+      '草原未硬化路雨后勿硬闯。',
+      '骑马与勒勒车慎选，优先观光车。',
+      '身体不适立即回海拉尔休整或返京。',
+    ],
+    researchKeywords: [
+      '呼伦贝尔 长住 夏天',
+      '海拉尔 父母 慢游',
+      '陈巴尔虎 包车',
+      '呼伦贝尔 空气 草原',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：呼伦贝尔',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%91%BC%E4%BC%A6%E8%B4%9D%E5%B0%94',
+        kind: 'other',
+        note: '草原进出与节奏概览，已改写',
+      },
+      {
+        title: '呼伦贝尔市人民政府',
+        url: 'https://www.hulunbeier.gov.cn/',
+        kind: 'official',
+        note: '文旅与天气公告以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-hailar-base',
+        name: '海拉尔慢居基地',
+        days: 14,
+        pace: 'slow',
+        lat: 49.215,
+        lng: 119.765,
+        summary: '市区电梯酒店连续住，熟悉医院与餐厅。',
+        tips: '别抵达次日就长途包车。',
+        image:
+          'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?w=800',
+      },
+      {
+        id: 'ls-chenbarhu-days',
+        name: '陈巴尔虎草原选段',
+        days: 6,
+        pace: 'slow',
+        lat: 49.32,
+        lng: 119.45,
+        summary: '每周一两次日归观景，不夜宿简陋点。',
+        tips: '包车含司机；备水与零食。',
+        image:
+          'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
+      },
+      {
+        id: 'ls-manzhouli-taste',
+        name: '满洲里浅住（可选）',
+        days: 3,
+        pace: 'slow',
+        lat: 49.598,
+        lng: 117.379,
+        summary: '国门广场外观，遵守禁拍与管制规定。',
+        tips: '不参与不明跨境购物。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-erguna-optional',
+        name: '额尔古纳/莫尔道嘎（可选）',
+        days: 4,
+        pace: 'slow',
+        lat: 50.24,
+        lng: 120.18,
+        summary: '森林河湾换风景，车程长则压缩天数。',
+        tips: '可整段删，优先保证休息。',
+        image:
+          'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800',
+      },
+    ],
+  },
+
+  // ── 都江堰 ────────────────────────────────────────────────
+  {
+    id: 'longstay-dujiangyan',
+    title: '都江堰 · 平原边缘清新慢居',
+    region: 'xinan',
+    seasons: ['spring', 'autumn'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约一个月',
+    transport:
+      '北京飞成都双流/天府，高铁或打车至都江堰住下；青城前山、熊猫谷、成都日归；段末经成都飞回北京',
+    budgetLabel:
+      '对照月预算约1.4–1.9万（都江堰短租+机票+城际日归；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
+    summary:
+      '避开成都雾霾核心的平原西缘慢居：都江堰水利工程平缓可走，青城前山索道减负，周末可进城看熊猫或喝茶。以县城/景区外围电梯房为基地，不把川西高原线塞进本月。',
+    introduction:
+      '「成都平原边缘清新向」：相对主城盆地静稳污染，西缘靠山更常有对流与绿化。仍非无菌区——遇静稳天气改室内。\n\n节奏：都江堰景区观光车、南桥夜景浅逛、青城前山索道、熊猫谷或成都基地日归。火锅清汤化；峨眉金顶/川西高原另线。',
+    seasonGuide:
+      '春秋最宜。夏季湿热多雨；冬季阴冷潮湿，体感偏凉。地震与地质灾害预警期减少山路。',
+    notices: [
+      '青城后山默认不排；前山也量力。',
+      '麻辣与火锅油烟刺激肠胃，改清汤。',
+      '复杂就医可当日回成都华西体系。',
+      '雨季山路湿滑，改平原散步。',
+    ],
+    researchKeywords: [
+      '都江堰 长住 父母',
+      '青城山 索道 适老',
+      '都江堰 空气 成都',
+      '都江堰 短租',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：都江堰',
+        url: 'https://zh.wikivoyage.org/wiki/%E9%83%BD%E6%B1%9F%E5%A0%B0',
+        kind: 'other',
+        note: '水利工程与进出概览，已改写',
+      },
+      {
+        title: '成都市都江堰景区',
+        url: 'https://www.djy.gov.cn/',
+        kind: 'official',
+        note: '门票与开放以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-djy-base',
+        name: '都江堰慢居基地',
+        days: 16,
+        pace: 'slow',
+        lat: 31.003,
+        lng: 103.647,
+        summary: '县城电梯公寓；每周多次空白日。',
+        tips: '近公交/城际更方便回成都就医。',
+        image:
+          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+      },
+      {
+        id: 'ls-djy-site',
+        name: '都江堰水利景区',
+        days: 3,
+        pace: 'slow',
+        lat: 31.01,
+        lng: 103.61,
+        summary: '观光车+平缓步道，分散两三次去。',
+        tips: '台阶段量力，带折叠凳。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-qingcheng-front',
+        name: '青城前山（索道）',
+        days: 2,
+        pace: 'fast',
+        lat: 30.9,
+        lng: 103.57,
+        summary: '索道减负，不爬后山。',
+        tips: '雨日改期。',
+        image:
+          'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800',
+      },
+      {
+        id: 'ls-chengdu-daytrips',
+        name: '成都/熊猫日归',
+        days: 6,
+        pace: 'slow',
+        lat: 30.67,
+        lng: 104.06,
+        summary: '熊猫基地或茶馆半日，当晚回都江堰。',
+        tips: '雾霾日改都江堰本地休息。',
+        image:
+          'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?w=800',
+      },
+    ],
+  },
+
+  // ── 镇远 ──────────────────────────────────────────────────
+  {
+    id: 'longstay-zhenyuan',
+    title: '镇远 · 黔东南江城慢居',
+    region: 'xinan',
+    seasons: ['spring', 'autumn', 'summer'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约3–4周',
+    transport:
+      '北京飞贵阳，高铁至镇远；住沿江电梯/低楼层民宿；舞阳河、周边村寨与凯里方向日归量力；段末经贵阳飞回北京',
+    budgetLabel:
+      '对照月预算约1.2–1.7万（短租偏省+机票高铁+少量包车；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200',
+    summary:
+      '江城尺度的慢居：夏日相对清凉，古城沿江平缓，空气与山水压力低于火炉型城市。以镇远为锚，每周一两次短途；苗寨坡地量力，医疗弱于省会——不适即下撤贵阳。',
+    introduction:
+      '黔东南适合「避暑+古城散步」型长居，不是豪华医疗度假。天气多变、昼夜温差，备外套与防滑鞋。\n\n自然与人文：舞阳河游船、青龙洞外观、周边平缓村寨；雷山/西江等坡地多的景点默认缩短或删除。辣酸口味改清淡。',
+    seasonGuide:
+      '春、秋、夏（避暑）可排。冬季阴冷潮湿，体感不适则缩短。雨季关注山洪与滑坡预警。',
+    notices: [
+      '古城石板湿滑，夜间少赶路。',
+      '复杂就医经高铁回贵阳三甲。',
+      '自驾山区弯道谨慎，优先高铁+当地交通。',
+      '民族村寨尊重当地习俗与拍摄规定。',
+    ],
+    researchKeywords: [
+      '镇远 长住 避暑',
+      '镇远古城 父母',
+      '黔东南 慢游',
+      '舞阳河 游船',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：镇远',
+        url: 'https://zh.wikivoyage.org/wiki/%E9%95%87%E8%BF%9C',
+        kind: 'other',
+        note: '古城与进出概览，已改写',
+      },
+      {
+        title: '黔东南州人民政府',
+        url: 'https://www.qdn.gov.cn/',
+        kind: 'official',
+        note: '文旅与天气预警以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-zhenyuan-base',
+        name: '镇远慢居基地',
+        days: 16,
+        pace: 'slow',
+        lat: 27.05,
+        lng: 108.42,
+        summary: '沿江可住电梯或低楼层；每日河岸散步。',
+        tips: '先确认热水与退租；近车站方便下撤。',
+        image:
+          'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800',
+      },
+      {
+        id: 'ls-wuyang-boat',
+        name: '舞阳河游船',
+        days: 3,
+        pace: 'slow',
+        lat: 27.06,
+        lng: 108.4,
+        summary: '正规游船观景，分散安排。',
+        tips: '雨季关注停航。',
+        image:
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      },
+      {
+        id: 'ls-qinglong-dong',
+        name: '青龙洞/古城浅逛',
+        days: 3,
+        pace: 'slow',
+        lat: 27.049,
+        lng: 108.423,
+        summary: '外观与平缓段即可，台阶量力。',
+        tips: '湿滑日改沿江平路。',
+        image:
+          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+      },
+      {
+        id: 'ls-qiandongnan-optional',
+        name: '凯里/平缓村寨（可选）',
+        days: 5,
+        pace: 'slow',
+        lat: 26.58,
+        lng: 107.98,
+        summary: '选交通便利、坡度小的点；可整段删。',
+        tips: '雷山等高坡默认不排。',
+        image:
+          'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800',
+      },
+    ],
+  },
+
+  // ── 海南东线 ──────────────────────────────────────────────
+  {
+    id: 'longstay-hainan-east',
+    title: '万宁/琼海 · 非暑期海岸慢居',
+    region: 'huanan',
+    seasons: ['winter', 'spring', 'autumn'],
+    tripType: 'long',
+    fromHome: false,
+    themes: ['long-stay'],
+    daysLabel: '约一个月',
+    transport:
+      '北京飞海口或三亚，环岛高铁至琼海/万宁；住海岸或镇区电梯公寓；博鳌、石梅湾、兴隆等浅走；段末高铁接飞机回北京',
+    budgetLabel:
+      '对照月预算约1.5–2万（东线短租+机票+局部包车；双人）',
+    coverImage:
+      'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1200',
+    summary:
+      '海南「非暑期」慢居：空气湿润清新、海岸平缓，人流与房价压力常小于三亚湾核心。以琼海或万宁为基地，博鳌与石梅湾作零星半日；避开盛夏台风高峰，不排高强度潜水。',
+    introduction:
+      '三亚适合度假热点，东线更适合长住节奏：补给够用、医疗可经海口/三亚下撤。紫外线全年强，防晒是刚需。\n\n自然：海岸散步、红树林外观、兴隆热带园浅逛、博鳌亚洲论坛外围平路。潜水、冲浪默认不排主线。',
+    seasonGuide:
+      '冬春最佳避寒长居；秋亦可。盛夏湿热+台风风险，不推荐约一个月硬住。关注停航与暴雨预警。',
+    notices: [
+      '海鲜与椰子过敏留意；肠胃敏感改清淡。',
+      '台风预警期减少出海与沿海骑行。',
+      '复杂就医转海口或三亚三甲。',
+      '回程机票留弹性，防天气延误。',
+    ],
+    researchKeywords: [
+      '万宁 长住 冬天',
+      '琼海 博鳌 慢游',
+      '海南 东线 退休',
+      '石梅湾 父母',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：海南',
+        url: 'https://zh.wikivoyage.org/wiki/%E6%B5%B7%E5%8D%97',
+        kind: 'other',
+        note: '环岛与气候概览，已改写',
+      },
+      {
+        title: '海南省旅游和文化广电厅',
+        url: 'https://lwt.hainan.gov.cn/',
+        kind: 'official',
+        note: '台风与景区公告以官方为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'ls-qionghai-base',
+        name: '琼海/万宁慢居基地',
+        days: 18,
+        pace: 'slow',
+        lat: 19.25,
+        lng: 110.47,
+        summary: '镇区或近高铁电梯公寓；每日海岸或公园散步。',
+        tips: '先试住一周；问清空调与蚊虫防护。',
+        image:
+          'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800',
+      },
+      {
+        id: 'ls-boao-days',
+        name: '博鳌浅走',
+        days: 3,
+        pace: 'slow',
+        lat: 19.15,
+        lng: 110.53,
+        summary: '平路与海岸外观，分散安排。',
+        tips: '论坛活动期间人多错峰。',
+        image:
+          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+      },
+      {
+        id: 'ls-shimei-bay',
+        name: '石梅湾/日月湾外观',
+        days: 3,
+        pace: 'slow',
+        lat: 18.68,
+        lng: 110.3,
+        summary: '沙滩浅走，防晒补水；不硬排水上项目。',
+        tips: '午后紫外线强，改早晚。',
+        image:
+          'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
+      },
+      {
+        id: 'ls-xinglong-optional',
+        name: '兴隆热带园（可选）',
+        days: 3,
+        pace: 'fast',
+        lat: 18.73,
+        lng: 110.2,
+        summary: '园区观光车浅逛即可。',
+        tips: '可整段删。',
+        image:
+          'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800',
+      },
+    ],
+  },
+];

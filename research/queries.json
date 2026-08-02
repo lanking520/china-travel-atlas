@@ -1,66 +1,499 @@
 {
-  "purpose": "Content-generation search queries only; not used by the website build.",
-  "platforms": ["xiaohongshu", "zhihu", "official"],
+  "purpose": "Xiaohongshu search queries for all atlas routes. Audience: healthy ~60, good mobility, Beijing retirees. Slow-batch only.",
+  "audience": "60岁上下 身体健康 腿脚好 退休旅行 自驾",
+  "platforms": [
+    "xiaohongshu"
+  ],
   "routes": [
     {
       "id": "mutianyu-day",
-      "queries": ["慕田峪 老人 缆车", "慕田峪 自驾 停车", "慕田峪 银杏 人流"]
+      "queries": [
+        "慕田峪 带父母 攻略",
+        "慕田峪 缆车 自驾 一日"
+      ]
     },
     {
       "id": "tianjin-day",
-      "queries": ["天津 一日游 老人", "五大道 步行 强度", "海河 夜景 餐厅"]
+      "queries": [
+        "天津 一日游 五大道 海河",
+        "天津 周末 退休 高铁"
+      ]
     },
     {
       "id": "chengde-2d",
-      "queries": ["承德避暑山庄 电瓶车", "承德两日游 适老", "普宁寺 台阶"]
+      "queries": [
+        "承德避暑山庄 两日 自驾",
+        "承德 环山车 攻略"
+      ]
     },
     {
       "id": "gubei-overnight",
-      "queries": ["古北水镇 过夜 老人", "司马台长城 缆车", "古北水镇 淡季"]
+      "queries": [
+        "古北水镇 过夜 攻略",
+        "司马台长城 缆车 夜景"
+      ]
     },
     {
       "id": "huabei-shanxi-loop",
-      "queries": ["大同云冈 适老", "悬空寺 体力", "平遥古城 短住 老人"]
+      "queries": [
+        "山西 大同 平遥 攻略",
+        "云冈石窟 预约 攻略"
+      ]
     },
     {
-      "id": "yunnan-dali-lijiang",
-      "queries": ["大理 长住 短租", "大理 丽江 老人 节奏", "沙溪古镇 住宿"]
+      "id": "huabei-neimeng-summer",
+      "queries": [
+        "内蒙古 草原 自驾 攻略",
+        "呼伦贝尔 夏季 旅行"
+      ]
     },
     {
-      "id": "xibei-dunhuang-zhangye",
-      "queries": ["敦煌 租车 自驾", "莫高窟 预约 老人", "张掖丹霞 观光车"]
+      "id": "huabei-shandong-coast",
+      "queries": [
+        "青岛 慢住 海边 退休",
+        "青岛 烟台 威海 高铁"
+      ]
     },
     {
       "id": "dongbei-changbai-summer",
-      "queries": ["长白山北坡 环保车 老人", "长白山 倒站车 天池", "二道白河 温泉 住宿"]
+      "queries": [
+        "长白山北坡 天池 环保车",
+        "二道白河 住宿 攻略"
+      ]
     },
     {
-      "id": "huadong-hangzhou-suzhou",
-      "queries": ["杭州西湖 无障碍 环湖", "西湖 无障碍游船", "苏州园林 少走路 老人"]
-    },
-    {
-      "id": "huanan-xiamen-winter",
-      "queries": ["厦门过冬 长住", "鼓浪屿 老人 轮渡", "南靖土楼 车程"]
-    },
-    {
-      "id": "huazhong-wudang-3d",
-      "queries": ["武当山 索道 金顶 老人", "武当山 分时预约 金顶", "武当山 太子坡 紫霄宫"]
+      "id": "dongbei-dalian-summer",
+      "queries": [
+        "大连 滨海路 夏天 攻略",
+        "大连 一周 旅行"
+      ]
     },
     {
       "id": "dongbei-harbin-snow-3d",
-      "queries": ["哈尔滨冰雪大世界 老人 免费", "冰雪大世界 暖房 休息", "哈尔滨 中央大街 冬季 适老"]
+      "queries": [
+        "哈尔滨 冰雪大世界 攻略",
+        "哈尔滨 中央大街 冬季"
+      ]
+    },
+    {
+      "id": "huadong-hangzhou-suzhou",
+      "queries": [
+        "杭州西湖 苏州 五日 退休",
+        "西湖 环湖 步行 攻略"
+      ]
+    },
+    {
+      "id": "huadong-shanghai-short",
+      "queries": [
+        "上海 外滩 博物馆 攻略",
+        "上海 三日 退休旅行"
+      ]
+    },
+    {
+      "id": "huadong-huangshan-hui",
+      "queries": [
+        "黄山 索道 攻略 退休",
+        "宏村 屯溪 慢走"
+      ]
+    },
+    {
+      "id": "huadong-wuyuan-spring",
+      "queries": [
+        "婺源 油菜花 攻略",
+        "婺源 三天 路线"
+      ]
+    },
+    {
+      "id": "huazhong-wudang-3d",
+      "queries": [
+        "武当山 索道 金顶 攻略",
+        "武当山 三日 预约"
+      ]
+    },
+    {
+      "id": "huazhong-xian-slow",
+      "queries": [
+        "西安 慢住 两周 退休",
+        "兵马俑 华山索道 攻略"
+      ]
+    },
+    {
+      "id": "huazhong-luoyang-kaifeng",
+      "queries": [
+        "洛阳 龙门石窟 攻略",
+        "开封 少林 两日"
+      ]
+    },
+    {
+      "id": "huazhong-zhangjiajie",
+      "queries": [
+        "张家界 索道 攻略",
+        "张家界 五日 退休"
+      ]
+    },
+    {
+      "id": "huanan-xiamen-winter",
+      "queries": [
+        "厦门 过冬 长住 攻略",
+        "鼓浪屿 轮渡 路线"
+      ]
     },
     {
       "id": "huanan-sanya-winter",
-      "queries": ["三亚 避寒 老人 冬季", "三亚 候鸟 适应期 温差", "三亚 老年公寓 正规"]
+      "queries": [
+        "三亚 避寒 退休 冬季",
+        "三亚 两周 慢住"
+      ]
+    },
+    {
+      "id": "huanan-guangzhou-chaoshan",
+      "queries": [
+        "广州 过冬 慢住 退休",
+        "潮州 古城 高铁 两日"
+      ]
+    },
+    {
+      "id": "huanan-guilin-yangshuo",
+      "queries": [
+        "桂林 阳朔 慢住 攻略",
+        "漓江 竹筏 退休"
+      ]
+    },
+    {
+      "id": "huanan-zhuhai-3d",
+      "queries": [
+        "珠海 情侣路 两日",
+        "珠海 滨海 旅行"
+      ]
     },
     {
       "id": "xinan-chengdu-slow",
-      "queries": ["成都 慢游 老人 熊猫基地", "成都 人民公园 盖碗茶", "成都 博物馆 无障碍 电梯"]
+      "queries": [
+        "成都 慢游 两周 退休",
+        "成都 熊猫基地 攻略"
+      ]
+    },
+    {
+      "id": "yunnan-dali-lijiang",
+      "queries": [
+        "大理 长住 短租 退休",
+        "丽江 云杉坪 蓝月谷"
+      ]
+    },
+    {
+      "id": "xinan-chongqing-slow",
+      "queries": [
+        "重庆 慢游 退休 攻略",
+        "重庆 武隆 一日"
+      ]
+    },
+    {
+      "id": "xinan-guizhou-loop",
+      "queries": [
+        "贵阳 黄果树 攻略",
+        "贵州 镇远 慢游"
+      ]
+    },
+    {
+      "id": "xinan-dujiangyan-2d",
+      "queries": [
+        "都江堰 青城山 两日",
+        "青城山 索道 前山"
+      ]
+    },
+    {
+      "id": "xibei-dunhuang-zhangye",
+      "queries": [
+        "敦煌 莫高窟 预约 攻略",
+        "张掖丹霞 自驾"
+      ]
+    },
+    {
+      "id": "xibei-xinjiang-north",
+      "queries": [
+        "新疆北疆 自驾 攻略",
+        "喀纳斯 阿勒泰 攻略"
+      ]
+    },
+    {
+      "id": "xibei-ningxia-3d",
+      "queries": [
+        "银川 西夏陵 沙湖",
+        "宁夏 三日 旅行"
+      ]
     },
     {
       "id": "qingzang-lhasa-slow",
-      "queries": ["拉萨 适应 老人", "布达拉宫 预约 体力", "纳木错 高原反应"]
+      "queries": [
+        "拉萨 慢游 攻略",
+        "布达拉宫 预约 攻略"
+      ]
+    },
+    {
+      "id": "qingzang-qinghai-lake",
+      "queries": [
+        "青海湖 环线 包车",
+        "西宁 适应 青海湖"
+      ]
+    },
+    {
+      "id": "qingzang-xining-3d",
+      "queries": [
+        "西宁 两日 攻略",
+        "西宁 高原 适应"
+      ]
+    },
+    {
+      "id": "huadong-suzhou-nanjing",
+      "queries": [
+        "苏州 拙政园 平江路 攻略",
+        "苏州 南京 高铁 三日"
+      ]
+    },
+    {
+      "id": "xibei-xinjiang-yili",
+      "queries": [
+        "伊犁 自驾 攻略 退休",
+        "那拉提 喀拉峻 赛里木 伊宁 慢游"
+      ]
+    },
+    {
+      "id": "xibei-xinjiang-south",
+      "queries": [
+        "南疆 库车 喀什 自驾 攻略",
+        "喀什古城 天山神秘大峡谷 慢游"
+      ]
+    },
+    {
+      "id": "xibei-xinjiang-kashi",
+      "queries": [
+        "喀什 帕米尔 白沙湖 攻略",
+        "卡拉库里 喀什 老年 旅行"
+      ]
+    },
+    {
+      "id": "xibei-xinjiang-turpan",
+      "queries": [
+        "吐鲁番 葡萄沟 坎儿井 两日",
+        "吐鲁番 交河故城 避暑 空调"
+      ]
+    },
+    {
+      "id": "xibei-xinjiang-duku",
+      "queries": [
+        "独库公路 开放时间 自驾 注意事项",
+        "独库 绕行 乌奎 独山子 库车"
+      ]
+    },
+    {
+      "id": "yunnan-xishuangbanna-winter",
+      "queries": [
+        "西双版纳 过冬 慢住 退休",
+        "景洪 告庄 曼听 攻略",
+        "西双版纳 热带植物园 观光车"
+      ]
+    },
+    {
+      "id": "yunnan-dianxi-tengchong",
+      "queries": [
+        "腾冲 慢住 退休 温泉",
+        "和顺古镇 攻略 父母",
+        "腾冲 热海 火山 观光车"
+      ]
+    },
+    {
+      "id": "xinan-chuanxi-slow",
+      "queries": [
+        "川西 新都桥 高反 老人",
+        "稻城亚丁 观光车 攻略",
+        "川西 自驾 可跳过 路线"
+      ]
+    },
+    {
+      "id": "huanan-guangxi-detian",
+      "queries": [
+        "德天瀑布 攻略 父母",
+        "崇左 德天 高铁 两日",
+        "德天 观光车 边境"
+      ]
+    },
+    {
+      "id": "huanan-hainan-slow-west",
+      "queries": [
+        "海南 西线 慢住 退休",
+        "儋州 过冬 滨海",
+        "昌江 棋子湾 攻略"
+      ]
+    },
+    {
+      "id": "huabei-shanxi-pingyao-deep",
+      "queries": [
+        "平遥古城 慢住 退休",
+        "太原 平遥 高铁 攻略",
+        "平遥 票号 城墙 父母"
+      ]
+    },
+    {
+      "id": "huabei-hebei-beidaihe",
+      "queries": [
+        "北戴河 夏天 高铁 攻略",
+        "北戴河 联峰山 父母",
+        "秦皇岛 北戴河 两日"
+      ]
+    },
+    {
+      "id": "xibei-lanzhou-xiahe",
+      "queries": [
+        "兰州 夏河 攻略 父母",
+        "拉卜楞寺 参观 注意事项",
+        "夏河 高反 住宿"
+      ]
+    },
+    {
+      "id": "qingzang-shigatse-taste",
+      "queries": [
+        "日喀则 拉萨 适应 攻略",
+        "扎什伦布寺 参观 父母 高反"
+      ]
+    },
+    {
+      "id": "qingzang-qilian-optional",
+      "queries": [
+        "门源 油菜花 西宁 包车",
+        "祁连 高反 父母 攻略"
+      ]
+    },
+    {
+      "id": "huazhong-shaanxi-hanzhong",
+      "queries": [
+        "汉中 慢住 攻略 退休",
+        "汉中 兴汉胜境 武侯祠 父母"
+      ]
+    },
+    {
+      "id": "huazhong-yichang-three-gorges",
+      "queries": [
+        "宜昌 三峡 观光船 攻略",
+        "三峡大坝 父母 一日游"
+      ]
+    },
+    {
+      "id": "huadong-suhan-slow",
+      "queries": [
+        "suhan-slow 攻略 退休",
+        "suhan-slow 自驾 慢游"
+      ]
+    },
+    {
+      "id": "huabei-neimeng-hulunbuir",
+      "queries": [
+        "呼伦贝尔 海拉尔 七日 攻略",
+        "呼伦贝尔 草原 包车 父母"
+      ]
+    },
+    {
+      "id": "huanan-fujian-quanzhou",
+      "queries": [
+        "泉州 开元寺 西街 攻略",
+        "泉州 古城 父母 三日"
+      ]
+    },
+    {
+      "id": "xinan-guizhou-zhenyuan",
+      "queries": [
+        "镇远古城 高铁 两日",
+        "镇远 舞阳河 父母 攻略"
+      ]
+    },
+    {
+      "id": "huazhong-hunan-changsha",
+      "queries": [
+        "长沙 岳麓书院 攻略 父母",
+        "长沙 省博 橘子洲 两日"
+      ]
+    },
+    {
+      "id": "huadong-jiangsu-yangzhou",
+      "queries": [
+        "扬州 瘦西湖 游船 攻略",
+        "扬州 东关街 两日 父母"
+      ]
+    },
+    {
+      "id": "xibei-ningxia-shapotou",
+      "queries": [
+        "沙坡头 父母 攻略",
+        "中卫 沙坡头 缆车 黄河",
+        "宁夏 中卫 三日 退休"
+      ]
+    },
+    {
+      "id": "huabei-shandong-taishan",
+      "queries": [
+        "泰山 缆车 父母 攻略",
+        "泰安 高铁 一日 两日",
+        "泰山 索道 免爬 退休"
+      ]
+    },
+    {
+      "id": "dongbei-liaoning-shenyang",
+      "queries": [
+        "沈阳故宫 攻略 父母",
+        "北陵公园 沈阳 散步",
+        "沈阳 高铁 两日 退休"
+      ]
+    },
+    {
+      "id": "dongbei-jilin-yanbian",
+      "queries": [
+        "延吉 旅行 父母 攻略",
+        "延边 朝鲜族 美食 慢游",
+        "延吉 三日 退休"
+      ]
+    },
+    {
+      "id": "dongbei-heilongjiang-wudalianchi",
+      "queries": [
+        "五大莲池 夏天 攻略",
+        "五大莲池 父母 观光车",
+        "哈尔滨 五大莲池 两日"
+      ]
+    },
+    {
+      "id": "national-qinggan-slow",
+      "queries": ["青甘大环线 慢游 父母", "西宁 青海湖 敦煌 分段"]
+    },
+    {
+      "id": "national-silkroad-slow",
+      "queries": ["丝路 西安 敦煌 吐鲁番", "丝路 慢游 退休"]
+    },
+    {
+      "id": "national-chuandian-slow",
+      "queries": ["川滇 大理 丽江 慢住", "成都 大理 飞 父母"]
+    },
+    {
+      "id": "frontier-dandong",
+      "queries": ["丹东 鸭绿江 父母", "丹东 断桥 攻略"]
+    },
+    {
+      "id": "frontier-manzhouli",
+      "queries": ["满洲里 国门 父母", "满洲里 海拉尔 交通"]
+    },
+    {
+      "id": "frontier-mohe",
+      "queries": ["漠河 北极村 夏天", "漠河 父母 攻略"]
+    },
+    {
+      "id": "frontier-erlian",
+      "queries": ["二连浩特 国门 火车", "二连浩特 北京 短途"]
+    },
+    {
+      "id": "frontier-dongxing",
+      "queries": ["东兴 边境 金滩", "东兴 父母 旅行"]
+    },
+    {
+      "id": "frontier-ruili",
+      "queries": ["瑞丽 畹町 父母", "芒市 瑞丽 交通"]
     }
   ]
 }

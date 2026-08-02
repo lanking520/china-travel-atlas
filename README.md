@@ -14,10 +14,17 @@
 
 ```bash
 npm install
-npm run dev
+npm run preview
 ```
 
-浏览器打开 [http://localhost:3000](http://localhost:3000)。
+浏览器打开 [http://127.0.0.1:3000](http://127.0.0.1:3000)。
+
+## 离线包 / 成书
+
+- 离线打开：[`docs/离线打开说明.md`](docs/离线打开说明.md)
+- 成书预留：[`docs/成书导出说明.md`](docs/成书导出说明.md)
+- 本地打 zip：`npm run pack:offline`
+- 生成书稿索引：`npm run export:book-index`
 
 ## 给父母怎么用
 

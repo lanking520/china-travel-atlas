@@ -1,0 +1,19 @@
+{
+  "purpose": "Search queries for northwest patch routes (Xinjiang / Qinghai / Ningxia). Not used by website build.",
+  "audience": "60岁上下 身体健康 腿脚好 大学学历 英语不错 北京退休自驾",
+  "platforms": ["xiaohongshu", "zhihu", "official"],
+  "routes": [
+    {
+      "id": "xibei-xinjiang-north",
+      "queries": ["北疆 租车 自驾 老人", "赛里木湖 环湖 攻略", "喀纳斯 预约 区间车"]
+    },
+    {
+      "id": "qingzang-qinghai-lake",
+      "queries": ["西宁 高原适应 老人", "青海湖 环湖 包车", "青海湖 二郎剑 预约"]
+    },
+    {
+      "id": "xibei-ningxia-3d",
+      "queries": ["银川 三日 退休", "西夏陵 观光车 免票", "沙湖 镇北堡 怎么选"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+---
+description: After completing a plan milestone, spin a clean-context verify subagent and act on its next tasks.
+alwaysApply: true
+---
+
+# Plan verify-after-task
+
+When implementing from a Cursor plan (especially 全国深挖 / china-travel-atlas):
+
+1. After finishing a meaningful chunk, **spin a new Task subagent with clean context** to verify against the plan — may write `research/audits/plan-verify-round-YYYYMMDD.md`.
+2. Verifier checklist PASS/PARTIAL/FAIL + **3–5 next tasks**; parent must execute them.
+3. **Discovery gate is multi-source** (`research/notes/multi-discovery/`), **not** Xiaohongshu digests. XHS is optional review only.
+4. Do not block立项 on XHS MCP health; do block on missing multi-discovery evidence for *new* ids when practical.
+5. If XHS MCP is used: one search process at a time.

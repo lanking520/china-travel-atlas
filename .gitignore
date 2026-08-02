@@ -19,6 +19,7 @@
 
 # production
 /build
+china-travel-atlas-offline.zip
 
 # misc
 .DS_Store
@@ -57,4 +58,5 @@ next-env.d.ts
 
 # xhs mcp session in project cwd
 cookies.json
+research/raw/xhs/**
 .cookies/

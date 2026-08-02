@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -35,10 +35,39 @@ jobs:
         env:
           GITHUB_PAGES: "true"
 
-      - name: Upload artifact
+      - name: Pack offline zip
+        run: |
+          cp docs/离线打开说明.md out/离线打开说明.md
+          cp README.md out/README.md
+          cd out
+          zip -r ../china-travel-atlas-offline.zip .
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: out
+
+      - name: Upload offline zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: china-travel-atlas-offline
+          path: china-travel-atlas-offline.zip
+
+      - name: Publish offline Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: offline-latest
+          name: 离线包（随 main 自动更新）
+          body: |
+            自动构建的静态离线包，适合信号不好时给父母用。
+
+            1. 下载 `china-travel-atlas-offline.zip`
+            2. 解压后按包内「离线打开说明.md」操作
+            3. 在线版（若 Pages 已开启）：https://lanking520.github.io/china-travel-atlas/
+          files: china-travel-atlas-offline.zip
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     needs: build

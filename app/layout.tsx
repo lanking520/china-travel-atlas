@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_SC } from "next/font/google";
+import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 import { PwaRegister } from "@/components/PwaRegister";
 import "./globals.css";
 
@@ -7,6 +7,13 @@ const notoSansSC = Noto_Sans_SC({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-noto-sans-sc",
+  display: "swap",
+});
+
+const notoSerifSC = Noto_Serif_SC({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-noto-serif-sc",
   display: "swap",
 });
 
@@ -33,8 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className={`${notoSansSC.variable} h-full`}>
-      <body className="min-h-full bg-sky-50/50 font-sans text-sky-950 antialiased">
+    <html
+      lang="zh-CN"
+      className={`${notoSansSC.variable} ${notoSerifSC.variable} h-full`}
+    >
+      <body className="min-h-full font-sans text-sky-950 antialiased">
         <PwaRegister />
         {children}
       </body>

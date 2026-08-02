@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "@/content/types";
 import { getRegionById } from "@/content";
+import { SafeImage } from "@/components/SafeImage";
 import { REGION_SHORT, SEASON_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
 
 interface RouteCardProps {
@@ -17,7 +17,7 @@ export function RouteCard({ route }: RouteCardProps) {
       className="group flex flex-col overflow-hidden rounded-2xl border border-sky-200 bg-white shadow-sm transition-shadow hover:shadow-md"
     >
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-sky-100">
-        <Image
+        <SafeImage
           src={route.coverImage}
           alt={route.title}
           fill

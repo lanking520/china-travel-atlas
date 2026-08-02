@@ -1,0 +1,49 @@
+{
+  "purpose": "Multi-source discovery (NOT Xiaohongshu-first). Audience: healthy ~60 Beijing retirees.",
+  "primarySources": [
+    "wikivoyage",
+    "official_tourism",
+    "ctrip_youji",
+    "mafengwo",
+    "qyer"
+  ],
+  "secondaryReview": ["xiaohongshu"],
+  "nationalTopics": [
+    "中国自驾经典线路",
+    "退休慢游 中国 路线",
+    "南北疆 分线 自驾"
+  ],
+  "provinces": [
+    { "id": "beijing", "name": "北京", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%8C%97%E4%BA%AC" },
+    { "id": "tianjin", "name": "天津", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%A4%A9%E6%B4%A5" },
+    { "id": "hebei", "name": "河北", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B2%B3%E5%8C%97" },
+    { "id": "shanxi", "name": "山西", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%B1%B1%E8%A5%BF" },
+    { "id": "neimenggu", "name": "内蒙古", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%86%85%E8%92%99%E5%8F%A4" },
+    { "id": "liaoning", "name": "辽宁", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E8%BE%BD%E5%AE%81" },
+    { "id": "jilin", "name": "吉林", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%90%89%E6%9E%97" },
+    { "id": "heilongjiang", "name": "黑龙江", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E9%BB%91%E9%BE%99%E6%B1%9F" },
+    { "id": "shanghai", "name": "上海", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E4%B8%8A%E6%B5%B7" },
+    { "id": "jiangsu", "name": "江苏", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B1%9F%E8%8B%8F" },
+    { "id": "zhejiang", "name": "浙江", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B5%99%E6%B1%9F" },
+    { "id": "anhui", "name": "安徽", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%AE%89%E5%BE%BD" },
+    { "id": "fujian", "name": "福建", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E7%A6%8F%E5%BB%BA" },
+    { "id": "jiangxi", "name": "江西", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B1%9F%E8%A5%BF" },
+    { "id": "shandong", "name": "山东", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%B1%B1%E4%B8%9C" },
+    { "id": "henan", "name": "河南", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B2%B3%E5%8D%97" },
+    { "id": "hubei", "name": "湖北", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B9%96%E5%8C%97" },
+    { "id": "hunan", "name": "湖南", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B9%96%E5%8D%97" },
+    { "id": "guangdong", "name": "广东", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%B9%BF%E4%B8%9C" },
+    { "id": "guangxi", "name": "广西", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%B9%BF%E8%A5%BF" },
+    { "id": "hainan", "name": "海南", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%B5%B7%E5%8D%97" },
+    { "id": "chongqing", "name": "重庆", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E9%87%8D%E5%BA%86" },
+    { "id": "sichuan", "name": "四川", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%9B%9B%E5%B7%9D" },
+    { "id": "guizhou", "name": "贵州", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E8%B4%B5%E5%B7%9E" },
+    { "id": "yunnan", "name": "云南", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E4%BA%91%E5%8D%97" },
+    { "id": "xizang", "name": "西藏", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E8%A5%BF%E8%97%8F" },
+    { "id": "shaanxi", "name": "陕西", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E9%99%95%E8%A5%BF" },
+    { "id": "gansu", "name": "甘肃", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E7%94%98%E8%82%83" },
+    { "id": "qinghai", "name": "青海", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E9%9D%92%E6%B5%B7" },
+    { "id": "ningxia", "name": "宁夏", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E5%AE%81%E5%A4%8F" },
+    { "id": "xinjiang", "name": "新疆", "wikivoyage": "https://zh.wikivoyage.org/wiki/%E6%96%B0%E7%96%86" }
+  ]
+}

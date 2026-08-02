@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { Stop } from "@/content/types";
+import { SafeImage } from "@/components/SafeImage";
 import { PACE_LABELS } from "@/lib/labels";
 
 interface StopTimelineProps {
@@ -42,7 +42,7 @@ export function StopTimeline({ stops }: StopTimelineProps) {
             </div>
             {stop.image && (
               <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-sky-100">
-                <Image
+                <SafeImage
                   src={stop.image}
                   alt={stop.name}
                   fill

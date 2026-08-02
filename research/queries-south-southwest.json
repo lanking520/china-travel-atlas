@@ -1,0 +1,40 @@
+{
+  "purpose": "Search queries for Guangdong / Guangxi / Chongqing / Guizhou routes (active ~60 retirees). Not used by website build.",
+  "audience": "60岁上下 身体健康 腿脚好 大学学历 英语不错 北京退休",
+  "platforms": ["zhihu", "official", "web"],
+  "note": "No Xiaohongshu scrape for this batch.",
+  "routes": [
+    {
+      "id": "huanan-guangzhou-chaoshan",
+      "queries": [
+        "广州 过冬 慢住 退休",
+        "潮州 古城 高铁 两日",
+        "珠海 情侣路 散步"
+      ]
+    },
+    {
+      "id": "huanan-guilin-yangshuo",
+      "queries": [
+        "桂林 阳朔 慢住 退休",
+        "漓江 游船 老人 购票",
+        "遇龙河 竹筏 体力"
+      ]
+    },
+    {
+      "id": "xinan-chongqing-slow",
+      "queries": [
+        "重庆 慢游 退休 地铁",
+        "李子坝 轻轨 南山 夜景",
+        "武隆 天生三桥 电梯"
+      ]
+    },
+    {
+      "id": "xinan-guizhou-loop",
+      "queries": [
+        "贵阳 慢住 退休 春秋",
+        "黄果树 观光车 预约",
+        "镇远古城 高铁 两日"
+      ]
+    }
+  ]
+}

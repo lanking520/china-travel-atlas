@@ -1,4 +1,17 @@
-export function BudgetBar() {
+export function BudgetBar({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 sm:px-4">
+        <p className="text-base text-amber-900 sm:text-lg">
+          <span className="font-semibold">每月预算参考</span>
+          {" · "}
+          约 <span className="text-lg font-bold sm:text-xl">2 万元</span>
+          <span className="text-amber-800"> / 月</span>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
       <p className="text-lg font-semibold text-amber-900">每月旅行预算参考</p>

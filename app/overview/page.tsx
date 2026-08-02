@@ -28,7 +28,7 @@ export default function OverviewPage() {
           两年怎么走
         </h1>
         <p className="mt-4 text-xl leading-relaxed text-sky-800">
-          下面是一份「练手 → 远途 → 回京休整」的参考节奏。不必赶完，按爸妈体力和季节灵活调整；每段远途结束后，建议回北京家歇几天再出发。
+          下面是一份「练手 → 远途 → 回京休整」的参考节奏。不必赶完，按体力和季节灵活调整；每段远途结束后，建议回北京家歇几天再出发。大陆 31 省市区均已挂至少一条路线，可在首页按地区筛选查看。
         </p>
 
         {/* Year 1 */}
@@ -71,7 +71,7 @@ export default function OverviewPage() {
             <li className="rounded-xl bg-white p-5 shadow-sm">
               <span className="text-xl font-bold text-orange-700">秋</span>
               <p className="mt-2">
-                <strong>华东江南</strong>——高铁到杭州、苏州，西湖无障碍专线、园林平路，不赶全程。
+                <strong>华东江南</strong>——高铁到杭州、苏州，西湖环湖慢走、园林平路，不赶全程。
               </p>
               <p className="mt-2">
                 参考：<RouteLink id="huadong-hangzhou-suzhou">江南 · 杭苏园林五日</RouteLink>
@@ -132,7 +132,9 @@ export default function OverviewPage() {
                 <strong>西北丝路</strong>——飞敦煌，租车走河西走廊，莫高窟慢读、张掖丹霞快览。
               </p>
               <p className="mt-2">
-                参考：<RouteLink id="xibei-dunhuang-zhangye">河西走廊 · 敦煌张掖</RouteLink>
+                参考：<RouteLink id="xibei-dunhuang-zhangye">河西走廊 · 敦煌张掖</RouteLink>、
+                <RouteLink id="xibei-xinjiang-north">北疆租车</RouteLink>、
+                <RouteLink id="xibei-ningxia-3d">宁夏银川</RouteLink>
               </p>
             </li>
 
@@ -142,10 +144,13 @@ export default function OverviewPage() {
                 <strong>青藏高原</strong>——仅选 6–9 月窗口，抵达先适应 3 日，纳木错只作一日快览。
               </p>
               <p className="mt-2">
-                参考：<RouteLink id="qingzang-lhasa-slow">拉萨 · 高原慢适应</RouteLink>
+                参考：<RouteLink id="qingzang-lhasa-slow">拉萨 · 高原慢适应</RouteLink>、
+                <RouteLink id="qingzang-qinghai-lake">西宁青海湖</RouteLink>
               </p>
               <p className="mt-1 text-base text-emerald-700">
-                可与华中文化线穿插：<RouteLink id="huazhong-wudang-3d">武当山三日</RouteLink>。
+                可与中原文化线穿插：
+                <RouteLink id="huazhong-wudang-3d">武当山三日</RouteLink>、
+                <RouteLink id="huazhong-xian-slow">西安慢住</RouteLink>。
               </p>
             </li>
 
@@ -158,6 +163,53 @@ export default function OverviewPage() {
               </p>
             </li>
           </ol>
+        </section>
+
+        <section className="mt-10 rounded-2xl border-2 border-amber-300 bg-amber-50 p-6 sm:p-8">
+          <h2 className="text-2xl font-bold text-amber-950 sm:text-3xl">
+            加餐 · 主题线
+          </h2>
+          <p className="mt-3 text-lg text-amber-900">
+            省内线之外，还可按主题挑：跨省慢环、边陲短住、以及空气清新向的长居慢住（约一个月）。
+            首页快捷筛选可点「全国大环线 / 边陲城市 / 长居推荐」。
+          </p>
+          <div className="mt-6 space-y-5 text-lg leading-relaxed text-amber-950">
+            <div className="rounded-xl bg-white p-5 shadow-sm">
+              <p className="font-bold text-amber-800">全国大环线（慢版）</p>
+              <p className="mt-2">
+                <RouteLink id="national-qinggan-slow">青甘慢环</RouteLink>、
+                <RouteLink id="national-silkroad-slow">丝路慢段</RouteLink>、
+                <RouteLink id="national-chuandian-slow">川滇慢环</RouteLink>
+                ——都不是特种兵一天一千公里，段末建议回京休整。
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-5 shadow-sm">
+              <p className="font-bold text-slate-800">边陲城市</p>
+              <p className="mt-2">
+                <RouteLink id="frontier-dandong">丹东鸭绿江</RouteLink>、
+                <RouteLink id="frontier-manzhouli">满洲里国门</RouteLink>、
+                <RouteLink id="frontier-mohe">漠河北极村</RouteLink>、
+                <RouteLink id="frontier-erlian">二连浩特</RouteLink>、
+                <RouteLink id="frontier-dongxing">东兴金滩</RouteLink>、
+                <RouteLink id="frontier-ruili">瑞丽畹町</RouteLink>
+                ——遵守边防标识，不跟不明跨境团。
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-5 shadow-sm">
+              <p className="font-bold text-teal-800">长居推荐</p>
+              <p className="mt-2">
+                <RouteLink id="longstay-dali">大理洱海</RouteLink>、
+                <RouteLink id="longstay-kunming">昆明春城</RouteLink>、
+                <RouteLink id="longstay-yangshuo">阳朔漓江</RouteLink>、
+                <RouteLink id="longstay-weihai">威海海岸</RouteLink>、
+                <RouteLink id="longstay-hulunbuir">呼伦贝尔夏</RouteLink>、
+                <RouteLink id="longstay-dujiangyan">都江堰西缘</RouteLink>、
+                <RouteLink id="longstay-zhenyuan">镇远江城</RouteLink>、
+                <RouteLink id="longstay-hainan-east">琼海万宁</RouteLink>
+                ——约三四周慢居，空气与自然优先，不是打卡清单。
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Principles */}

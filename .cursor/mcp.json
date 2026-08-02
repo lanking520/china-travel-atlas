@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "xiaohongshu-mcp": {
+      "url": "http://localhost:18060/mcp",
+      "description": "小红书调研（仅本地 research，不部署进站点）"
+    }
+  }
+}

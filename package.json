@@ -9,7 +9,12 @@
     "start": "next start",
     "lint": "eslint",
     "research:list": "node research/scripts/list-queries.mjs",
-    "research:xhs": "node research/scripts/xhs-with-cookies.mjs"
+    "research:xhs": "node research/scripts/xhs-with-cookies.mjs",
+    "research:xhs-mcp:fetch": "bash research/tools/xiaohongshu-mcp/fetch.sh",
+    "research:xhs-mcp:login": "research/tools/xiaohongshu-mcp/xiaohongshu-login-darwin-arm64",
+    "research:xhs-mcp:serve": "research/tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64 -port :18060",
+    "research:xhs-batch": "node research/scripts/xhs-batch-search.mjs",
+    "preview": "next dev --port 3000"
   },
   "dependencies": {
     "next": "16.2.12",

@@ -42,6 +42,11 @@ research/**/cookies*.json
 research/**/auth.json
 research/raw/xhs-cookies.txt
 
+# xiaohongshu-mcp release binaries (download via npm run research:xhs-mcp:fetch)
+research/tools/xiaohongshu-mcp/xiaohongshu-login-*
+research/tools/xiaohongshu-mcp/xiaohongshu-mcp-*
+!research/tools/xiaohongshu-mcp/fetch.sh
+
 
 # vercel
 .vercel
@@ -49,3 +54,7 @@ research/raw/xhs-cookies.txt
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# xhs mcp session in project cwd
+cookies.json
+.cookies/

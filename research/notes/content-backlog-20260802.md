@@ -48,6 +48,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
   - *2026-08-02 wave 5:* **58** famous-p / 县域 / frontier → `famous-frontier-character-20260802`（文化+饮食+notices≥6；intro≥200；strict THIN **清零**）
   - *2026-08-02 wave 6:* **49** soft-short city/coverage leftovers → `soft-short-character-20260802`（文化+饮食+地方气质；intro 200–280；catalog intro&lt;200 **清零**）
 - [x] **Itinerary density honesty（batch）** — 日喀则浅尝缩短；青海湖/成都 densify-or-shorten；渝桂黔腾冲内蒙厦西安标签与基地天数对齐（喀什 pattern）；华南广州等仍待扫
+  - *2026-08-02 wave 6:* 广潮 → 约7–10天（可延2周）；琼西 → 约10–14天；版纳 → 约10–14天（可延2–3周）
 - [x] **逐条精细化补充** — route-by-route enrichment (stops, tips, culture, food, practical), priority famous → city → prefecture
   - *done wave 6:* city 26 + coverage 30 + leg/compose 39(+5) + famous-frontier 58 + soft-short **49**；catalog intro&lt;200 **0**
 - [x] **Remaining soft-short intros (~45–55 / ~182)** — strict THIN（intro&lt;200 ∧ notices&lt;5）**已清零**；wave 6 加厚 **49** → catalog intro&lt;200 **0**

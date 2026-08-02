@@ -227,6 +227,87 @@ await check("P12 desktop: SVG region path clickable", async () => {
   await desk.close();
 });
 
+// —— UX framework P0 surface (search / 名景 / dual-col / sticky rail) ——
+
+await check("P13 search box finds 婺源", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(400);
+  const input = page.getByPlaceholder("搜索城市、景点或路线");
+  if (!(await input.count())) throw new Error("search box missing");
+  await input.fill("婺源");
+  await page.waitForTimeout(400); // debounce ~180ms
+  const results = page.locator('section[aria-label="搜索结果"]');
+  await results.waitFor({ state: "visible", timeout: 8000 });
+  const links = results.locator('a[href*="/routes/"]');
+  if ((await links.count()) < 1) throw new Error("婺源 search returned 0 routes");
+  const t = await results.innerText();
+  if (!/婺源/.test(t)) throw new Error("婺源 search results missing 婺源 label");
+  await page.screenshot({ path: path.join(outDir, "06-search-wuyuan.png") });
+});
+
+await check("P14 search box finds 九寨", async () => {
+  const input = page.getByPlaceholder("搜索城市、景点或路线");
+  await input.fill("九寨");
+  await page.waitForTimeout(400);
+  const results = page.locator('section[aria-label="搜索结果"]');
+  await results.waitFor({ state: "visible", timeout: 8000 });
+  if ((await results.locator('a[href*="/routes/"]').count()) < 1) {
+    throw new Error("九寨 search returned 0 routes");
+  }
+  const t = await results.innerText();
+  if (!/九寨/.test(t)) throw new Error("九寨 search results missing 九寨 label");
+});
+
+await check("P15 名景 chip → dual-column RouteCards", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(400);
+  const mingjing = page.getByRole("button", { name: "名景", exact: true });
+  if (!(await mingjing.count())) throw new Error("名景 chip missing");
+  await mingjing.click();
+  await page.waitForTimeout(600);
+  const t = await page.locator("body").innerText();
+  if (!/名景/.test(t)) throw new Error("名景 theme list missing title cue");
+  const grid = page.locator('[aria-label*="名景"][class*="grid-cols-2"]');
+  if (!(await grid.count())) {
+    // RouteCardGrid puts aria-label on the grid itself
+    const anyGrid = page.locator('.grid.grid-cols-2');
+    if ((await anyGrid.count()) < 1) throw new Error("名景 list missing grid-cols-2");
+    if ((await anyGrid.first().locator('a[href*="/routes/"]').count()) < 3) {
+      throw new Error("名景 dual-col grid has too few route cards");
+    }
+  } else if ((await grid.first().locator('a[href*="/routes/"]').count()) < 3) {
+    throw new Error("名景 dual-col grid has too few route cards");
+  }
+  await page.screenshot({ path: path.join(outDir, "07-mingjing-grid.png") });
+});
+
+await check("P16 detail sticky section rail", async () => {
+  const res = await page.goto(base + "/routes/mutianyu-day/", {
+    waitUntil: "domcontentloaded",
+  });
+  if (!res?.ok()) throw new Error("status " + res?.status());
+  await page.waitForTimeout(500);
+  const rail = page.locator('nav[aria-label="本页目录"]');
+  if (!(await rail.count())) throw new Error("sticky 本页目录 rail missing");
+  const pos = await rail.evaluate((el) => getComputedStyle(el).position);
+  if (pos !== "sticky") throw new Error("本页目录 not position:sticky (got " + pos + ")");
+  for (const label of ["怎么走", "时间", "景点", "吃住", "就医", "须知"]) {
+    if (!(await rail.getByRole("link", { name: label, exact: true }).count())) {
+      throw new Error("rail missing link: " + label);
+    }
+  }
+  // Progressive disclosure: 路线指南/时间规划 stay open; meta sections collapse
+  const guide = page.locator("#guide");
+  if (!(await guide.count())) throw new Error("#guide missing");
+  const guideText = await guide.innerText();
+  if (!/路线指南/.test(guideText)) throw new Error("路线指南 not visible by default");
+  const time = page.locator("#time");
+  if (!(await time.count()) || !(await time.innerText()).includes("时间规划")) {
+    throw new Error("时间规划 not visible by default");
+  }
+  await page.screenshot({ path: path.join(outDir, "08-detail-rail.png") });
+});
+
 await browser.close();
 
 const pass = results.filter((r) => r.status === "PASS").length;
@@ -250,7 +331,9 @@ const md = [
   "",
   "- 探索：地图点选大区 → 省份 → 路线 → 攻略详情",
   "- 季节筛选：春夏秋冬大按钮",
+  "- 搜索框：婺源 / 九寨可命中；名景 chip → `grid-cols-2` RouteCards",
   "- 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算",
+  "- 详情 sticky「本页目录」；路线指南+时间规划默认展开",
   "- 两年总览含回京；长途含飞入/回京线索",
   "- 现代双列图卡 + 适度字号（非适老专用大按钮）",
   "",

@@ -4,6 +4,7 @@ import { getRegionById, getRouteById, routes } from "@/content";
 import { Header } from "@/components/Header";
 import { RouteMapWithExpand } from "@/components/RouteMapWithExpand";
 import { SafeImage } from "@/components/SafeImage";
+import { SoftDetails } from "@/components/SoftDetails";
 import { StopTimeline } from "@/components/StopTimeline";
 import { REGION_SHORT, SEASON_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
 import {
@@ -275,16 +276,15 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-teal-200 bg-teal-50 p-6">
-          <h2 className="text-2xl font-bold text-teal-950">长居建议</h2>
-          <div className="mt-4 space-y-4 text-lg leading-relaxed text-teal-950">
+        <SoftDetails title="长居建议" tone="teal" className="mt-10">
+          <div className="space-y-4 text-lg leading-relaxed text-teal-950">
             {paragraphs(practical.longStay ?? "").map((p) => (
               <p key={p.slice(0, 24)} className="whitespace-pre-line">
                 {p}
               </p>
             ))}
           </div>
-        </section>
+        </SoftDetails>
 
         <section id="hospital" className="mt-10 scroll-mt-14 rounded-2xl border border-slate-300 bg-slate-50 p-6">
           <h2 className="text-2xl font-bold text-slate-900">附近医院</h2>
@@ -348,17 +348,15 @@ export default async function RouteDetailPage({
         </section>
 
         {route.whyFast && (
-          <section className="mt-6 rounded-2xl border border-orange-200 bg-orange-50 p-6">
-            <h2 className="text-2xl font-bold text-orange-950">快览说明</h2>
-            <p className="mt-3 text-lg leading-relaxed text-orange-900">{route.whyFast}</p>
-          </section>
+          <SoftDetails title="快览说明" tone="orange">
+            <p className="text-lg leading-relaxed text-orange-900">{route.whyFast}</p>
+          </SoftDetails>
         )}
 
         {(route.sources?.length || route.researchKeywords?.length) && (
-          <section className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h2 className="text-2xl font-bold text-slate-900">参考来源与复核</h2>
+          <SoftDetails title="参考来源与复核" tone="slate">
             {route.researchKeywords && route.researchKeywords.length > 0 && (
-              <p className="mt-3 text-lg text-slate-700">
+              <p className="text-lg text-slate-700">
                 可在小红书/知乎搜索：
                 {route.researchKeywords.map((kw) => (
                   <span
@@ -392,7 +390,7 @@ export default async function RouteDetailPage({
             <p className="mt-4 text-base text-slate-600">
               社区笔记仅作参考，出行前以景区官网与现场公告为准。
             </p>
-          </section>
+          </SoftDetails>
         )}
       </main>
     </>

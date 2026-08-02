@@ -227,13 +227,13 @@ export function ChinaMapExplorer() {
         : `${regionMeta?.name ?? ""} · 选省份`;
 
   return (
-    <div className="space-y-2 sm:space-y-3">
+    <div className="space-y-1.5 sm:space-y-2.5">
       {/* Search is always available — parents often know a city/spot name */}
       <div
         className={
           searchActive || resultsMode
             ? "sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-b-xl sm:px-0"
-            : undefined
+            : "rounded-2xl bg-white/85 px-2.5 py-2 shadow-sm ring-1 ring-sky-900/6 sm:px-3.5 sm:py-2.5"
         }
       >
         {(searchActive || resultsMode) && (
@@ -284,7 +284,7 @@ export function ChinaMapExplorer() {
               autoComplete="off"
               autoCorrect="off"
               spellCheck={false}
-              className="min-h-11 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-base text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/80 focus:outline-none focus:ring-2 focus:ring-sky-600"
+              className="min-h-11 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.05rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/80 focus:outline-none focus:ring-2 focus:ring-sky-600"
             />
             {searchInput ? (
               <button
@@ -298,6 +298,17 @@ export function ChinaMapExplorer() {
             ) : null}
           </div>
         </label>
+        {/* Entry: primary theme chips sit with search as one first-viewport band */}
+        {!searchActive && !resultsMode ? (
+          <div className="mt-1.5 border-t border-sky-100/80 pt-1.5">
+            <PrimaryShortcutChips
+              beijingShortActive={beijingShortActive}
+              theme={theme}
+              onBeijingShort={applyBeijingShort}
+              onTheme={toggleTheme}
+            />
+          </div>
+        ) : null}
       </div>
 
       {searchActive ? (
@@ -318,7 +329,7 @@ export function ChinaMapExplorer() {
       {!searchActive && !resultsMode ? (
         <section
           aria-label="路线筛选"
-          className="rounded-2xl bg-white/80 px-2 py-1.5 ring-1 ring-sky-900/6 sm:px-4 sm:py-2.5"
+          className="rounded-2xl bg-white/70 px-2 py-1.5 ring-1 ring-sky-900/5 sm:px-4 sm:py-2"
         >
           <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 sm:gap-x-3 sm:gap-y-1.5">
             <span className="font-display shrink-0 text-sm font-semibold text-orange-950 sm:text-base">
@@ -346,7 +357,7 @@ export function ChinaMapExplorer() {
             </div>
           </div>
 
-          <div className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 border-t border-sky-100/80 pt-1 sm:mt-2 sm:gap-x-3 sm:gap-y-1.5 sm:pt-2">
+          <div className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 border-t border-sky-100/80 pt-1 sm:mt-1.5 sm:gap-x-3 sm:gap-y-1.5 sm:pt-1.5">
             <span className="font-display shrink-0 text-sm font-semibold text-amber-950 sm:text-base">
               长短
             </span>
@@ -376,15 +387,9 @@ export function ChinaMapExplorer() {
             </div>
           </div>
 
-          {/* Primary shortcuts always visible; extras under 更多 on phone */}
-          <div className="mt-1 border-t border-sky-100/80 pt-1 sm:mt-2 sm:pt-2">
-            <PrimaryShortcutChips
-              beijingShortActive={beijingShortActive}
-              theme={theme}
-              onBeijingShort={applyBeijingShort}
-              onTheme={toggleTheme}
-            />
-            <details className="group mt-1 sm:hidden">
+          {/* Secondary shortcuts under 更多 on phone; desktop shows inline */}
+          <div className="mt-1 border-t border-sky-100/80 pt-1 sm:mt-1.5 sm:pt-1.5">
+            <details className="group sm:hidden">
               <summary className="flex min-h-8 cursor-pointer list-none items-center gap-1 text-sm font-semibold text-sky-800 marker:content-none [&::-webkit-details-marker]:hidden">
                 <span
                   aria-hidden
@@ -392,7 +397,7 @@ export function ChinaMapExplorer() {
                 >
                   ▸
                 </span>
-                更多
+                更多筛选
                 {currentSeasonActive ||
                 theme === "grand-loop" ||
                 theme === "frontier" ? (
@@ -409,7 +414,7 @@ export function ChinaMapExplorer() {
                 onClear={clearFilters}
               />
             </details>
-            <div className="mt-1.5 hidden sm:block">
+            <div className="hidden sm:block">
               <MoreShortcutChips
                 currentSeasonActive={currentSeasonActive}
                 currentSeason={currentSeason}
@@ -422,7 +427,7 @@ export function ChinaMapExplorer() {
             </div>
           </div>
 
-          <p className="mt-0.5 hidden text-base leading-snug text-sky-800/75 sm:mt-1.5 sm:block">
+          <p className="mt-0.5 hidden text-base leading-snug text-sky-800/75 sm:mt-1 sm:block">
             当前：{filterStatusText()}
             {shortcutActive ? "（快捷已启用）" : ""}
             。可搜索城市/景点，或先在地图点地区，再选省份与路线。

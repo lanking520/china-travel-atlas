@@ -7,11 +7,11 @@ IA proposal: [`content-route-composition-ia-20260802.md`](./content-route-compos
 
 ## Open — product / composition IA
 
-- [ ] **长线 = 多条短线** — split overlong / hollow `long` corridors into independent **短线** (`leg`, ~2–4 days, one clear purpose)
-- [ ] **长线选项仍保留** — compose corridors by geography: ordered `leg` ids + glue (drive times, overnight hubs); do **not** duplicate stop essays
-- [ ] **长居以地点为中心** — each `base` recommends nearby transit-friendly legs / overnight day-trips and optional composed loops
-- [ ] **Pilot schema** — add `compositionKind: leg | compose | base` (or equivalent) after 南疆 pilot copy is stable; Explore filters 短线/长线/长居
-- [ ] **南疆 pilot migration** — extract `leg-kuqa-canyon` (+ aksu glue); evolve `xibei-xinjiang-south` → compose referencing `xibei-xinjiang-kashi` (see IA note)
+- [x] **长线 = 多条短线** — pilot: extracted `leg-kuqa-canyon`（全国其余 long 走廊待拆）
+- [x] **长线选项仍保留** — pilot: `compose-nanjiang-kuqa-kashi` = ordered legIds + glue（阿克苏过夜）；不复述景点正文
+- [ ] **长居以地点为中心** — each `base` recommends nearby transit-friendly legs / overnight day-trips and optional composed loops（南疆无现成 longstay hub；未新建 base-kashi）
+- [x] **Pilot schema** — `compositionKind?: leg | compose | base` + `legIds` / `glue` / `nearbyLegs`；filter labels 短线/长线（长居仍用 theme）
+- [x] **南疆 pilot migration** — `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi`；`xibei-xinjiang-south` → `compose-nanjiang-kuqa-kashi`
 
 ## Open — quality (prior)
 
@@ -24,6 +24,7 @@ IA proposal: [`content-route-composition-ia-20260802.md`](./content-route-compos
 
 ## Done this stream (2026-08-02)
 
+- [x] **南疆 compose pilot** — `leg-kuqa-canyon` + `compose-nanjiang-kuqa-kashi`（legIds→库车/喀什；阿克苏 glue）；schema `compositionKind`/`legIds`/`glue`
 - [x] Mid NCF deepen: **黄山** (`huadong-huangshan-hui`) — 徽州气场 + 徽菜 + notices/dining
 - [x] Mid NCF deepen: **张家界** (`huazhong-zhangjiajie`) — 土家/湘西 + 湘菜适老 + notices/dining
 - [x] Mid NCF deepen: **桂林/阳朔** (`huanan-guilin-yangshuo`) — 喀斯特/壮瑶 + 桂菜 + notices/dining
@@ -41,8 +42,8 @@ IA proposal: [`content-route-composition-ia-20260802.md`](./content-route-compos
 
 ## Suggested next session order
 
-1. Finish 南疆 pilot: extract kuqa leg + mark south as compose-shaped (schema optional if copy-first)
-2. Duration-honesty pass on other padded longs
-3. Image 404 audit in `place-images.ts` + Unsplash purge on touched routes
-4. Famous THIN + leftover PG dining
-5. Explore filters for leg/compose/base after data pilot
+1. Explore compose UX: timeline of embedded legs + tap-through；optional compositionKind chips（短线/长线/长居）
+2. Second corridor pilot: 川西 or 河西敦煌–张掖
+3. Duration-honesty pass on other padded longs
+4. Image 404 audit in `place-images.ts` + Unsplash purge on touched routes
+5. Famous THIN + leftover PG dining；optional `base-kashi` / longstay nearbyLegs if hub ships

@@ -99,7 +99,8 @@
 - **北疆 · 赛里木喀纳斯租车** (`xibei-xinjiang-north`) · 长旅行 · 夏/秋
 - **银川 · 西夏陵与沙湖三日** (`xibei-ningxia-3d`) · 短途 · 春/秋
 - **伊犁 · 河谷草原慢住** (`xibei-xinjiang-yili`) · 长旅行 · 夏/秋
-- **南疆 · 库车喀什人文走廊** (`xibei-xinjiang-south`) · 长旅行 · 春/秋
+- **南疆 · 库车喀什人文走廊** (`compose-nanjiang-kuqa-kashi`) · 长旅行 · 春/秋
+- **库车 · 天山神秘大峡谷** (`leg-kuqa-canyon`) · 短线 · 春/秋
 - **喀什 · 帕米尔浅尝** (`xibei-xinjiang-kashi`) · 短途 · 夏/秋
 - **吐鲁番 · 火焰山葡萄沟短住** (`xibei-xinjiang-turpan`) · 短途 · 春/秋
 - **独库公路 · 季节窗浅尝** (`xibei-xinjiang-duku`) · 短途 · 夏/秋
@@ -166,7 +167,7 @@
 - 桂林阳朔 · 漓江慢住 (`huanan-guilin-yangshuo`) · 华南岭南
 - 重庆 · 山城慢走 (`xinan-chongqing-slow`) · 西南秘境
 - 贵阳基地 · 黄果树与黔东可选 (`xinan-guizhou-loop`) · 西南秘境
-- 南疆 · 库车喀什人文走廊 (`xibei-xinjiang-south`) · 西北丝路
+- 南疆 · 库车喀什人文走廊 (`compose-nanjiang-kuqa-kashi`) · 西北丝路
 - 吐鲁番 · 火焰山葡萄沟短住 (`xibei-xinjiang-turpan`) · 西北丝路
 
 ### 夏
@@ -273,7 +274,7 @@
 - 重庆 · 山城慢走 (`xinan-chongqing-slow`) · 西南秘境
 - 贵阳基地 · 黄果树与黔东可选 (`xinan-guizhou-loop`) · 西南秘境
 - 伊犁 · 河谷草原慢住 (`xibei-xinjiang-yili`) · 西北丝路
-- 南疆 · 库车喀什人文走廊 (`xibei-xinjiang-south`) · 西北丝路
+- 南疆 · 库车喀什人文走廊 (`compose-nanjiang-kuqa-kashi`) · 西北丝路
 - 喀什 · 帕米尔浅尝 (`xibei-xinjiang-kashi`) · 西北丝路
 - 吐鲁番 · 火焰山葡萄沟短住 (`xibei-xinjiang-turpan`) · 西北丝路
 - 独库公路 · 季节窗浅尝 (`xibei-xinjiang-duku`) · 西北丝路

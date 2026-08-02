@@ -200,6 +200,42 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
+        {route.compositionKind === "compose" &&
+        route.legIds &&
+        route.legIds.length > 0 ? (
+          <section className="mt-10 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+            <h2 className="text-2xl font-bold text-indigo-950">嵌入短线</h2>
+            <p className="mt-2 text-base text-indigo-800">
+              长线只负责顺序与衔接；景点正文在各短线卡片。
+            </p>
+            <ol className="mt-4 list-decimal space-y-3 pl-6 text-lg text-indigo-950">
+              {route.legIds.map((legId) => {
+                const leg = getRouteById(legId);
+                return (
+                  <li key={legId}>
+                    <Link
+                      href={`/routes/${legId}`}
+                      className="font-semibold text-indigo-900 underline-offset-2 hover:underline"
+                    >
+                      {leg?.title ?? legId}
+                    </Link>
+                    {leg?.daysLabel ? (
+                      <span className="text-indigo-700"> · {leg.daysLabel}</span>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ol>
+            {route.glue && route.glue.length > 0 ? (
+              <ul className="mt-4 space-y-2 text-base leading-relaxed text-indigo-900">
+                {route.glue.map((g) => (
+                  <li key={g.slice(0, 40)}>衔接：{g}</li>
+                ))}
+              </ul>
+            ) : null}
+          </section>
+        ) : null}
+
         <section id="guide" className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50 p-6">
           <h2 className="text-2xl font-bold text-sky-950">路线指南</h2>
           <p className="mt-2 text-base text-sky-700">

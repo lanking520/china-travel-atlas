@@ -2,6 +2,14 @@ export type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 export type TripType = 'long' | 'short';
 
+/**
+ * Product shape (正交于 tripType 时长):
+ * - leg = 短线（独立行程，拥有 stops）
+ * - compose = 长线（有序 legIds + glue，不复述景点正文）
+ * - base = 长居（地点枢纽 + nearbyLegs 辐射）
+ */
+export type CompositionKind = 'leg' | 'compose' | 'base';
+
 /** 跨省大环线 / 边陲城市 / 长居慢住 / 经典走廊 / 名景等探索主题（非省份互斥） */
 export type RouteTheme =
   | 'grand-loop'
@@ -94,6 +102,20 @@ export interface Route {
   seasons: Season[];
   tripType: TripType;
   fromHome: boolean;
+  /** 短线 / 长线组合 / 长居枢纽（逐步迁移；缺省时由 tripType + themes 推断） */
+  compositionKind?: CompositionKind;
+  /**
+   * compose：有序嵌入的短线 id（正文在各 leg，不在此复述）。
+   * 例：['leg-kuqa-canyon', 'xibei-xinjiang-kashi']
+   */
+  legIds?: string[];
+  /**
+   * compose：相邻腿之间的衔接文案（车程、过夜枢纽、休息日）。
+   * 通常长度 = legIds.length - 1；也可写总述一条。
+   */
+  glue?: string[];
+  /** base：从本枢纽可辐射的短线 / 过夜日归 */
+  nearbyLegs?: string[];
   /** 可选主题：全国大环线、边陲城市等 */
   themes?: RouteTheme[];
   daysLabel: string;

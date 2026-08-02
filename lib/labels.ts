@@ -15,8 +15,8 @@ export const SEASON_FULL_LABELS: Record<Season, string> = {
 };
 
 export const TRIP_TYPE_LABELS: Record<TripType, string> = {
-  long: "长旅行",
-  short: "短途",
+  long: "长线",
+  short: "短线",
 };
 
 export const THEME_LABELS: Record<RouteTheme, string> = {

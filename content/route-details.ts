@@ -599,29 +599,57 @@ export const routeDetails: Record<string, RouteDetailFields> = {
       },
     ],
   },
-  'xibei-xinjiang-south': {
+  'compose-nanjiang-kuqa-kashi': {
     introduction:
-      '南疆人文走廊按「短线串起来」走：库车看峡谷两三天 → 阿克苏电梯酒店缓冲过夜 → 喀什老城与巴扎约两天（详见独立「喀什·老城与帕米尔」短线，勿在走廊里再空垫四五天）。不环塔特种兵。\n\n飞库车或乌市转南疆；单日车程≤5小时。夏酷冬冷，春秋更稳；边境通行政策出行前核实。大峡谷以观光车半日为主；喀什尊重宗教习俗与安检，正午歇、早晚逛。\n\n吃抓饭少油、酸奶与清汤面；水果洗净。结束后喀什或乌市飞回北京。对照月预算约两万。',
+      '南疆人文走廊是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 短线「库车·天山神秘大峡谷」（约2–3天）→ ② 阿克苏电梯酒店缓冲过夜（glue，非独立短线）→ ③ 短线「喀什·老城与帕米尔浅尝」（约4–6天，帕米尔可选）。单日车程≤5小时；不环塔特种兵。\n\n峡谷观光车、艾提尕尔/巴扎/香妃墓等细节只在各短线卡片里维护。本卡只管衔接、休息日与进出港。飞库车进、喀什或乌市出。对照月预算约两万。',
     seasonGuide:
       '主推春秋。夏季极热须早晚出门；冬季干冷缩短户外。极端天气缩短当日车程或改期。',
     notices: [
-      '约2–3周走廊：库车段 + 阿克苏缓冲 + 喀什约2日（可挂接独立喀什短线）。',
-      '飞库车或乌市转；单日≤5小时；不环塔硬赶。',
-      '库车大峡谷：观光车为主，少爬台阶；防晒补水。',
-      '阿克苏只作缓冲过夜，不硬加点。',
-      '喀什两日够看；细节与帕米尔可选项见喀什专线。',
+      '约2–3周：嵌入库车短线 + 阿克苏缓冲 + 喀什短线；勿在走廊复述景点长文。',
+      '库车→阿克苏→喀什，单日≤5小时；两腿间可留空白日。',
+      '阿克苏只过夜，不硬加点。',
+      '可只订其中一条短线，不必走满走廊。',
       '清真餐饮区；水果洗净；证件与通行以官方为准。',
       '结束后喀什或乌市飞回北京。',
     ],
     gallery: [
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
-        caption: '南疆 · 库车喀什人文走廊 · 封面景色',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+        caption: '走廊前段 · 库车（见短线 leg-kuqa-canyon）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Aksu_City.jpg/1280px-Aksu_City.jpg',
+        caption: '阿克苏缓冲过夜（glue）',
+        stopId: 'aksu-rest',
       },
       {
         url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
-        caption: '喀什古城（走廊末段约两日）',
-        stopId: 'kashi-old',
+        caption: '走廊末段 · 喀什（见短线 xibei-xinjiang-kashi）',
+      },
+    ],
+  },
+  'leg-kuqa-canyon': {
+    introduction:
+      '库车独立短线：以天山神秘大峡谷观光车半日为核心，市区电梯酒店休整。约两到三天够看，不垫空日硬爬。可单飞往返，也可作为南疆组合长线第一段。\n\n飞库车或乌市转；峡谷早晚出、少爬台阶，夏季防晒补水。不接环塔。吃抓饭少油、酸奶与清汤面。结束后飞乌/京，或西行阿克苏接喀什短线。',
+    seasonGuide:
+      '主推春秋。夏季极热须早晚出门；冬季干冷可缩为市区一日+是否去峡谷看天气。',
+    notices: [
+      '约2–3天：市区安顿 + 峡谷观光车半日 + 缓冲。',
+      '飞库车或乌市转；包车往返峡谷。',
+      '预算约2000–4500元（机票浮动大）。',
+      '峡谷以观光车为主，少爬台阶；不适即返。',
+      '可接南疆长线（阿克苏缓冲→喀什短线）；单日车程≤5小时。',
+      '结束后经乌市或继续西行。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+        caption: '库车 · 天山神秘大峡谷 · 封面景色',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+        caption: '天山神秘大峡谷（观光车）',
+        stopId: 'kuqa-canyon',
       },
     ],
   },

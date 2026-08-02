@@ -92,21 +92,97 @@ export const patchRoutes: Route[] = [
     ],
   },
   {
-    id: 'xibei-xinjiang-south',
+    id: 'leg-kuqa-canyon',
+    title: '库车 · 天山神秘大峡谷',
+    region: 'xibei',
+    seasons: ['spring', 'autumn'],
+    tripType: 'short',
+    compositionKind: 'leg',
+    fromHome: false,
+    daysLabel: '约2–3天',
+    transport:
+      '飞库车或乌市转库车；市区包车/打车往返大峡谷。结束后可西行接南疆走廊，或经乌市飞回北京。',
+    budgetLabel: '本趟约2000–4500元（机票浮动大）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+    summary:
+      '独立短线：天山神秘大峡谷以观光车半日为主，库车市区电梯酒店休整补水。不接环塔；可单飞往返，也可作为南疆长线第一段。',
+    whyFast: '峡谷硬爬与夜路可整段删；一日观光车足够。',
+    researchKeywords: [
+      '库车 天山神秘大峡谷',
+      '库车 两日 攻略',
+      '库车 老年 旅行',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：库车',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%BA%93%E8%BD%A6',
+        kind: 'other',
+        note: '峡谷与交通参考；开放以现场为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'kuqa',
+        name: '库车市区',
+        days: 1.5,
+        pace: 'slow',
+        lat: 41.718,
+        lng: 82.962,
+        summary: '电梯酒店安顿；适应干燥与温差，傍晚平地散步即可。',
+        tips: '夏季极热，备防晒补水；勿抵达当日赶峡谷。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+      },
+      {
+        id: 'kuqa-canyon',
+        name: '天山神秘大峡谷',
+        days: 1,
+        pace: 'slow',
+        lat: 42.13,
+        lng: 83.05,
+        summary: '观光车串联红层峡谷观景；以车览+短停为主，少爬台阶。',
+        tips: '早晚出游避正午；峡谷内量力，不适即返市区。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+      },
+      {
+        id: 'kuqa-buffer',
+        name: '库车空白/返程缓冲',
+        days: 0.5,
+        pace: 'slow',
+        lat: 41.718,
+        lng: 82.962,
+        summary: '休息或飞乌/京；若接南疆长线，次日西行阿克苏方向。',
+        tips: '西行单日车程预留≤5小时；疲劳则多留一日。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+      },
+    ],
+  },
+  {
+    id: 'compose-nanjiang-kuqa-kashi',
     title: '南疆 · 库车喀什人文走廊',
     region: 'xibei',
     seasons: ['spring', 'autumn'],
     tripType: 'long',
+    compositionKind: 'compose',
+    themes: ['corridor'],
     fromHome: false,
     daysLabel: '约2–3周',
+    // 长线=短线串：正文在 leg；阿克苏仅 glue 过夜
+    legIds: ['leg-kuqa-canyon', 'xibei-xinjiang-kashi'],
+    glue: [
+      '库车→阿克苏单日车程≤5小时；阿克苏电梯酒店缓冲过夜（1–2晚，不硬加点），再≤5小时到喀什。两腿之间可留空白休息日。不环塔。',
+    ],
     transport:
-      '飞库车或乌市转南疆；库车→阿克苏→喀什分段，单日车程≤5小时。边境县需提前了解通行政策。结束后喀什或乌市飞回北京。',
+      '飞库车进、喀什或乌市出（或对调）。走廊按短线顺序：库车峡谷短线 → 阿克苏缓冲过夜 → 喀什老城短线。单日车程≤5小时；边境通行政策出行前核实。',
     budgetLabel: '对照月预算约2万（含机票与包车/租车）',
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
     summary:
-      '南疆古城与峡谷慢看：库车天山神秘大峡谷、阿克苏休整，喀什以艾提尕尔/老城/巴扎两日为主（勿空垫到四五天）。夏酷冬冷，春秋更稳；不赶环塔。',
-    whyFast: '大峡谷观光车半日；喀什两日够看，香妃墓可半日或删。',
+      '长线组合卡：嵌入「库车·天山神秘大峡谷」与「喀什·老城与帕米尔」两条短线，中间阿克苏只作过夜衔接。景点正文见各短线，此处不复述。夏酷冬冷，春秋更稳。',
+    whyFast: '可只订库车或只订喀什短线；走廊整段可删帕米尔与峡谷硬爬。',
     researchKeywords: [
       '南疆 自驾 攻略',
       '库车 喀什 路线',
@@ -126,44 +202,19 @@ export const patchRoutes: Route[] = [
         note: '峡谷与交通参考',
       },
     ],
+    // 仅保留衔接枢纽；库车/喀什景点文案在各自 leg
     stops: [
       {
-        id: 'kuqa',
-        name: '库车',
-        days: 3,
-        pace: 'slow',
-        lat: 41.718,
-        lng: 82.962,
-        summary: '天山神秘大峡谷观光车为主；市区休整补水。',
-        tips: '夏季极热，早晚出游；防晒补水。峡谷内少爬台阶。',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
-      },
-      {
         id: 'aksu-rest',
-        name: '阿克苏（缓冲）',
-        days: 2,
+        name: '阿克苏（走廊缓冲过夜）',
+        days: 1.5,
         pace: 'slow',
         lat: 41.169,
         lng: 80.264,
-        summary: '长车程缓冲站，电梯酒店休息，不硬加点。',
-        tips: '水果丰富注意清洗；留空白日。',
+        summary: '两短线之间的电梯酒店缓冲；休息补水，不硬加景点。',
+        tips: '水果洗净；疲劳多留一晚。西行/东行均单日≤5小时。',
         image:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Aksu_City.jpg/1280px-Aksu_City.jpg',
-      },
-      {
-        id: 'kashi-old',
-        name: '喀什古城',
-        days: 2,
-        pace: 'slow',
-        lat: 39.468,
-        lng: 75.994,
-        summary:
-          '艾提尕尔广场外观、老城选段巷弄与东门一带巴扎；两日够看，勿硬排五天空转。细节见独立「喀什」短线。',
-        tips:
-          '尊重宗教习俗与安检；巷弄台阶多量力。正午歇酒店，早晚出门。返程机票提前定。',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kashgar.jpg/1280px-Kashgar.jpg',
       },
     ],
   },
@@ -173,6 +224,7 @@ export const patchRoutes: Route[] = [
     region: 'xibei',
     seasons: ['summer', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     daysLabel: '约4–6天',
     transport:

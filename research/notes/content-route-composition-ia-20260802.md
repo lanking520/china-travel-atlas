@@ -69,10 +69,11 @@ Do **not** duplicate stop text inside every compose.
 | --- | --- |
 | future `base-kashi` or link from longstay if any | `xibei-xinjiang-kashi`, Pamir day as optional leg |
 
-### This session (no schema ship)
+### Pilot status (20260802 later session)
 
-- Densify **喀什** leg content + shorten south’s empty kashi days (honest density).
-- Keep `xibei-xinjiang-south` as a long card until compose schema lands; treat it as **compose-shaped copy** (points at segments) rather than inventing parallel stop essays.
+- Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
+- Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
+- Still open: Explore compose timeline UX; `base-kashi` / longstay `nearbyLegs`; national long→compose migration.
 
 ## What NOT to do
 

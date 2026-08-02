@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import {
+  catalogRoutes as routes,
+  getCatalogRoutesByProvince as getRoutesByProvince,
   getProvinceById,
   getProvincesByRegion,
   getRegionById,
-  getRoutesByProvince,
-  routes,
-} from "@/content";
+} from "@/lib/explore-catalog";
 import type { ProvinceId } from "@/content/provinces";
 import type { RegionId, Route, RouteTheme, Season, TripType } from "@/content/types";
 import {
@@ -748,7 +748,7 @@ function ActiveFilterChips({
           type="button"
           onClick={c.onDismiss}
           aria-label={`移除筛选 ${c.label}`}
-          className="inline-flex min-h-7 items-center gap-1 rounded-full bg-sky-800/88 px-2 py-0.5 text-xs font-semibold text-white shadow-sm hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-sm"
+          className="inline-flex min-h-7 items-center gap-1 rounded-full bg-sky-800/88 px-2 py-0.5 text-[0.7rem] font-semibold text-white shadow-sm hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
         >
           {c.label}
           <span aria-hidden className="text-sky-200/90">
@@ -797,7 +797,7 @@ function AddFiltersPanel({
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="inline-flex min-h-8 items-center gap-1 rounded-full bg-white/90 px-2.5 text-xs font-semibold text-sky-900 ring-1 ring-sky-300/90 hover:bg-sky-50 sm:min-h-9 sm:px-3 sm:text-sm"
+        className="inline-flex min-h-7 items-center gap-1 rounded-full bg-white/90 px-2 text-[0.7rem] font-semibold text-sky-900 ring-1 ring-sky-300/90 hover:bg-sky-50 sm:min-h-8 sm:px-2.5 sm:text-xs"
       >
         <span aria-hidden className="text-sky-500">
           {open ? "▾" : "+"}
@@ -940,7 +940,7 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       aria-label={ariaLabel}
-      className={`min-h-8 rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors sm:min-h-9 sm:px-3 sm:text-sm ${
+      className={`min-h-7 rounded-full px-2 py-0.5 text-[0.7rem] font-semibold transition-colors sm:min-h-8 sm:px-2.5 sm:text-xs ${
         active ? activeClass : idleClass
       }`}
     >

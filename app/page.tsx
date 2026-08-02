@@ -1,9 +1,9 @@
 import { Header } from "@/components/Header";
 import { ExploreClient } from "@/components/ExploreClient";
-import { routes } from "@/content";
+import { catalogRoutes } from "@/lib/explore-catalog";
 
 export default function HomePage() {
-  const heroImage = routes[0]?.coverImage;
+  const heroImage = catalogRoutes[0]?.coverImage;
 
   return (
     <>

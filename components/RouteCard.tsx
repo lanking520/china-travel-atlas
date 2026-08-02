@@ -7,6 +7,18 @@ import { SafeImage } from "@/components/SafeImage";
 import { THEME_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
 import { cardImageForRoute } from "@/lib/place-images";
 
+/** Tiny sky gradient — blur-up stand-in while place photos load. */
+const CARD_LQIP =
+  "data:image/svg+xml;charset=utf-8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20">` +
+      `<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">` +
+      `<stop stop-color="#0c4a6e"/><stop offset="1" stop-color="#082f49"/>` +
+      `</linearGradient></defs>` +
+      `<rect width="16" height="20" fill="url(#g)"/>` +
+      `</svg>`,
+  );
+
 interface RouteCardProps {
   route: Route;
   /** Alternating taller tiles for a light masonry / 小红书 feel */
@@ -28,10 +40,22 @@ export function RouteCard({
   const themeHint = route.themes?.[0]
     ? THEME_LABELS[route.themes[0]]
     : undefined;
+  const prefetchRef = useRef(false);
+
+  const prefetchCover = () => {
+    if (prefetchRef.current || priority) return;
+    prefetchRef.current = true;
+    const img = new window.Image();
+    img.decoding = "async";
+    img.src = src;
+  };
 
   return (
     <Link
       href={`/routes/${route.id}/`}
+      onMouseEnter={prefetchCover}
+      onFocus={prefetchCover}
+      onTouchStart={prefetchCover}
       className={`group relative flex w-full flex-col overflow-hidden rounded-2xl bg-sky-950/90 shadow-sm ring-1 ring-sky-950/10 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:ring-sky-800/20 active:scale-[0.99] ${
         tall ? "aspect-[3/4] sm:aspect-[2/3]" : "aspect-[4/5] sm:aspect-[3/4]"
       }`}
@@ -42,6 +66,8 @@ export function RouteCard({
         fill
         priority={priority}
         loading={priority ? "eager" : "lazy"}
+        placeholder="blur"
+        blurDataURL={CARD_LQIP}
         className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
         sizes="(max-width: 768px) 50vw, 33vw"
       />

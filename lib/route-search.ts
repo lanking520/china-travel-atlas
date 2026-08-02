@@ -2,7 +2,7 @@ import {
   getProvinceById,
   getRegionById,
   type Route,
-} from "@/content";
+} from "@/lib/explore-catalog";
 import {
   REGION_SHORT,
   SEASON_LABELS,
@@ -96,6 +96,9 @@ export function searchRoutes(catalog: Route[], query: string): Route[] {
     if (hit && score > 0) scored.push({ route, score });
   }
 
-  scored.sort((a, b) => b.score - a.score || a.route.title.localeCompare(b.route.title, "zh"));
+  scored.sort(
+    (a, b) =>
+      b.score - a.score || a.route.title.localeCompare(b.route.title, "zh"),
+  );
   return scored.map((s) => s.route);
 }

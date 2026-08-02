@@ -155,16 +155,39 @@ export default async function RouteDetailPage({
           />
         </div>
 
-        <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-sky-100 sm:aspect-[21/9]">
+        <div className="relative mt-6 -mx-4 aspect-[16/10] overflow-hidden bg-sky-100 sm:mx-0 sm:aspect-[21/9] sm:rounded-2xl">
           <SafeImage
             src={route.coverImage}
             alt={route.title}
             fill
             className="object-cover"
-            sizes="768px"
+            sizes="(max-width: 768px) 100vw, 768px"
             priority
           />
         </div>
+
+        {gallery.length > 1 ? (
+          <div
+            aria-label="景点速览"
+            className="mt-3 -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden"
+          >
+            {gallery.slice(0, 6).map((img) => (
+              <figure
+                key={img.url + img.caption}
+                className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xl bg-sky-100 ring-1 ring-sky-200/80 sm:h-24 sm:w-36"
+              >
+                <SafeImage
+                  src={img.url}
+                  alt={img.caption}
+                  fill
+                  className="object-cover"
+                  sizes="144px"
+                  loading="lazy"
+                />
+              </figure>
+            ))}
+          </div>
+        ) : null}
 
         <section className="mt-10">
           <h2 className="text-2xl font-bold text-sky-950">详细介绍</h2>

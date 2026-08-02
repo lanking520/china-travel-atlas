@@ -29,26 +29,26 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 - [x] **Lazy catalog**: initial N `RouteCard`s + load-more on scroll (Intersection Observer); images `loading="lazy"`; text/meta always in card
 - [ ] True **virtualization / windowing** if catalog ≫ ~200 and scroll jank persists
-- [ ] Audit Explore bundle: ensure `route-details` / heavy guides **not** pulled into home chunk
-- [ ] Optional: blur-up / LQIP placeholders for card images
-- [ ] Optional: prefetch route detail on card hover/focus (Pages-friendly)
+- [x] Audit Explore bundle: ensure `route-details` / heavy guides **not** pulled into home chunk (`lib/explore-catalog` for Explore)
+- [x] Optional: blur-up / LQIP placeholders for card images
+- [x] Optional: low-priority cover prefetch on card hover/focus (Pages-friendly)
 
 ## C — Visual polish (Pinterest-like)
 
 - [x] Noticeable modern polish on `RouteCard` (tighter type, softer badge, hover lift)
 - [x] Slimmer filter / identity chips +「添加筛选」affordance
-- [ ] Further chip density pass after live feedback
-- [ ] Detail page hero / gallery polish (framework P1/P2)
+- [x] Further chip density pass after live feedback
+- [x] Detail page hero / gallery polish (edge-bleed hero + strip; embla still P2)
 
 ## D — Verify / CI
 
 - [x] `ux:plan` locks: region-chip dismiss, clean-catalog hides 返回, map cover share, catalog paginate
 - [x] CI Pages smoke: built `out/index.html` asserts basePath `_next` + Explore labels
-- [ ] Live Pages curl smoke post-deploy (optional workflow job)
+- [x] Live Pages curl smoke post-deploy (optional workflow job)
 
 ## E — Framework modernization (carry from proposal)
 
-- [ ] P1: detail progressive disclosure (collapse 参考来源 / 快览)
+- [x] P1: detail progressive disclosure (collapse 参考来源 / 快览 via SoftDetails)
 - [ ] P1: optional vaul sheet for 筛选 if chip row grows
 - [ ] P1: mobile bottom nav (探索 / 两年 / 说明) + safe-area
 - [ ] P2: embla gallery; light motion (2–3 intentional)
@@ -62,4 +62,4 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ---
 
-*Updated: 2026-08-02 · session: search-above-tabs + lazy catalog + card polish + Explore IA polish ship.*
+*Updated: 2026-08-02 · session: explore-catalog bundle split + LQIP + chip/hero polish + live Pages smoke.*

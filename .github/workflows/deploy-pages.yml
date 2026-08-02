@@ -88,3 +88,31 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  live-smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Live Pages curl smoke
+        run: |
+          set -euo pipefail
+          BASE="https://lanking520.github.io/china-travel-atlas"
+          ok=0
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -sS -o /tmp/pages-index.html -w "%{http_code}" "$BASE/" || echo 000)
+            if [ "$code" = "200" ] \
+              && grep -qE '探索方式|全部景点|地图选区' /tmp/pages-index.html \
+              && grep -qE '/china-travel-atlas/_next/' /tmp/pages-index.html; then
+              ok=1
+              break
+            fi
+            echo "attempt $i: HTTP $code — retry in 15s"
+            sleep 15
+          done
+          if [ "$ok" != "1" ]; then
+            echo "FAIL: live Pages smoke"
+            head -c 400 /tmp/pages-index.html || true
+            exit 1
+          fi
+          echo "OK: live Pages curl smoke"
+

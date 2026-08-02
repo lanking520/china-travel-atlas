@@ -244,51 +244,48 @@ export function ChinaMapExplorer() {
         }`}
         aria-hidden={chromeOff || undefined}
       >
-        <div className="space-y-1.5">
-          <label className="block">
-            <span className="sr-only">搜索路线</span>
-            <div className="flex items-stretch gap-2">
-              <input
-                type="search"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="搜索城市、景点或路线"
-                enterKeyHint="search"
-                autoComplete="off"
-                autoCorrect="off"
-                spellCheck={false}
-                tabIndex={chromeOff ? -1 : undefined}
-                className="min-h-10 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.02rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/75 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:min-h-11"
-              />
-              {searchInput ? (
-                <button
-                  type="button"
-                  onClick={clearSearch}
-                  aria-label="清除搜索"
-                  tabIndex={chromeOff ? -1 : undefined}
-                  className="inline-flex min-h-10 shrink-0 items-center rounded-xl bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-11 sm:text-[0.95rem]"
-                >
-                  清除
-                </button>
-              ) : null}
-            </div>
-          </label>
-        </div>
-
-        <div className="mt-1.5 space-y-1">
-          <div className="flex min-h-8 items-center gap-1.5">
-            {showExitBack ? (
+        <label className="block">
+          <span className="sr-only">搜索路线</span>
+          <div className="flex items-stretch gap-2">
+            <input
+              type="search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="搜索城市、景点或路线"
+              enterKeyHint="search"
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck={false}
+              tabIndex={chromeOff ? -1 : undefined}
+              className="min-h-10 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.02rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/75 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:min-h-11"
+            />
+            {searchInput ? (
               <button
                 type="button"
-                onClick={exitToAll}
-                aria-label="返回"
+                onClick={clearSearch}
+                aria-label="清除搜索"
                 tabIndex={chromeOff ? -1 : undefined}
-                className="inline-flex min-h-7 shrink-0 items-center gap-0.5 rounded-lg bg-sky-800 px-2 text-[0.7rem] font-semibold text-white hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
+                className="inline-flex min-h-10 shrink-0 items-center rounded-xl bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-11 sm:text-[0.95rem]"
               >
-                <span aria-hidden>←</span>
-                返回
+                清除
               </button>
             ) : null}
+          </div>
+        </label>
+
+        {/* Back / search-chip row only when scoped — avoid empty min-h band on clean catalog */}
+        {showExitBack ? (
+          <div className="mt-1.5 flex min-h-8 items-center gap-1.5">
+            <button
+              type="button"
+              onClick={exitToAll}
+              aria-label="返回"
+              tabIndex={chromeOff ? -1 : undefined}
+              className="inline-flex min-h-7 shrink-0 items-center gap-0.5 rounded-lg bg-sky-800 px-2 text-[0.7rem] font-semibold text-white hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-xs"
+            >
+              <span aria-hidden>←</span>
+              返回
+            </button>
             <div className="min-w-0 flex-1 overflow-x-auto">
               <ActiveFilterChips
                 searchQuery={searchActive ? searchQuery.trim() : undefined}
@@ -296,6 +293,9 @@ export function ChinaMapExplorer() {
               />
             </div>
           </div>
+        ) : null}
+
+        <div className="mt-1.5">
           <DimensionFilters
             season={season}
             tripType={tripType}

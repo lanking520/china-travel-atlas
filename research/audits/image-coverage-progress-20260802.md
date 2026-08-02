@@ -161,3 +161,17 @@ Sparse HEAD: Puning / Ge Yuan / Nanjing Museum → 200; Sangke original briefly 
 | `hk-volcano-optional` | Sanya | 世纪桥同城 soft（无火山专用风景） |
 
 Pipeline: `research/scripts/resolve-place-images.py` FILES 同步上述文件名。出 soft：`cc-chaoyang/cultural`、`hk-longhua`、`hh-city/buffer`。
+
+---
+
+## Leftover trio → gen — 2026-08-02 (post-8dfb019)
+
+Commons + Openverse re-search: no elder-safe scenic for 乐亭/左云/棋子湾 (maps/docs/church/wrong hits only).
+
+| ID | Was | Now |
+|----|-----|-----|
+| `ts-laoting-optional` | Beidaihe soft | `/generated/places/ts-laoting-optional.png` · 示意生成图 |
+| `datong-zuoyun-optional` | Yungang soft | `/generated/places/datong-zuoyun-optional.png` · 示意生成图 |
+| `qiziwan-optional` | shared west-Hainan gen | `/generated/places/qiziwan-optional.png` · dedicated 示意生成图 |
+
+Out of `PLACE_SOFT_IDS`: 乐亭、左云. Residual soft = intentional same-corridor only.

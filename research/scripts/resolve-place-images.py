@@ -44,6 +44,8 @@ FILES: dict[str, str] = {
     "yungang": "Yungang_Grottoes.jpg",
     "huabei-shanxi-loop": "Yungang_Grottoes.jpg",
     "datong-base": "Yungang_Grottoes.jpg",
+    # overlay gen — no safe Zuoyun scenic Commons (church/map only)
+    "datong-zuoyun-optional": "Yungang_Grottoes.jpg",
     "hanging-temple": "Xuankong_Temple.jpg",
     "yingxian-pagoda": "Fogong_Temple_Pagoda.jpg",
     "pingyao-side": "Pingyao_40.JPG",
@@ -188,7 +190,9 @@ FILES: dict[str, str] = {
     "danzhou-base": "Hainan.jpg",  # weak; overlay gen huanan-hainan-slow-west.png
     "huanan-hainan-slow-west": "Hainan.jpg",  # overlay gen
     "danzhou-coast": "Hainan.jpg",  # overlay gen
-    "qiziwan-optional": "Hainan.jpg",  # overlay gen
+    "qiziwan-optional": "Hainan.jpg",  # overlay gen qiziwan-optional.png
+    # 唐山乐亭 — overlay gen（无岸线 Commons；勿用 Beidaihe / 青海金银滩）
+    "ts-laoting-optional": "Beidaihe_panorama_from_the_south.jpg",
     "zhuhai-lover-road": "Zhuhai.jpg",
     "huanan-zhuhai-3d": "Zhuhai.jpg",
     "zhuhai-optional": "Zhuhai.jpg",

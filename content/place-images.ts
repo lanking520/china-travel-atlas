@@ -6,8 +6,10 @@
 
 /** Local AI-generated covers (示意生成图). Paths are site-root; basePath applied in lib/place-images. */
 export const PLACE_GENERATED_IDS = new Set<string>([
-  // 昌江棋子湾：Commons 无可用西岸风景；保留示意生成图（勿用三亚/东线沙滩顶替）
-  'qiziwan-optional',
+  // Commons/Openverse 无适老可用风景 → 示意生成图（优于错地标 soft reuse）
+  'qiziwan-optional', // 昌江棋子湾；勿用三亚/东线沙滩顶替
+  'ts-laoting-optional', // 乐亭岸线；勿用北戴河实拍或青海金银滩
+  'datong-zuoyun-optional', // 左云县域；勿用云冈/教堂废墟顶替
 ]);
 
 /**
@@ -15,13 +17,11 @@ export const PLACE_GENERATED_IDS = new Set<string>([
  * Prefer upgrading to place-accurate Commons when found; do not use wrong-province stand-ins.
  */
 export const PLACE_SOFT_IDS = new Set<string>([
-  'ts-laoting-optional', // 乐亭岸线无专用 Commons → 北戴河渤海湾同廊（勿用青海金银滩）
   'xinghan-optional', // 兴汉 ↔ 汉台城区同城
   'lianfengshan-optional', // 联峰山 ↔ 北戴河海滨同景区
   'pingyao-wall-optional', // 城墙选段 ↔ 平遥古城街景同城
   'zhuhai-optional', // 珠海可选 ↔ 珠海主图同城
   'shapotou-optional', // 沙坡头可选 ↔ 沙坡头主图同景区
-  'datong-zuoyun-optional', // 左云无可用风景 Commons → 云冈同廊示意
   // famous P1 soft same-corridor
   'bh-oldtown', // 老街无专用 → 银滩同城
   'bh-weizhou-optional', // 涠洲专用照稀缺 → 北海银滩同廊示意（勿用外省海边）
@@ -677,7 +677,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'qinghai-lake-loop': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qinghai_Lake.jpg/1280px-Qinghai_Lake.jpg',
   'qinghai-lake-segment': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qinghai_Lake.jpg/1280px-Qinghai_Lake.jpg',
   'qinglong-dong-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/%E8%B4%B5%E5%B7%9E-%E9%95%87%E8%BF%9C-%E9%9D%92%E9%BE%99%E6%B4%9E_-_panoramio.jpg/1280px-%E8%B4%B5%E5%B7%9E-%E9%95%87%E8%BF%9C-%E9%9D%92%E9%BE%99%E6%B4%9E_-_panoramio.jpg',
-  'qiziwan-optional': '/generated/places/huanan-hainan-slow-west.png',
+  'qiziwan-optional': '/generated/places/qiziwan-optional.png',
   'quanzhou-qingjing': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Qingjing_Mosque.jpg/1280px-Qingjing_Mosque.jpg',
   'quanzhou-west-street': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Kaiyuan_Temple_%28Quanzhou%29.jpg/1280px-Kaiyuan_Temple_%28Quanzhou%29.jpg',
   'rehai-volcano': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tengchong.jpg/1280px-Tengchong.jpg',
@@ -760,8 +760,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/%E7%83%9F%E5%8F%B0%E9%95%BF%E5%B2%9B-%E5%8D%97%E9%95%BF%E5%B1%B1%E5%B2%9B.JPG/1280px-%E7%83%9F%E5%8F%B0%E9%95%BF%E5%B2%9B-%E5%8D%97%E9%95%BF%E5%B1%B1%E5%B2%9B.JPG',
   'ls-rongcheng-day':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/%E6%88%90%E5%B1%B1%E5%A4%B4_-_panoramio.jpg/1280px-%E6%88%90%E5%B1%B1%E5%A4%B4_-_panoramio.jpg',
-  'datong-zuoyun-optional':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Yungang_Grottoes.jpg/1280px-Yungang_Grottoes.jpg',
+  'datong-zuoyun-optional': '/generated/places/datong-zuoyun-optional.png',
   'datong-lingqiu-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/%E8%A7%89%E5%B1%B1%E5%AF%BA%E5%A1%94-1.jpg/1280px-%E8%A7%89%E5%B1%B1%E5%AF%BA%E5%A1%94-1.jpg',
   'sjz-changan-base':
@@ -795,7 +794,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'ts-nanhu': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/South_Lake_of_Tangshan_1.jpg/1280px-South_Lake_of_Tangshan_1.jpg',
   'ts-qingdongling': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eastern_Qing_Tombs.jpg/1280px-Eastern_Qing_Tombs.jpg',
   'ts-qianxi-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Xifengkou-Great-Wall-Qianxi-Tangshan-China.jpg/1280px-Xifengkou-Great-Wall-Qianxi-Tangshan-China.jpg',
-  'ts-laoting-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Beidaihe_panorama_from_the_south.jpg/1280px-Beidaihe_panorama_from_the_south.jpg',
+  'ts-laoting-optional': '/generated/places/ts-laoting-optional.png',
   'zhangye-danxia': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/1280px-Zhangye_National_Geopark_5.jpg',
   'zhangye-danxia-loop': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Zhangye_National_Geopark_5.jpg/1280px-Zhangye_National_Geopark_5.jpg',
   'zhenyuan-oldtown': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Guizhou_Zhenyuan_Ancient_Town4_%28cropped%29.jpg/1280px-Guizhou_Zhenyuan_Ancient_Town4_%28cropped%29.jpg',

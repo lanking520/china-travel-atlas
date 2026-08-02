@@ -35,12 +35,13 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Open — quality (prior)
 
-- [ ] **Image query optimization** — better place-image matching; fix wrong / soft / 404; prefer verified Wikimedia Commons; improve lookup scripts/pipeline; no Unsplash-as-attraction for covers/stops
+- [x] **Image query optimization** — better place-image matching; fix wrong / soft / 404; prefer verified Wikimedia Commons; improve lookup scripts/pipeline; no Unsplash-as-attraction for covers/stops
   - *2026-08-02 wave:* 长春/海口/呼市 **错城 soft 已纠**（延吉/三亚湾/呼伦贝尔 → 长春天际线+南湖 / 世纪桥+骑楼 / 大召）；`PLACE_SOFT_IDS` 收缩；`resolve-place-images.py` FILES 同步。仍 open：乐亭/左云 blocked、qiziwan gen、其余同廊 soft
   - *2026-08-02 re-search:* Commons 仍无适老可用风景（乐亭/月坨/菩提仅地图文书；左云仅教堂/地图；棋子湾无风景）→ **keep soft/gen**
   - *2026-08-02 wave 4:* 乐亭/左云/qiziwan 再确认无安全 Commons → **leave**（不换图）
   - *2026-08-02 wave 5:* Commons API 403 / 仍无适老风景 → **leave** soft/gen
   - *2026-08-02 wave 6:* 乐亭/左云/qiziwan 仍无安全 Commons → **leave**（不换图）
+  - *2026-08-02 wave 7 (done leftovers):* Commons+Openverse 再搜仍无安全风景 → **示意生成图** 优于错地标 soft：`ts-laoting-optional` / `datong-zuoyun-optional` / `qiziwan-optional` → `public/generated/places/{id}.png` + `PLACE_GENERATED_IDS`；自 `PLACE_SOFT_IDS` 移除乐亭/左云。残余 soft = 有意同城/同廊示意（兴汉/联峰山/平遥墙/珠海/沙坡头及 famous-P1 缓冲等），非错省顶替。高流量 HEAD 本波 Wikimedia 429，未发现新 404 证据。
 - [x] **Regional / attraction character** — each route should convey 地区特色、文化、美食 beyond thin logistics stubs
   - *2026-08-02 wave:* **26** city/famous THIN → `city-character-20260802` detailPatches（文化+饮食 framing；preferRicherText）
   - *2026-08-02 wave 3:* **30** coverage/prefecture THIN → `coverage-character-20260802`（省会/地市廊：南宁贵阳济南昆明太原等；文化+饮食+notices≥5）
@@ -85,6 +86,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Famous-p / 县域 / frontier deepen (58)** — `famous-frontier-character-20260802`；含河北四市、浙闽粤鄂晋名景、frontier 六卡、县域廊续批；strict THIN 清零；乐亭/左云/qiziwan Commons 仍不可用（API 403 / 无适老风景）未换图
 - [x] **Soft-short deepen (49)** — `soft-short-character-20260802`；先前 city/coverage 浅 intro 全部加厚至 200–280；catalog intro&lt;200 清零；乐亭/左云/qiziwan 仍无安全 Commons 未换图
 - [x] **Duration honesty batch 2** — 广潮 → 约7–10天（可延2周）；琼西 → 约10–14天；版纳 → 约10–14天（可延2–3周）
+- [x] **Image leftovers (乐亭/左云/棋子湾)** — Commons+Openverse 空 → 专用示意生成图；出 soft、入 `PLACE_GENERATED_IDS`；pipeline FILES 注释同步
 
 ## Notes
 
@@ -96,6 +98,6 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-2. Image：残余同廊 soft（乐亭/左云 blocked）+ qiziwan gen + 伪满馆专用照若出现（本波仍无安全 Commons）
-3. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
-4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
+2. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
+3. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
+4. 有意同廊 soft：若日后出现专用 Commons，可升出 `PLACE_SOFT_IDS`（非错城；优先级低于产品 polish）

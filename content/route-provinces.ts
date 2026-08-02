@@ -225,4 +225,43 @@ export const routeProvinces: Record<
   'huabei-shandong-weifang': { primary: 'shandong' },
   'huazhong-hubei-jingzhou': { primary: 'hubei' },
   'huadong-anhui-xuancheng': { primary: 'anhui' },
+  // Famous compose batch 20260802
+  'leg-hainan-west-shallow': { primary: 'hainan' },
+  'leg-sanya-beach': { primary: 'hainan' },
+  'compose-jiangnan-zhegan-lushan': {
+    primary: 'zhejiang',
+    also: ['jiangxi'],
+  },
+  'compose-min-yue-coast': {
+    primary: 'fujian',
+    also: ['guangdong'],
+  },
+  'compose-xiang-qian-gui': {
+    primary: 'hunan',
+    also: ['guizhou', 'guangxi'],
+  },
+  'compose-shan-jin-yu': {
+    primary: 'shaanxi',
+    also: ['shanxi', 'henan'],
+  },
+  'compose-dongbei-loop': {
+    primary: 'heilongjiang',
+    also: ['jilin', 'liaoning'],
+  },
+  'compose-neimeng-grassland': { primary: 'neimenggu' },
+  'compose-hainan-island-shallow': { primary: 'hainan' },
+  'compose-jingjinji-jin': {
+    primary: 'beijing',
+    also: ['hebei', 'shanxi'],
+  },
+  'compose-yun-gui-chuan-shallow': {
+    primary: 'sichuan',
+    also: ['guizhou', 'yunnan'],
+  },
+  'compose-chuanyu-chengdu-chongqing': {
+    primary: 'sichuan',
+    also: ['chongqing'],
+  },
+  'compose-xiangxi-changsha-fenghuang': { primary: 'hunan' },
+  'compose-lu-taishan-qingdao': { primary: 'shandong' },
 };

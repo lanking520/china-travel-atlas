@@ -82,6 +82,42 @@ Do **not** duplicate stop text inside every compose.
 - Shipped national batch 1 (20260802): `compose-qinggan-xining-hexi` / `compose-silkroad-xian-turpan` / `compose-chuandian-chengdu-dali-lijiang` / `compose-jinghu-coast`；退役四个 `national-*`（dead-lead OK）。
 - Shipped national batch 2 (20260802): `compose-beijiang-sayram-kanas` / `compose-suhan-hangzhou-huangshan` / `compose-yunnan-dali-lijiang` / `compose-shandong-qingdao-yantai`；退役 `xibei-xinjiang-north` / `huadong-suhan-slow` / `yunnan-dali-lijiang` / `huabei-shandong-coast`；`xibei-xinjiang-yili` 收为 leg；`longstay-dali` nearbyLegs 链滇西短线/组合。
 - Shipped national batch 3 (20260802): `compose-qingzang-railway-lhasa` / `compose-qingzang-lhasa-nyingchi` / `compose-yunnan-hekou-sapa`；`leg-qingzang-railway` / `leg-hekou-border` / `leg-sapa-vietnam`；`qingzang-lhasa-slow` densify 为 leg（海拔诚实，非极端高山）；退役 `qingzang-railway-slow` / `qingzang-g318-lhasa-nyingchi` / `yunnan-hekou-sapa-corridor`；reuse `qingzang-xining-3d` / `qingzang-nyingchi-slow` 为 leg。
+- Shipped famous corridor batch 4 (20260802): **12** new compose → catalog **26** total. Extracted `leg-hainan-west-shallow` / `leg-sanya-beach` (keep west/sanya long cards). Embedded city/famous cards marked `compositionKind: leg` via `compose-leg-kind-20260802`. Full id list in backlog + below.
+
+### Full compose inventory (26)
+
+| id | Corridor |
+| --- | --- |
+| `compose-nanjiang-kuqa-kashi` | 南疆 |
+| `compose-hexi-dunhuang-zhangye` | 河西 |
+| `compose-chuanxi-chengdu-leshan-jiuzhai` | 川西浅 |
+| `compose-qinggan-xining-hexi` | 青甘 |
+| `compose-silkroad-xian-turpan` | 丝路 |
+| `compose-chuandian-chengdu-dali-lijiang` | 川滇 |
+| `compose-jinghu-coast` | 京沪沿海 |
+| `compose-beijiang-sayram-kanas` | 北疆 |
+| `compose-suhan-hangzhou-huangshan` | 苏杭徽 |
+| `compose-yunnan-dali-lijiang` | 滇西大理丽江 |
+| `compose-shandong-qingdao-yantai` | 胶东 |
+| `compose-qingzang-railway-lhasa` | 青藏铁路 |
+| `compose-qingzang-lhasa-nyingchi` | 拉萨林芝 |
+| `compose-yunnan-hekou-sapa` | 河口沙巴 |
+| `compose-jiangnan-zhegan-lushan` | 江南浙赣 |
+| `compose-min-yue-coast` | 闽粤沿海 |
+| `compose-xiang-qian-gui` | 湘黔桂 |
+| `compose-shan-jin-yu` | 陕晋豫 |
+| `compose-dongbei-loop` | 东北浅环 |
+| `compose-neimeng-grassland` | 内蒙古草原 |
+| `compose-hainan-island-shallow` | 海南环岛浅 |
+| `compose-jingjinji-jin` | 京津冀晋 |
+| `compose-yun-gui-chuan-shallow` | 云贵川浅 |
+| `compose-chuanyu-chengdu-chongqing` | 川渝 |
+| `compose-xiangxi-changsha-fenghuang` | 湘西名景 |
+| `compose-lu-taishan-qingdao` | 齐鲁泰青 |
+
+### Still missing / optional next corridors
+
+- 桂北海（阳朔→北海）、武夷–厦（与闽粤部分重叠）、皖南九华、鄂西恩施/三峡、宁夏沙坡头–兰州、粤西开平–湛江、东北冬冰雪专廊（与夏环分流）
 
 ## Second corridor — 河西（shipped 20260802）
 

@@ -31,6 +31,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **National long→compose migration（batch 1）** — 青甘 / 丝路 / 川滇 / 京沪 → compose + legs；`national-*` 四卡退役（dead-lead OK）
 - [x] **National long→compose（batch 2）** — 北疆 / 苏杭徽 / 滇西大理丽江 reconcile / 胶东半岛 → compose + legs；旧 id 退役
 - [x] **National long→compose（batch 3 · 青藏/河口）** — 青藏铁路 / 拉萨→林芝 / 河口→沙巴 → compose + legs；`qingzang-lhasa-slow` 收为 densified leg（海拔诚实）；旧 id 退役
+- [x] **Famous corridor compose（batch 4）** — +12 compose（江南浙赣、闽粤、湘黔桂、陕晋豫、东北浅环、内蒙草原、海南浅环、京津冀晋、云贵川浅、川渝、湘西、齐鲁泰青）+ 琼西/三亚抽出浅段 leg；合计 **26** compose
 - [x] **Rethink weak longstay** — `longstay-yangshuo` / `longstay-zhenyuan` **降级**为名景短腿（theme 离 long-stay；枢纽桂林/贵阳）
 - [x] **Optional hub bases** — `base-guilin` / `base-guiyang` 立项（三门槛 PASS；nearbyLegs→阳朔/漓江、镇远/黄果树/黔东南）
 
@@ -88,6 +89,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **Soft-short deepen (49)** — `soft-short-character-20260802`；先前 city/coverage 浅 intro 全部加厚至 200–280；catalog intro&lt;200 清零；乐亭/左云/qiziwan 仍无安全 Commons 未换图
 - [x] **Duration honesty batch 2** — 广潮 → 约7–10天（可延2周）；琼西 → 约10–14天；版纳 → 约10–14天（可延2–3周）
 - [x] **Image leftovers (乐亭/左云/棋子湾)** — Commons+Openverse 空 → 专用示意生成图；出 soft、入 `PLACE_GENERATED_IDS`；pipeline FILES 注释同步
+- [x] **Famous compose batch 4** — 12 新长线组合 + `leg-hainan-west-shallow` / `leg-sanya-beach`；嵌入腿 `compositionKind: leg` 字段补丁；catalog compose **26**
 
 ## Notes
 
@@ -99,6 +101,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-2. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
-3. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
-4. 有意同廊 soft：若日后出现专用 Commons，可升出 `PLACE_SOFT_IDS`（非错城；优先级低于产品 polish）
+2. 仍缺名胜廊（可选下一波）：桂北海、武夷–厦、皖南九华、鄂西恩施/三峡、宁夏沙坡头–兰、藏东南延伸以外的浅段
+3. 逐条精细化 — stops/tips beyond character framing for high-traffic hubs
+4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
+5. 有意同廊 soft：若日后出现专用 Commons，可升出 `PLACE_SOFT_IDS`（非错城；优先级低于产品 polish）

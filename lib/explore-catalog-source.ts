@@ -35,16 +35,18 @@ import { patchRoutes as famousP220260802Routes } from "@/content/patches/routes-
 import { patchRoutes as prefectureWave20260802dRoutes } from "@/content/patches/routes-prefecture-wave-20260802d";
 import { patchRoutes as prefectureWave20260802eRoutes } from "@/content/patches/routes-prefecture-wave-20260802e";
 import { patchRoutes as prefectureWave20260802fRoutes } from "@/content/patches/routes-prefecture-wave-20260802f";
+import { patchRoutes as composeFamous20260802Routes } from "@/content/patches/routes-compose-famous-20260802";
 import { routeProvinces } from "@/content/route-provinces";
 import type { Route } from "@/content/types";
 import { placeCoverForRoute } from "@/lib/place-images";
 import { exploreRouteFieldPatchList } from "@/lib/explore-catalog-fields";
 import { stopTipPatches } from "@/content/audit-patches/high-traffic-stops-20260802";
+import { routeFieldPatches as composeLegKindPatches } from "@/content/audit-patches/compose-leg-kind-20260802";
 
 
 function applyRouteFieldPatches(route: Route): Route {
   let next = route;
-  for (const patch of exploreRouteFieldPatchList) {
+  for (const patch of [...exploreRouteFieldPatchList, composeLegKindPatches]) {
     const p = patch?.[route.id];
     if (p) next = { ...next, ...p };
   }
@@ -137,6 +139,7 @@ function collectRawRoutes(): Route[] {
     ...prefectureWave20260802dRoutes,
     ...prefectureWave20260802eRoutes,
     ...prefectureWave20260802fRoutes,
+    ...composeFamous20260802Routes,
   ]) {
     map.set(r.id, r);
   }

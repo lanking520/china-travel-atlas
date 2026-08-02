@@ -18,10 +18,11 @@ import {
   detailPatches as p9,
   routeFieldPatches as r5,
 } from './soft-short-character-20260802';
+import { routeFieldPatches as r6 } from './compose-leg-kind-20260802';
 import { stopTipPatches } from './high-traffic-stops-20260802';
 
 const detailPatchList = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
-const routePatchList = [r1, r2, r3, r4, r5];
+const routePatchList = [r1, r2, r3, r4, r5, r6];
 
 export function applyDetailPatches(
   details: Record<string, RouteDetailFields>,

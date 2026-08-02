@@ -30,6 +30,7 @@ import { patchRoutes as famousP220260802Routes } from './patches/routes-famous-p
 import { patchRoutes as prefectureWave20260802dRoutes } from './patches/routes-prefecture-wave-20260802d';
 import { patchRoutes as prefectureWave20260802eRoutes } from './patches/routes-prefecture-wave-20260802e';
 import { patchRoutes as prefectureWave20260802fRoutes } from './patches/routes-prefecture-wave-20260802f';
+import { patchRoutes as composeFamous20260802Routes } from './patches/routes-compose-famous-20260802';
 import {
   applyRouteFieldPatches,
   getMergedRouteDetails,
@@ -121,6 +122,7 @@ export const routes: Route[] = (() => {
     ...prefectureWave20260802dRoutes,
     ...prefectureWave20260802eRoutes,
     ...prefectureWave20260802fRoutes,
+    ...composeFamous20260802Routes,
   ]) {
     map.set(r.id, r);
   }

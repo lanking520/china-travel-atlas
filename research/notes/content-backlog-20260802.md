@@ -29,7 +29,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **川西 B corridor** — `leg-chengdu-adapt` + reuse `xinan-sichuan-leshan-emei` / `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役极端 `xinan-chuanxi-slow`（不强制四姑娘/新都桥/稻城）
 - [x] **National long→compose migration（batch 1）** — 青甘 / 丝路 / 川滇 / 京沪 → compose + legs；`national-*` 四卡退役（dead-lead OK）
 - [x] **National long→compose（batch 2）** — 北疆 / 苏杭徽 / 滇西大理丽江 reconcile / 胶东半岛 → compose + legs；旧 id 退役
-- [ ] **National long→compose（remaining）** — 青藏铁路/林芝/拉萨海拔诚实；`yunnan-hekou-sapa-corridor` 若可拆腿再 compose
+- [x] **National long→compose（batch 3 · 青藏/河口）** — 青藏铁路 / 拉萨→林芝 / 河口→沙巴 → compose + legs；`qingzang-lhasa-slow` 收为 densified leg（海拔诚实）；旧 id 退役
 - [x] **Rethink weak longstay** — `longstay-yangshuo` / `longstay-zhenyuan` **降级**为名景短腿（theme 离 long-stay；枢纽桂林/贵阳）
 - [x] **Optional hub bases** — `base-guilin` / `base-guiyang` 立项（三门槛 PASS；nearbyLegs→阳朔/漓江、镇远/黄果树/黔东南）
 
@@ -51,13 +51,14 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **川西 compose pilot** — `leg-chengdu-adapt` + `xinan-sichuan-leshan-emei` + `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役 `xinan-chuanxi-slow`
 - [x] **National batch 1** — `compose-qinggan-xining-hexi` / `compose-silkroad-xian-turpan` / `compose-chuandian-chengdu-dali-lijiang` / `compose-jinghu-coast` + extracted legs；退役四个 `national-*`
 - [x] **National batch 2** — `compose-beijiang-sayram-kanas` / `compose-suhan-hangzhou-huangshan` / `compose-yunnan-dali-lijiang` / `compose-shandong-qingdao-yantai`；退役 `xibei-xinjiang-north` / `huadong-suhan-slow` / `yunnan-dali-lijiang` / `huabei-shandong-coast`；伊犁收为 leg
+- [x] **National batch 3** — `compose-qingzang-railway-lhasa` / `compose-qingzang-lhasa-nyingchi` / `compose-yunnan-hekou-sapa` + `leg-qingzang-railway` / `leg-hekou-border` / `leg-sapa-vietnam`；`qingzang-lhasa-slow` densify 为 leg；退役 `qingzang-railway-slow` / `qingzang-g318-lhasa-nyingchi` / `yunnan-hekou-sapa-corridor`
 - [x] **弱长居降级** — yangshuo / zhenyuan 离 long-stay 芯片；名景短腿 + 桂林/贵阳枢纽叙事
 - [x] **`base-guilin` / `base-guiyang`** — 三门槛 PASS；nearbyLegs 辐射 demoted legs + 漓江/黔东相关卡
 - [x] Mid NCF deepen: **黄山** / **张家界** / **桂林阳朔**
 - [x] Wave 2 prior: frontier six + prefecture-f + famous THIN slice
 - [x] PG dining batch for many hubs (leftovers remain)
 - [x] **喀什 densify (leg shape)** — `xibei-xinjiang-kashi` → ~4–6天
-- [x] Composition IA note written；南疆/河西/川西 pilots + national batch 1–2 shipped；青藏铁路·林芝·拉萨与河口沙巴仍可能拆
+- [x] Composition IA note written；南疆/河西/川西 pilots + national batch 1–3 shipped（青藏铁路·林芝·拉萨海拔诚实 + 河口沙巴拆腿）
 
 ## Notes
 
@@ -68,7 +69,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Suggested next session order
 
-1. National long→compose 剩余（青藏铁路·林芝·拉萨海拔诚实；河口→沙巴若可拆腿）
-2. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-3. Duration-honesty pass on other padded longs
-4. Image 404 audit + famous THIN + leftover PG dining
+1. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
+2. Duration-honesty pass on other padded longs（含日喀则浅尝等仍独立短线）
+3. Image 404 audit + famous THIN + leftover PG dining
+4. Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose

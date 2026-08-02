@@ -95,14 +95,16 @@ export const patchRoutes: Route[] = [
     region: 'qingzang',
     seasons: ['summer', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     daysLabel: '3–4天',
-    transport: '北京飞西宁曹家堡；市内公交/打车。可作青海湖长线前的适应段，或单独短住后飞回北京。',
+    transport:
+      '北京飞西宁曹家堡；市内公交/打车。可单订，也可作青海湖长线或青藏铁路组合前的适应段。',
     budgetLabel: '本趟约3000–5000元',
     coverImage:
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Xining_-_Dongguan_mosque_Minaret_2024.jpg/1280px-Xining_-_Dongguan_mosque_Minaret_2024.jpg',
     summary:
-      '西宁海拔约2200米，先在城区慢走、看博物馆与清真大寺周边，不急着上湖。适合作为青藏入口热身；有基础病遵医嘱。',
+      '独立短线：西宁海拔约2200米，先在城区慢走、看博物馆与清真大寺周边，不急着上湖。适合作为青藏入口热身；有基础病遵医嘱。可接青藏铁路组合上车。',
     researchKeywords: ['西宁 适应 高原', '西宁 博物馆 两日'],
     sources: [
       {

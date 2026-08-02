@@ -1,6 +1,6 @@
 # 成书路线索引
 
-> 由 `npm run export:book-index` 生成，勿手改。共 179 条。
+> 由 `npm run export:book-index` 生成，勿手改。共 182 条。
 
 ## 按地区
 
@@ -169,7 +169,9 @@
 - **大理州 · 洱源剑川日归表** (`xinan-yunnan-dali-daytrips`) · 短途 · 春/秋/夏
 - **重庆 · 山城慢走** (`xinan-chongqing-slow`) · 长旅行 · 春/秋
 - **贵阳基地 · 黄果树与黔东可选** (`xinan-guizhou-loop`) · 长旅行 · 春/秋
-- **河口→沙巴 · 中越慢廊（跨境）** (`yunnan-hekou-sapa-corridor`) · 长旅行 · 秋/冬/春
+- **河口 · 口岸边贸浅住** (`leg-hekou-border`) · 短途 · 秋/冬/春
+- **沙巴 · 镇区慢住（越南·跨境）** (`leg-sapa-vietnam`) · 短途 · 秋/冬/春
+- **河口→沙巴 · 中越慢廊（跨境）** (`compose-yunnan-hekou-sapa`) · 长旅行 · 秋/冬/春
 
 ### 西北丝路
 
@@ -195,11 +197,12 @@
 
 ### 青藏高地
 
-- **拉萨 · 高原慢适应两周** (`qingzang-lhasa-slow`) · 长旅行 · 夏/秋
+- **拉萨 · 高原慢适应** (`qingzang-lhasa-slow`) · 短途 · 夏/秋
+- **青藏铁路 · 西宁至拉萨列车段** (`leg-qingzang-railway`) · 短途 · 夏/秋
+- **青藏铁路慢进藏 · 西宁到拉萨** (`compose-qingzang-railway-lhasa`) · 长旅行 · 夏/秋
+- **拉萨到林芝 · 河谷浅廊** (`compose-qingzang-lhasa-nyingchi`) · 长旅行 · 夏/秋
 - **林芝 · 河谷低海拔慢住** (`qingzang-nyingchi-slow`) · 短途 · 
-- **G318 · 拉萨至林芝慢段** (`qingzang-g318-lhasa-nyingchi`) · 长旅行 · 
 - **G214 · 西宁入口浅段** (`qingzang-g214-xining-taste`) · 短途 · 夏/秋
-- **青藏铁路 · 西宁至拉萨慢行** (`qingzang-railway-slow`) · 长旅行 · 夏/秋
 - **日喀则 · 浅尝短住** (`qingzang-shigatse-taste`) · 短途 · 夏/秋
 - **祁连 · 门源夏花浅游** (`qingzang-qilian-optional`) · 短途 · 夏
 - **西宁 · 青海湖浅段** (`leg-xining-qinghai-lake`) · 短途 · 夏/秋
@@ -326,7 +329,9 @@
 - 南疆 · 库车喀什人文走廊 (`compose-nanjiang-kuqa-kashi`) · 西北丝路
 - 喀什 · 丝路慢居枢纽 (`base-kashi`) · 西北丝路
 - 吐鲁番 · 火焰山葡萄沟短住 (`xibei-xinjiang-turpan`) · 西北丝路
-- 河口→沙巴 · 中越慢廊（跨境） (`yunnan-hekou-sapa-corridor`) · 西南秘境
+- 河口 · 口岸边贸浅住 (`leg-hekou-border`) · 西南秘境
+- 沙巴 · 镇区慢住（越南·跨境） (`leg-sapa-vietnam`) · 西南秘境
+- 河口→沙巴 · 中越慢廊（跨境） (`compose-yunnan-hekou-sapa`) · 西南秘境
 
 ### 夏
 
@@ -335,12 +340,14 @@
 - 晋北古建 · 大同慢住三周 (`huabei-shanxi-loop`) · 京畿华北
 - 长白山 · 林海避暑一周 (`dongbei-changbai-summer`) · 东北林海
 - 厦门鼓浪屿 · 土楼浅挂 (`huanan-xiamen-winter`) · 华南岭南
-- 拉萨 · 高原慢适应两周 (`qingzang-lhasa-slow`) · 青藏高地
+- 拉萨 · 高原慢适应 (`qingzang-lhasa-slow`) · 青藏高地
+- 青藏铁路 · 西宁至拉萨列车段 (`leg-qingzang-railway`) · 青藏高地
+- 青藏铁路慢进藏 · 西宁到拉萨 (`compose-qingzang-railway-lhasa`) · 青藏高地
+- 拉萨到林芝 · 河谷浅廊 (`compose-qingzang-lhasa-nyingchi`) · 青藏高地
 - 乐山峨眉 · 大佛与金顶浅尝 (`xinan-sichuan-leshan-emei`) · 西南秘境
 - 无锡 · 太湖鼋头渚慢游 (`huadong-jiangsu-wuxi`) · 华东水乡
 - G214 · 西宁入口浅段 (`qingzang-g214-xining-taste`) · 青藏高地
 - 北京市区 · 颐和园慢游 (`huabei-beijing-city-slow`) · 京畿华北
-- 青藏铁路 · 西宁至拉萨慢行 (`qingzang-railway-slow`) · 青藏高地
 - 青岛 · 滨海栈道慢住 (`leg-qingdao-coast`) · 京畿华北
 - G214 · 香格里拉浅住 (`yunnan-g214-shangri-la-taste`) · 西南秘境
 - 甘肃 · 兰州夏河短住 (`xibei-lanzhou-xiahe`) · 西北丝路
@@ -436,8 +443,11 @@
 - 杭州西湖 · 浙江五日 (`huadong-hangzhou-suzhou`) · 华东水乡
 - 厦门鼓浪屿 · 土楼浅挂 (`huanan-xiamen-winter`) · 华南岭南
 - 武当山 · 问道三日 (`huazhong-wudang-3d`) · 中原华中
-- 拉萨 · 高原慢适应两周 (`qingzang-lhasa-slow`) · 青藏高地
+- 拉萨 · 高原慢适应 (`qingzang-lhasa-slow`) · 青藏高地
 - 成都 · 平原慢住两周 (`xinan-chengdu-slow`) · 西南秘境
+- 青藏铁路 · 西宁至拉萨列车段 (`leg-qingzang-railway`) · 青藏高地
+- 青藏铁路慢进藏 · 西宁到拉萨 (`compose-qingzang-railway-lhasa`) · 青藏高地
+- 拉萨到林芝 · 河谷浅廊 (`compose-qingzang-lhasa-nyingchi`) · 青藏高地
 - 长沙 · 岳麓与老街慢游 (`huazhong-hunan-changsha`) · 中原华中
 - 乐山峨眉 · 大佛与金顶浅尝 (`xinan-sichuan-leshan-emei`) · 西南秘境
 - 无锡 · 太湖鼋头渚慢游 (`huadong-jiangsu-wuxi`) · 华东水乡
@@ -447,7 +457,6 @@
 - G214 · 西宁入口浅段 (`qingzang-g214-xining-taste`) · 青藏高地
 - G210 · 延安红色浅段 (`huazhong-shaanxi-g210-yanan`) · 中原华中
 - 北京市区 · 颐和园慢游 (`huabei-beijing-city-slow`) · 京畿华北
-- 青藏铁路 · 西宁至拉萨慢行 (`qingzang-railway-slow`) · 青藏高地
 - 青岛 · 滨海栈道慢住 (`leg-qingdao-coast`) · 京畿华北
 - 京沪沿海慢串 · 津青苏沪高铁廊 (`compose-jinghu-coast`) · 华东水乡
 - G214 · 香格里拉浅住 (`yunnan-g214-shangri-la-taste`) · 西南秘境
@@ -572,7 +581,9 @@
 - 喀什 · 丝路慢居枢纽 (`base-kashi`) · 西北丝路
 - 吐鲁番 · 火焰山葡萄沟短住 (`xibei-xinjiang-turpan`) · 西北丝路
 - 独库公路 · 季节窗浅尝 (`xibei-xinjiang-duku`) · 西北丝路
-- 河口→沙巴 · 中越慢廊（跨境） (`yunnan-hekou-sapa-corridor`) · 西南秘境
+- 河口 · 口岸边贸浅住 (`leg-hekou-border`) · 西南秘境
+- 沙巴 · 镇区慢住（越南·跨境） (`leg-sapa-vietnam`) · 西南秘境
+- 河口→沙巴 · 中越慢廊（跨境） (`compose-yunnan-hekou-sapa`) · 西南秘境
 
 ### 冬
 
@@ -602,5 +613,7 @@
 - 川滇慢环 · 成都大理丽江 (`compose-chuandian-chengdu-dali-lijiang`) · 西南秘境
 - 珠海滨海 · 两三天 (`huanan-zhuhai-3d`) · 华南岭南
 - 广州慢住 · 潮汕或珠海可选 (`huanan-guangzhou-chaoshan`) · 华南岭南
-- 河口→沙巴 · 中越慢廊（跨境） (`yunnan-hekou-sapa-corridor`) · 西南秘境
+- 河口 · 口岸边贸浅住 (`leg-hekou-border`) · 西南秘境
+- 沙巴 · 镇区慢住（越南·跨境） (`leg-sapa-vietnam`) · 西南秘境
+- 河口→沙巴 · 中越慢廊（跨境） (`compose-yunnan-hekou-sapa`) · 西南秘境
 

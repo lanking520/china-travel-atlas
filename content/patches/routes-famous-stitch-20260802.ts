@@ -4,7 +4,7 @@ import type { Route } from '../types';
  * Famous-scenic discoverability + geographic stitching (2026-08-02).
  * Prefer coherent drive corridors over orphan one-spot cards.
  * Evidence: research/notes/multi-discovery/famous-stitch-20260802.md
- * Does NOT touch yunnan-xishuangbanna-winter / yunnan-hekou-sapa-corridor.
+ * Does NOT touch yunnan-xishuangbanna-winter / compose-yunnan-hekou-sapa（河口沙巴已拆腿）.
  */
 export const patchRoutes: Route[] = [
   // ── 赣东北廊：婺源 + 景德镇（overwrite wuyuan id）──────────────

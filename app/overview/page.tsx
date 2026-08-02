@@ -152,6 +152,7 @@ export default function OverviewPage() {
               </p>
               <p className="mt-2">
                 参考：<RouteLink id="qingzang-lhasa-slow">拉萨 · 高原慢适应</RouteLink>、
+                <RouteLink id="compose-qingzang-railway-lhasa">青藏铁路慢进藏</RouteLink>、
                 <RouteLink id="qingzang-qinghai-lake">西宁青海湖</RouteLink>
               </p>
               <p className="mt-1 text-base text-emerald-700">

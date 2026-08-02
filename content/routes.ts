@@ -785,20 +785,21 @@ export const routes: Route[] = [
   // ── 青藏 · 补充 ──────────────────────────────────────────────
   {
     id: 'qingzang-lhasa-slow',
-    title: '拉萨 · 高原慢适应两周',
+    title: '拉萨 · 高原慢适应',
     region: 'qingzang',
     seasons: ['summer', 'autumn'],
-    tripType: 'long',
+    tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
-    daysLabel: '约2–3周',
+    daysLabel: '约7–10天',
     transport:
-      '飞拉萨，市区包车或跟团；纳木错建议正规一日游（含氧气），勿自驾',
-    budgetLabel: '对照月预算约2万（含机票与氧气等）',
+      '飞拉萨，市区包车或跟团；纳木错建议正规一日游（含氧气），勿自驾。可单订，也可作铁路进藏/拉萨林芝组合中的拉萨段。',
+    budgetLabel: '本趟约5000–9000元（含机票与氧气等；双人；浮动大）',
     coverImage:
-      'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
     summary:
-      '飞拉萨后先休息3日适应低氧（前3天勿洗澡），再慢游布达拉宫、大昭寺。纳木错（4718米）仅作一日湖边短停，绝不过夜。选供氧酒店，随身带氧气与血氧仪。结束后飞回北京，至少休整一周再安排下一段。',
-    whyFast: '纳木错海拔4718米、那根拉山口5190米，仅作一日快览，不宜过夜；林芝可另排。',
+      '独立短线：拉萨约3650米，飞抵后先适应至少3日（前3天勿洗热水澡），再慢游布达拉宫、大昭寺。纳木错约4718米（山口约5190米）仅一日湖边短停、绝不过夜，心肺不佳整段删。非极端高山（不排阿里/珠峰）。可单订，也可嵌入铁路/林芝组合。结束后飞回北京休整≥1周。',
+    whyFast: '纳木错默认可删；布宫可只外观。林芝另见河谷短线/组合。',
     researchKeywords: [
       '拉萨 六十岁 高原反应',
       '布达拉宫 预约 攻略',

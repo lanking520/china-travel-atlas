@@ -151,7 +151,7 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
     gallery: [
       {
         url: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200',
-        caption: '拉萨 · 高原慢适应两周 · 封面景色',
+        caption: '拉萨 · 高原慢适应 · 封面景色',
       },
       {
         url: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800',

@@ -294,22 +294,100 @@ export const routeDetails: Record<string, RouteDetailFields> = {
     ],
   },
   'qingzang-lhasa-slow': {
-    introduction: '拉萨是青藏线的「适应大本营」。飞抵后先把节奏放慢：前几天以城区慢走、喝酥油茶、看博物馆为主，别一落地就赶布达拉宫和纳木错。\n\n布达拉宫需预约，台阶多，可与大昭寺错开日期。纳木错海拔更高，只建议在拉萨适应充分后做一日往返，绝不在湖边过夜硬撑。有心脏病、高血压、慢阻肺等基础病，出行前务必咨询医生。\n\n全程以包车或正规一日游更省心。结束后飞回北京休整，再考虑下一段。',
-    seasonGuide: '主推夏秋窗口（约 6–9 月）：天气相对稳定、交通畅通。冬春干冷且部分路段受影响，不建议作为第一次高原尝试。',
+    introduction:
+      '拉萨约3650米，是青藏线的「适应短线」而非极端高山廊（不排阿里/珠峰）。飞抵后先把节奏放慢：前几天以城区慢走、喝酥油茶为主，别一落地就赶布达拉宫和纳木错。\n\n布达拉宫需预约，台阶多，可与大昭寺错开日期。纳木错约4718米（山口约5190米），只建议在拉萨适应充分后做一日往返，绝不在湖边过夜；心肺不佳整段删。可单订，也可嵌入铁路进藏/拉萨林芝组合。\n\n全程以包车或正规一日游更省心。结束后飞回北京休整≥1周。',
+    seasonGuide:
+      '主推夏秋窗口（约 6–9 月）：天气相对稳定、交通畅通。冬春干冷且部分路段受影响，不建议作为第一次高原尝试。',
     notices: [
-      '抵达后至少休息适应数日，再安排高强度参观。',
-      '布达拉宫提前预约；与大昭寺分日更好。',
-      '纳木错一日即返，高反明显立即下撤。',
-      '备常用药；遵医嘱，不盲目进补偏方。',
-      '【小红书调研】带父母节奏：半天一景、午休必留；台阶多的点位可改坐车/缆车或只看平地区。',
-      '【小红书调研】高原线：头两天少动多休息，有不适即停；勿隐瞒病史，遵医嘱。',
+      '拉萨约3650米：抵达后至少适应3日；前3天勿洗热水澡、勿跑跳。',
+      '布达拉宫提前预约；与大昭寺分日更好；可只外观。',
+      '纳木错一日即返、绝不过夜；高反明显立即下撤；默认可删。',
+      '非极端高山：不排阿里/珠峰大本营。',
+      '备常用药；遵医嘱；回京后至少休整一周。',
+      '【小红书调研】带父母节奏：半天一景、午休必留；台阶多的点位可改坐车或只看平地区。',
       '【小红书调研】以上要点来自小红书公开笔记标题归纳改写，非官方政策，出行前请复核。',
     ],
     gallery: [
-      { url: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200', caption: '拉萨 · 高原慢适应两周 · 封面景色' },
-      { url: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', caption: '拉萨（适应期）', stopId: 'lhasa-rest' },
-      { url: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800', caption: '布达拉宫', stopId: 'potala' },
-      { url: 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800', caption: '纳木错（一日）', stopId: 'namtso-day' },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
+        caption: '拉萨 · 高原慢适应 · 封面景色',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Potala_palace23.jpg/1280px-Potala_palace23.jpg',
+        caption: '拉萨（适应期）',
+        stopId: 'lhasa-rest',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
+        caption: '布达拉宫',
+        stopId: 'potala',
+      },
+    ],
+  },
+
+  'compose-qingzang-railway-lhasa': {
+    introduction:
+      '青藏铁路慢进藏是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 西宁城区适应短线 → ② 青藏铁路列车短线 → ③ 拉萨慢适应短线。车厢供氧≠无高反；拉萨仍约3650米。不接阿里/珠峰。',
+    seasonGuide: '主推夏秋。冬春极寒与供暖需额外评估。',
+    notices: [
+      '约10–14天：嵌入西宁+列车+拉萨短线；可只订其中一段。',
+      '行前体检；软卧优先；血氧每日测。',
+      '纳木错默认可删；不排阿里/珠峰。',
+      '结束后飞回北京休整≥1周。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Qingzang_railway_Train_01.jpg/1280px-Qingzang_railway_Train_01.jpg',
+        caption: '列车段（见短线 leg-qingzang-railway）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
+        caption: '拉萨段（见短线 qingzang-lhasa-slow）',
+      },
+    ],
+  },
+
+  'compose-qingzang-lhasa-nyingchi': {
+    introduction:
+      '拉萨到林芝河谷浅廊是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 拉萨慢适应短线 → ② 拉林/G318 东行 glue → ③ 林芝河谷短线。只做适老浅段，不走川藏全线，不碰珠峰阿里。',
+    seasonGuide: '主推夏秋。雨季关注塌方管制；大雪封山季节不排。',
+    notices: [
+      '须拉萨适应充分后再东行；可随时中止。',
+      '高铁优先；包车勿夜赶、勿一日赶完全段。',
+      '林芝仍属高原；色季拉可删。',
+      '不西行阿里/珠峰；回京休整≥1周。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
+        caption: '拉萨段（见短线 qingzang-lhasa-slow）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg/1280px-Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg',
+        caption: '林芝段（见短线 qingzang-nyingchi-slow）',
+      },
+    ],
+  },
+
+  'compose-yunnan-hekou-sapa': {
+    introduction:
+      '河口→沙巴中越慢廊是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 河口边贸短线 → ② 正式口岸通关 glue → ③ 沙巴跨境短线。沙巴在越南——须护照与合法签证；只走正式口岸。',
+    seasonGuide: '主推秋冬春。沙巴约1500m 级，备薄外套；雨季路滑。',
+    notices: [
+      '可只订河口短线不出境。',
+      '跨境：护照+合法越南入境许可；行前自查领事服务网。',
+      '只走正式口岸；禁止旁路/「包过关」。',
+      'Fansipan 徒步默认可删。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hekou%2C_Yunnan%2C_China.jpg/1280px-Hekou%2C_Yunnan%2C_China.jpg',
+        caption: '河口段（见短线 leg-hekou-border）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sa_Pa_Rice_Terrace_I.jpg/1280px-Sa_Pa_Rice_Terrace_I.jpg',
+        caption: '沙巴段（见短线 leg-sapa-vietnam）',
+      },
     ],
   },
   'dongbei-harbin-snow-3d': {

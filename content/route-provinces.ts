@@ -146,7 +146,9 @@ export const routeProvinces: Record<
   'huanan-hainan-haikou': { primary: 'hainan' },
   'xinan-yunnan-kunming-city': { primary: 'yunnan' },
   'qingzang-nyingchi-slow': { primary: 'xizang' },
-  'qingzang-g318-lhasa-nyingchi': { primary: 'xizang' },
+  'compose-qingzang-lhasa-nyingchi': { primary: 'xizang' },
+  'leg-qingzang-railway': { primary: 'xizang', also: ['qinghai'] },
+  'compose-qingzang-railway-lhasa': { primary: 'xizang', also: ['qinghai'] },
   'xinan-sichuan-g318-east': { primary: 'sichuan' },
   'huadong-jiangnan-water-towns': { primary: 'zhejiang', also: ['jiangsu', 'shanghai'] },
   'xinan-sichuan-leshan-emei': { primary: 'sichuan' },
@@ -160,16 +162,16 @@ export const routeProvinces: Record<
   'qingzang-g214-xining-taste': { primary: 'qinghai' },
   'huazhong-shaanxi-g210-yanan': { primary: 'shaanxi' },
   'huabei-beijing-city-slow': { primary: 'beijing' },
-  'qingzang-railway-slow': { primary: 'xizang', also: ['qinghai'] },
   // coverage wave 20260802c
-  'leg-qingdao-coast': { primary: 'shandong' },
   'compose-jinghu-coast': {
     primary: 'shanghai',
     also: ['tianjin', 'shandong', 'jiangsu'],
   },
   'yunnan-g214-shangri-la-taste': { primary: 'yunnan' },
   // Yunnan cross-border corridor (Hekou→Sapa); primary remains Yunnan anchor
-  'yunnan-hekou-sapa-corridor': { primary: 'yunnan' },
+  'leg-hekou-border': { primary: 'yunnan' },
+  'leg-sapa-vietnam': { primary: 'yunnan' },
+  'compose-yunnan-hekou-sapa': { primary: 'yunnan' },
   // Famous stitch 20260802 (new ids; wuyuan/xiamen/leshan overwrite keep keys)
   'xinan-sichuan-jiuzhaigou': { primary: 'sichuan' },
   'huazhong-hunan-fenghuang': { primary: 'hunan' },

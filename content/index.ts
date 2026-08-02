@@ -23,6 +23,7 @@ import { patchRoutes as coverageWave20260802Routes } from './patches/routes-cove
 import { patchRoutes as coverageWave20260802bRoutes } from './patches/routes-coverage-wave-20260802b';
 import { patchRoutes as coverageWave20260802cRoutes } from './patches/routes-coverage-wave-20260802c';
 import { patchRoutes as yunnanHekouSapaRoutes } from './patches/routes-yunnan-hekou-sapa';
+import { patchRoutes as composeQingzang20260802Routes } from './patches/routes-compose-qingzang-20260802';
 import { patchRoutes as famousStitch20260802Routes } from './patches/routes-famous-stitch-20260802';
 import { patchRoutes as famousP120260802Routes } from './patches/routes-famous-p1-20260802';
 import { patchRoutes as famousP220260802Routes } from './patches/routes-famous-p2-20260802';
@@ -113,6 +114,7 @@ export const routes: Route[] = (() => {
     ...coverageWave20260802bRoutes,
     ...coverageWave20260802cRoutes,
     ...yunnanHekouSapaRoutes,
+    ...composeQingzang20260802Routes,
     ...famousStitch20260802Routes,
     ...famousP120260802Routes,
     ...famousP220260802Routes,

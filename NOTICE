@@ -1,0 +1,15 @@
+China Travel Atlas — content attribution
+========================================
+
+Code and original route/copy text in this repository are licensed under the
+MIT License (see LICENSE).
+
+Third-party and generated media are not covered by that blanket MIT grant:
+
+- Wikimedia Commons / Flickr / similar photos keep their upstream licenses
+  (often CC BY-SA or similar). Where the app shows a caption, treat that as
+  the attribution cue; verify the source page before commercial reuse.
+- 「示意生成图」images under public/generated/ are project-generated illustrations
+  for orientation only; they are not documentary photographs of the place.
+- Unsplash (or other stock) URLs, if any remain as fallbacks, remain under
+  their respective provider terms.

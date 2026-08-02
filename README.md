@@ -4,11 +4,9 @@
 
 ## 在线访问
 
-部署完成后预计地址：
-
 **https://lanking520.github.io/china-travel-atlas/**
 
-（GitHub Pages 首次发布可能需要几分钟生效。）
+仓库公开后，推送到 `main` 会由 GitHub Actions 自动构建并部署。首次若站点 404：打开仓库 **Settings → Pages → Source**，选 **GitHub Actions**，再等一两分钟。
 
 ## 本地开发
 
@@ -57,3 +55,8 @@ npm run preview
 ## 技术栈
 
 Next.js 静态导出，通过 GitHub Actions 部署到 GitHub Pages。
+
+## 许可与素材
+
+- 代码与本项目原创路线文案：见 [`LICENSE`](LICENSE)（**MIT**）。
+- 图片与第三方素材说明：见 [`NOTICE`](NOTICE)（Wikimedia/Commons 等保留原许可证；「示意生成图」为项目生成插图）。

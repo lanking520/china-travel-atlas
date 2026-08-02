@@ -1100,37 +1100,63 @@ export const routeDetails: Record<string, RouteDetailFields> = {
       },
     ],
   },
-  'xinan-chuanxi-slow': {
+  'compose-chuanxi-chengdu-leshan-jiuzhai': {
     introduction:
-      '川西极美但海拔高：成都平原先适应，新都桥浅停观景，稻城/亚丁更高——基础病或高反应整段跳过或只到新都桥。强调可缩短、可删除；绝不特种兵环线。不适立即下撤成都再飞北京。',
+      '川西浅廊是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 短线「成都·平原适应锚」（约2–3天）→ ② 短线「乐山峨眉·大佛与金顶浅尝」（约3–5天）→ ③ 成都电梯酒店缓冲过夜（glue）→ ④ 短线「九寨沟·栈道慢线」（约4–6天，黄龙可删）。\n\n熊猫、大佛、金顶、九寨观光车等细节只在各短线维护。本卡只管衔接、回撤与高反诚实：九寨约2000–3000m须心肺评估；绝不强制四姑娘山/新都桥/稻城亚丁。不适下撤成都飞京。对照月预算约两万。',
     seasonGuide:
-      '主推夏末至秋（风景窗）。冬春路况与高寒更苛刻，不作为首次川西尝试。任何季节高反优先于打卡。',
+      '主推秋（彩林与平原舒爽）；春夏亦可，暑热早出。冬九寨常封路/缩线，以官网为准，不适合首次高原尝试。任何季节高反优先于打卡。',
     notices: [
-      '高反风险：新都桥约3300米，稻城更高；不适随时下撤。',
-      '有心脑血管等基础病，出行前问医生；可整段改成都平原线。',
-      '交通：飞成都适应后再西行；结束下撤成都飞北京。',
-      '亚丁优先观光车远观，不安排长徒步。',
-      '票务道路以甘孜州/景区当日公告为准。',
+      '约2–3周：嵌入成都适应 + 乐山峨眉 + 九寨短线；成都只缓冲回撤，不复述景点长文。',
+      '可只订其中一条短线；九寨/金顶/黄龙默认可删。',
+      '绝不硬塞四姑娘山、新都桥、稻城亚丁进本组合。',
+      '九寨须血氧自测；持续头痛呕吐立即下撤成都。',
+      '结束后经成都飞回北京休整。',
     ],
     gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
-        caption: '川西 · 新都桥稻城慎行 · 封面景色',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+        caption: '平原锚 · 成都（见短线 leg-chengdu-adapt）',
       },
       {
-        url: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-        caption: '成都（适应与回撤基地）',
-        stopId: 'chengdu-adapt',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Leshan_Giant_Buddha%2C_20161102.jpg/1280px-Leshan_Giant_Buddha%2C_20161102.jpg',
+        caption: '中段 · 乐山峨眉（见短线 xinan-sichuan-leshan-emei）',
       },
       {
-        url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-        caption: '新都桥（观景浅停）',
-        stopId: 'xinduqiao',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+        caption: '成都缓冲过夜（glue）',
+        stopId: 'chengdu-corridor-buffer',
       },
       {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-        caption: '稻城 / 亚丁（高可选·可整段跳过）',
-        stopId: 'daocheng-optional',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/1280px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
+        caption: '末段 · 九寨（见短线 xinan-sichuan-jiuzhaigou）',
+      },
+    ],
+  },
+  'leg-chengdu-adapt': {
+    introduction:
+      '成都平原独立短线：飞抵后电梯酒店连住约两到三天，人民公园喝茶、熟悉药店与地铁；大熊猫基地观光车可选。作回撤锚与华西下撤点。可单订，也可作为川西浅廊第一段后南行乐山或北飞九寨。\n\n更长两到三周慢住请订「成都·平原慢住两周」，本卡不垫空转日程。',
+    seasonGuide:
+      '春秋最舒服。夏湿热午休强制；冬湿冷备薄外套。',
+    notices: [
+      '约2–3天短线；不替代成都慢住两周卡。',
+      '近华西/省医院选酒店。',
+      '可接川西浅廊（乐山→成都缓冲→九寨）。',
+      '火锅改清汤豆花；少麻辣油烟。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+        caption: '成都 · 平原适应锚 · 封面',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Shops_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05305.jpg/1280px-Shops_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05305.jpg',
+        caption: '成都市区（适应与回撤）',
+        stopId: 'chengdu-adapt-base',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+        caption: '大熊猫基地（可选）',
+        stopId: 'chengdu-panda-optional',
       },
     ],
   },

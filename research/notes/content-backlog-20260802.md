@@ -18,15 +18,16 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Open — product / composition IA
 
-- [x] **长线 = 多条短线** — pilots: `leg-kuqa-canyon` + `leg-dunhuang-mogao` / `leg-zhangye-danxia`（全国其余 long 走廊待拆）
-- [x] **长线选项仍保留** — pilots: `compose-nanjiang-kuqa-kashi`、`compose-hexi-dunhuang-zhangye` = ordered legIds + glue；不复述景点正文
+- [x] **长线 = 多条短线** — pilots: `leg-kuqa-canyon` + `leg-dunhuang-mogao` / `leg-zhangye-danxia` + `leg-chengdu-adapt`（全国其余 long 走廊待拆）
+- [x] **长线选项仍保留** — pilots: `compose-nanjiang-kuqa-kashi`、`compose-hexi-dunhuang-zhangye`、`compose-chuanxi-chengdu-leshan-jiuzhai` = ordered legIds + glue；不复述景点正文
 - [x] **长居以地点为中心** — `base-kashi` + `nearbyLegs` → kashi leg / kuqa leg / nanjiang compose；门槛审计见上
 - [x] **Pilot schema** — `compositionKind?: leg | compose | base` + `legIds` / `glue` / `nearbyLegs`；filter labels 短线/长线（长居仍用 theme）
 - [x] **南疆 pilot migration** — `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi`；`xibei-xinjiang-south` → `compose-nanjiang-kuqa-kashi`
-- [ ] **Explore compose / base UX** — timeline of embedded legs； compositionKind chips（短线/长线/长居）；详情「周边短线」已接 `nearbyLegs`
+- [x] **Explore compose / base UX** — timeline + sticky「组合」+ sky chrome（河西/南疆 verify PASS）；短线/长线 chips 已有；长居仍靠 theme；base 详情 polish 可选
 - [x] **Second corridor sketch** — 河西优先 / 川西备选；见 IA note
 - [x] **Second corridor pilot** — 河西：`leg-dunhuang-mogao` + `leg-zhangye-danxia` + `compose-hexi-dunhuang-zhangye`（嘉峪关 glue）；`xibei-dunhuang-zhangye` 已退役
-- [ ] **National long→compose migration** — after second pilot（下一：川西 B 或其余 long）
+- [x] **川西 B corridor** — `leg-chengdu-adapt` + reuse `xinan-sichuan-leshan-emei` / `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役极端 `xinan-chuanxi-slow`（不强制四姑娘/新都桥/稻城）
+- [ ] **National long→compose migration** — remaining long corridors after 南疆/河西/川西 pilots
 - [x] **Rethink weak longstay** — `longstay-yangshuo` / `longstay-zhenyuan` **降级**为名景短腿（theme 离 long-stay；枢纽桂林/贵阳）
 - [ ] **Optional hub bases** — 桂林 / 贵阳作新 `base`/`longstay`（三甲 hubs）尚未立项；现仅下撤枢纽叙事
 
@@ -45,12 +46,13 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **`base-kashi`** — nearbyLegs = `xibei-xinjiang-kashi`, `leg-kuqa-canyon`, `compose-nanjiang-kuqa-kashi`
 - [x] **南疆 compose pilot** — `leg-kuqa-canyon` + `compose-nanjiang-kuqa-kashi`（legIds→库车/喀什；阿克苏 glue）；schema `compositionKind`/`legIds`/`glue`
 - [x] **河西 compose pilot** — `leg-dunhuang-mogao` + `leg-zhangye-danxia` + `compose-hexi-dunhuang-zhangye`（嘉峪关 glue）；退役 `xibei-dunhuang-zhangye`
+- [x] **川西 compose pilot** — `leg-chengdu-adapt` + `xinan-sichuan-leshan-emei` + `xinan-sichuan-jiuzhaigou` + `compose-chuanxi-chengdu-leshan-jiuzhai`（成都 glue）；退役 `xinan-chuanxi-slow`
 - [x] **弱长居降级** — yangshuo / zhenyuan 离 long-stay 芯片；名景短腿 + 桂林/贵阳枢纽叙事
 - [x] Mid NCF deepen: **黄山** / **张家界** / **桂林阳朔**
 - [x] Wave 2 prior: frontier six + prefecture-f + famous THIN slice
 - [x] PG dining batch for many hubs (leftovers remain)
 - [x] **喀什 densify (leg shape)** — `xibei-xinjiang-kashi` → ~4–6天
-- [x] Composition IA note written；河西 A shipped；川西 B 仍 sketch；national split **not** started
+- [x] Composition IA note written；南疆/河西/川西 pilots shipped；national split **not** started
 
 ## Notes
 
@@ -61,8 +63,8 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Suggested next session order
 
-1. Explore compose UX chips / timeline polish（compositionKind 短线/长线/长居）
+1. National long→compose 下一批（其余 long 走廊）
 2. Optional：桂林/贵阳是否立项为新 `base`/`longstay`（三甲 hubs；现仅下撤枢纽叙事）
-3. 川西 B sketch → migrate（高反 glue；默认可删亚丁）或 national long→compose 下一批
+3. Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
 4. Duration-honesty pass on other padded longs
 5. Image 404 audit + famous THIN + leftover PG dining

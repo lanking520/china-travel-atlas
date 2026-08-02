@@ -1,6 +1,6 @@
 import type { Route } from '../types';
 
-/** 西南深挖：版纳避寒 / 滇西腾冲 / 川西慢走（非新疆） */
+/** 西南深挖：版纳避寒 / 滇西腾冲 / 川西 compose pilot（非新疆） */
 export const patchRoutes: Route[] = [
   // ── 西南 · 西双版纳冬避寒（县域深挖 enrich 2026-08-02）────────
   {
@@ -239,91 +239,135 @@ export const patchRoutes: Route[] = [
     ],
   },
 
-  // ── 西南 · 川西慢走（高反可跳过）────────────────────────────
+  // ── 西南 · 川西 compose pilot（平原锚 + 乐山峨眉 + 九寨；不强制四姑娘/新都桥/稻城）──
   {
-    id: 'xinan-chuanxi-slow',
-    title: '川西 · 新都桥稻城慎行',
+    id: 'leg-chengdu-adapt',
+    title: '成都 · 平原适应锚',
     region: 'xinan',
-    seasons: ['autumn', 'summer'],
-    tripType: 'long',
+    seasons: ['spring', 'autumn', 'summer'],
+    tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
-    daysLabel: '约10天–2周（不适随时缩短）',
+    daysLabel: '约2–3天',
     transport:
-      '北京飞成都适应2–3日，再飞康定/稻城亚丁或包车西行；单日车程严控，高反应立即下撤成都后飞回北京',
-    budgetLabel: '对照月预算约2万（含机票、包车与氧气）；高原不适者当季改成都平原线',
+      '北京飞成都双流/天府；市区地铁+打车。可单订平原适应，也可作川西组合第一段后南行乐山或北飞九寨。',
+    budgetLabel: '本趟约1500–3500元（机票浮动大；含熊猫可选）',
     coverImage:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
     summary:
-      '川西风光极美但海拔高：成都平原先适应，新都桥约3300米浅停，稻城/亚丁更高——心脑血管等基础病应整段跳过或只到新都桥观景。强调可跳过、可缩短；绝不连赶特种兵环线。结束后下撤成都再飞北京。',
-    whyFast:
-      '亚丁核心区可只坐观光车远观半日；身体不适整段删除，改回成都喝茶休整。',
+      '独立短线：成都平原先适应、近华西电梯酒店连住；人民公园喝茶、熊猫基地观光车可选。作回撤锚与医疗下撤点。可单订，也可接川西组合。',
+    whyFast: '都江堰/宽窄可删；只留静养+药店熟悉也成立。更长慢住见「成都·平原慢住两周」。',
     researchKeywords: [
-      '川西 新都桥 高反 老人',
-      '稻城亚丁 观光车 攻略',
-      '川西 自驾 可跳过 路线',
+      '成都 适应 父母',
+      '成都 熊猫基地 观光车',
+      '成都 华西 旅行',
     ],
     sources: [
       {
-        title: 'Wikivoyage：康定',
-        url: 'https://zh.wikivoyage.org/wiki/%E5%BA%B7%E5%AE%9A',
-        kind: 'other',
-        note: '进出川西门户与海拔提示，已改写',
-      },
-      {
-        title: 'Wikivoyage：稻城',
-        url: 'https://zh.wikivoyage.org/wiki/%E7%A8%BB%E5%9F%8E',
-        kind: 'other',
-        note: '亚丁海拔与季节窗口参考',
-      },
-      {
-        title: '甘孜州文旅相关公告（以当地为准）',
-        url: 'https://www.gzz.gov.cn/',
+        title: '成都大熊猫繁育研究基地（官方）',
+        url: 'https://www.panda.org.cn/',
         kind: 'official',
-        note: '景区开放、天气与道路以官方当日为准',
+        note: '入园与观光车以官网为准',
+      },
+      {
+        title: 'Wikivoyage：成都',
+        url: 'https://zh.wikivoyage.org/wiki/%E6%88%90%E9%83%BD',
+        kind: 'other',
+        note: '市区概览，已改写',
       },
     ],
     stops: [
       {
-        id: 'chengdu-adapt',
-        name: '成都（适应与回撤基地）',
-        days: 3,
-        pace: 'slow',
-        lat: 30.572,
-        lng: 104.066,
-        summary:
-          '飞抵后平原休整、备药与氧气咨询；川西任何不适立刻下撤回此，再飞北京。',
-        tips:
-          '有高血压、冠心病、慢阻肺等，出行前务必问医生；不适勿硬上。近三甲医院选酒店。川西段可整段取消，改成都慢住。',
-        image:
-          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-      },
-      {
-        id: 'xinduqiao',
-        name: '新都桥（观景浅停）',
+        id: 'chengdu-adapt-base',
+        name: '成都市区（适应与回撤）',
         days: 2,
         pace: 'slow',
-        lat: 30.04,
-        lng: 101.55,
+        lat: 30.659,
+        lng: 104.065,
         summary:
-          '约3300米摄影点，包车观景台多停少走；头痛胸闷立即下撤，勿过夜硬撑。',
+          '一环内电梯酒店；人民公园盖碗茶、熟悉药店与地铁。任何高原不适下撤回此。',
         tips:
-          '单日车程拆开，勿夜赶山路。紫外线强、昼夜温差大。只适合适应良好者；否则跳过直返成都。',
+          '近华西/省医院更安心。宽窄/锦里浅逛即可。火锅改清汤豆花。更长慢住另订成都两周卡。',
         image:
-          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Shops_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05305.jpg/1280px-Shops_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05305.jpg',
       },
       {
-        id: 'daocheng-optional',
-        name: '稻城 / 亚丁（高可选·可整段跳过）',
-        days: 3,
+        id: 'chengdu-panda-optional',
+        name: '大熊猫基地（可选）',
+        days: 0.5,
         pace: 'fast',
-        lat: 29.037,
-        lng: 100.298,
-        summary:
-          '稻城县城约3700米，亚丁更高。优先观光车远观；体力或高反不允许则整段删除。',
-        tips:
-          '门票预约以官方为准；核心区少步行。绝不安排长徒步或冲顶。出现高反症状立即下撤成都，勿在景区硬扛。本站默认「可跳过」。',
+        lat: 30.734,
+        lng: 104.144,
+        summary: '早场观光车看别墅与幼年区；不必刷全园。',
+        tips: '疲劳可整段删，只留市区静养。',
         image:
-          'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+      },
+    ],
+  },
+
+  {
+    id: 'compose-chuanxi-chengdu-leshan-jiuzhai',
+    title: '川西 · 成都乐山九寨浅廊',
+    region: 'xinan',
+    seasons: ['autumn', 'spring', 'summer'],
+    tripType: 'long',
+    compositionKind: 'compose',
+    themes: ['corridor'],
+    fromHome: false,
+    daysLabel: '约2–3周（不适随时缩短）',
+    // 长线=短线串：正文在 leg；成都回撤过夜仅 glue。不强制四姑娘/新都桥/稻城。
+    legIds: [
+      'leg-chengdu-adapt',
+      'xinan-sichuan-leshan-emei',
+      'xinan-sichuan-jiuzhaigou',
+    ],
+    glue: [
+      '成都→乐山高铁/包车约2–2.5小时；平原段无高反。可留空白日再南行。',
+      '乐山→回成都电梯酒店缓冲过夜（1–2晚，不加点），再飞九寨黄龙机场（JZH）。九寨海拔约2000–3000m须心肺评估；黄龙默认可删。不适立即下撤成都飞京。绝不硬塞四姑娘山/新都桥/稻城亚丁。',
+    ],
+    transport:
+      '飞成都进。顺序：平原适应短线 → 乐山峨眉短线 → 成都缓冲过夜 → 九寨沟短线；结束经成都飞京。单日车程/航班衔接留余量；高原段备血氧仪。',
+    budgetLabel: '对照月预算约2万（含机票、索道与九寨门票观光车）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/1280px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
+    summary:
+      '长线组合卡：嵌入成都平原适应、乐山峨眉、九寨沟三条短线；中间成都只作回撤过夜衔接。景点正文见各短线。不强制四姑娘/新都桥/稻城；九寨心肺不适整段可删。',
+    whyFast:
+      '可只订其中一条短线；走廊可删金顶、黄龙与九寨整段，改回成都慢住。',
+    researchKeywords: [
+      '川西 父母 路线',
+      '成都 乐山 九寨',
+      '九寨沟 观光车 高反',
+    ],
+    sources: [
+      {
+        title: '九寨沟风景名胜区（公开信息）',
+        url: 'https://www.jiuzhai.com/',
+        kind: 'official',
+        note: '开放与票务以官网为准；细节见九寨短线',
+      },
+      {
+        title: 'Wikivoyage：乐山',
+        url: 'https://zh.wikivoyage.org/wiki/%E4%B9%90%E5%B1%B1',
+        kind: 'other',
+        note: 'CC 署名，已改写',
+      },
+    ],
+    stops: [
+      {
+        id: 'chengdu-corridor-buffer',
+        name: '成都（走廊缓冲与回撤）',
+        days: 1.5,
+        pace: 'slow',
+        lat: 30.659,
+        lng: 104.066,
+        summary:
+          '乐山与九寨之间的电梯酒店缓冲；近华西，休息补水，不硬加景点。',
+        tips:
+          '高原不适立即停在此飞京。勿与四姑娘/新都桥/稻城同周连轴。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
       },
     ],
   },

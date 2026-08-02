@@ -214,11 +214,12 @@ export const patchRoutes: Route[] = [
     region: 'xinan',
     seasons: ['spring', 'autumn', 'summer'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     themes: ['famous-scenic'],
     daysLabel: '约3–5天',
     transport:
-      '北京飞成都→高铁/车至乐山；峨眉山多用观光车与索道，不硬爬。结束后回成都飞北京',
+      '北京飞成都→高铁/车至乐山；峨眉山多用观光车与索道，不硬爬。结束后回成都飞北京。可单订，也可作川西组合中段。',
     budgetLabel: '本趟约2200–4200元（含索道；双人）',
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Leshan_Giant_Buddha%2C_20161102.jpg/1280px-Leshan_Giant_Buddha%2C_20161102.jpg',
@@ -304,18 +305,19 @@ export const patchRoutes: Route[] = [
     region: 'xinan',
     seasons: ['spring', 'autumn', 'summer'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     themes: ['famous-scenic'],
     daysLabel: '约4–6天（含进出）',
     transport:
-      '北京经成都飞九寨黄龙机场（JZH），机场大巴/包车至沟口约1.5–2小时；景区内强制观光车+栈道。黄龙另日索道量力。结束原路经成都飞京。勿与成都熊猫周同周特种兵塞满',
+      '北京经成都飞九寨黄龙机场（JZH），机场大巴/包车至沟口约1.5–2小时；景区内强制观光车+栈道。黄龙另日索道量力。结束原路经成都飞京。可单订，也可作川西组合末段。勿与四姑娘/稻城同周连轴',
     budgetLabel: '本趟约4500–8000元（高原机票+门票观光车+电梯酒店；双人）',
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/1280px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
     summary:
       '九寨名景适老版：飞入沟口电梯酒店，景区内观光车串谷、栈道短段慢走；每天一条沟支线。黄龙钙华池索道可选可删。海拔约2000–3000m，须诚实评估心肺。',
     introduction:
-      '九寨沟不是成都郊游——进出靠航线与盘山接驳，旺季与冬季封沟政策须行前自查官方公告。爸妈以「坐车看海子 + 平缓栈道」为主，不徒步原始森林远端；沟口电梯酒店连住，早进早出。\n\n藏羌走廊的水色名景：日则沟五花海、树正沟串湖分两日，诺日朗换乘中心歇脚吃饭。沟内藏寨风貌与转经文化可外观浅尝，勿打扰宗教场所与村民生活。海拔约2000–3000m，须诚实评估心肺——血氧自测，持续头痛呕吐立即下撤成都。\n\n黄龙钙华池另票另日，索道减步仍有台阶与高反叠加，膝盖/血压不稳默认删除。勿与稻城亚丁、川西长线同周连轴。',
+      '九寨沟不是成都郊游——进出靠航线与盘山接驳，旺季与冬季封沟政策须行前自查官方公告。爸妈以「坐车看海子 + 平缓栈道」为主，不徒步原始森林远端；沟口电梯酒店连住，早进早出。\n\n藏羌走廊的水色名景：日则沟五花海、树正沟串湖分两日，诺日朗换乘中心歇脚吃饭。沟内藏寨风貌与转经文化可外观浅尝，勿打扰宗教场所与村民生活。海拔约2000–3000m，须诚实评估心肺——血氧自测，持续头痛呕吐立即下撤成都。\n\n黄龙钙华池另票另日，索道减步仍有台阶与高反叠加，膝盖/血压不稳默认删除。勿与四姑娘、新都桥、稻城同周连轴；可挂川西浅廊但段间回成都缓冲。',
     seasonGuide:
       '秋彩林最美也最挤；春夏青绿可走。冬雪封路/缩线常见，以景区公告为准；雨雪防滑。',
     whyFast: '黄龙整段可删；只日则+树正精华栈道也成立。',
@@ -325,7 +327,7 @@ export const patchRoutes: Route[] = [
       '景区内只乘观光车，私家车禁入。',
       '栈道湿滑慢走；勿抄近路下湖岸。',
       '冬季/灾后开放状态以九寨沟景区官方为准，可能整沟关闭。',
-      '勿与稻城亚丁、川西长线同周连轴。',
+      '勿与四姑娘山、新都桥、稻城亚丁同周连轴；可与川西浅廊组合但段间须回成都缓冲。',
       '尊重藏寨习俗；少饮酒，高原忌暴饮暴食。',
     ],
     researchKeywords: [

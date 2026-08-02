@@ -42,7 +42,7 @@ Do **not** duplicate stop text inside every compose.
 ## Migration order
 
 1. **Pilot corridor: 南疆 / 喀什周边** (sketch below) — split `xibei-xinjiang-south` + densify `xibei-xinjiang-kashi` as legs; compose = ordered legs.
-2. Second pilot: **河西敦煌–张掖** (shipped) → next **川西** sketch.
+2. Second pilot: **河西敦煌–张掖** (shipped) → **川西浅廊** (shipped, age-friendlier legs).
 3. Only then national rewrite of remaining `long` stubs.
 4. Wire `compositionKind` + Explore filters after one pilot ships in data (UI can lag one session).
 
@@ -74,12 +74,12 @@ Do **not** duplicate stop text inside every compose.
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
 - Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: national long→compose migration; 川西 B corridor; optional 桂林/贵阳 `base`.
+- Still open: national long→compose migration; optional 桂林/贵阳 `base`；Explore 长居 chip polish.
 - Shipped UX: Explore 短线/长线 chips + compose detail **组合时间线** (legs + glue).
 
 ## Second corridor — 河西（shipped 20260802）
 
-**Decision lean**：河西 A 优先于川西 B（海拔友好、适老摩擦更低）。川西 B 仅 sketch，待河西 compose 形态稳定后再做；高反政策必须写进 glue，默认可删亚丁。
+**Decision lean**：河西 A 优先于川西 B（海拔友好、适老摩擦更低）。川西后改用平原/乐山/九寨适老浅段，不强制新都桥/稻城。
 
 ### Option A — 河西（migrated）
 
@@ -94,18 +94,19 @@ Do **not** duplicate stop text inside every compose.
 
 可选 base（未立项）：兰州或张掖城住仅当日归辐射——须先过三甲/物资门槛再开 `base-*`。
 
-### Option B — 川西（备选，高反诚实）
+### Option B — 川西浅廊（shipped 20260802）
 
-现卡：`xinan-chuanxi-slow`。平原回撤锚 = 成都（医疗 PASS）；高原段不是长居。
+退役极端卡：`xinan-chuanxi-slow`（新都桥/稻城）。平原回撤锚 = 成都（医疗 PASS）。**不强制**四姑娘/新都桥/稻城；G318 东段等短线仍可独立存在。
 
-| Proposed leg | Role | Days | Notes |
+| Leg / compose | Role | Days | Notes |
 | --- | --- | --- | --- |
-| `leg-chengdu-adapt` | 平原适应/回撤锚 | 2–3 | 华西下撤叙事 |
-| `leg-xinduqiao-view` | 新都桥观景浅停（约3300m） | ~2 | 头两日放慢 |
-| `leg-daocheng-optional` | 稻城/亚丁 | ~3 | **默认可删**；不适即下撤 |
-| Compose | 成都→新都桥→（可选亚丁）→成都 | 约10天–2周 | glue=车程+高反+氧气/医院预案 |
+| `leg-chengdu-adapt` | 平原适应/回撤锚 | 2–3 | 华西下撤；更长慢住仍用 `xinan-chengdu-slow` |
+| `xinan-sichuan-leshan-emei` *(reuse)* | 大佛 + 金顶可选 | ~3–5 | 金顶可删 |
+| *(glue)* 成都 | 缓冲过夜 + 回撤 | 1–2 | glue-only；不加点 |
+| `xinan-sichuan-jiuzhaigou` *(reuse)* | 九寨栈道慢线（黄龙可删） | ~4–6 | ~2000–3000m 诚实评估；比若尔盖/四姑娘更适老 |
+| `compose-chuanxi-chengdu-leshan-jiuzhai` | 成都 → 乐山 → 成都 → 九寨 | ~2–3周 | glue=车程/航班 + 高反回撤 |
 
-Do **not** national-migrate until **川西 B** (or next long corridor) ships like 南疆/河西.
+Do **not** national-migrate remaining longs until ready; three corridor pilots (南疆/河西/川西) are the pattern.
 
 ## What NOT to do
 

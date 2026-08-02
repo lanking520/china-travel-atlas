@@ -117,6 +117,11 @@ export default function OverviewPage() {
               <p className="mt-2 text-emerald-800">
                 可选：
                 <RouteLink id="xinan-chengdu-slow">成都慢住</RouteLink>、
+                <RouteLink id="compose-chuanxi-chengdu-leshan-jiuzhai">
+                  川西浅廊
+                </RouteLink>
+                、
+                <RouteLink id="leg-chengdu-adapt">成都适应短线</RouteLink>、
                 <RouteLink id="yunnan-dali-lijiang">大理慢住丽江快览</RouteLink>。
               </p>
             </li>

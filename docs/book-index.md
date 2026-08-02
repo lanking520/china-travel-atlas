@@ -1,6 +1,6 @@
 # 成书路线索引
 
-> 由 `npm run export:book-index` 生成，勿手改。共 168 条。
+> 由 `npm run export:book-index` 生成，勿手改。共 169 条。
 
 ## 按地区
 
@@ -143,7 +143,8 @@
 - **镇远 · 舞阳河古城** (`xinan-guizhou-zhenyuan`) · 短途 · 春/秋
 - **西双版纳 · 冬避寒慢住** (`yunnan-xishuangbanna-winter`) · 长旅行 · 冬/春
 - **滇西 · 腾冲慢住** (`yunnan-dianxi-tengchong`) · 长旅行 · 春/秋
-- **川西 · 新都桥稻城慎行** (`xinan-chuanxi-slow`) · 长旅行 · 秋/夏
+- **成都 · 平原适应锚** (`leg-chengdu-adapt`) · 短途 · 春/秋/夏
+- **川西 · 成都乐山九寨浅廊** (`compose-chuanxi-chengdu-leshan-jiuzhai`) · 长旅行 · 秋/春/夏
 - **武隆天生三桥 · 喀斯特名景** (`xinan-chongqing-wulong`) · 短途 · 春/秋/夏
 - **黄果树大瀑布 · 扶梯浅览** (`xinan-guizhou-huangguoshu`) · 短途 · 春/秋/夏
 - **梵净山 · 缆车浅览** (`xinan-guizhou-fanjing`) · 短途 · 春/秋/夏
@@ -230,6 +231,8 @@
 - 海南西线 · 儋州慢住 (`huanan-hainan-slow-west`) · 华南岭南
 - 西双版纳 · 冬避寒慢住 (`yunnan-xishuangbanna-winter`) · 西南秘境
 - 滇西 · 腾冲慢住 (`yunnan-dianxi-tengchong`) · 西南秘境
+- 成都 · 平原适应锚 (`leg-chengdu-adapt`) · 西南秘境
+- 川西 · 成都乐山九寨浅廊 (`compose-chuanxi-chengdu-leshan-jiuzhai`) · 西南秘境
 - 上海 · 外滩与博物馆慢走 (`huadong-shanghai-short`) · 华东水乡
 - 黄山 · 索道上山与徽州慢走 (`huadong-huangshan-hui`) · 华东水乡
 - 婺源景德镇 · 春花与瓷都廊 (`huadong-wuyuan-spring`) · 华东水乡
@@ -332,7 +335,8 @@
 - 秦皇岛 · 北戴河山海关昌黎慢线 (`huabei-hebei-beidaihe`) · 京畿华北
 - 日喀则 · 浅尝短住 (`qingzang-shigatse-taste`) · 青藏高地
 - 祁连 · 门源夏花浅游 (`qingzang-qilian-optional`) · 青藏高地
-- 川西 · 新都桥稻城慎行 (`xinan-chuanxi-slow`) · 西南秘境
+- 成都 · 平原适应锚 (`leg-chengdu-adapt`) · 西南秘境
+- 川西 · 成都乐山九寨浅廊 (`compose-chuanxi-chengdu-leshan-jiuzhai`) · 西南秘境
 - 婺源景德镇 · 春花与瓷都廊 (`huadong-wuyuan-spring`) · 华东水乡
 - 武夷山 · 九曲竹筏浅尝 (`huanan-fujian-wuyi`) · 华南岭南
 - 北海银滩 · 涠洲可选 (`huanan-guangxi-beihai`) · 华南岭南
@@ -444,7 +448,8 @@
 - 宜昌 · 三峡观光短住 (`huazhong-yichang-three-gorges`) · 中原华中
 - 广西 · 德天瀑布浅游 (`huanan-guangxi-detian`) · 华南岭南
 - 滇西 · 腾冲慢住 (`yunnan-dianxi-tengchong`) · 西南秘境
-- 川西 · 新都桥稻城慎行 (`xinan-chuanxi-slow`) · 西南秘境
+- 成都 · 平原适应锚 (`leg-chengdu-adapt`) · 西南秘境
+- 川西 · 成都乐山九寨浅廊 (`compose-chuanxi-chengdu-leshan-jiuzhai`) · 西南秘境
 - 上海 · 外滩与博物馆慢走 (`huadong-shanghai-short`) · 华东水乡
 - 黄山 · 索道上山与徽州慢走 (`huadong-huangshan-hui`) · 华东水乡
 - 婺源景德镇 · 春花与瓷都廊 (`huadong-wuyuan-spring`) · 华东水乡

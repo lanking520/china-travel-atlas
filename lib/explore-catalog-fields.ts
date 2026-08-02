@@ -268,6 +268,19 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
     transport: '飞张掖或兰州转；包车往返丹霞。河西租车可在此还车后飞返。',
   },
 
+  'compose-chuanxi-chengdu-leshan-jiuzhai': {
+    summary:
+      '川西浅廊组合：嵌入成都平原适应、乐山峨眉、九寨沟三条短线；成都只缓冲回撤。不强制四姑娘/新都桥/稻城；九寨心肺不适可删。',
+    transport:
+      '飞成都进；成都适应 → 乐山峨眉 → 成都缓冲 → 九寨短线；结束经成都飞京。绝不硬塞四姑娘/稻城',
+  },
+
+  'leg-chengdu-adapt': {
+    summary:
+      '成都平原适应短线约2–3天：电梯酒店、公园喝茶、熊猫可选；作回撤锚。可单订或接川西浅廊。',
+    transport: '飞成都双流/天府；市区地铁+打车。可接乐山或九寨组合。',
+  },
+
   'xibei-xinjiang-north': {
     summary:
       '北疆经典：赛里木环湖 + 喀纳斯森林。与伊犁专线拆开，北线缓冲奎屯/克拉玛依，避免一条线塞满南北口。干燥多补水，结束后飞回北京。',

@@ -43,22 +43,38 @@ export function buildSeasonGuide(route: Route): string {
 }
 
 export function buildIntroduction(route: Route): string {
-  if (route.introduction?.trim()) return route.introduction;
-  const stopBits = route.stops
-    .map((s) => `${s.name}（${s.pace === "slow" ? "慢游" : "快览"}，约${s.days}天）：${s.summary}`)
-    .join("\n");
-  const home = route.fromHome
-    ? "这条线从北京家门口出发，适合周末或节假日练手。"
-    : "这条线通常从北京飞/坐高铁抵达后当地活动，结束后建议回京休整。";
-  return [
-    route.summary,
-    home,
-    `行程大约 ${route.daysLabel}，交通：${route.transport}。预算参考：${route.budgetLabel}。`,
-    stopBits ? `主要停留：\n${stopBits}` : "",
-    route.whyFast ? `快览提示：${route.whyFast}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n\n");
+  const base = route.introduction?.trim()
+    ? route.introduction.trim()
+    : (() => {
+        const stopBits = route.stops
+          .map(
+            (s) =>
+              `${s.name}（${s.pace === "slow" ? "慢游" : "快览"}，约${s.days}天）：${s.summary}`,
+          )
+          .join("\n");
+        const home = route.fromHome
+          ? "这条线从北京家门口出发，适合周末或节假日练手。"
+          : "这条线通常从北京飞/坐高铁抵达后当地活动，结束后建议回京休整。";
+        return [
+          route.summary,
+          home,
+          `行程大约 ${route.daysLabel}，交通：${route.transport}。预算参考：${route.budgetLabel}。`,
+          stopBits ? `主要停留：\n${stopBits}` : "",
+          route.whyFast ? `快览提示：${route.whyFast}` : "",
+        ]
+          .filter(Boolean)
+          .join("\n\n");
+      })();
+
+  if (
+    route.compositionKind === "compose" &&
+    route.legIds &&
+    route.legIds.length > 0 &&
+    !/下方「嵌入短线」|点进下方短线/.test(base)
+  ) {
+    return `${base}\n\n下方「嵌入短线」可点进各段详情；本长线只写顺序与衔接。`;
+  }
+  return base;
 }
 
 export function buildNotices(route: Route): string[] {

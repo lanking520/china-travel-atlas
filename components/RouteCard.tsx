@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Route } from "@/content/types";
 import { SafeImage } from "@/components/SafeImage";
-import { THEME_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
+import {
+  COMPOSITION_LABELS,
+  THEME_LABELS,
+  TRIP_TYPE_LABELS,
+} from "@/lib/labels";
 import { cardImageForRoute } from "@/lib/place-images";
 
 /** Tiny sky gradient — blur-up stand-in while place photos load. */
@@ -37,9 +41,16 @@ export function RouteCard({
   priority = false,
 }: RouteCardProps) {
   const src = cardImageForRoute(route);
-  const themeHint = route.themes?.[0]
-    ? THEME_LABELS[route.themes[0]]
-    : undefined;
+  const themeHint = route.themes?.includes("long-stay")
+    ? THEME_LABELS["long-stay"]
+    : route.themes?.[0]
+      ? THEME_LABELS[route.themes[0]]
+      : undefined;
+  const kindLabel = route.compositionKind
+    ? COMPOSITION_LABELS[route.compositionKind]
+    : TRIP_TYPE_LABELS[route.tripType] === "长旅行"
+      ? "长线"
+      : TRIP_TYPE_LABELS[route.tripType];
   const prefetchRef = useRef(false);
 
   const prefetchCover = () => {
@@ -93,9 +104,7 @@ export function RouteCard({
           <span className="mx-1 text-sky-300/70" aria-hidden>
             ·
           </span>
-          {TRIP_TYPE_LABELS[route.tripType] === "长旅行"
-            ? "长线"
-            : TRIP_TYPE_LABELS[route.tripType]}
+          {kindLabel}
         </p>
         <p className="text-[0.8rem] font-semibold leading-snug text-amber-200/95 sm:text-sm">
           {route.budgetLabel}

@@ -531,7 +531,7 @@ export function ChinaMapExplorer() {
                   ? "边陲城市短住：看口岸与边境风光，不涉越境。"
                   : theme === "corridor"
                     ? "经典走廊浅段：只走可控段；高原走廊写清海拔与可跳过。"
-                    : "长居慢住：约三四周节奏，不是赶景点清单。"}
+                    : "长居慢住：约三四周节奏。枢纽卡写清三门槛（进出交通·物资·本地三甲）；景点正文在周边短线，不是赶清单。"}
           </p>
           <RouteCardGrid
             routes={themedRoutes}

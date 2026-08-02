@@ -6,7 +6,7 @@ import { RouteMapWithExpand } from "@/components/RouteMapWithExpand";
 import { SafeImage } from "@/components/SafeImage";
 import { SoftDetails } from "@/components/SoftDetails";
 import { StopTimeline } from "@/components/StopTimeline";
-import { REGION_SHORT, SEASON_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
+import { REGION_SHORT, SEASON_LABELS, COMPOSITION_LABELS, TRIP_TYPE_LABELS } from "@/lib/labels";
 import {
   HOSPITAL_DISCLAIMER,
   amapUrlForRoute,
@@ -49,6 +49,15 @@ export default async function RouteDetailPage({
     ? "近程可北京私家车自驾；远途建议飞机/高铁抵达后当地租车。"
     : "建议飞机或高铁抵达目的地后当地租车或包车，减少换乘折腾。";
 
+  const isBase = route.compositionKind === "base";
+  const showLongStayGates =
+    isBase || Boolean(route.themes?.includes("long-stay"));
+  const compositionLabel = route.compositionKind
+    ? route.compositionKind === "compose"
+      ? "长线组合"
+      : COMPOSITION_LABELS[route.compositionKind]
+    : TRIP_TYPE_LABELS[route.tripType];
+
   return (
     <>
       <Header />
@@ -79,14 +88,13 @@ export default async function RouteDetailPage({
             {route.daysLabel}
           </span>
           <span className="rounded-lg bg-amber-100 px-2.5 py-1 text-sm font-medium text-amber-900 sm:px-3 sm:py-1.5 sm:text-lg">
-            {route.compositionKind === "leg"
-              ? "短线"
-              : route.compositionKind === "compose"
-                ? "长线组合"
-                : route.compositionKind === "base"
-                  ? "长居枢纽"
-                  : TRIP_TYPE_LABELS[route.tripType]}
+            {compositionLabel}
           </span>
+          {showLongStayGates ? (
+            <span className="rounded-lg bg-teal-100 px-2.5 py-1 text-sm font-medium text-teal-950 sm:px-3 sm:py-1.5 sm:text-lg">
+              三门槛：进出·物资·三甲
+            </span>
+          ) : null}
           {route.seasons.map((season) => (
             <span
               key={season}
@@ -135,7 +143,13 @@ export default async function RouteDetailPage({
             {(
               [
                 ...(route.compositionKind === "compose" && route.legIds?.length
-                  ? ([["#compose-timeline", "组合"]] as [string, string][])
+                  ? ([["#compose-legs", "短线"]] as [string, string][])
+                  : []),
+                ...(showLongStayGates
+                  ? ([["#gates", "门槛"]] as [string, string][])
+                  : []),
+                ...(route.nearbyLegs && route.nearbyLegs.length > 0
+                  ? ([["#nearby", "辐射"]] as [string, string][])
                   : []),
                 ["#guide", "怎么走"],
                 ["#time", "时间"],
@@ -209,101 +223,139 @@ export default async function RouteDetailPage({
               </p>
             ))}
           </div>
-        </section>
 
-        {route.compositionKind === "compose" &&
-        route.legIds &&
-        route.legIds.length > 0 ? (
-          <section
-            id="compose-timeline"
-            className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50/90 p-6"
-          >
-            <h2 className="text-2xl font-bold text-sky-950">组合时间线</h2>
-            <p className="mt-2 text-base text-sky-800">
-              长线只负责顺序与衔接；景点正文在各短线。点进短线看详情。
-            </p>
-            <ol className="mt-5 space-y-0">
-              {route.legIds.map((legId, index) => {
-                const leg = getRouteById(legId);
-                const glueAfter = route.glue?.[index];
-                return (
-                  <li key={legId} className="relative pl-8">
-                    <span
-                      aria-hidden
-                      className="absolute left-0 top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-sky-700 text-[0.7rem] font-bold text-white"
-                    >
-                      {index + 1}
-                    </span>
-                    {index < route.legIds!.length - 1 ? (
-                      <span
-                        aria-hidden
-                        className="absolute bottom-0 left-[0.55rem] top-7 w-0.5 bg-sky-300/90"
-                      />
-                    ) : null}
-                    <div className="pb-4">
+          {route.compositionKind === "compose" &&
+          route.legIds &&
+          route.legIds.length > 0 ? (
+            <div
+              id="compose-legs"
+              className="mt-6 scroll-mt-14 rounded-2xl border border-amber-200 bg-amber-50/90 p-5 sm:p-6"
+            >
+              <h3 className="text-xl font-bold text-amber-950 sm:text-2xl">
+                嵌入短线
+              </h3>
+              <p className="mt-2 text-base text-amber-900/90">
+                本长线由下列短线按顺序组成；点卡片进短线看景点正文。中间「衔接」是 glue，不是独立行程卡。
+              </p>
+              <ol className="mt-4 space-y-3">
+                {route.legIds.map((legId, index) => {
+                  const leg = getRouteById(legId);
+                  const glueAfter = route.glue?.[index];
+                  return (
+                    <li key={legId}>
                       <Link
                         href={`/routes/${legId}`}
-                        className="font-semibold text-sky-950 underline-offset-2 hover:underline"
+                        className="block rounded-xl bg-white px-4 py-3 ring-1 ring-amber-200/90 transition hover:ring-amber-400"
+                      >
+                        <div className="flex items-start gap-3">
+                          <span
+                            aria-hidden
+                            className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-800 text-sm font-bold text-white"
+                          >
+                            {index + 1}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-lg font-semibold text-sky-950">
+                              <span className="underline-offset-2 hover:underline">
+                                {leg?.title ?? legId}
+                              </span>
+                              <span className="ml-2 text-base font-medium text-amber-800">
+                                → 打开短线
+                              </span>
+                            </p>
+                            {leg?.daysLabel ? (
+                              <p className="mt-0.5 text-base text-sky-700">
+                                {leg.daysLabel}
+                                {leg.compositionKind === "leg" ? " · 短线" : ""}
+                              </p>
+                            ) : null}
+                            {leg?.summary ? (
+                              <p className="mt-1 text-base leading-snug text-sky-800/90">
+                                {leg.summary.length > 88
+                                  ? `${leg.summary.slice(0, 88)}…`
+                                  : leg.summary}
+                              </p>
+                            ) : null}
+                          </div>
+                        </div>
+                      </Link>
+                      {glueAfter ? (
+                        <div className="mt-2 rounded-xl bg-white/70 px-3 py-2 text-base leading-relaxed text-sky-900 ring-1 ring-amber-100">
+                          <span className="font-semibold text-amber-900">
+                            衔接
+                          </span>
+                          <span className="text-sky-800"> · {glueAfter}</span>
+                        </div>
+                      ) : null}
+                    </li>
+                  );
+                })}
+              </ol>
+              {route.glue &&
+              route.glue.length > 0 &&
+              route.glue.length >= route.legIds.length ? (
+                <ul className="mt-3 space-y-2 text-base leading-relaxed text-sky-900">
+                  {route.glue.slice(route.legIds.length).map((g) => (
+                    <li key={g.slice(0, 40)}>
+                      <span className="font-semibold text-amber-900">总述</span>
+                      <span className="text-sky-800"> · {g}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ) : null}
+        </section>
+
+        {route.nearbyLegs && route.nearbyLegs.length > 0 ? (
+          <section
+            id="nearby"
+            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-200 bg-teal-50 p-6"
+          >
+            <h2 className="text-2xl font-bold text-teal-950">
+              {isBase ? "从本枢纽可辐射" : "周边短线"}
+            </h2>
+            <p className="mt-2 text-base text-teal-800">
+              {isBase
+                ? "景点正文只在各短线 / 长线卡维护；本枢纽负责住稳与进出，不复述打卡清单。"
+                : "从本枢纽可辐射的交通方便短线 / 过夜日归 / 可选组合长线；景点正文在各卡。"}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {route.nearbyLegs.map((legId) => {
+                const leg = getRouteById(legId);
+                const kind =
+                  leg?.compositionKind === "compose"
+                    ? "长线"
+                    : leg?.compositionKind === "base"
+                      ? "枢纽"
+                      : "短线";
+                return (
+                  <li
+                    key={legId}
+                    className="rounded-xl bg-white/85 px-4 py-3 ring-1 ring-teal-200/80"
+                  >
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                      <Link
+                        href={`/routes/${legId}`}
+                        className="font-semibold text-teal-950 underline-offset-2 hover:underline"
                       >
                         {leg?.title ?? legId}
                       </Link>
+                      <span className="rounded-md bg-teal-100 px-1.5 py-0.5 text-sm font-medium text-teal-900">
+                        {kind}
+                      </span>
                       {leg?.daysLabel ? (
-                        <span className="text-sky-700"> · {leg.daysLabel}</span>
-                      ) : null}
-                      {leg?.summary ? (
-                        <p className="mt-1 text-base leading-snug text-sky-800/90">
-                          {leg.summary.length > 72
-                            ? `${leg.summary.slice(0, 72)}…`
-                            : leg.summary}
-                        </p>
+                        <span className="text-sm text-teal-700">
+                          {leg.daysLabel}
+                        </span>
                       ) : null}
                     </div>
-                    {glueAfter ? (
-                      <div className="relative mb-4 rounded-xl bg-white/80 px-3 py-2 text-base leading-relaxed text-sky-900 ring-1 ring-sky-200/80">
-                        <span className="font-semibold text-amber-900">
-                          衔接
-                        </span>
-                        <span className="text-sky-800"> · {glueAfter}</span>
-                      </div>
-                    ) : null}
-                  </li>
-                );
-              })}
-            </ol>
-            {route.glue &&
-            route.glue.length > 0 &&
-            route.glue.length >= route.legIds.length ? (
-              <ul className="mt-2 space-y-2 text-base leading-relaxed text-sky-900">
-                {route.glue.slice(route.legIds.length).map((g) => (
-                  <li key={g.slice(0, 40)}>
-                    <span className="font-semibold text-amber-900">总述</span>
-                    <span className="text-sky-800"> · {g}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </section>
-        ) : null}
-
-        {route.nearbyLegs && route.nearbyLegs.length > 0 ? (
-          <section className="mt-10 rounded-2xl border border-teal-200 bg-teal-50 p-6">
-            <h2 className="text-2xl font-bold text-teal-950">周边短线</h2>
-            <p className="mt-2 text-base text-teal-800">
-              从本枢纽可辐射的交通方便短线 / 过夜日归 / 可选组合长线；景点正文在各卡。
-            </p>
-            <ul className="mt-4 list-disc space-y-3 pl-6 text-lg text-teal-950">
-              {route.nearbyLegs.map((legId) => {
-                const leg = getRouteById(legId);
-                return (
-                  <li key={legId}>
-                    <Link
-                      href={`/routes/${legId}`}
-                      className="font-semibold text-teal-900 underline-offset-2 hover:underline"
-                    >
-                      {leg?.title ?? legId}
-                    </Link>
-                    {leg?.daysLabel ? (
-                      <span className="text-teal-700"> · {leg.daysLabel}</span>
+                    {leg?.summary ? (
+                      <p className="mt-1.5 text-base leading-snug text-teal-900/90">
+                        {leg.summary.length > 96
+                          ? `${leg.summary.slice(0, 96)}…`
+                          : leg.summary}
+                      </p>
                     ) : null}
                   </li>
                 );
@@ -411,15 +463,34 @@ export default async function RouteDetailPage({
           </div>
         </section>
 
-        <SoftDetails title="长居建议" tone="teal" className="mt-10">
-          <div className="space-y-4 text-lg leading-relaxed text-teal-950">
-            {paragraphs(practical.longStay ?? "").map((p) => (
-              <p key={p.slice(0, 24)} className="whitespace-pre-line">
-                {p}
-              </p>
-            ))}
-          </div>
-        </SoftDetails>
+        {showLongStayGates ? (
+          <section
+            id="gates"
+            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-300 bg-teal-50 p-6"
+          >
+            <h2 className="text-2xl font-bold text-teal-950">长居三门槛</h2>
+            <p className="mt-2 text-base text-teal-800">
+              进出交通 · 生活物资 · 本地三甲——达不到就不与枢纽并列推荐。
+            </p>
+            <div className="mt-4 space-y-4 text-lg leading-relaxed text-teal-950">
+              {paragraphs(practical.longStay ?? "").map((p) => (
+                <p key={p.slice(0, 24)} className="whitespace-pre-line">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <SoftDetails title="长居建议" tone="teal" className="mt-10">
+            <div className="space-y-4 text-lg leading-relaxed text-teal-950">
+              {paragraphs(practical.longStay ?? "").map((p) => (
+                <p key={p.slice(0, 24)} className="whitespace-pre-line">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </SoftDetails>
+        )}
 
         <section id="hospital" className="mt-10 scroll-mt-14 rounded-2xl border border-slate-300 bg-slate-50 p-6">
           <h2 className="text-2xl font-bold text-slate-900">附近医院</h2>

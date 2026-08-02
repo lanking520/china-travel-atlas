@@ -1,6 +1,6 @@
 # 成书路线索引
 
-> 由 `npm run export:book-index` 生成，勿手改。共 171 条。
+> 由 `npm run export:book-index` 生成，勿手改。共 176 条。
 
 ## 按地区
 
@@ -15,6 +15,7 @@
 - **济南 · 泉城与大明湖** (`huabei-shandong-jinan`) · 短途 · 
 - **呼和浩特 · 塞上古城浅住** (`huabei-neimeng-hohhot`) · 短途 · 
 - **北京市区 · 颐和园慢游** (`huabei-beijing-city-slow`) · 短途 · 春/秋/夏
+- **青岛 · 滨海栈道慢住** (`leg-qingdao-coast`) · 短途 · 春/秋/夏
 - **呼伦贝尔 · 夏季慢游** (`huabei-neimeng-hulunbuir`) · 长旅行 · 夏
 - **泰山曲阜 · 鲁中名景廊** (`huabei-shandong-taishan`) · 短途 · 春/秋/夏
 - **晋中 · 平遥太谷祁县廊** (`huabei-shanxi-pingyao-deep`) · 短途 · 春/秋/夏
@@ -60,7 +61,7 @@
 - **江南水乡 · 乌镇西塘浅住** (`huadong-jiangnan-water-towns`) · 短途 · 
 - **无锡 · 太湖鼋头渚慢游** (`huadong-jiangsu-wuxi`) · 短途 · 春/秋/夏
 - **宁波 · 天一阁与老外滩** (`huadong-zhejiang-ningbo`) · 短途 · 春/秋/冬
-- **京沪沿海慢串 · 津青苏沪高铁廊** (`national-jinghu-coast-slow`) · 长旅行 · 春/秋
+- **京沪沿海慢串 · 津青苏沪高铁廊** (`compose-jinghu-coast`) · 长旅行 · 春/秋
 - **扬州 · 瘦西湖慢走** (`huadong-jiangsu-yangzhou`) · 短途 · 春/秋
 - **上海 · 外滩与博物馆慢走** (`huadong-shanghai-short`) · 短途 · 春/秋
 - **黄山 · 索道上山与徽州慢走** (`huadong-huangshan-hui`) · 长旅行 · 春/秋
@@ -96,6 +97,7 @@
 - **神农架 · 木鱼浅住** (`huazhong-hubei-shennongjia`) · 短途 · 春/秋/夏
 - **恩施大峡谷 · 电梯浅览** (`huazhong-hubei-enshi`) · 短途 · 春/秋/夏
 - **凤凰古城 · 湘西沱江慢住** (`huazhong-hunan-fenghuang`) · 短途 · 春/秋/夏
+- **西安 · 城墙与兵马俑浅尝** (`leg-xian-terracotta`) · 短途 · 春/秋
 - **西安 · 慢住两周** (`huazhong-xian-slow`) · 长旅行 · 春/秋
 - **洛阳 · 孟津偃师县域浅线** (`huazhong-henan-luoyang-county`) · 短途 · 春/秋/夏
 - **开封 · 宋韵城慢走** (`huazhong-henan-kaifeng`) · 短途 · 春/秋/夏
@@ -159,7 +161,9 @@
 - **都江堰 · 平原边缘清新慢居** (`longstay-dujiangyan`) · 长旅行 · 春/秋
 - **镇远 · 舞阳河江城短住** (`longstay-zhenyuan`) · 短途 · 春/秋/夏
 - **贵阳 · 黔中慢居枢纽** (`base-guiyang`) · 长旅行 · 春/秋
-- **川滇慢环 · 成都大理丽江** (`national-chuandian-slow`) · 长旅行 · 春/秋/冬
+- **大理 · 洱海慢住浅段** (`leg-dali-erhai`) · 短途 · 春/秋/冬
+- **丽江 · 束河与雪山浅尝** (`leg-lijiang-taste`) · 短途 · 春/秋/冬
+- **川滇慢环 · 成都大理丽江** (`compose-chuandian-chengdu-dali-lijiang`) · 长旅行 · 春/秋/冬
 - **都江堰 · 青城山两日** (`xinan-dujiangyan-2d`) · 短途 · 春/秋
 - **大理州 · 洱源剑川日归表** (`xinan-yunnan-dali-daytrips`) · 短途 · 春/秋/夏
 - **重庆 · 山城慢走** (`xinan-chongqing-slow`) · 长旅行 · 春/秋
@@ -175,7 +179,7 @@
 - **中卫 · 沙坡头黄河浅游** (`xibei-ningxia-shapotou`) · 短途 · 春/秋
 - **兰州黄河 · 中山桥浅住** (`xibei-gansu-lanzhou-huanghe`) · 短途 · 春/秋/夏
 - **乌鲁木齐 · 市区慢住** (`xibei-xinjiang-urumqi-city`) · 短途 · 夏/秋/春
-- **丝路慢段 · 西安到吐鲁番** (`national-silkroad-slow`) · 长旅行 · 春/秋
+- **丝路慢段 · 西安到吐鲁番** (`compose-silkroad-xian-turpan`) · 长旅行 · 春/秋
 - **北疆 · 赛里木喀纳斯租车** (`xibei-xinjiang-north`) · 长旅行 · 夏/秋
 - **银川 · 西夏陵与沙湖三日** (`xibei-ningxia-3d`) · 短途 · 春/秋
 - **伊犁 · 河谷草原慢住** (`xibei-xinjiang-yili`) · 长旅行 · 夏/秋
@@ -195,7 +199,8 @@
 - **青藏铁路 · 西宁至拉萨慢行** (`qingzang-railway-slow`) · 长旅行 · 夏/秋
 - **日喀则 · 浅尝短住** (`qingzang-shigatse-taste`) · 短途 · 夏/秋
 - **祁连 · 门源夏花浅游** (`qingzang-qilian-optional`) · 短途 · 夏
-- **青甘慢环 · 湖光丹霞两三周** (`national-qinggan-slow`) · 长旅行 · 夏/秋
+- **西宁 · 青海湖浅段** (`leg-xining-qinghai-lake`) · 短途 · 夏/秋
+- **青甘慢环 · 湖光丹霞两三周** (`compose-qinggan-xining-hexi`) · 长旅行 · 夏/秋
 - **西宁 · 青海湖环线慢游** (`qingzang-qinghai-lake`) · 长旅行 · 夏
 - **西宁城区 · 高原适应短住** (`qingzang-xining-3d`) · 短途 · 夏/秋
 
@@ -218,7 +223,8 @@
 - 佛山 · 祖庙与岭南慢逛 (`huanan-guangdong-foshan`) · 华南岭南
 - G210 · 延安红色浅段 (`huazhong-shaanxi-g210-yanan`) · 中原华中
 - 北京市区 · 颐和园慢游 (`huabei-beijing-city-slow`) · 京畿华北
-- 京沪沿海慢串 · 津青苏沪高铁廊 (`national-jinghu-coast-slow`) · 华东水乡
+- 青岛 · 滨海栈道慢住 (`leg-qingdao-coast`) · 京畿华北
+- 京沪沿海慢串 · 津青苏沪高铁廊 (`compose-jinghu-coast`) · 华东水乡
 - G214 · 香格里拉浅住 (`yunnan-g214-shangri-la-taste`) · 西南秘境
 - 泉州 · 古城宗教史迹 (`huanan-fujian-quanzhou`) · 华南岭南
 - 镇远 · 舞阳河古城 (`xinan-guizhou-zhenyuan`) · 西南秘境
@@ -278,8 +284,11 @@
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
 - 桂林 · 漓江慢居枢纽 (`base-guilin`) · 华南岭南
 - 贵阳 · 黔中慢居枢纽 (`base-guiyang`) · 西南秘境
-- 丝路慢段 · 西安到吐鲁番 (`national-silkroad-slow`) · 西北丝路
-- 川滇慢环 · 成都大理丽江 (`national-chuandian-slow`) · 西南秘境
+- 西安 · 城墙与兵马俑浅尝 (`leg-xian-terracotta`) · 中原华中
+- 丝路慢段 · 西安到吐鲁番 (`compose-silkroad-xian-turpan`) · 西北丝路
+- 大理 · 洱海慢住浅段 (`leg-dali-erhai`) · 西南秘境
+- 丽江 · 束河与雪山浅尝 (`leg-lijiang-taste`) · 西南秘境
+- 川滇慢环 · 成都大理丽江 (`compose-chuandian-chengdu-dali-lijiang`) · 西南秘境
 - 西安 · 慢住两周 (`huazhong-xian-slow`) · 中原华中
 - 银川 · 西夏陵与沙湖三日 (`xibei-ningxia-3d`) · 西北丝路
 - 珠海滨海 · 两三天 (`huanan-zhuhai-3d`) · 华南岭南
@@ -329,6 +338,7 @@
 - G214 · 西宁入口浅段 (`qingzang-g214-xining-taste`) · 青藏高地
 - 北京市区 · 颐和园慢游 (`huabei-beijing-city-slow`) · 京畿华北
 - 青藏铁路 · 西宁至拉萨慢行 (`qingzang-railway-slow`) · 青藏高地
+- 青岛 · 滨海栈道慢住 (`leg-qingdao-coast`) · 京畿华北
 - G214 · 香格里拉浅住 (`yunnan-g214-shangri-la-taste`) · 西南秘境
 - 甘肃 · 兰州夏河短住 (`xibei-lanzhou-xiahe`) · 西北丝路
 - 呼伦贝尔 · 夏季慢游 (`huabei-neimeng-hulunbuir`) · 京畿华北
@@ -376,7 +386,8 @@
 - 威海 · 海岸慢居约一个月 (`longstay-weihai`) · 京畿华北
 - 呼伦贝尔 · 夏季草原慢居 (`longstay-hulunbuir`) · 京畿华北
 - 镇远 · 舞阳河江城短住 (`longstay-zhenyuan`) · 西南秘境
-- 青甘慢环 · 湖光丹霞两三周 (`national-qinggan-slow`) · 青藏高地
+- 西宁 · 青海湖浅段 (`leg-xining-qinghai-lake`) · 青藏高地
+- 青甘慢环 · 湖光丹霞两三周 (`compose-qinggan-xining-hexi`) · 青藏高地
 - 呼伦贝尔 · 草原慢住两周 (`huabei-neimeng-summer`) · 京畿华北
 - 青岛慢住 · 崂山即墨与烟威 (`huabei-shandong-coast`) · 京畿华北
 - 大连 · 滨海慢走一周 (`dongbei-dalian-summer`) · 东北林海
@@ -432,7 +443,8 @@
 - G210 · 延安红色浅段 (`huazhong-shaanxi-g210-yanan`) · 中原华中
 - 北京市区 · 颐和园慢游 (`huabei-beijing-city-slow`) · 京畿华北
 - 青藏铁路 · 西宁至拉萨慢行 (`qingzang-railway-slow`) · 青藏高地
-- 京沪沿海慢串 · 津青苏沪高铁廊 (`national-jinghu-coast-slow`) · 华东水乡
+- 青岛 · 滨海栈道慢住 (`leg-qingdao-coast`) · 京畿华北
+- 京沪沿海慢串 · 津青苏沪高铁廊 (`compose-jinghu-coast`) · 华东水乡
 - G214 · 香格里拉浅住 (`yunnan-g214-shangri-la-taste`) · 西南秘境
 - 甘肃 · 兰州夏河短住 (`xibei-lanzhou-xiahe`) · 西北丝路
 - 敦煌 · 莫高窟与鸣沙浅尝 (`leg-dunhuang-mogao`) · 西北丝路
@@ -502,9 +514,13 @@
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
 - 桂林 · 漓江慢居枢纽 (`base-guilin`) · 华南岭南
 - 贵阳 · 黔中慢居枢纽 (`base-guiyang`) · 西南秘境
-- 青甘慢环 · 湖光丹霞两三周 (`national-qinggan-slow`) · 青藏高地
-- 丝路慢段 · 西安到吐鲁番 (`national-silkroad-slow`) · 西北丝路
-- 川滇慢环 · 成都大理丽江 (`national-chuandian-slow`) · 西南秘境
+- 西宁 · 青海湖浅段 (`leg-xining-qinghai-lake`) · 青藏高地
+- 青甘慢环 · 湖光丹霞两三周 (`compose-qinggan-xining-hexi`) · 青藏高地
+- 西安 · 城墙与兵马俑浅尝 (`leg-xian-terracotta`) · 中原华中
+- 丝路慢段 · 西安到吐鲁番 (`compose-silkroad-xian-turpan`) · 西北丝路
+- 大理 · 洱海慢住浅段 (`leg-dali-erhai`) · 西南秘境
+- 丽江 · 束河与雪山浅尝 (`leg-lijiang-taste`) · 西南秘境
+- 川滇慢环 · 成都大理丽江 (`compose-chuandian-chengdu-dali-lijiang`) · 西南秘境
 - 青岛慢住 · 崂山即墨与烟威 (`huabei-shandong-coast`) · 京畿华北
 - 西安 · 慢住两周 (`huazhong-xian-slow`) · 中原华中
 - 北疆 · 赛里木喀纳斯租车 (`xibei-xinjiang-north`) · 西北丝路
@@ -572,7 +588,9 @@
 - 瑞丽 · 畹町边境浅住 (`frontier-ruili`) · 西南秘境
 - 昆明 · 春城慢居约一个月 (`longstay-kunming`) · 西南秘境
 - 万宁/琼海 · 非暑期海岸慢居 (`longstay-hainan-east`) · 华南岭南
-- 川滇慢环 · 成都大理丽江 (`national-chuandian-slow`) · 西南秘境
+- 大理 · 洱海慢住浅段 (`leg-dali-erhai`) · 西南秘境
+- 丽江 · 束河与雪山浅尝 (`leg-lijiang-taste`) · 西南秘境
+- 川滇慢环 · 成都大理丽江 (`compose-chuandian-chengdu-dali-lijiang`) · 西南秘境
 - 珠海滨海 · 两三天 (`huanan-zhuhai-3d`) · 华南岭南
 - 广州慢住 · 潮汕或珠海可选 (`huanan-guangzhou-chaoshan`) · 华南岭南
 - 河口→沙巴 · 中越慢廊（跨境） (`yunnan-hekou-sapa-corridor`) · 西南秘境

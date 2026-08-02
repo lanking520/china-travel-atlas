@@ -183,9 +183,10 @@ export default function OverviewPage() {
             <div className="rounded-xl bg-white p-5 shadow-sm">
               <p className="font-bold text-amber-800">全国大环线（慢版）</p>
               <p className="mt-2">
-                <RouteLink id="national-qinggan-slow">青甘慢环</RouteLink>、
-                <RouteLink id="national-silkroad-slow">丝路慢段</RouteLink>、
-                <RouteLink id="national-chuandian-slow">川滇慢环</RouteLink>
+                <RouteLink id="compose-qinggan-xining-hexi">青甘慢环</RouteLink>、
+                <RouteLink id="compose-silkroad-xian-turpan">丝路慢段</RouteLink>、
+                <RouteLink id="compose-chuandian-chengdu-dali-lijiang">川滇慢环</RouteLink>、
+                <RouteLink id="compose-jinghu-coast">京沪沿海</RouteLink>
                 ——都不是特种兵一天一千公里，段末建议回京休整。
               </p>
             </div>

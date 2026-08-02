@@ -9,6 +9,7 @@ export const patchRoutes: Route[] = [
     region: 'huadong',
     seasons: ['spring', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     daysLabel: '3–5天',
     transport: '北京南/北京站高铁至上海虹桥或上海站约4.5–6小时；市内地铁+步行',

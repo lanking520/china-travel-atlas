@@ -5,31 +5,103 @@ import type { Route } from '../types';
  * Evidence: research/notes/multi-discovery/* + coverage-gap-matrix-20260802.md
  */
 export const patchRoutes: Route[] = [
+  // ── 京沪 · 青岛滨海腿（原 national-jinghu 抽出）────────────
   {
-    id: 'national-jinghu-coast-slow',
+    id: 'leg-qingdao-coast',
+    title: '青岛 · 滨海栈道慢住',
+    region: 'huabei',
+    seasons: ['spring', 'autumn', 'summer'],
+    tripType: 'short',
+    compositionKind: 'leg',
+    fromHome: false,
+    daysLabel: '约4天',
+    transport:
+      '北京南高铁至青岛约3–3.5小时；市南打车/公交。可单订，也可作京沪沿海组合中段。',
+    budgetLabel: '本趟约2000–4500元（高铁+近海电梯酒店）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+    summary:
+      '独立短线：市南近海电梯酒店连住；八大关/栈道分日早晚走。烟台威海另线，本卡不北延。可单订，也可接京沪沿海组合。',
+    whyFast: '崂山可删；只留栈道+空白日也成立。更长半岛慢住见「青岛慢住·崂山即墨与烟威」。',
+    researchKeywords: [
+      '青岛 滨海 栈道 父母',
+      '青岛 八大关 慢住',
+      '青岛 四日 攻略',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：青岛',
+        url: 'https://zh.wikivoyage.org/wiki/%E9%9D%92%E5%B2%9B',
+        kind: 'other',
+        note: '滨海慢走骨架，已改写',
+      },
+      {
+        title: '青岛市文化和旅游局',
+        url: 'https://whlyj.qingdao.gov.cn/',
+        kind: 'official',
+        note: '景区开放以官网为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'jhc-qingdao-coast',
+        name: '青岛 · 滨海慢住',
+        days: 3,
+        pace: 'slow',
+        lat: 36.06,
+        lng: 120.38,
+        summary: '市南近海电梯酒店；八大关/栈道分日早晚走。',
+        tips: '正午防晒；海鲜少生冷。烟台威海另线。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+      },
+      {
+        id: 'qingdao-buffer',
+        name: '青岛空白/南行缓冲',
+        days: 1,
+        pace: 'slow',
+        lat: 36.06,
+        lng: 120.38,
+        summary: '休息补水；若接京沪组合，次日高铁经苏州或直达上海。',
+        tips: '疲劳多留一日；勿一日赶青→沪。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+      },
+    ],
+  },
+
+  // ── 京沪 compose（原 national-jinghu-coast-slow）──────────
+  {
+    id: 'compose-jinghu-coast',
     title: '京沪沿海慢串 · 津青苏沪高铁廊',
     region: 'huadong',
     seasons: ['spring', 'autumn'],
     tripType: 'long',
-    fromHome: false,
+    compositionKind: 'compose',
     themes: ['corridor'],
+    fromHome: false,
     daysLabel: '约10–14天（可分段回京）',
+    legIds: ['tianjin-day', 'leg-qingdao-coast', 'huadong-shanghai-short'],
+    glue: [
+      '天津→青岛高铁约4–5小时（或北京直达青岛、删天津短线）。一日只换一城；段间可回京。',
+      '青岛→上海高铁经沪宁；可选在苏州停1–2晚园林二选一（拙政园或留园，不硬排南京），也可直达上海。台风预警期减少海边停留。',
+    ],
     transport:
-      '北京南城际/高铁至天津站→高铁胶济/青荣方向至青岛→高铁经沪宁至苏州再至上海虹桥/上海站→京沪高铁回京。各城换电梯酒店；日行一城段，勿一日多城特种兵。任一段可单独飞/高铁回京休整',
-    budgetLabel: '对照约1.2–2万（高铁分段+电梯酒店；双人；可砍苏州或天津缩短）',
+      '北京南城际/高铁串珠：天津海河短线（可删）→ 青岛滨海短线 →（苏州可选缓冲）→ 上海外滩博物馆短线 → 京沪回京。勿一日多城；不渤海湾自驾贯通。',
+    budgetLabel: '对照约1.2–2万（高铁分段+电梯酒店；双人；可砍天津或苏州缩短）',
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
     summary:
-      '把散落的天津、青岛、苏沪串成爸妈可走的京沪沿海主题廊：海河浅尝→青岛滨海慢住→苏州园林二选一→上海外滩/博物馆。高铁换住，段末可回京；不硬赶渤海湾自驾贯通。',
+      '长线组合卡：嵌入天津海河、青岛滨海、上海外滩博物馆三条短线；苏州园林只作可选高铁停点。景点正文见各短线。高铁换住，段末可回京。',
     introduction:
-      '京沪高铁与沿海城际是父母友好骨架，但城市卡片互不联线时难排节奏。本线只做「串珠」：每站 1–4 日，住地铁/海边电梯酒店，栈道与园林分日。\n\n天津可整段删直达青岛；苏州可删直达上海。不排北戴河—青岛自驾长途，不接港澳。',
+      '京沪高铁与沿海城际是父母友好骨架。本卡是「串珠」组合：天津短线 → 青岛短线 →（苏州可选）→ 上海短线。\n\n景点细节只在各短线维护；此处只管衔接与可删段。不排北戴河—青岛自驾，不接港澳。',
     seasonGuide:
       '春秋最佳。夏青岛紫外与暑热强、苏沪湿热；冬海风冷缩短栈道。台风预警期减少海边停留。',
-    whyFast: '天津、苏州任一可删；主体青岛慢住+上海浅逛也成立。',
+    whyFast: '天津、苏州任一可删；主体青岛+上海也成立。',
     notices: [
       '一日只换一城；高铁优先二等座靠窗/过道便于起身。',
       '青岛栈道早晚走，正午防晒；海鲜少生冷。',
-      '苏州园林勿一日多园；石板雨后防滑。',
+      '苏州园林勿一日多园；石板雨后防滑；可整段删。',
       '上海外滩周末人多错峰；博物馆预约以当日为准。',
       '任一段不适即回京休整，勿硬拼全廊。',
     ],
@@ -41,22 +113,16 @@ export const patchRoutes: Route[] = [
     ],
     sources: [
       {
-        title: 'Wikivoyage：天津',
-        url: 'https://zh.wikivoyage.org/wiki/%E5%A4%A9%E6%B4%A5',
-        kind: 'other',
-        note: '海河与意风区概览，已改写',
-      },
-      {
         title: 'Wikivoyage：青岛',
         url: 'https://zh.wikivoyage.org/wiki/%E9%9D%92%E5%B2%9B',
         kind: 'other',
-        note: '滨海慢走骨架，已改写',
+        note: '细节见青岛短线',
       },
       {
         title: 'Wikivoyage：上海',
         url: 'https://zh.wikivoyage.org/wiki/%E4%B8%8A%E6%B5%B7',
         kind: 'other',
-        note: '外滩与展馆节奏，已改写',
+        note: '细节见上海短线',
       },
       {
         title: '中国铁路客户服务中心',
@@ -67,64 +133,16 @@ export const patchRoutes: Route[] = [
     ],
     stops: [
       {
-        id: 'jhc-tianjin-haihe',
-        name: '天津 · 海河浅尝',
-        days: 2,
-        pace: 'slow',
-        lat: 39.13,
-        lng: 117.2,
-        summary: '城际入津；海河步道+意风区平地，五大道短段即可。',
-        tips: '可整段删直达青岛；勿自驾进五大道核心。',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Tianjin_Eye_and_Tianjin.jpg/1280px-Tianjin_Eye_and_Tianjin.jpg',
-      },
-      {
-        id: 'jhc-qingdao-coast',
-        name: '青岛 · 滨海慢住',
-        days: 4,
-        pace: 'slow',
-        lat: 36.06,
-        lng: 120.38,
-        summary: '市南近海电梯酒店；八大关/栈道分日早晚走。',
-        tips: '主体站点；烟台威海另线，本廊不北延硬赶。',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
-      },
-      {
         id: 'jhc-suzhou-garden',
-        name: '苏州 · 园林浅停（可选）',
-        days: 2,
+        name: '苏州 · 园林浅停（可选 glue）',
+        days: 1.5,
         pace: 'fast',
         lat: 31.32,
         lng: 120.62,
-        summary: '拙政园或留园二选一；平缓半日+留白。',
-        tips: '可删；直达上海亦可。',
+        summary: '青岛与上海之间的可选高铁停点；拙政园或留园二选一。',
+        tips: '可删直达上海；勿一日多园；不硬排南京。',
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Humble_Administrator%27s_Garden_2015.JPG/1280px-Humble_Administrator%27s_Garden_2015.JPG",
-      },
-      {
-        id: 'jhc-shanghai-bund',
-        name: '上海 · 外滩与展馆',
-        days: 3,
-        pace: 'slow',
-        lat: 31.24,
-        lng: 121.49,
-        summary: '外滩沿江平走；雨天改博物馆/梧桐街区。',
-        tips: '住地铁站旁电梯酒店；迪士尼不排入爸妈主线。',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/1280px-The_Bund_2.jpg',
-      },
-      {
-        id: 'jhc-exit-beijing',
-        name: '京沪回京休整',
-        days: 1,
-        pace: 'fast',
-        lat: 39.87,
-        lng: 116.38,
-        summary: '虹桥/上海站京沪回京；到家至少休整再排下一段。',
-        tips: '行李少换乘；夜间高铁慎选。',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/1280px-The_Bund_2.jpg',
       },
     ],
   },

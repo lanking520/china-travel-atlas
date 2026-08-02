@@ -399,6 +399,7 @@ export const patchRoutes: Route[] = [
     region: 'xibei',
     seasons: ['spring', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     daysLabel: '约3–5天',
     transport:
@@ -407,7 +408,7 @@ export const patchRoutes: Route[] = [
     coverImage:
       'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1200',
     summary:
-      '暑热避夏季正午：坎儿井、葡萄沟、交河故城量力参观，住空调电梯房。适合南北疆之间的休整短住。',
+      '暑热避夏季正午：坎儿井、葡萄沟、交河故城量力参观，住空调电梯房。适合南北疆之间的休整短住；也可作丝路组合末段。',
     whyFast: '坎儿井+葡萄沟各半天足够。',
     researchKeywords: ['吐鲁番 两日 攻略', '葡萄沟 交河故城', '吐鲁番 避暑 空调'],
     sources: [

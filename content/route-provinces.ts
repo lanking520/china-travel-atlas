@@ -92,15 +92,19 @@ export const routeProvinces: Record<
   'qingzang-lhasa-slow': { primary: 'xizang' },
   'qingzang-shigatse-taste': { primary: 'xizang' },
   // 全国大环线（跨省；primary 为枢纽省，also 途经）
-  'national-qinggan-slow': {
+  'leg-xining-qinghai-lake': { primary: 'qinghai' },
+  'compose-qinggan-xining-hexi': {
     primary: 'qinghai',
     also: ['gansu'],
   },
-  'national-silkroad-slow': {
-    primary: 'gansu',
-    also: ['shaanxi', 'xinjiang'],
+  'leg-xian-terracotta': { primary: 'shaanxi' },
+  'compose-silkroad-xian-turpan': {
+    primary: 'shaanxi',
+    also: ['gansu', 'xinjiang'],
   },
-  'national-chuandian-slow': {
+  'leg-dali-erhai': { primary: 'yunnan' },
+  'leg-lijiang-taste': { primary: 'yunnan' },
+  'compose-chuandian-chengdu-dali-lijiang': {
     primary: 'yunnan',
     also: ['sichuan'],
   },
@@ -154,7 +158,8 @@ export const routeProvinces: Record<
   'huabei-beijing-city-slow': { primary: 'beijing' },
   'qingzang-railway-slow': { primary: 'xizang', also: ['qinghai'] },
   // coverage wave 20260802c
-  'national-jinghu-coast-slow': {
+  'leg-qingdao-coast': { primary: 'shandong' },
+  'compose-jinghu-coast': {
     primary: 'shanghai',
     also: ['tianjin', 'shandong', 'jiangsu'],
   },

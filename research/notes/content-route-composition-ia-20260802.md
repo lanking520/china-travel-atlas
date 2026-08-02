@@ -76,9 +76,10 @@ Do **not** duplicate stop text inside every compose.
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
 - Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: national long→compose migration；Explore 长居 chip polish 可选。
+- Still open: national long→compose **remaining**（北疆 / 青藏铁路·林芝 / 苏杭长线 / `yunnan-dali-lijiang` 月租形 / 半岛慢住等）；Explore 长居 chip polish 可选。
 - Shipped: `base-guilin` / `base-guiyang` with nearbyLegs（阳朔/漓江；镇远/黄果树/黔东南/loop）。
 - Shipped UX: Explore 短线/长线 chips + compose detail **组合时间线** (legs + glue).
+- Shipped national batch 1 (20260802): `compose-qinggan-xining-hexi` / `compose-silkroad-xian-turpan` / `compose-chuandian-chengdu-dali-lijiang` / `compose-jinghu-coast`；退役四个 `national-*`（dead-lead OK）。
 
 ## Second corridor — 河西（shipped 20260802）
 
@@ -109,7 +110,7 @@ Do **not** duplicate stop text inside every compose.
 | `xinan-sichuan-jiuzhaigou` *(reuse)* | 九寨栈道慢线（黄龙可删） | ~4–6 | ~2000–3000m 诚实评估；比若尔盖/四姑娘更适老 |
 | `compose-chuanxi-chengdu-leshan-jiuzhai` | 成都 → 乐山 → 成都 → 九寨 | ~2–3周 | glue=车程/航班 + 高反回撤 |
 
-Do **not** national-migrate remaining longs until ready; three corridor pilots (南疆/河西/川西) are the pattern.
+Do **not** national-migrate remaining longs until ready; three corridor pilots (南疆/河西/川西) established the pattern — national batch 1（青甘/丝路/川滇/京沪）followed the same glue-only rule.
 
 ## What NOT to do
 

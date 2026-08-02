@@ -76,6 +76,7 @@ export const routes: Route[] = [
     region: 'huabei',
     seasons: ['spring', 'summer', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: true,
     daysLabel: '1天',
     transport: '北京南↔天津站城际动车约30–40分钟（C字头），或自驾约2小时',

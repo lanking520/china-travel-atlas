@@ -7,7 +7,7 @@
 
 | id | 主题 | 适老要点 |
 |----|------|----------|
-| `national-jinghu-coast-slow` | 津→青→苏（可选）→沪高铁廊 | 一日一城；青岛主体慢住；天津/苏州可删；段末可回京；不渤海湾自驾贯通 |
+| `compose-jinghu-coast` *(was `national-jinghu-coast-slow`)* | 津→青→苏（可选）→沪高铁廊 | 一日一城；青岛主体；天津/苏州可删；段末可回京；legs=`tianjin-day`+`leg-qingdao-coast`+`huadong-shanghai-short` |
 
 串接既有散点：`tianjin-day` / `huabei-shandong-coast` / `huadong-shanghai-short` / 苏杭园林线，升为独立 `corridor` 产品。
 

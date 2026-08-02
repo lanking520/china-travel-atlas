@@ -1844,91 +1844,188 @@ export const routeDetails: Record<string, RouteDetailFields> = {
       },
     ],
   },
-  'national-qinggan-slow': {
+  'compose-qinggan-xining-hexi': {
     introduction:
-      '把网上热门的「青甘大环线」改成爸妈慢环：西宁先适应几天（海拔约2200m），青海湖只走二郎剑等湖岸选段，茶卡盐湖可删；转兰州歇脚恢复，张掖丹霞坐观光车，敦煌莫高窟按预约慢读。绝不一夜贯通茶卡到敦煌。\n\n海拔与日照是本线主矛盾：头两天少爬楼多喝水，湖段与丹霞强防晒防风；莫高窟洞窟内禁闪，讲解耳机对父母友好。河西走廊的丝路风土——牛肉面清汤、瓜果洗净、少烧烤油烟——按段换口味即可。\n\n段末敦煌或兰州飞回北京休整；可与丝路慢段在兰州/敦煌衔接理解，勿重复赶景特种兵。',
+      '青甘慢环是「短线串起来」的长线卡，不另写一套景点正文。\n\n顺序：① 短线「西宁·青海湖浅段」→ ② 兰州黄河边缓冲过夜（glue）→ ③ 短线「张掖·七彩丹霞」→ ④ 短线「敦煌·莫高窟与鸣沙」。单日车/铁≤4–5小时；勿茶卡一夜贯通敦煌。\n\n湖段、丹霞、莫高预约等细节只在各短线维护。本卡只管衔接与休息日。段末敦煌或兰州飞回北京。',
     seasonGuide:
       '主推夏秋：湖景与丹霞可看。初春末冬干冷风大，高海拔体验差。极端天气与沙尘天缩短户外。',
     notices: [
-      '行程约2–3周，西宁适应不可省；抵达当日勿赶茶卡。',
-      '高原备常用药，遵医嘱；持续头痛胸闷下撤西宁/兰州。',
-      '莫高窟与丹霞以官方预约为准；勿信代抢。',
-      '日驾短、空白多；禁止夜赶戈壁。',
-      '长旅行结束后建议回北京休整几天。',
+      '约2–3周：嵌入青海湖+张掖+敦煌短线；兰州只缓冲。',
+      '西宁适应不可省；抵达当日勿赶茶卡。',
+      '高原备常用药；持续头痛胸闷下撤西宁/兰州。',
+      '可只订其中一条短线，不必走满青甘。',
       '紫外线强，备防晒、润唇膏与薄羽绒。',
-    ],
-    gallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
-        caption: '青甘慢环 · 湖光丹霞 · 封面景色',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800',
-        caption: '青海湖选段',
-        stopId: 'qinghai-lake-segment',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800',
-        caption: '敦煌莫高窟慢读',
-        stopId: 'dunhuang-mogao-loop',
-      },
-    ],
-  },
-  'national-silkroad-slow': {
-    introduction:
-      '丝路经典拆成慢段：西安古城与兵马俑浅尝，兰州中转歇脚，敦煌洞窟慢读，吐鲁番葡萄沟早晚出门避暑。不硬开独库、不夜穿戈壁；可一段一回京，也可乌市飞返收尾。\n\n文化主轴是「长安—河西—西域」的交通与信仰走廊：城墙电瓶车、一号坑快览、莫高窟分次进窟、葡萄沟平地散步即可理解气候与绿洲。交河故城台阶多可浅看或删。\n\n饮食按段：西安清汤泡馍、兰州牛肉面清汤、敦煌少油炸、吐鲁番葡萄适量注意卫生。暑期吐鲁番极热，中午必须空调房。',
-    seasonGuide:
-      '主推春秋。吐鲁番夏极热须早出晚归；冬干冷不作为本线首选。',
-    notices: [
-      '兵马俑与莫高窟务必提前查预约规则。',
-      '吐鲁番备防晒与淡盐水；10:00前出门。',
-      '段末乌鲁木齐飞回北京。',
-      '不夜穿戈壁、不开独库公路。',
-      '段与段之间可回京拆线，降低疲劳。',
-    ],
-    gallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200',
-        caption: '丝路慢段 · 封面景色',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-        caption: '西安慢住',
-        stopId: 'xian-silk-base',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
-        caption: '吐鲁番葡萄沟',
-        stopId: 'turpan-silk',
-      },
-    ],
-  },
-  'national-chuandian-slow': {
-    introduction:
-      '川滇慢环：成都平原休整与熊猫半日，大理古城慢住洱海选段，丽江浅住——雪山只坐索道/观景，不硬徒步。雨季减少山路自驾；段末丽江或昆明飞回北京。\n\n海拔阶梯诚实写进节奏：成都平原→大理约1900m→丽江约2400m+，丽江头两日放慢。苍山/玉龙只索道量力；大索道可整段删。白族/纳西古城日间短逛，夜场噪音带可绕开。\n\n饮食：成都清汤火锅/豆花，大理饵丝米线少油，丽江少饮酒；野生菌遵官方安全提示。可与 longstay-dali 互补理解，本卡是两三周环线而非月租。',
-    seasonGuide:
-      '春秋冬皆可；雨季注意山路与泥石流预警。盛夏湿热，宜早出晚歇。',
-    notices: [
-      '丽江有海拔，抵达头两日放慢；气短即停。',
-      '火锅与菌类量力，肠胃不适备药；少饮酒。',
-      '雨季关注预警，减少夜间山路。',
-      '玉龙大索道可整段删；优先蓝月谷/云杉坪。',
       '结束后飞回北京休整。',
     ],
     gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=1200',
-        caption: '川滇慢环 · 封面景色',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qinghai_Lake.jpg/1280px-Qinghai_Lake.jpg',
+        caption: '走廊前段 · 西宁青海湖（见短线 leg-xining-qinghai-lake）',
       },
       {
-        url: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800',
-        caption: '大理慢住',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Lanzhou.jpg/1280px-Lanzhou.jpg',
+        caption: '兰州缓冲过夜（glue）',
+        stopId: 'lanzhou-hub',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/1280px-Mogao_Caves_%2854376969262%29.jpg',
+        caption: '走廊末段 · 敦煌（见短线 leg-dunhuang-mogao）',
+      },
+    ],
+  },
+  'leg-xining-qinghai-lake': {
+    introduction:
+      '西宁门户适应后再上青海湖选段：二郎剑等湖岸包车浅走，茶卡半日可选。海拔与紫外线是主矛盾；不硬环湖。可单飞往返或接青甘组合东行兰州。',
+    seasonGuide: '主推夏秋。冬干冷不推荐湖段。',
+    notices: [
+      '西宁适应2–3日不可省。',
+      '湖面约3200m，心肺评估；不适下撤。',
+      '茶卡可整段删。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qinghai_Lake.jpg/1280px-Qinghai_Lake.jpg',
+        caption: '青海湖选段',
+        stopId: 'qinghai-lake-segment',
+      },
+    ],
+  },
+  'compose-silkroad-xian-turpan': {
+    introduction:
+      '丝路慢段是「短线串起来」的长线卡。\n\n顺序：① 短线「西安·城墙与兵马俑」→ ② 兰州缓冲过夜（glue）→ ③ 短线「敦煌·莫高」→ ④ 短线「吐鲁番·葡萄沟」。乌市只中转；不硬开独库、不夜穿戈壁。\n\n景点正文见各短线。可一段一回京。',
+    seasonGuide:
+      '主推春秋。吐鲁番夏极热须早出晚归；冬干冷不作为本线首选。',
+    notices: [
+      '约2–3周：嵌入西安+敦煌+吐鲁番短线；兰州只缓冲。',
+      '兵马俑与莫高窟提前查预约。',
+      '不夜穿戈壁、不开独库公路。',
+      '可只订其中一条短线。',
+      '段末乌市飞回北京。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/1280px-51714-Terracota-Army.jpg',
+        caption: '走廊前段 · 西安（见短线 leg-xian-terracotta）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Lanzhou.jpg/1280px-Lanzhou.jpg',
+        caption: '兰州缓冲过夜（glue）',
+        stopId: 'lanzhou-silk',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Grape_Valley.jpg/1280px-Grape_Valley.jpg',
+        caption: '走廊末段 · 吐鲁番（见短线 xibei-xinjiang-turpan）',
+      },
+    ],
+  },
+  'leg-xian-terracotta': {
+    introduction:
+      '西安短线：城墙电瓶车选段、回民街浅尝，兵马俑早场一号坑。华山默认可删。可单订或接丝路组合西行。',
+    seasonGuide: '春秋最舒适；夏热冬冷缩短户外。',
+    notices: [
+      '兵马俑官方预约；台阶多带折叠凳。',
+      '华山缆车可整段删。',
+      '近交大一附院电梯房更安心。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/1280px-51714-Terracota-Army.jpg',
+        caption: '兵马俑一号坑',
+        stopId: 'bingmayong-fast',
+      },
+    ],
+  },
+  'compose-chuandian-chengdu-dali-lijiang': {
+    introduction:
+      '川滇慢环是「短线串起来」的长线卡。\n\n顺序：① 短线「成都·平原适应」→ ② 短线「大理·洱海」→ ③ 短线「丽江·束河雪山浅尝」。飞/高铁衔接；昆明可选中转。\n\n海拔阶梯：平原→大理约1900m→丽江约2400m+。不强制环海骑行与雨崩。景点正文见各短线。',
+    seasonGuide:
+      '春秋冬皆可；雨季注意山路与泥石流预警。盛夏湿热，宜早出晚歇。',
+    notices: [
+      '约2–3周：嵌入成都+大理+丽江短线。',
+      '丽江头两日放慢；气短即停。',
+      '玉龙大索道可整段删。',
+      '可只订其中一条短线。',
+      '结束后飞回北京休整。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
+        caption: '走廊前段 · 成都（见短线 leg-chengdu-adapt）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
+        caption: '中段 · 大理（见短线 leg-dali-erhai）',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lijiang_Old_Town.jpg/1280px-Lijiang_Old_Town.jpg',
+        caption: '末段 · 丽江（见短线 leg-lijiang-taste）',
+      },
+    ],
+  },
+  'leg-dali-erhai': {
+    introduction:
+      '大理短线：古城或海东电梯房，洱海电瓶车/游船选段，不骑行环海。苍山索道量力。可单订或接川滇组合。',
+    seasonGuide: '春秋冬皆宜；紫外线全年强。',
+    notices: ['环海勿一日硬赶。', '苍山索道可删。', '月租级见 longstay-dali。'],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
+        caption: '大理古城',
         stopId: 'dali-loop-base',
       },
+    ],
+  },
+  'leg-lijiang-taste': {
+    introduction:
+      '丽江浅尝：束河/新城住，古城日间短逛；雪山只索道/蓝月谷。海拔约2400m+须放慢。不排雨崩。',
+    seasonGuide: '春秋冬皆可；雨季关注塌方与航班。',
+    notices: ['头两日放慢。', '玉龙大索道可删。', '不适下撤大理/昆明。'],
+    gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lijiang_Old_Town.jpg/1280px-Lijiang_Old_Town.jpg',
         caption: '丽江浅住',
         stopId: 'lijiang-loop-taste',
+      },
+    ],
+  },
+  'compose-jinghu-coast': {
+    introduction:
+      '京沪沿海是「短线串起来」的高铁廊。\n\n顺序：① 短线「天津·海河一日」（可删）→ ② 短线「青岛·滨海栈道」→ ③ 苏州园林可选停点（glue）→ ④ 短线「上海·外滩与博物馆」。一日一城；不渤海湾自驾。\n\n景点正文见各短线。',
+    seasonGuide:
+      '春秋最佳。夏青岛紫外与暑热强、苏沪湿热；冬海风冷缩短栈道。台风预警期减少海边停留。',
+    notices: [
+      '约10–14天：嵌入天津+青岛+上海短线；苏州可选。',
+      '一日只换一城。',
+      '天津、苏州任一可删。',
+      '任一段可回京休整。',
+      '京沪高铁回京后休整再排下一段。',
+    ],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+        caption: '中段 · 青岛（见短线 leg-qingdao-coast）',
+      },
+      {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Humble_Administrator%27s_Garden_2015.JPG/1280px-Humble_Administrator%27s_Garden_2015.JPG",
+        caption: '苏州可选缓冲（glue）',
+        stopId: 'jhc-suzhou-garden',
+      },
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/1280px-The_Bund_2.jpg',
+        caption: '末段 · 上海（见短线 huadong-shanghai-short）',
+      },
+    ],
+  },
+  'leg-qingdao-coast': {
+    introduction:
+      '青岛滨海短线：市南近海电梯酒店，八大关/栈道分日早晚走。烟台威海另线。可单订或接京沪沿海组合。',
+    seasonGuide: '春秋最佳；夏防晒避正午；冬缩短栈道。',
+    notices: ['海鲜少生冷。', '崂山可删。', '勿一日赶青→沪。'],
+    gallery: [
+      {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+        caption: '青岛滨海',
+        stopId: 'jhc-qingdao-coast',
       },
     ],
   },

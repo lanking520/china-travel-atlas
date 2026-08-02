@@ -122,7 +122,8 @@ export default function OverviewPage() {
                 </RouteLink>
                 、
                 <RouteLink id="leg-chengdu-adapt">成都适应短线</RouteLink>、
-                <RouteLink id="yunnan-dali-lijiang">大理慢住丽江快览</RouteLink>。
+                <RouteLink id="compose-yunnan-dali-lijiang">滇西大理丽江慢串</RouteLink>、
+                <RouteLink id="longstay-dali">大理月租慢居</RouteLink>。
               </p>
             </li>
 
@@ -139,7 +140,7 @@ export default function OverviewPage() {
               <p className="mt-2">
                 参考：<RouteLink id="compose-hexi-dunhuang-zhangye">河西走廊 · 敦煌张掖</RouteLink>、
                 <RouteLink id="leg-dunhuang-mogao">敦煌短线</RouteLink>、
-                <RouteLink id="xibei-xinjiang-north">北疆租车</RouteLink>、
+                <RouteLink id="compose-beijiang-sayram-kanas">北疆赛里木喀纳斯</RouteLink>、
                 <RouteLink id="xibei-ningxia-3d">宁夏银川</RouteLink>
               </p>
             </li>

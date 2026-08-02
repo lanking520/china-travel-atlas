@@ -14,9 +14,9 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
       '北京直飞海拉尔，以城区为慢住基地两三周：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
   },
 
-  'huabei-shandong-coast': {
+  'compose-shandong-qingdao-yantai': {
     summary:
-      '北京南高铁至青岛慢住十天到两周：八大关、海边栈道、老城区平地慢走。体力好再北延烟台、威海各一两日。夏避正午暴晒，秋日海风凉。结束后高铁或飞回北京休整。',
+      '长线组合：青岛滨海短线 → 崂山即墨短线 → 烟台芝罘短线；威海可选。景点正文见各短线。结束后高铁或飞回北京休整。',
   },
 
   'dongbei-changbai-summer': {
@@ -234,9 +234,11 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
     summary:
       '北京飞珠海（或广州转城际）：情侣路、渔女像一带滨海慢走，节奏轻松，适合华南长线前后穿插的短休。不必赶横琴全线，看海散步即可；结束飞回北京。',
   },
-  'yunnan-dali-lijiang': {
+  'compose-yunnan-dali-lijiang': {
+    summary:
+      '长线组合：大理洱海短线 → 丽江浅尝短线；昆明可选中转。月租见 longstay-dali。结束后飞回北京。',
     transport:
-      '北京飞昆明（或直飞大理），高铁约2小时至大理；环海包车/当地租车；丽江段高铁1.5小时+包车；结束飞回北京',
+      '飞昆明转高铁或直飞大理；大理→丽江高铁约1.5小时；结束丽江或昆明飞回北京',
   },
   'xinan-chengdu-slow': {
     transport: '北京飞成都双流/天府机场，市区地铁+打车；结束飞回北京',
@@ -309,11 +311,11 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
     transport: '飞成都双流/天府；市区地铁+打车。可接乐山或九寨组合。',
   },
 
-  'xibei-xinjiang-north': {
+  'compose-beijiang-sayram-kanas': {
     summary:
-      '北疆经典：赛里木环湖 + 喀纳斯森林。与伊犁专线拆开，北线缓冲奎屯/克拉玛依，避免一条线塞满南北口。干燥多补水，结束后飞回北京。',
+      '长线组合：赛里木短线 → 奎屯/克拉玛依缓冲 → 喀纳斯短线；乌市进出。与伊犁短线拆开。结束后飞回北京。',
     transport:
-      '飞乌鲁木齐取SUV，沿北线：赛里木→奎屯/克拉玛依缓冲→布尔津/喀纳斯；单日≤5小时。伊犁河谷请改走「伊犁·河谷草原慢住」专线，本线不深挖伊犁。结束后飞回北京。',
+      '飞乌鲁木齐取SUV：赛里木短线 → 奎屯缓冲 → 喀纳斯短线；单日≤5小时。伊犁请改走河谷短线。结束后飞回北京。',
   },
 
   'xibei-ningxia-3d': {

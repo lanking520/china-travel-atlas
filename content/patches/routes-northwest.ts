@@ -1,43 +1,101 @@
 import type { Route } from '../types';
 
-/** Patch: 新疆 / 青海 / 宁夏 — merge into content/routes.ts when ready */
+/**
+ * 新疆 / 青海 / 宁夏补丁。
+ * 北疆：赛里木/喀纳斯短线 + compose（退役 xibei-xinjiang-north）。
+ */
 export const patchRoutes: Route[] = [
-  // ── 西北 · 北疆长线 ──────────────────────────────────────────
+  // ── 北疆 · 赛里木腿 ──────────────────────────────────────────
   {
-    id: 'xibei-xinjiang-north',
-    title: '北疆 · 赛里木喀纳斯租车',
+    id: 'leg-sayram-lake',
+    title: '赛里木湖 · 环湖浅段',
     region: 'xibei',
     seasons: ['summer', 'autumn'],
-    tripType: 'long',
+    tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
-    daysLabel: '约2–3周',
+    daysLabel: '约3–4天',
     transport:
-      '飞乌鲁木齐取SUV，沿北线：赛里木→奎屯/克拉玛依缓冲→布尔津/喀纳斯；单日≤5小时。伊犁河谷请改走「伊犁·河谷草原慢住」专线，本线不深挖伊犁。结束后飞回北京。',
-    budgetLabel: '对照月预算约2万（含租车+机票分摊）',
+      '飞乌鲁木齐取车西行，或伊宁往返包车/自驾。可单订，也可作北疆组合第一段后北上奎屯缓冲。',
+    budgetLabel: '本趟约2500–5500元（机票浮动大；含门票/自驾服务费）',
     coverImage:
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
     summary:
-      '北疆经典：赛里木环湖 + 喀纳斯森林。与伊犁专线拆开，避免一条线塞满南北口。干燥多补水，结束后飞回北京。',
-    whyFast:
-      '赛里木环湖半日至一日足够；喀纳斯观鱼台靠区间车，不必硬爬全程栈道。',
+      '独立短线：天山天湖环湖公路多停观景台，风大备外套。湖面海拔约2070米，多数人可适应，仍勿剧烈运动。可单订，也可接北疆组合北上喀纳斯。',
+    whyFast: '环湖半日至一日足够；硬徒步与夜赶可删。',
     researchKeywords: [
-      '北疆 租车 自驾 退休',
       '赛里木湖 环湖 攻略',
-      '喀纳斯 预约 区间车',
+      '赛里木湖 父母',
+      '赛里木湖 门票 预约',
     ],
     sources: [
-      {
-        title: 'Wikivoyage：乌鲁木齐',
-        url: 'https://zh.wikivoyage.org/wiki/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90',
-        kind: 'other',
-        note: 'CC 署名，已改写；进出疆枢纽与市内医疗参考',
-      },
       {
         title: '乌鲁木齐本地宝：赛里木湖门票预约',
         url: 'http://wlmq.bendibao.com/news/2023831/57403.shtm',
         kind: 'other',
         note: '「赛里木湖旅游」公众号购票入口，以当日公告为准',
       },
+      {
+        title: 'Wikivoyage：乌鲁木齐',
+        url: 'https://zh.wikivoyage.org/wiki/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90',
+        kind: 'other',
+        note: '进出疆枢纽参考',
+      },
+    ],
+    stops: [
+      {
+        id: 'sayram-lake',
+        name: '赛里木湖',
+        days: 2,
+        pace: 'slow',
+        lat: 44.6,
+        lng: 81.15,
+        summary:
+          '天山天湖，环湖公路观景台多。慢开、多停，不必硬走全程徒步。',
+        tips:
+          '微信「赛里木湖旅游」提前订门票/自驾服务费。环湖约90公里，放慢到大半天；风大备外套。海拔约2070米，别剧烈运动。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+      },
+      {
+        id: 'sayram-buffer',
+        name: '空白/西行缓冲',
+        days: 1,
+        pace: 'slow',
+        lat: 44.6,
+        lng: 81.15,
+        summary: '休息补水；若接北疆组合，次日北上奎屯/克拉玛依缓冲。',
+        tips: '疲劳多留一日；勿夜赶赛里木→布尔津。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+      },
+    ],
+  },
+
+  // ── 北疆 · 喀纳斯腿 ──────────────────────────────────────────
+  {
+    id: 'leg-kanas',
+    title: '喀纳斯 · 贾登峪浅住',
+    region: 'xibei',
+    seasons: ['summer', 'autumn'],
+    tripType: 'short',
+    compositionKind: 'leg',
+    fromHome: false,
+    daysLabel: '约4–5天',
+    transport:
+      '经布尔津进贾登峪；景区内强制区间车。可单订（乌市飞/包车），也可作北疆组合末段。',
+    budgetLabel: '本趟约3000–6500元（含预约票+住宿；机票浮动大）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+    summary:
+      '独立短线：住贾登峪或布尔津，靠区间车进景区；观鱼台台阶多，累了远观即返。禾木可另排一日或跳过。可单订，也可接北疆组合。',
+    whyFast: '观鱼台硬爬与禾木可删；只景区车览+空白日也成立。',
+    researchKeywords: [
+      '喀纳斯 预约 区间车',
+      '喀纳斯 父母 攻略',
+      '贾登峪 住宿',
+    ],
+    sources: [
       {
         title: '遇见喀纳斯 · 门票预约平台',
         url: 'https://www.yujiankanasi.com/',
@@ -53,60 +111,102 @@ export const patchRoutes: Route[] = [
     ],
     stops: [
       {
-        id: 'urumqi-base',
-        name: '乌鲁木齐（进出枢纽）',
-        days: 2,
-        pace: 'slow',
-        lat: 43.825,
-        lng: 87.617,
-        summary:
-          '落地休整、取还车、补物资。大巴扎浅逛即可，体力留给北疆公路。',
-        tips:
-          '地窝堡机场取车后先市区住一晚再西行。备润唇膏、防晒、薄羽绒（山区昼夜温差大）。近新疆维吾尔自治区人民医院选酒店。城南穆斯林区回避猪肉。结束后还车飞回北京。',
-        image:
-          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-      },
-      {
-        id: 'sayram-lake',
-        name: '赛里木湖',
-        days: 2,
-        pace: 'slow',
-        lat: 44.6,
-        lng: 81.15,
-        summary:
-          '天山天湖，环湖公路观景台多。慢开、多停，不必硬走全程徒步。',
-        tips:
-          '微信「赛里木湖旅游」提前订门票/自驾服务费。环湖约90公里，放慢到大半天；风大备外套。湖面海拔约2070米，多数人可适应，仍别剧烈运动。自驾入园按人头计费，以现场公告为准。',
-        image:
-          'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
-      },
-      {
-        id: 'kuitun-buffer',
-        name: '奎屯/克拉玛依（北线缓冲）',
-        days: 2,
-        pace: 'slow',
-        lat: 44.427,
-        lng: 84.903,
-        summary:
-          '赛里木与布尔津之间的公路缓冲，电梯酒店休整，不硬加点景区。',
-        tips:
-          '拆开长车程，每周至少1休息日。补给油水后北上布尔津。想看伊犁草原请改订伊犁专线。',
-        image:
-          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
-      },
-      {
         id: 'kanas',
         name: '喀纳斯（贾登峪/布尔津）',
-        days: 4,
+        days: 3,
         pace: 'slow',
         lat: 48.705,
         lng: 87.182,
         summary:
           '湖光与图瓦村落。住贾登峪或布尔津，靠区间车进景区，观鱼台量力而行。',
         tips:
-          '「遇见喀纳斯」小程序或「喀纳斯景区」公众号提前预约（建议≥3天）。景区内强制区间车，少步行。观鱼台时段限流、台阶多，累了远观即返。禾木可另排一日或跳过。7–9月旺，9月中后渐凉、人少。单日车程长时中途服务区必歇。',
+          '「遇见喀纳斯」小程序或「喀纳斯景区」公众号提前预约（建议≥3天）。景区内强制区间车。观鱼台限流、台阶多，累了远观即返。禾木可另排或跳过。7–9月旺，9月中后渐凉。',
         image:
-          'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+      },
+      {
+        id: 'kanas-exit',
+        name: '返乌市缓冲',
+        days: 1,
+        pace: 'fast',
+        lat: 43.825,
+        lng: 87.617,
+        summary: '还车飞京前市区歇一晚；不硬加点。',
+        tips: '单日车程长时中途服务区必歇。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+      },
+    ],
+  },
+
+  // ── 北疆 compose ─────────────────────────────────────────────
+  {
+    id: 'compose-beijiang-sayram-kanas',
+    title: '北疆慢串 · 赛里木到喀纳斯',
+    region: 'xibei',
+    seasons: ['summer', 'autumn'],
+    tripType: 'long',
+    compositionKind: 'compose',
+    fromHome: false,
+    daysLabel: '约2–3周',
+    legIds: ['leg-sayram-lake', 'leg-kanas'],
+    glue: [
+      '乌鲁木齐进出枢纽：落地休整、取还车、补物资（1–2晚，近自治区人民医院电梯房）；大巴扎浅逛即可。',
+      '赛里木→布尔津之间奎屯/克拉玛依缓冲过夜（1–2晚，电梯酒店，不硬加点）；单日驾驶≤5小时。伊犁河谷请改走「伊犁·河谷草原」短线，本廊不深挖。',
+    ],
+    transport:
+      '飞乌鲁木齐取SUV。顺序：赛里木短线 → 奎屯/克拉玛依缓冲 → 喀纳斯短线；段末乌市飞回北京。',
+    budgetLabel: '对照月预算约2万（含租车+机票分摊）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+    summary:
+      '长线组合卡：嵌入赛里木、喀纳斯两条短线；乌市与奎屯/克拉玛依只作进出与缓冲。景点正文见各短线。与伊犁专线拆开，避免一条线塞满南北口。',
+    whyFast:
+      '可只订其中一条短线；走廊可删禾木、观鱼台硬爬与夜赶山路。',
+    researchKeywords: [
+      '北疆 租车 自驾 退休',
+      '赛里木湖 环湖 攻略',
+      '喀纳斯 预约 区间车',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：乌鲁木齐',
+        url: 'https://zh.wikivoyage.org/wiki/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90',
+        kind: 'other',
+        note: '进出枢纽；细节见各短线',
+      },
+      {
+        title: '遇见喀纳斯 · 门票预约平台',
+        url: 'https://www.yujiankanasi.com/',
+        kind: 'official',
+        note: '细节见喀纳斯短线',
+      },
+    ],
+    stops: [
+      {
+        id: 'urumqi-base',
+        name: '乌鲁木齐（进出枢纽）',
+        days: 1.5,
+        pace: 'slow',
+        lat: 43.825,
+        lng: 87.617,
+        summary: '落地休整、取还车、补物资。大巴扎浅逛即可。',
+        tips:
+          '地窝堡机场取车后先市区住一晚再西行。备润唇膏、防晒、薄羽绒。近新疆维吾尔自治区人民医院选酒店。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+      },
+      {
+        id: 'kuitun-buffer',
+        name: '奎屯/克拉玛依（北线缓冲）',
+        days: 1.5,
+        pace: 'slow',
+        lat: 44.427,
+        lng: 84.903,
+        summary: '赛里木与布尔津之间的公路缓冲，电梯酒店休整，不硬加点。',
+        tips: '拆开长车程；补给油水后北上。想看伊犁草原请改订伊犁短线。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
       },
     ],
   },
@@ -198,9 +298,9 @@ export const patchRoutes: Route[] = [
         lng: 99.08,
         summary: '镜面盐湖半日快览；高反或劳累直接跳过，不影响主线。',
         tips:
-          '西宁再往西车程较长，包车当日往返较累。盐壳路面滑，穿防滑鞋、少走长距离。高原不适优先保证青海湖主线。',
+          '盐湖步行短段即可，护目防晒；可整段删除。',
         image:
-          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+          'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800',
       },
     ],
   },

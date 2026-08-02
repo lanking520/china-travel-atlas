@@ -482,4 +482,63 @@ export const patchRoutes: Route[] = [
       },
     ],
   },
+
+  // ── 滇西 · 大理丽江 compose（原 yunnan-dali-lijiang；月租另见 longstay-dali）──
+  {
+    id: 'compose-yunnan-dali-lijiang',
+    title: '滇西慢串 · 大理洱海到丽江',
+    region: 'xinan',
+    seasons: ['spring', 'autumn'],
+    tripType: 'long',
+    compositionKind: 'compose',
+    fromHome: false,
+    daysLabel: '约10–14天（可分段）',
+    legIds: ['leg-dali-erhai', 'leg-lijiang-taste'],
+    glue: [
+      '昆明可选中转缓冲（翠湖浅逛即可，不作强制加点）；直飞大理更省事。',
+      '大理→丽江高铁约1.5小时；丽江海拔抬升须心肺评估。沙溪可选包车日归/过夜，行程紧可删。月租级洱海慢居请改订 longstay-dali，勿把本廊垫成四周。',
+    ],
+    transport:
+      '飞昆明转高铁或直飞大理进。顺序：大理洱海短线 → 丽江浅尝短线；段末丽江或昆明飞回北京。',
+    budgetLabel: '对照约1.2–2万（机票+电梯房；索道另计；双人）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
+    summary:
+      '长线组合卡：嵌入大理洱海、丽江浅尝两条短线；昆明/沙溪只作衔接。景点正文见各短线。约一个月月租见「大理·洱海慢居」；含成都的更长廊见川滇组合。',
+    whyFast:
+      '可只订其中一条短线；走廊可删玉龙大索道与丽江整段。月租勿垫进本廊。',
+    researchKeywords: [
+      '大理 丽江 高铁 父母',
+      '大理 慢住 退休',
+      '丽江 索道 父母',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：大理',
+        url: 'https://zh.wikivoyage.org/wiki/%E5%A4%A7%E7%90%86',
+        kind: 'other',
+        note: '细节见大理短线',
+      },
+      {
+        title: 'Wikivoyage：丽江',
+        url: 'https://zh.wikivoyage.org/wiki/%E4%B8%BD%E6%B1%9F',
+        kind: 'other',
+        note: '细节见丽江短线',
+      },
+    ],
+    stops: [
+      {
+        id: 'kunming-dali-lijiang-buffer',
+        name: '昆明（可选中转）',
+        days: 1,
+        pace: 'fast',
+        lat: 25.038,
+        lng: 102.718,
+        summary: '经昆明转机/高铁时翠湖浅逛即可；直飞大理可删。',
+        tips: '防晒；次日转大理。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
+      },
+    ],
+  },
 ];

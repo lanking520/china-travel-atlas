@@ -76,10 +76,11 @@ Do **not** duplicate stop text inside every compose.
 - Shipped: `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi` as legs; `compose-nanjiang-kuqa-kashi` replaces `xibei-xinjiang-south` (legIds + glue; 阿克苏 overnight only).
 - Shipped: `base-kashi` with `nearbyLegs`; detail page「周边短线」reads `nearbyLegs`.
 - Schema: `compositionKind` / `legIds` / `glue` / `nearbyLegs` on `Route`.
-- Still open: national long→compose **remaining**（北疆 / 青藏铁路·林芝 / 苏杭长线 / `yunnan-dali-lijiang` 月租形 / 半岛慢住等）；Explore 长居 chip polish 可选。
+- Still open: national long→compose **remaining**（青藏铁路·林芝·拉萨海拔诚实；`yunnan-hekou-sapa-corridor` 若可拆）；Explore 长居 chip polish 可选。
 - Shipped: `base-guilin` / `base-guiyang` with nearbyLegs（阳朔/漓江；镇远/黄果树/黔东南/loop）。
 - Shipped UX: Explore 短线/长线 chips + compose detail **组合时间线** (legs + glue).
 - Shipped national batch 1 (20260802): `compose-qinggan-xining-hexi` / `compose-silkroad-xian-turpan` / `compose-chuandian-chengdu-dali-lijiang` / `compose-jinghu-coast`；退役四个 `national-*`（dead-lead OK）。
+- Shipped national batch 2 (20260802): `compose-beijiang-sayram-kanas` / `compose-suhan-hangzhou-huangshan` / `compose-yunnan-dali-lijiang` / `compose-shandong-qingdao-yantai`；退役 `xibei-xinjiang-north` / `huadong-suhan-slow` / `yunnan-dali-lijiang` / `huabei-shandong-coast`；`xibei-xinjiang-yili` 收为 leg；`longstay-dali` nearbyLegs 链滇西短线/组合。
 
 ## Second corridor — 河西（shipped 20260802）
 

@@ -22,7 +22,9 @@ export const routeProvinces: Record<
   'huabei-shanxi-pingyao-deep': { primary: 'shanxi' },
   'huabei-neimeng-summer': { primary: 'neimenggu' },
   'huabei-neimeng-hulunbuir': { primary: 'neimenggu' },
-  'huabei-shandong-coast': { primary: 'shandong' },
+  'leg-qingdao-coast': { primary: 'shandong' },
+  'leg-qingdao-laoshan': { primary: 'shandong' },
+  'compose-shandong-qingdao-yantai': { primary: 'shandong' },
   'huabei-shandong-yantai': { primary: 'shandong' },
   'huabei-shandong-taishan': { primary: 'shandong' },
   // 东北
@@ -37,7 +39,7 @@ export const routeProvinces: Record<
   'huadong-suzhou-nanjing': { primary: 'jiangsu' },
   'huadong-jiangsu-yangzhou': { primary: 'jiangsu' },
   'huadong-hangzhou-suzhou': { primary: 'zhejiang' },
-  'huadong-suhan-slow': {
+  'compose-suhan-hangzhou-huangshan': {
     primary: 'zhejiang',
     also: ['jiangsu', 'anhui'],
   },
@@ -68,7 +70,7 @@ export const routeProvinces: Record<
   'compose-chuanxi-chengdu-leshan-jiuzhai': { primary: 'sichuan' },
   'xinan-guizhou-loop': { primary: 'guizhou' },
   'xinan-guizhou-zhenyuan': { primary: 'guizhou' },
-  'yunnan-dali-lijiang': { primary: 'yunnan' },
+  'compose-yunnan-dali-lijiang': { primary: 'yunnan' },
   'yunnan-xishuangbanna-winter': { primary: 'yunnan' },
   'yunnan-dianxi-tengchong': { primary: 'yunnan' },
   // 西北 / 青藏
@@ -78,7 +80,9 @@ export const routeProvinces: Record<
   'xibei-lanzhou-xiahe': { primary: 'gansu' },
   'xibei-ningxia-3d': { primary: 'ningxia' },
   'xibei-ningxia-shapotou': { primary: 'ningxia' },
-  'xibei-xinjiang-north': { primary: 'xinjiang' },
+  'leg-sayram-lake': { primary: 'xinjiang' },
+  'leg-kanas': { primary: 'xinjiang' },
+  'compose-beijiang-sayram-kanas': { primary: 'xinjiang' },
   'xibei-xinjiang-yili': { primary: 'xinjiang' },
   'compose-nanjiang-kuqa-kashi': { primary: 'xinjiang' },
   'leg-kuqa-canyon': { primary: 'xinjiang' },

@@ -263,34 +263,111 @@ export const patchRoutes: Route[] = [
     ],
   },
 
-  // ── 青岛市县域织补（崂山·即墨）────────────────────────────
+  // ── 青岛 · 崂山即墨腿（原 coast 抽出）──────────────────────
   {
-    id: 'huabei-shandong-coast',
-    title: '青岛慢住 · 崂山即墨与烟威',
+    id: 'leg-qingdao-laoshan',
+    title: '青岛 · 崂山与即墨浅段',
+    region: 'huabei',
+    seasons: ['summer', 'autumn'],
+    tripType: 'short',
+    compositionKind: 'leg',
+    fromHome: true,
+    daysLabel: '约3–4天',
+    transport:
+      '青岛市区包车/景区巴士至仰口或太清；即墨古城城际/打车。可单订（接滨海短线同城连住），也可作半岛组合中段。',
+    budgetLabel: '本趟约1500–3500元（门票+包车；不含京青往返）',
+    coverImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+    summary:
+      '独立短线：崂山仰口或太清二选一（索道/观光车减负），即墨古城半日平缓街巷；与滨海栈道分日。可单订，也可接半岛组合北延烟台。',
+    whyFast: '即墨可删；崂山只留一个索道点。勿一日崂山+即墨+栈桥。',
+    researchKeywords: [
+      '青岛 崂山 仰口 父母',
+      '即墨古城 慢逛',
+      '崂山 索道 适老',
+    ],
+    sources: [
+      {
+        title: 'Wikivoyage：青岛',
+        url: 'https://zh.wikivoyage.org/wiki/%E9%9D%92%E5%B2%9B',
+        kind: 'other',
+        note: '崂山与分区概览，已改写',
+      },
+      {
+        title: '青岛市文化和旅游局',
+        url: 'https://whlyj.qingdao.gov.cn/',
+        kind: 'official',
+        note: '景区开放以官网为准',
+      },
+    ],
+    stops: [
+      {
+        id: 'laoshan-yangkou',
+        name: '崂山仰口或太清（二选一）',
+        days: 1.5,
+        pace: 'slow',
+        lat: 36.23,
+        lng: 120.67,
+        summary: '崂山区海岸线：仰口或太清选一；索道/观光车减负，少登陡段。',
+        tips: '提前查景区小程序预约；雾天观景差可改期。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+      },
+      {
+        id: 'jimo-oldtown',
+        name: '即墨古城（县域浅逛）',
+        days: 1,
+        pace: 'slow',
+        lat: 36.389,
+        lng: 120.447,
+        summary: '即墨区古城街巷平缓，半日足够；当晚回青岛市区。',
+        tips: '与崂山分日。商业街可浅尝即走。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+      },
+      {
+        id: 'laoshan-buffer',
+        name: '青岛空白缓冲',
+        days: 1,
+        pace: 'slow',
+        lat: 36.067,
+        lng: 120.383,
+        summary: '休息补水；若接半岛组合，次日高铁北延烟台。',
+        tips: '疲劳多留一日；勿一日多县域。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
+      },
+    ],
+  },
+
+  // ── 半岛 compose（原 huabei-shandong-coast）────────────────
+  {
+    id: 'compose-shandong-qingdao-yantai',
+    title: '胶东半岛慢串 · 青岛到烟台',
     region: 'huabei',
     seasons: ['summer', 'autumn'],
     tripType: 'long',
+    compositionKind: 'compose',
     fromHome: true,
     daysLabel: '约10天–2周',
+    legIds: [
+      'leg-qingdao-coast',
+      'leg-qingdao-laoshan',
+      'huabei-shandong-yantai',
+    ],
+    glue: [
+      '青岛滨海与崂山/即墨同城连住，分日安排，勿一日栈桥+崂山特种兵。',
+      '青岛→烟台高铁约1.5–2小时；威海/刘公岛可选城际延伸（glue，可整段删）。长居向威海见长居推荐主题。',
+    ],
     transport:
-      '北京南高铁至青岛约3–3.5小时；崂山仰口/太清景区巴士或包车；即墨古城城际/打车；烟台威海高铁；结束后高铁或飞回北京',
+      '北京南高铁至青岛进。顺序：青岛滨海短线 → 崂山即墨短线 → 烟台芝罘短线；段末烟台或青岛高铁/飞回北京。',
     budgetLabel: '对照月预算约2万（高铁+住宿+海鲜+崂山门票；双人）',
     coverImage:
-      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
     summary:
-      '青岛市南慢住为锚，补上崂山区海岸与索道减负段、即墨区古城平缓街巷；体力好可北延威海。想在烟台多住几天，改走独立线「烟台慢住」。县域点分散到不同周，勿一日崂山+即墨+栈桥特种兵。',
-    introduction:
-      '青岛地级市范畴含市南/市北、崂山、即墨、胶州、黄岛等。爸妈优先：市南海滨栈道、崂山仰口或太清（索道/观光车）、即墨古城；胶州少海、黄岛金沙滩可选但本线不强制。\n\n威海为半岛城际延伸；烟台独立慢住见 `huabei-shandong-yantai`。',
-    seasonGuide:
-      '夏秋宜。暑期崂山与海滨拥堵，错峰早出。秋日海风凉备外套。',
-    notices: [
-      '崂山分景区，选一处即可，勿赶全山。',
-      '海鲜控盐控生冷。',
-      '即墨古城石板防滑鞋。',
-      '烟威段可整段删，留给青岛空白日。',
-    ],
+      '长线组合卡：嵌入青岛滨海、崂山即墨、烟台芝罘三条短线；威海只可选延伸。景点正文见各短线。县域点分散到不同日，勿半岛环线硬赶。',
     whyFast:
-      '烟台山、刘公岛、即墨可各半日；崂山只留一个索道点。',
+      '可只订其中一条短线；走廊可删崂山、烟台或威海整段。',
     researchKeywords: [
       '青岛 崂山 仰口 父母',
       '即墨古城 慢逛',
@@ -302,95 +379,27 @@ export const patchRoutes: Route[] = [
         title: 'Wikivoyage：青岛',
         url: 'https://zh.wikivoyage.org/wiki/%E9%9D%92%E5%B2%9B',
         kind: 'other',
-        note: '海滨与分区概览，已改写',
-      },
-      {
-        title: '青岛市文化和旅游局',
-        url: 'https://whlyj.qingdao.gov.cn/',
-        kind: 'official',
-        note: '景区开放以官网为准',
+        note: '细节见青岛短线',
       },
       {
         title: 'Wikivoyage：烟台',
         url: 'https://zh.wikivoyage.org/wiki/%E7%83%9F%E5%8F%B0',
         kind: 'other',
-        note: '半岛延伸参考',
+        note: '细节见烟台短线',
       },
     ],
     stops: [
       {
-        id: 'qingdao-base',
-        name: '青岛市区（慢住基地）',
-        days: 6,
-        pace: 'slow',
-        lat: 36.067,
-        lng: 120.383,
-        summary:
-          '市南近海或李沧电梯酒店；每天一段栈道或老街，下午午睡。',
-        tips: '北京南→青岛约3小时。每周留空白日。回京高铁或直飞。',
-        image:
-          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-      },
-      {
-        id: 'badaguan',
-        name: '八大关 + 汇泉湾栈道',
-        days: 2,
-        pace: 'slow',
-        lat: 36.055,
-        lng: 120.348,
-        summary: '树荫坡缓，早晚慢走；栈道平坦，累了坐长椅。',
-        tips: '避正午紫外线。不必强爬信号山。',
-        image:
-          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
-      },
-      {
-        id: 'laoshan-yangkou',
-        name: '崂山仰口或太清（二选一）',
-        days: 1,
-        pace: 'slow',
-        lat: 36.23,
-        lng: 120.67,
-        summary:
-          '崂山区海岸线：仰口或太清选一；索道/观光车减负，少登陡段。',
-        tips: '提前查景区小程序预约；雾天观景差可改期。',
-        image:
-          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-      },
-      {
-        id: 'jimo-oldtown',
-        name: '即墨古城（县域浅逛）',
-        days: 1,
-        pace: 'slow',
-        lat: 36.389,
-        lng: 120.447,
-        summary: '即墨区古城街巷平缓，半日足够；当晚回青岛基地。',
-        tips: '与崂山分日。商业街可浅尝即走。',
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800',
-      },
-      {
-        id: 'yantai-optional',
-        name: '烟台（可选2日）',
-        days: 2,
-        pace: 'slow',
-        lat: 37.539,
-        lng: 121.391,
-        summary: '烟台山与滨海路；高铁或包车自青岛往返。',
-        tips: '台阶可走一段即返。',
-        image:
-          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-      },
-      {
         id: 'weihai-optional',
-        name: '威海 / 刘公岛（可选1–2日）',
-        days: 2,
+        name: '威海 / 刘公岛（可选 glue）',
+        days: 1.5,
         pace: 'fast',
         lat: 37.513,
         lng: 122.121,
-        summary: '滨海平整；刘公岛轮渡+观光车。长居向见「长居推荐·威海」。',
-        tips: '风浪大可改市区海边。结束后经烟台或青岛回京。',
+        summary: '烟台后可选城际延伸；滨海平整，刘公岛轮渡+观光车。',
+        tips: '风浪大可改市区海边或整段删。长居见威海主题。',
         image:
-          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
       },
     ],
   },
@@ -728,24 +737,25 @@ export const patchRoutes: Route[] = [
     ],
   },
 
-  // ── 烟台市独立慢住（从青岛线拆出）────────────────────────
+  // ── 烟台市独立短线（半岛组合可嵌入）────────────────────────
   {
     id: 'huabei-shandong-yantai',
-    title: '烟台慢住 · 芝罘与蓬莱浅走',
+    title: '烟台 · 芝罘与蓬莱浅走',
     region: 'huabei',
     seasons: ['summer', 'autumn'],
-    tripType: 'long',
+    tripType: 'short',
+    compositionKind: 'leg',
     fromHome: true,
-    daysLabel: '约5–8天',
+    daysLabel: '约5–7天',
     transport:
-      '北京南高铁至烟台约4–5小时（或经青岛中转）；市区打车；蓬莱城际/包车；长岛轮渡视风浪。结束后高铁或经青岛回京',
-    budgetLabel: '对照月预算约1.2–1.8万（高铁+电梯酒店+海鲜；双人）',
+      '北京南高铁至烟台约4–5小时（或经青岛中转）；市区打车；蓬莱城际/包车；长岛轮渡视风浪。结束后高铁或经青岛回京。可单订，也可作半岛组合末段。',
+    budgetLabel: '本趟约2500–5500元（高铁+电梯酒店+海鲜；双人）',
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/%E7%85%99%E5%8F%B0%E5%B1%B1%E6%99%AF%E5%8D%80.jpg/1280px-%E7%85%99%E5%8F%B0%E5%B1%B1%E6%99%AF%E5%8D%80.jpg',
     summary:
-      '把烟台从青岛延伸段拆成独立慢住：芝罘烟台山与滨海路为锚，蓬莱阁外观可选，长岛轮渡风浪大可整段删。不与青岛崂山同日特种兵。',
+      '独立短线：芝罘烟台山与滨海路为锚，蓬莱阁外观可选，长岛轮渡风浪大可整段删。可单订，也可接半岛组合（青岛后来）。不与青岛崂山同日特种兵。',
     introduction:
-      '烟台下辖芝罘、莱山、蓬莱区等。爸妈优先芝罘近海电梯酒店连续住，每天最多一处日归。\n\n蓬莱与长岛分日；招远金矿/栖霞主题本线默认不排。青岛线仍可把烟台标为可选延伸，本线给想多住几天的家庭。',
+      '烟台下辖芝罘、莱山、蓬莱区等。爸妈优先芝罘近海电梯酒店连续住，每天最多一处日归。\n\n蓬莱与长岛分日；招远金矿/栖霞主题本线默认不排。半岛长廊见「胶东半岛慢串」。',
     seasonGuide:
       '夏秋宜。暑期海滨人多错峰早晚；秋日海风凉备外套。冬季风大非刚需可缩短。',
     notices: [
@@ -779,7 +789,7 @@ export const patchRoutes: Route[] = [
       {
         id: 'yt-zhifu-base',
         name: '芝罘慢住基地',
-        days: 4,
+        days: 3,
         pace: 'slow',
         lat: 37.539,
         lng: 121.391,

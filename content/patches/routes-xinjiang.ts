@@ -2,29 +2,30 @@ import type { Route } from '../types';
 
 /**
  * 新疆多线深挖（同省多 primary）。
- * 北疆经典线仍在 routes-northwest.ts 的 xibei-xinjiang-north（已收紧，少与伊犁线重叠）。
+ * 北疆赛里木—喀纳斯见 routes-northwest：leg-sayram-lake / leg-kanas / compose-beijiang-sayram-kanas。
  */
 export const patchRoutes: Route[] = [
   {
     id: 'xibei-xinjiang-yili',
-    title: '伊犁 · 河谷草原慢住',
+    title: '伊犁 · 河谷草原浅住',
     region: 'xibei',
     seasons: ['summer', 'autumn'],
-    tripType: 'long',
+    tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
-    daysLabel: '约10–14天',
+    daysLabel: '约5–7天',
     transport:
-      '飞乌鲁木齐转伊宁，或乌市取车西行；河谷内短途自驾/包车，单日≤4小时。结束后经乌市飞回北京。',
-    budgetLabel: '对照月预算约1.5–2万（机票+租车/包车+住宿）',
+      '飞乌鲁木齐转伊宁，或乌市取车西行；河谷内短途自驾/包车，单日≤4小时。结束后经乌市飞回北京。赛里木环湖另见独立短线，可与本腿衔接但不复述正文。',
+    budgetLabel: '本趟约3000–6500元（机票+租车/包车+住宿）',
     coverImage:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
     summary:
-      '以伊宁为基地，赛里木环湖、那拉提/喀拉峻分段看草原，不赶独库全程。适合想慢住河谷、少走北疆长车程的父母。',
-    whyFast: '赛里木半日环湖观景台；那拉提可选索道，恐高只看山下。',
+      '独立短线：以伊宁为基地，那拉提/喀拉峻分段看草原，不赶独库全程。赛里木请订「赛里木湖·环湖浅段」或北疆组合，本卡不复写湖区正文。适合少走喀纳斯长车程的父母。',
+    whyFast: '喀拉峻可删；那拉提可选索道，恐高只看山下。赛里木另线。',
     researchKeywords: [
       '伊犁 自驾 攻略',
       '那拉提 喀拉峻 慢游',
-      '赛里木湖 伊宁 两日',
+      '伊宁 五日 父母',
     ],
     sources: [
       {
@@ -33,37 +34,19 @@ export const patchRoutes: Route[] = [
         kind: 'other',
         note: 'CC 署名，已改写',
       },
-      {
-        title: '乌鲁木齐本地宝：赛里木湖预约',
-        url: 'http://wlmq.bendibao.com/news/2023831/57403.shtm',
-        kind: 'other',
-        note: '票务以当日公告为准',
-      },
     ],
     stops: [
       {
         id: 'yining-base',
         name: '伊宁（河谷基地）',
-        days: 3,
+        days: 2,
         pace: 'slow',
         lat: 43.917,
         lng: 81.324,
-        summary: '电梯酒店休整，吃面喝奶茶，作为赛里木与草原的往返基地。',
-        tips: '优先近市中心电梯房；昼夜温差大备薄外套。留空白日，不连轴转。',
+        summary: '电梯酒店休整，吃面喝奶茶，作为草原日归基地。',
+        tips: '优先近市中心电梯房；昼夜温差大备薄外套。留空白日。',
         image:
-          'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-      },
-      {
-        id: 'sayram-yili',
-        name: '赛里木湖',
-        days: 2,
-        pace: 'slow',
-        lat: 44.6,
-        lng: 81.15,
-        summary: '从伊宁往返环湖，多停观景台，不必徒步。',
-        tips: '公众号提前订票；风大备外套；海拔约2070米，慢走即可。',
-        image:
-          'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
       },
       {
         id: 'nalati',
@@ -75,19 +58,19 @@ export const patchRoutes: Route[] = [
         summary: '空中草原可坐索道；膝盖不适者山下观光车浅看。',
         tips: '旺季预约交通车；一日足够，勿安排连赶喀拉峻。',
         image:
-          'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
       },
       {
         id: 'kalajun',
         name: '喀拉峻（可选）',
-        days: 2,
+        days: 1.5,
         pace: 'slow',
         lat: 42.95,
         lng: 82.4,
         summary: '与那拉提二选一加深也可；累了直接跳过回伊宁。',
         tips: '景交为主，少步行；雨天草地滑，穿防滑鞋。',
         image:
-          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
       },
     ],
   },

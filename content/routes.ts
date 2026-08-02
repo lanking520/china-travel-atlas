@@ -471,129 +471,7 @@ export const routes: Route[] = [
     ],
   },
 
-  // ── 西南 · 云南长线 ──────────────────────────────────────────
-  {
-    id: 'yunnan-dali-lijiang',
-    title: '云南 · 大理慢住丽江快览',
-    region: 'xinan',
-    seasons: ['spring', 'autumn'],
-    tripType: 'long',
-    fromHome: false,
-    daysLabel: '约4–6周',
-    transport:
-      '飞昆明（或直飞大理），高铁约2小时至大理；环海包车/当地租车；丽江段高铁1.5小时+包车',
-    budgetLabel: '对照月预算约2万（含往返机票分摊）',
-    coverImage:
-      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200',
-    summary:
-      '飞昆明中转后直奔大理，洱海边慢住三四周——环海选段包车、每天最多一两个点，每周留空白日。体力好时用1–2日快览丽江（优先云杉坪+蓝月谷；大索道海拔高，按身体状况决定）。结束后飞回北京休整。',
-    whyFast: '丽江海拔更高、人流更密，适合作为短途高光，不宜长住赶景点。',
-    researchKeywords: [
-      '大理 长住 短租 退休',
-      '大理 丽江 节奏 带父母',
-      '沙溪古镇 住宿 推荐',
-    ],
-    sources: [
-      {
-        title: 'Wikivoyage：大理',
-        url: 'https://zh.wikivoyage.org/wiki/%E5%A4%A7%E7%90%86',
-        kind: 'other',
-        note: 'CC 署名，已改写',
-      },
-      {
-        title: 'Wikivoyage：丽江',
-        url: 'https://zh.wikivoyage.org/wiki/%E4%B8%BD%E6%B1%9F',
-        kind: 'other',
-        note: 'CC 署名，已改写',
-      },
-      {
-        title: '丽江旅游集团：索道购票须知',
-        url: 'https://www.ljbbs.com/ljtour/tournews/2025-01-05/74835.html',
-        kind: 'official',
-        note: '索道预约与海拔分区选择',
-      },
-      {
-        title: '携程：大理中老年慢游（参考）',
-        url: 'https://hk.trip.com/moments/detail/dali-city-1445616-143883965/',
-        kind: 'other',
-        note: '慢住节奏与环海建议，非官方政策',
-      },
-      {
-        title: '小红书：带爸妈旅居大理（参考）',
-        url: 'https://www.xiaohongshu.com/explore/6a64bcb50000000005039f24',
-        kind: 'xiaohongshu',
-        note: '短租节奏与选院要点，非官方政策',
-      },
-      {
-        title: '小红书社区检索：大理小院|房东直租|周租300月租880包水电（改写参考）',
-        url: 'https://www.xiaohongshu.com/explore/6a687e44000000001302c698',
-        kind: 'xiaohongshu',
-        note: '公开笔记标题归纳，非官方政策；请自行打开复核',
-      },
-      {
-        title: '小红书社区检索：大理小院|周租350半月550月租800包水电（改写参考）',
-        url: 'https://www.xiaohongshu.com/explore/6a6dc5170000000035014090',
-        kind: 'xiaohongshu',
-        note: '公开笔记标题归纳，非官方政策；请自行打开复核',
-      },
-    ],
-    stops: [
-      {
-        id: 'kunming-transfer',
-        name: '昆明（中转）',
-        days: 1,
-        pace: 'fast',
-        lat: 25.038,
-        lng: 102.718,
-        summary: '翠湖、滇池边平地散步，适应云南气候。不必久留，次日高铁转大理。',
-        tips:
-          '防晒必备；可尝过桥米线。昆明海拔1890米，一般无高反，但首日仍宜慢走。选近昆明站/昆明南站的酒店，方便次日转高铁。',
-        image:
-          'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?w=800',
-      },
-      {
-        id: 'dali-base',
-        name: '大理（慢游基地）',
-        days: 21,
-        pace: 'slow',
-        lat: 25.606,
-        lng: 100.267,
-        summary:
-          '古城外择安静客栈慢住，环洱海选段包车或电瓶车，每天最多一两个点，每周留2–3个空白日。',
-        tips:
-          '洱海生态廊道全程平坦，走累了随时有休息椅，也可坐共享电瓶车。环海建议包车（约200–300元/天），司机送到景点门口。才村/龙龛一带短租多，建议先订一周试住再续月租；选有电梯、近大理市第一人民医院的客栈，问清是否包水电。三月樱花、十一月红树；紫外线强，避开正午暴晒。龙龛码头发呆、地热国泡温泉都是不错的休息日选择。',
-        image:
-          'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
-      },
-      {
-        id: 'shaxi',
-        name: '沙溪古镇（可选）',
-        days: 2,
-        pace: 'slow',
-        lat: 26.317,
-        lng: 99.857,
-        summary: '茶马古道遗珠，比大理更静，石板路平缓，适合住一晚慢慢逛。',
-        tips:
-          '从大理包车往返约2小时，不必搬行李。古镇小，半天即可逛完，另留半天休息。适合作为大理慢住期间的换口味短途。',
-        image:
-          'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800',
-      },
-      {
-        id: 'lijiang-fast',
-        name: '丽江 · 玉龙雪山快览',
-        days: 2,
-        pace: 'fast',
-        lat: 26.876,
-        lng: 100.229,
-        summary:
-          '建议优先云杉坪小索道（3240米）+ 蓝月谷（2950米），栈道平缓、风景好。大索道4506米海拔高，须在丽江适应1–2日且无基础病再考虑。',
-        tips:
-          '索道票在「丽江旅游集团」小程序预约：大索道20:00放次日票，云杉坪21:00放票。60–69门票半价、70+免票。到大理后至少过一周再去丽江，别刚到就上山。备氧气与厚外套；感到气短立即停下吸氧。有基础病或感觉不适时，只逛蓝月谷即可。',
-        image:
-          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
-      },
-    ],
-  },
+  // ── 西南 · 云南长线已迁至 patches/routes-national-loops：compose-yunnan-dali-lijiang（reuse leg-dali-erhai / leg-lijiang-taste）；月租见 longstay-dali ──
 
   // ── 西北 · 丝路长线（河西已迁至 patches/routes-deepen-gansu：leg-dunhuang-mogao / leg-zhangye-danxia / compose-hexi-dunhuang-zhangye）──
 
@@ -682,6 +560,7 @@ export const routes: Route[] = [
     region: 'huadong',
     seasons: ['spring', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     daysLabel: '约5天',
     transport: '高铁至杭州；结束后高铁返京。苏州请走江苏专线「苏州园林 · 南京可选」。',

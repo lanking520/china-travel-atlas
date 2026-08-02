@@ -8,6 +8,7 @@ export const patchRoutes: Route[] = [
     region: 'huadong',
     seasons: ['spring', 'autumn'],
     tripType: 'short',
+    compositionKind: 'leg',
     fromHome: false,
     daysLabel: '3–5天',
     transport:

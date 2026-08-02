@@ -21,8 +21,8 @@ export const patchRoutes: Route[] = [
     coverImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
     summary:
-      '独立短线：市南近海电梯酒店连住；八大关/栈道分日早晚走。烟台威海另线，本卡不北延。可单订，也可接京沪沿海组合。',
-    whyFast: '崂山可删；只留栈道+空白日也成立。更长半岛慢住见「青岛慢住·崂山即墨与烟威」。',
+      '独立短线：市南近海电梯酒店连住；八大关/栈道分日早晚走。烟台威海另线，本卡不北延。可单订，也可接京沪沿海或半岛组合。',
+    whyFast: '崂山见「青岛·崂山与即墨浅段」；只留栈道+空白日也成立。半岛长廊见「胶东半岛慢串」。',
     researchKeywords: [
       '青岛 滨海 栈道 父母',
       '青岛 八大关 慢住',

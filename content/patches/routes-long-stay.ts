@@ -14,6 +14,11 @@ export const patchRoutes: Route[] = [
     tripType: 'long',
     fromHome: false,
     themes: ['long-stay'],
+    nearbyLegs: [
+      'leg-dali-erhai',
+      'leg-lijiang-taste',
+      'compose-yunnan-dali-lijiang',
+    ],
     daysLabel: '约一个月',
     transport:
       '北京飞大理（或经昆明转），住下洱海侧电梯短租；环海/沙溪包车日归；段末大理或昆明飞回北京',

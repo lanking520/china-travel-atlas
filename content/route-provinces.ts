@@ -161,4 +161,17 @@ export const routeProvinces: Record<
   'huadong-jiangxi-lushan': { primary: 'jiangxi' },
   'huadong-zhejiang-shaoxing': { primary: 'zhejiang' },
   'huabei-shanxi-wutai': { primary: 'shanxi' },
+  // Famous P1 20260802 (taishan overwrite keeps key)
+  'huanan-fujian-wuyi': { primary: 'fujian' },
+  'huanan-guangxi-beihai': { primary: 'guangxi' },
+  'huadong-zhejiang-putuo': { primary: 'zhejiang' },
+  'huanan-guangdong-kaiping': { primary: 'guangdong' },
+  'huanan-guangdong-danxia': { primary: 'guangdong' },
+  'huadong-anhui-jiuhua': { primary: 'anhui' },
+  'huadong-zhejiang-qiandao': { primary: 'zhejiang' },
+  'xinan-chongqing-wulong': { primary: 'chongqing' },
+  'xinan-guizhou-huangguoshu': { primary: 'guizhou' },
+  'huadong-jiangsu-changzhou': { primary: 'jiangsu' },
+  'huadong-zhejiang-wenzhou': { primary: 'zhejiang' },
+  'huanan-guangdong-huizhou': { primary: 'guangdong' },
 };

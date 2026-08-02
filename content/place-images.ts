@@ -22,6 +22,27 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'zhuhai-optional', // 珠海可选 ↔ 珠海主图同城
   'shapotou-optional', // 沙坡头可选 ↔ 沙坡头主图同景区
   'datong-zuoyun-optional', // 左云无可用风景 Commons → 云冈同廊示意
+  // famous P1 soft same-corridor
+  'bh-oldtown', // 老街无专用 → 银滩同城
+  'bh-weizhou-optional', // 涠洲专用照稀缺 → 北海银滩同廊示意（勿用外省海边）
+  'wy-tea-optional', // 茶馆 ↔ 九曲同景区
+  'wy-tianyuan-optional', // 天游 ↔ 玉女峰同景区
+  'pt-gate', // 沈家门缓冲 ↔ 普陀同廊
+  'pt-foding-optional', // 佛顶 ↔ 普陀同岛
+  'kp-base', // 开平住 ↔ 碉楼同廊
+  'kp-jinjiang-optional', // 锦江里 ↔ 自力/碉楼同遗产廊
+  'dx-shaoguan-gate', // 韶关缓冲 ↔ 丹霞同廊
+  'wl-cq-buffer', // 重庆缓冲 ↔ 武隆三桥同廊示意
+  'wl-town', // 武隆城 ↔ 三桥同廊
+  'hg-guiyang-gate', // 贵阳进出 ↔ 黄果树同省廊
+  'hg-anshun-rest', // 安顺歇 ↔ 黄果树同廊
+  'cz-base', // 常州住 ↔ 天宁同城
+  'cz-yancheng-optional', // 淹城 ↔ 常州同城示意
+  'wz-city-optional', // 温州缓冲 ↔ 市区照；雁荡另有专用
+  'hz-sizhou-optional', // 泗洲塔 ↔ 西湖同城
+  'hz-shuangyue-optional', // 双月湾无专用 → 惠州西湖同市示意
+  'qd-hangzhou-note', // 返杭缓冲：西湖专用照，标注同廊衔接
+  'qufu-exit', // 曲阜东 ↔ 孔庙同城
 
   'wh-wuchang-base',
   'wh-jianghan-optional',
@@ -283,6 +304,31 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Shaoxing_Cityscape.jpg/1280px-Shaoxing_Cityscape.jpg',
   'huabei-shanxi-wutai':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Wutai_shan_temples.jpg/1280px-Wutai_shan_temples.jpg',
+  // famous P1 20260802
+  'huanan-fujian-wuyi':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Peak_Yunu.jpg/1280px-Peak_Yunu.jpg',
+  'huanan-guangxi-beihai':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/BeiHaiYanTan.jpg/1280px-BeiHaiYanTan.jpg',
+  'huadong-zhejiang-putuo':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Putuoshan.jpg/1280px-Putuoshan.jpg',
+  'huanan-guangdong-kaiping':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Jinjiangli_0004.jpg/1280px-Jinjiangli_0004.jpg',
+  'huanan-guangdong-danxia':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/39002-Danxiashan_%2848989060302%29.jpg/1280px-39002-Danxiashan_%2848989060302%29.jpg',
+  'huadong-anhui-jiuhua':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Jiuhuashan_yunhai.JPG/1280px-Jiuhuashan_yunhai.JPG',
+  'huadong-zhejiang-qiandao':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Thousand_Island_Lake.JPG/1280px-Thousand_Island_Lake.JPG',
+  'xinan-chongqing-wulong':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Wulongtianshengsanqiao.JPG/1280px-Wulongtianshengsanqiao.JPG',
+  'xinan-guizhou-huangguoshu':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Huangguoshu_Waterfall.jpg/1280px-Huangguoshu_Waterfall.jpg',
+  'huadong-jiangsu-changzhou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Tianning_Temple_with_Tianning_Pagoda.jpg/1280px-Tianning_Temple_with_Tianning_Pagoda.jpg',
+  'huadong-zhejiang-wenzhou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/China2011_Zhejiang_YandangShan.jpg/1280px-China2011_Zhejiang_YandangShan.jpg',
+  'huanan-guangdong-huizhou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
 };
 
 export const PLACE_STOP_IMAGES: Record<string, string> = {
@@ -529,7 +575,9 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'wudang-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Wudangshan_pic_7.jpg/1280px-Wudangshan_pic_7.jpg',
   'wudang-jinding': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Wudangshan_pic_7.jpg/1280px-Wudangshan_pic_7.jpg',
   'wulingyuan-cable': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/1280px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg',
-  'wulong-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Wulong_Karst.jpg/1280px-Wulong_Karst.jpg',
+  // Wulong_Karst.jpg 已 404；改用天生三桥实拍
+  'wulong-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Wulongtianshengsanqiao.JPG/1280px-Wulongtianshengsanqiao.JPG',
   'wuyuan-huangling': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Wuyuan_Jiangxi.jpg/1280px-Wuyuan_Jiangxi.jpg',
   'wuyuan-jiangling': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Wuyuan_Jiangxi.jpg/1280px-Wuyuan_Jiangxi.jpg',
   'wuyuan-village': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Wuyuan_Jiangxi.jpg/1280px-Wuyuan_Jiangxi.jpg',
@@ -826,6 +874,79 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Wutai_2009_431.jpg/1280px-Wutai_2009_431.jpg',
   'wt-dailuoding-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Wutai_Shan_Buddhist_Garden_woodwork.jpg/1280px-Wutai_Shan_Buddhist_Garden_woodwork.jpg',
+  // famous P1 stops
+  'wy-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Jiuqu_Brook_in_Wuyi_Mountains.jpg/1280px-Jiuqu_Brook_in_Wuyi_Mountains.jpg',
+  'wy-jiuqu-raft':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Peak_Yunu.jpg/1280px-Peak_Yunu.jpg',
+  'wy-tea-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Jiuqu_Brook_in_Wuyi_Mountains.jpg/1280px-Jiuqu_Brook_in_Wuyi_Mountains.jpg',
+  'wy-tianyuan-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Peak_Yunu.jpg/1280px-Peak_Yunu.jpg',
+  'bh-yintan-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/BeiHaiYanTan.jpg/1280px-BeiHaiYanTan.jpg',
+  'bh-oldtown':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/BeiHaiYanTan.jpg/1280px-BeiHaiYanTan.jpg',
+  'bh-weizhou-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/BeiHaiYanTan.jpg/1280px-BeiHaiYanTan.jpg',
+  'pt-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Putuoshan.jpg/1280px-Putuoshan.jpg',
+  'pt-island-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Putuo_Shan_2006_3.JPG/1280px-Putuo_Shan_2006_3.JPG',
+  'pt-foding-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Putuoshan.jpg/1280px-Putuoshan.jpg',
+  'qufu-sankong':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg/1280px-%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg',
+  'qufu-exit':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg/1280px-%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg',
+  'kp-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Jinjiangli_0004.jpg/1280px-Jinjiangli_0004.jpg',
+  'kp-zili':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Jinjiangli_0004.jpg/1280px-Jinjiangli_0004.jpg',
+  'kp-jinjiang-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Jinjiangli_0004.jpg/1280px-Jinjiangli_0004.jpg',
+  'dx-shaoguan-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/39002-Danxiashan_%2848989060302%29.jpg/1280px-39002-Danxiashan_%2848989060302%29.jpg',
+  'dx-scenic':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/39002-Danxiashan_%2848989060302%29.jpg/1280px-39002-Danxiashan_%2848989060302%29.jpg',
+  'jh-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Jiuhuashan_yunhai.JPG/1280px-Jiuhuashan_yunhai.JPG',
+  'jh-cable-core':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Jiuhuashan_yunhai.JPG/1280px-Jiuhuashan_yunhai.JPG',
+  'qd-chunan-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Thousand_Island_Lake.JPG/1280px-Thousand_Island_Lake.JPG',
+  'qd-cruise':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/%E5%8D%83%E5%B2%9B%E6%B9%96.jpg/1280px-%E5%8D%83%E5%B2%9B%E6%B9%96.jpg',
+  'qd-hangzhou-note':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/West_Lake%2C_Hangzhou_2025.jpg/1280px-West_Lake%2C_Hangzhou_2025.jpg',
+  'wl-cq-buffer':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Wulongtianshengsanqiao.JPG/1280px-Wulongtianshengsanqiao.JPG',
+  'wl-three-bridges':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Wulongtianshengsanqiao.JPG/1280px-Wulongtianshengsanqiao.JPG',
+  'wl-town':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Wulongtianshengsanqiao.JPG/1280px-Wulongtianshengsanqiao.JPG',
+  'hg-guiyang-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Huangguoshu_Waterfall.jpg/1280px-Huangguoshu_Waterfall.jpg',
+  'hg-waterfall':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Huangguoshu_Waterfall.jpg/1280px-Huangguoshu_Waterfall.jpg',
+  'hg-anshun-rest':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Huangguoshu_Waterfall.jpg/1280px-Huangguoshu_Waterfall.jpg',
+  'cz-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/CZ_Wenhuagong_n_Jiaotang.jpg/1280px-CZ_Wenhuagong_n_Jiaotang.jpg',
+  'cz-tianning':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Tianning_Temple_with_Tianning_Pagoda.jpg/1280px-Tianning_Temple_with_Tianning_Pagoda.jpg',
+  'cz-yancheng-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/CZ_Wenhuagong_n_Jiaotang.jpg/1280px-CZ_Wenhuagong_n_Jiaotang.jpg',
+  'wz-city-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Vue_g%C3%A9n%C3%A9rale_de_Wenzhou.JPG/1280px-Vue_g%C3%A9n%C3%A9rale_de_Wenzhou.JPG',
+  'wz-yandang-lingfeng':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/China2011_Zhejiang_YandangShan.jpg/1280px-China2011_Zhejiang_YandangShan.jpg',
+  'hz-xihu-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
+  'hz-sizhou-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
+  'hz-shuangyue-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huizhou_West_Lake.jpg/1280px-Huizhou_West_Lake.jpg',
 };
 
 /** Neutral China fallback (Great Wall) — never foreign Unsplash scenery. */

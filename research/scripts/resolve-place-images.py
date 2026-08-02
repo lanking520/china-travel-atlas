@@ -230,7 +230,7 @@ FILES: dict[str, str] = {
     "chongqing-base": "Chongqing.jpg",
     "xinan-chongqing-slow": "Chongqing.jpg",
     "nanshan-view": "Chongqing_Nightscape.jpg",
-    "wulong-optional": "Wulong_Karst.jpg",
+    "wulong-optional": "Wulongtianshengsanqiao.JPG",
     "jinghong-base": "Xishuangbanna.jpg",
     "yunnan-xishuangbanna-winter": "Xishuangbanna.jpg",
     "manting-park": "Xishuangbanna.jpg",

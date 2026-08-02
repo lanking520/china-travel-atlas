@@ -874,17 +874,20 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'huabei-shandong-taishan': {
     routeGuide:
-      '北京南高铁泰安→住山下→红门或天外村接驳→缆车上下中天门/南天门段浅尝，不夜爬、不硬登顶全程。\n\n可跳过：十八盘徒步、雨雪冰冻日上山。',
+      '北京南高铁泰安→山下电梯酒店→缆车浅尝泰山→高铁/包车至曲阜三孔（孔庙孔府；孔林可删）→曲阜东或济南回京。\n\n可跳过：十八盘、夜爬、孔林、雨雪冰冻上山。',
     timePlan: [
-      'D1：高铁抵达、岱庙或城内休整',
-      'D2：早缆车浅尝→午后下山',
-      'D3：可选市区或返京',
+      'D1：高铁泰安、岱庙外围休整',
+      'D2：早缆车浅尝→下山',
+      'D3–4：曲阜孔庙孔府',
+      '高铁回京',
     ],
-    sightsTips: '· 缆车排队长，尽量早。\n· 山顶风大温差，备外套防滑鞋。',
-    dining: '泰安火烧/豆腐宴清淡吃；少油炸。',
-    longStay: '山下电梯酒店一晚比山顶住更安心。',
+    sightsTips:
+      '· 缆车排队长，尽量早。\n· 山顶风大温差，备外套防滑鞋。\n· 三孔石板防滑；孔林路长用电瓶或删。',
+    dining: '泰安火烧/豆腐宴与孔府家宴清淡吃；少油炸。',
+    longStay: '泰安与曲阜各住电梯酒店一晚，少当日折返。',
     hospitals: [
       { name: '山东第一医科大学附属中心医院', level: '三甲', area: '泰安', note: '请用高德核实' },
+      { name: '曲阜市人民医院', level: '二级', area: '曲阜', note: '请用高德核实' },
       { name: '山东省立医院', level: '三甲', area: '济南', note: '下撤；请用高德核实' },
     ],
   },
@@ -2298,6 +2301,152 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       { name: '五台山景区医院', level: '景区', area: '台怀', note: '请用高德核实' },
       { name: '忻州市人民医院', level: '三甲', area: '忻州', note: '下撤；请用高德核实' },
       { name: '山西医科大学第一医院', level: '三甲', area: '太原', note: '省会下撤；请用高德核实' },
+    ],
+  },
+
+  // ── Famous P1 20260802 ────────────────────────────────────
+  'huanan-fujian-wuyi': {
+    routeGuide:
+      '飞/高铁入武夷→景区口电梯酒店→九曲竹筏→茶馆歇→天游可删→回京。\n\n可跳过：天游/一线天。',
+    timePlan: ['D1：抵达休整', 'D2：九曲竹筏', 'D3：茶馆或空白', '回京'],
+    sightsTips: '· 竹筏防溅水。\n· 台阶景点默认删。\n· 勿与厦鼓同短假。',
+    dining: '清淡闽菜；茶馆少空腹喝浓茶。',
+    longStay: '景区口电梯酒店连住。',
+    hospitals: [
+      { name: '武夷山市立医院', level: '二级', area: '武夷山', note: '请用高德核实' },
+      { name: '南平市第一医院', level: '三甲', area: '南平', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huanan-guangxi-beihai': {
+    routeGuide:
+      '飞北海或经南宁→银滩海景电梯房→老街浅逛→涠洲船渡可选→回京。\n\n可跳过：涠洲。',
+    timePlan: ['D1–3：银滩慢住', 'D4：老街或涠洲（可删）', '回京'],
+    sightsTips: '· 防晒补水。\n· 停航勿强渡涠洲。',
+    dining: '海鲜清蒸；少生冷。',
+    longStay: '银滩电梯海景房连住。',
+    hospitals: [
+      { name: '北海市人民医院', level: '三甲', area: '北海', note: '请用高德核实' },
+      { name: '广西医科大学第一附属医院', level: '三甲', area: '南宁', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huadong-zhejiang-putuo': {
+    routeGuide:
+      '经宁波/上海登岛→岛上电梯酒店→公交串寺院→佛顶索道可选→回京。\n\n可跳过：佛顶山。',
+    timePlan: ['D1：登岛缓冲', 'D2–3：岛上浅朝', 'D4：索道或返程', '回京'],
+    sightsTips: '· 船票预约。\n· 风浪停航沈家门缓冲。',
+    dining: '素斋或清淡海鲜。',
+    longStay: '岛上电梯酒店连住。',
+    hospitals: [
+      { name: '舟山医院', level: '三甲', area: '舟山', note: '请用高德核实' },
+      { name: '宁波市第一医院', level: '三甲', area: '宁波', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huanan-guangdong-kaiping': {
+    routeGuide:
+      '经广深至开平→塘口电梯酒店→自力村外观→锦江里可选→回京。\n\n可跳过：锦江里；勿串丹霞。',
+    timePlan: ['D1：抵达', 'D2：自力村', 'D3：锦江或空白', '回京'],
+    sightsTips: '· 上楼量力。\n· 田埂防滑。',
+    dining: '粤菜清淡；少油炸。',
+    longStay: '开平/塘口电梯酒店。',
+    hospitals: [
+      { name: '开平市中心医院', level: '三级', area: '开平', note: '请用高德核实' },
+      { name: '广东省人民医院', level: '三甲', area: '广州', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huanan-guangdong-danxia': {
+    routeGuide:
+      '经韶关至丹霞→观光车观景台→索道量力→回京。\n\n可跳过：长线栈道；勿串开平。',
+    timePlan: ['D1：韶关缓冲', 'D2–3：丹霞浅览', '回京'],
+    sightsTips: '· 优先观光车。\n· 防晒防滑。',
+    dining: '粤北菜清淡吃。',
+    longStay: '景区或韶关电梯酒店。',
+    hospitals: [
+      { name: '粤北人民医院', level: '三甲', area: '韶关', note: '请用高德核实' },
+      { name: '广东省人民医院', level: '三甲', area: '广州', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huadong-anhui-jiuhua': {
+    routeGuide:
+      '高铁池州/九华山站→九华街或山下电梯酒店→缆车+核心寺→回京。\n\n可跳过：百岁宫长台阶；勿同周黄山。',
+    timePlan: ['D1：抵达', 'D2–3：缆车浅朝', '回京'],
+    sightsTips: '· 缆车预约。\n· 台阶量力。',
+    dining: '素斋清淡。',
+    longStay: '九华街/山下电梯酒店。',
+    hospitals: [
+      { name: '池州市人民医院', level: '三甲', area: '池州', note: '请用高德核实' },
+      { name: '安徽医科大学第一附属医院', level: '三甲', area: '合肥', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huadong-zhejiang-qiandao': {
+    routeGuide:
+      '经杭州至淳安→湖景电梯房→精华游船（少登岛）→可返杭转车回京。\n\n可跳过：登岛；勿同日黄山。',
+    timePlan: ['D1–2：淳安慢住', 'D3：游船', 'D4：返杭或回京'],
+    sightsTips: '· 大船更稳。\n· 与西湖先后不冲突，勿三线一日。',
+    dining: '湖鱼清蒸；少油炸。',
+    longStay: '淳安湖景电梯房。',
+    hospitals: [
+      { name: '淳安县第一人民医院', level: '二级', area: '淳安', note: '请用高德核实' },
+      { name: '浙江大学医学院附属第一医院', level: '三甲', area: '杭州', note: '下撤；请用高德核实' },
+    ],
+  },
+  'xinan-chongqing-wulong': {
+    routeGuide:
+      '飞重庆→高铁武隆→天生三桥电梯下坑→县城歇→经渝飞京。\n\n可跳过：仙女山、重庆主城（可直达武隆）。',
+    timePlan: ['D1：抵达缓冲', 'D2：三桥', 'D3：歇脚返渝', '飞京'],
+    sightsTips: '· 坑底防滑。\n· 量力即返。',
+    dining: '清油火锅微辣。',
+    longStay: '武隆电梯酒店一晚即可。',
+    hospitals: [
+      { name: '武隆区人民医院', level: '二级', area: '武隆', note: '请用高德核实' },
+      { name: '重庆医科大学附属第一医院', level: '三甲', area: '重庆', note: '下撤；请用高德核实' },
+    ],
+  },
+  'xinan-guizhou-huangguoshu': {
+    routeGuide:
+      '飞贵阳→黄果树安旅通预约→观光车+扶梯看大瀑布→安顺/景区歇→回贵阳飞京。\n\n可跳过：天星桥、水帘洞、黔东。',
+    timePlan: ['D1：贵阳缓冲', 'D2：大瀑布', 'D3：歇脚返筑', '飞京'],
+    sightsTips: '· 提前预约。\n· 防滑雨衣。',
+    dining: '黔味微辣或免辣。',
+    longStay: '景区或安顺电梯酒店。',
+    hospitals: [
+      { name: '安顺市人民医院', level: '三甲', area: '安顺', note: '请用高德核实' },
+      { name: '贵州医科大学附属医院', level: '三甲', area: '贵阳', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huadong-jiangsu-changzhou': {
+    routeGuide:
+      '沪宁高铁常州→天宁浅访→淹城可选→回京。\n\n可跳过：淹城、主题乐园。',
+    timePlan: ['D1：抵达', 'D2：天宁', 'D3：淹城或回京'],
+    sightsTips: '· 登塔可删。\n· 勿同日苏州园林。',
+    dining: '苏式面点清淡。',
+    longStay: '市区电梯酒店。',
+    hospitals: [
+      { name: '常州市第一人民医院', level: '三甲', area: '常州', note: '请用高德核实' },
+      { name: '江苏省人民医院', level: '三甲', area: '南京', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huadong-zhejiang-wenzhou': {
+    routeGuide:
+      '飞/高铁温州→乐清雁荡→灵峰观光车/夜景→灵岩可删→回京。\n\n可跳过：江心屿、灵岩长线。',
+    timePlan: ['D1：温州缓冲（可删）', 'D2–3：灵峰', '回京'],
+    sightsTips: '· 少夜赶山路。\n· 勿与普陀同短假。',
+    dining: '温州海鲜清蒸。',
+    longStay: '乐清/雁荡电梯酒店。',
+    hospitals: [
+      { name: '乐清市人民医院', level: '三级', area: '乐清', note: '请用高德核实' },
+      { name: '温州医科大学附属第一医院', level: '三甲', area: '温州', note: '请用高德核实' },
+    ],
+  },
+  'huanan-guangdong-huizhou': {
+    routeGuide:
+      '经深穗城际惠州→西湖环湖→泗洲塔外观→双月湾可删→回京。\n\n可跳过：双月湾。',
+    timePlan: ['D1–2：西湖慢住', 'D3：可选海岸或回京'],
+    sightsTips: '· 早晚环湖。\n· 登塔可删。',
+    dining: '粤菜清淡；少油炸。',
+    longStay: '西湖湖景电梯房。',
+    hospitals: [
+      { name: '惠州市中心人民医院', level: '三甲', area: '惠州', note: '请用高德核实' },
+      { name: '中山大学附属第一医院', level: '三甲', area: '广州', note: '下撤；请用高德核实' },
     ],
   },
 };

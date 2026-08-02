@@ -23,7 +23,7 @@ export function RouteCard({ route, tall = false }: RouteCardProps) {
   return (
     <Link
       href={`/routes/${route.id}/`}
-      className={`group relative flex min-h-[200px] w-full flex-col overflow-hidden rounded-2xl bg-sky-900 shadow-sm ring-1 ring-sky-950/15 transition-[transform,box-shadow] hover:shadow-md active:scale-[0.99] ${
+      className={`group relative flex w-full flex-col overflow-hidden rounded-xl bg-sky-900 transition-[transform,box-shadow] hover:shadow-md active:scale-[0.99] ${
         tall ? "aspect-[3/4] sm:aspect-[2/3]" : "aspect-[4/5] sm:aspect-[3/4]"
       }`}
     >
@@ -36,23 +36,23 @@ export function RouteCard({ route, tall = false }: RouteCardProps) {
       />
       {/* Bottom scrim — sky ink, not purple glass */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-sky-950/95 via-sky-950/45 to-sky-950/10"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-950/35 to-transparent"
         aria-hidden
       />
-      <div className="relative mt-auto flex min-h-[48%] flex-col justify-end p-2.5 sm:p-3.5">
+      <div className="relative mt-auto flex flex-col justify-end p-2 sm:p-2.5">
         {route.fromHome ? (
-          <span className="mb-1.5 w-fit rounded-md bg-emerald-700/95 px-2 py-0.5 text-sm font-semibold text-white">
+          <span className="mb-1 w-fit rounded bg-emerald-700/95 px-1.5 py-px text-[0.7rem] font-semibold text-white">
             从北京
           </span>
         ) : themeHint ? (
-          <span className="mb-1.5 w-fit rounded-md bg-amber-700/90 px-2 py-0.5 text-sm font-semibold text-white">
+          <span className="mb-1 w-fit rounded bg-amber-700/90 px-1.5 py-px text-[0.7rem] font-semibold text-white">
             {themeHint}
           </span>
         ) : null}
-        <h3 className="font-display text-[1.05rem] font-bold leading-snug text-white drop-shadow-sm sm:text-lg">
+        <h3 className="font-display text-base font-bold leading-snug text-white drop-shadow-sm sm:text-[1.05rem]">
           {route.title}
         </h3>
-        <p className="mt-1 text-base font-medium leading-snug text-sky-100">
+        <p className="mt-0.5 text-sm font-medium leading-snug text-sky-100/95">
           {route.daysLabel}
           <span className="mx-1 text-sky-300/80" aria-hidden>
             ·
@@ -61,8 +61,8 @@ export function RouteCard({ route, tall = false }: RouteCardProps) {
             ? "长线"
             : TRIP_TYPE_LABELS[route.tripType]}
         </p>
-        <p className="mt-0.5 text-base font-semibold leading-snug text-amber-200">
-          大致金额：{route.budgetLabel}
+        <p className="mt-px text-sm font-semibold leading-snug text-amber-200/95">
+          {route.budgetLabel}
         </p>
       </div>
     </Link>
@@ -83,7 +83,7 @@ export function RouteCardGrid({
   return (
     <ul
       aria-label={ariaLabel}
-      className="grid grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-3"
+      className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-2.5"
     >
       {routes.map((route, index) => (
         <li key={route.id} className="min-w-0">

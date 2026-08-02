@@ -242,7 +242,7 @@ export function ChinaMapExplorer() {
               type="button"
               onClick={exitResults}
               aria-label="返回"
-              className="inline-flex min-h-[48px] shrink-0 items-center gap-1 rounded-xl bg-sky-800 px-4 text-base font-semibold text-white hover:bg-sky-900"
+              className="inline-flex min-h-9 shrink-0 items-center gap-1 rounded-lg bg-sky-800 px-3 text-sm font-semibold text-white hover:bg-sky-900"
             >
               <span aria-hidden>←</span>
               返回
@@ -252,7 +252,7 @@ export function ChinaMapExplorer() {
                 type="button"
                 onClick={() => goRegion(level.regionId)}
                 aria-label={`上一级，${regionMeta.name}`}
-                className="inline-flex min-h-[48px] shrink-0 items-center rounded-xl bg-white px-3.5 text-base font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
+                className="inline-flex min-h-9 shrink-0 items-center rounded-lg bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
               >
                 上一级
               </button>
@@ -284,14 +284,14 @@ export function ChinaMapExplorer() {
               autoComplete="off"
               autoCorrect="off"
               spellCheck={false}
-              className="min-h-[52px] w-full flex-1 rounded-xl border-0 bg-white px-4 text-lg text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/80 focus:outline-none focus:ring-2 focus:ring-sky-600"
+              className="min-h-11 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-base text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/80 focus:outline-none focus:ring-2 focus:ring-sky-600"
             />
             {searchInput ? (
               <button
                 type="button"
                 onClick={clearSearch}
                 aria-label="清除搜索"
-                className="inline-flex min-h-[52px] shrink-0 items-center rounded-xl bg-white px-4 text-base font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
+                className="inline-flex min-h-11 shrink-0 items-center rounded-xl bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
               >
                 清除
               </button>
@@ -376,44 +376,50 @@ export function ChinaMapExplorer() {
             </div>
           </div>
 
-          {/* Shortcuts: collapsed on phone so China map gets first-viewport space */}
-          <details className="group mt-1 border-t border-sky-100/80 pt-1 sm:hidden">
-            <summary className="flex min-h-[40px] cursor-pointer list-none items-center gap-1 text-sm font-semibold text-sky-800 marker:content-none [&::-webkit-details-marker]:hidden">
-              <span
-                aria-hidden
-                className="text-sky-500 transition-transform group-open:rotate-90"
-              >
-                ▸
-              </span>
-              更多快捷
-              {beijingShortActive || themeActive ? (
-                <span className="font-medium text-emerald-800">· 已启用</span>
-              ) : null}
-            </summary>
-            <ShortcutChips
+          {/* Primary shortcuts always visible; extras under 更多 on phone */}
+          <div className="mt-1 border-t border-sky-100/80 pt-1 sm:mt-2 sm:pt-2">
+            <PrimaryShortcutChips
               beijingShortActive={beijingShortActive}
-              currentSeasonActive={currentSeasonActive}
-              currentSeason={currentSeason}
               theme={theme}
-              filtersDirty={filtersDirty}
               onBeijingShort={applyBeijingShort}
-              onCurrentSeason={applyCurrentSeason}
               onTheme={toggleTheme}
-              onClear={clearFilters}
             />
-          </details>
-          <div className="mt-2 hidden border-t border-sky-100/80 pt-2 sm:block">
-            <ShortcutChips
-              beijingShortActive={beijingShortActive}
-              currentSeasonActive={currentSeasonActive}
-              currentSeason={currentSeason}
-              theme={theme}
-              filtersDirty={filtersDirty}
-              onBeijingShort={applyBeijingShort}
-              onCurrentSeason={applyCurrentSeason}
-              onTheme={toggleTheme}
-              onClear={clearFilters}
-            />
+            <details className="group mt-1 sm:hidden">
+              <summary className="flex min-h-8 cursor-pointer list-none items-center gap-1 text-sm font-semibold text-sky-800 marker:content-none [&::-webkit-details-marker]:hidden">
+                <span
+                  aria-hidden
+                  className="text-sky-500 transition-transform group-open:rotate-90"
+                >
+                  ▸
+                </span>
+                更多
+                {currentSeasonActive ||
+                theme === "grand-loop" ||
+                theme === "frontier" ? (
+                  <span className="font-medium text-emerald-800">· 已启用</span>
+                ) : null}
+              </summary>
+              <MoreShortcutChips
+                currentSeasonActive={currentSeasonActive}
+                currentSeason={currentSeason}
+                theme={theme}
+                filtersDirty={filtersDirty}
+                onCurrentSeason={applyCurrentSeason}
+                onTheme={toggleTheme}
+                onClear={clearFilters}
+              />
+            </details>
+            <div className="mt-1.5 hidden sm:block">
+              <MoreShortcutChips
+                currentSeasonActive={currentSeasonActive}
+                currentSeason={currentSeason}
+                theme={theme}
+                filtersDirty={filtersDirty}
+                onCurrentSeason={applyCurrentSeason}
+                onTheme={toggleTheme}
+                onClear={clearFilters}
+              />
+            </div>
           </div>
 
           <p className="mt-0.5 hidden text-base leading-snug text-sky-800/75 sm:mt-1.5 sm:block">
@@ -461,7 +467,7 @@ export function ChinaMapExplorer() {
             </h2>
             <p className="mt-1 max-w-2xl text-base leading-relaxed text-sky-800/90">
               {theme === "famous-scenic"
-                ? "名景专线：九寨、婺源、厦鼓、土楼、乐山峨眉、黄山张家界等父母常搜目的地；点标题即可，不必先钻地图。"
+                ? "名景专线：武夷北海普陀、泰山曲阜、开平丹霞、九华千岛湖、武隆黄果树，以及九寨婺源厦鼓土楼乐山峨眉等；点标题即可，不必先钻地图。"
                 : theme === "grand-loop"
                   ? "跨省慢环：拆段走、日驾短、段末可回京；不是特种兵一天一千公里。"
                   : theme === "frontier"
@@ -515,7 +521,7 @@ export function ChinaMapExplorer() {
                     key={p.id}
                     type="button"
                     onClick={() => goProvince(level.regionId, p.id)}
-                    className="min-h-[52px] rounded-xl bg-emerald-50/80 px-3 py-2.5 text-left ring-1 ring-emerald-200/70 hover:bg-emerald-100/80 hover:ring-emerald-400 sm:px-4"
+                    className="min-h-11 rounded-xl bg-emerald-50/80 px-3 py-2 text-left ring-1 ring-emerald-200/70 hover:bg-emerald-100/80 hover:ring-emerald-400 sm:px-4"
                   >
                     <span className="font-display text-lg font-bold text-emerald-950">
                       {p.name}
@@ -559,39 +565,23 @@ export function ChinaMapExplorer() {
   );
 }
 
-function ShortcutChips({
+function PrimaryShortcutChips({
   beijingShortActive,
-  currentSeasonActive,
-  currentSeason,
   theme,
-  filtersDirty,
   onBeijingShort,
-  onCurrentSeason,
   onTheme,
-  onClear,
 }: {
   beijingShortActive: boolean;
-  currentSeasonActive: boolean;
-  currentSeason: Season;
   theme?: RouteTheme;
-  filtersDirty: boolean;
   onBeijingShort: () => void;
-  onCurrentSeason: () => void;
   onTheme: (t: RouteTheme) => void;
-  onClear: () => void;
 }) {
   return (
-    <div className="mt-1 flex flex-wrap gap-1 sm:mt-0 sm:gap-1.5">
+    <div className="flex flex-wrap gap-1">
       <FilterChip
         active={beijingShortActive}
         onClick={onBeijingShort}
         label="从北京短途"
-        tone="emerald"
-      />
-      <FilterChip
-        active={currentSeasonActive}
-        onClick={onCurrentSeason}
-        label={`当季（${SEASON_FULL_LABELS[currentSeason]}）`}
         tone="emerald"
       />
       <FilterChip
@@ -601,34 +591,63 @@ function ShortcutChips({
         tone="amber"
       />
       <FilterChip
-        active={theme === "grand-loop"}
-        onClick={() => onTheme("grand-loop")}
-        label="全国大环线"
-        tone="amber"
-      />
-      <FilterChip
-        active={theme === "frontier"}
-        onClick={() => onTheme("frontier")}
-        label="边陲城市"
-        tone="amber"
-      />
-      <FilterChip
         active={theme === "long-stay"}
         onClick={() => onTheme("long-stay")}
-        label="长居推荐"
+        label="长居"
         tone="amber"
       />
       <FilterChip
         active={theme === "corridor"}
         onClick={() => onTheme("corridor")}
-        label="经典走廊"
+        label="走廊"
+        tone="amber"
+      />
+    </div>
+  );
+}
+
+function MoreShortcutChips({
+  currentSeasonActive,
+  currentSeason,
+  theme,
+  filtersDirty,
+  onCurrentSeason,
+  onTheme,
+  onClear,
+}: {
+  currentSeasonActive: boolean;
+  currentSeason: Season;
+  theme?: RouteTheme;
+  filtersDirty: boolean;
+  onCurrentSeason: () => void;
+  onTheme: (t: RouteTheme) => void;
+  onClear: () => void;
+}) {
+  return (
+    <div className="mt-1 flex flex-wrap gap-1">
+      <FilterChip
+        active={currentSeasonActive}
+        onClick={onCurrentSeason}
+        label={`当季（${SEASON_FULL_LABELS[currentSeason]}）`}
+        tone="emerald"
+      />
+      <FilterChip
+        active={theme === "grand-loop"}
+        onClick={() => onTheme("grand-loop")}
+        label="大环线"
+        tone="amber"
+      />
+      <FilterChip
+        active={theme === "frontier"}
+        onClick={() => onTheme("frontier")}
+        label="边陲"
         tone="amber"
       />
       {filtersDirty ? (
         <button
           type="button"
           onClick={onClear}
-          className="min-h-[44px] rounded-xl px-2.5 py-1.5 text-base font-semibold text-sky-800 underline decoration-sky-300 underline-offset-4 hover:text-sky-950 sm:min-h-[48px] sm:px-3 sm:py-2"
+          className="min-h-9 rounded-lg px-2 py-1 text-sm font-semibold text-sky-800 underline decoration-sky-300 underline-offset-4 hover:text-sky-950"
         >
           清除筛选
         </button>
@@ -669,7 +688,7 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       aria-label={ariaLabel}
-      className={`min-h-[44px] rounded-xl px-2.5 py-1.5 text-base font-semibold transition-colors sm:min-h-[48px] sm:px-3.5 sm:py-2 sm:text-lg ${
+      className={`min-h-9 rounded-lg px-2.5 py-1 text-sm font-semibold transition-colors sm:min-h-10 sm:px-3 sm:text-base ${
         active ? activeClass : idleClass
       }`}
     >

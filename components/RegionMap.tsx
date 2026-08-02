@@ -22,6 +22,8 @@ interface RegionMapProps {
   regionsWithRoutes?: ReadonlySet<RegionId>;
   /** Tighter padding / caption for one-viewport Explore */
   compact?: boolean;
+  /** Map-cover mode: maximize SVG share in the first mobile viewport */
+  cover?: boolean;
 }
 
 const VIEW_W = 720;
@@ -58,6 +60,7 @@ export function RegionMap({
   onSelect,
   regionsWithRoutes,
   compact = false,
+  cover = false,
 }: RegionMapProps) {
   const [features, setFeatures] = useState<ChinaProvinceFeature[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -129,7 +132,7 @@ export function RegionMap({
     >
       <p
         className={`text-center font-medium text-sky-800 ${
-          compact
+          compact || cover
             ? "mb-1 hidden text-base sm:mb-1.5 sm:block"
             : "mb-3 text-lg"
         }`}
@@ -144,7 +147,13 @@ export function RegionMap({
       )}
       <svg
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-        className={`mx-auto w-full ${compact ? "max-h-[min(52vh,360px)] max-w-[min(100%,24rem)] sm:max-h-[min(42vh,320px)] sm:max-w-md" : "max-w-xl"}`}
+        className={`mx-auto w-full ${
+          cover
+            ? "min-h-[min(48vh,340px)] max-h-[min(62vh,420px)] max-w-[min(100%,26rem)] sm:min-h-0 sm:max-h-[min(48vh,360px)] sm:max-w-lg"
+            : compact
+              ? "max-h-[min(52vh,360px)] max-w-[min(100%,24rem)] sm:max-h-[min(42vh,320px)] sm:max-w-md"
+              : "max-w-xl"
+        }`}
         role="img"
         aria-label="中国地区示意图"
       >

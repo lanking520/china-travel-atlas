@@ -35,6 +35,15 @@ jobs:
         env:
           GITHUB_PAGES: "true"
 
+      - name: Smoke static HTML (basePath + Explore IA)
+        run: |
+          test -f out/index.html
+          grep -qE '/china-travel-atlas/_next/' out/index.html \
+            || (echo 'FAIL: missing /china-travel-atlas/_next in out/index.html' && exit 1)
+          grep -qE '探索方式|全部景点|地图选区' out/index.html \
+            || (echo 'FAIL: Explore IA tabs/labels missing from static HTML' && exit 1)
+          echo 'OK: Pages static smoke (basePath + Explore IA)'
+
       - name: Pack offline zip
         run: |
           cp docs/离线打开说明.md out/离线打开说明.md

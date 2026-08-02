@@ -75,6 +75,15 @@ await check("P1 home: 全部景点 default + tabs (no cover filter pile)", async
   if ((await allTab.getAttribute("aria-selected")) !== "true") {
     throw new Error("全部景点 should be default selected");
   }
+  // Search must sit above tabs
+  const orderOk = await page.evaluate(() => {
+    const input = document.querySelector('input[placeholder="搜索城市、景点或路线"]');
+    const tabs = document.querySelector('[role="tablist"][aria-label="探索方式"]');
+    if (!input || !tabs) return false;
+    const pos = input.compareDocumentPosition(tabs);
+    return (pos & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
+  });
+  if (!orderOk) throw new Error("search box must be above 探索方式 tabs");
   // Default = unfiltered results: dual-col catalog, NOT season chips piled on cover
   if (!(await page.getByRole("button", { name: "添加筛选" }).count())) {
     throw new Error("results missing 添加筛选");
@@ -87,6 +96,13 @@ await check("P1 home: 全部景点 default + tabs (no cover filter pile)", async
   if (!(await grid.count())) throw new Error("全部景点 grid missing");
   if ((await grid.locator('a[href*="/routes/"]').count()) < 6) {
     throw new Error("全部景点 dual-col has too few cards");
+  }
+  if (!/先显示名景/.test(t)) {
+    throw new Error("missing 先显示名景 catalog hint");
+  }
+  // Clean catalog: no sticky 返回
+  if (await page.getByRole("button", { name: "返回" }).count()) {
+    throw new Error("clean catalog should hide sticky 返回");
   }
   await page.screenshot({ path: path.join(outDir, "01-home.png"), fullPage: true });
 });
@@ -354,6 +370,100 @@ await check("P16 detail sticky section rail", async () => {
   await page.screenshot({ path: path.join(outDir, "08-detail-rail.png") });
 });
 
+await check("P17 region-chip dismiss → clean 全部景点", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(400);
+  await goMapCover(page);
+  await page.getByRole("button", { name: /^华北/ }).first().click();
+  await page.waitForTimeout(500);
+  const beijingProv = page.getByRole("button", { name: /^北京/ });
+  if ((await beijingProv.count()) > 0) {
+    await beijingProv.first().click();
+  } else {
+    await page.getByRole("button", { name: /条路线 · 点击进入/ }).first().click();
+  }
+  await page.waitForTimeout(600);
+  const dismissRegion = page.getByRole("button", { name: /移除筛选 华北/ });
+  if (!(await dismissRegion.count())) {
+    throw new Error("province view missing 移除筛选 华北 chip");
+  }
+  await dismissRegion.click();
+  await page.waitForTimeout(400);
+  const allTab = page.getByRole("tab", { name: "全部景点" });
+  if ((await allTab.getAttribute("aria-selected")) !== "true") {
+    throw new Error("region dismiss should land on 全部景点");
+  }
+  if (!(await page.locator('[aria-label="全部景点路线"]').count())) {
+    throw new Error("region dismiss missing 全部景点 grid");
+  }
+  if (await page.getByRole("button", { name: /移除筛选 华北/ }).count()) {
+    throw new Error("华北 chip still present after dismiss");
+  }
+  if (await page.getByRole("button", { name: "返回" }).count()) {
+    throw new Error("clean catalog should hide sticky 返回");
+  }
+});
+
+await check("P18 clean catalog hides sticky 返回", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(500);
+  if (
+    (await page.getByRole("tab", { name: "全部景点" }).getAttribute("aria-selected")) !==
+    "true"
+  ) {
+    throw new Error("default tab should be 全部景点");
+  }
+  if (await page.getByRole("button", { name: "返回" }).count()) {
+    throw new Error("unfiltered 全部景点 should not show sticky 返回");
+  }
+  if (!(await page.getByPlaceholder("搜索城市、景点或路线").count())) {
+    throw new Error("sticky search should remain on clean catalog");
+  }
+});
+
+await check("P19 map cover SVG ≥40% first viewport", async () => {
+  await goMapCover(page);
+  await page.waitForTimeout(700);
+  const map = page.locator('svg[aria-label="中国地区示意图"]');
+  await map.waitFor({ state: "visible", timeout: 10000 });
+  const share = await page.evaluate(() => {
+    const el = document.querySelector('svg[aria-label="中国地区示意图"]');
+    if (!el) return 0;
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const visible = Math.max(0, Math.min(vh, r.bottom) - Math.max(0, r.top));
+    return visible / vh;
+  });
+  if (share < 0.4) {
+    throw new Error(
+      `map cover SVG share ${(share * 100).toFixed(1)}% < 40% on iPhone viewport`,
+    );
+  }
+  await page.screenshot({
+    path: path.join(outDir, "09-map-cover-viewport.png"),
+  });
+});
+
+await check("P20 catalog paginates (lazy load-more)", async () => {
+  await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(500);
+  const grid = page.locator('[aria-label="全部景点路线"]');
+  const initial = await grid.locator('a[href*="/routes/"]').count();
+  if (initial < 6) throw new Error("catalog too few initial cards");
+  if (initial > 24) {
+    throw new Error("catalog did not paginate (got " + initial + " cards)");
+  }
+  const sentinel = grid.getByText("加载更多");
+  if (await sentinel.count()) {
+    await sentinel.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    const after = await grid.locator('a[href*="/routes/"]').count();
+    if (after <= initial) {
+      throw new Error("scroll load-more did not reveal more cards");
+    }
+  }
+});
+
 await browser.close();
 
 const pass = results.filter((r) => r.status === "PASS").length;
@@ -375,9 +485,10 @@ const md = [
   "",
   "## 对照 Plan",
   "",
-  "- 默认「全部景点」：无筛选 dual-column 目录；「添加筛选」展开季节/行程/主题",
-  "- 「地图选区」cover：仅搜索 + 地图；点大区 → 省份 → 路线",
-  "- 结果页 identity chips 可移除；sticky「返回」回全部景点",
+  "- 搜索在 tabs 之上；默认「全部景点」dual-column；名景优先；分页懒加载",
+  "- 「地图选区」cover：仅搜索 + 地图（iPhone 首屏 SVG ≥40%）；点大区 → 省份 → 路线",
+  "- 结果页 identity chips 可移除；省内「移除筛选 华北」→ 干净全部景点",
+  "- 干净目录隐藏 sticky「返回」；有筛选/钻取时「返回」回全部景点",
   "- 搜索框：婺源 / 九寨可命中；名景经添加筛选 → `grid-cols-2`",
   "- 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算",
   "- 详情 sticky「本页目录」；路线指南+时间规划默认展开",

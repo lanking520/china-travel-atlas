@@ -77,15 +77,15 @@ Content may still say “适老节奏” (trip pacing); **UI chrome is modern mo
 ┌─────────────────────────────────────┐
 │ Brand · 探索 | 两年 | 说明          │
 ├─────────────────────────────────────┤
-│ [全部景点]  [地图选区]   ← top tabs │
+│ 🔍 搜索（在 tabs 之上）             │
+│ [全部景点]  [地图选区]   ← tabs     │
 ├─────────────────────────────────────┤
 │ 全部景点 (default):                 │
-│   sticky ←返回 · search             │
-│   identity chips (dismiss) · empty  │
-│   「添加筛选」→ 季节/行程/名景…     │
-│   dual-column RouteCards (catalog)  │
+│   sticky ←返回(仅有筛选时) · title  │
+│   identity chips ·「添加筛选」      │
+│   dual-column RouteCards (paginate) │
 ├─────────────────────────────────────┤
-│ 地图选区 (cover): search + map ONLY │
+│ 地图选区 (cover): map ONLY below    │
 │   tap 大区 → results + region chip  │
 └─────────────────────────────────────┘
 ```
@@ -191,14 +191,14 @@ Content may still say “适老节奏” (trip pacing); **UI chrome is modern mo
 ╔══════════════════════════╗
 ║ 爸妈中国旅游地图  探索… ║
 ╠══════════════════════════╣
+║ 🔍 搜索                  ║
 ║ [全部景点] [地图选区]    ║
-║ 🔍 搜索 · ←返回          ║
-║ (chips) · 添加筛选       ║
+║ title · chips · 添加筛选 ║
 ║ ┌──────┐ ┌──────┐        ║
 ║ │ 图+字│ │ 图+字│  2列  ║
-║ └──────┘ └──────┘        ║
+║ └──────┘ └──────┘ (+lazy)║
 ╠══ 地图选区 cover ════════╣
-║ 🔍 搜索                  ║
+║ 🔍 搜索 · tabs           ║
 ║     【 中国地图 SVG 】   ║
 ╚══════════════════════════╝
 ```

@@ -1,9 +1,9 @@
 # Plan × Playwright 验证报告
 
-> 生成：2026-08-02T21:04:52.350Z
+> 生成：2026-08-02T21:17:17.295Z
 > Base：http://127.0.0.1:3000
 
-**结果：17 PASS / 0 FAIL**（共 17 项）
+**结果：21 PASS / 0 FAIL**（共 21 项）
 
 | 项 | 状态 | 说明 |
 |----|------|------|
@@ -24,12 +24,17 @@
 | P14 search box finds 九寨 | PASS |  |
 | P15 名景 via 添加筛选 → dual-column RouteCards | PASS |  |
 | P16 detail sticky section rail | PASS |  |
+| P17 region-chip dismiss → clean 全部景点 | PASS |  |
+| P18 clean catalog hides sticky 返回 | PASS |  |
+| P19 map cover SVG ≥40% first viewport | PASS |  |
+| P20 catalog paginates (lazy load-more) | PASS |  |
 
 ## 对照 Plan
 
-- 默认「全部景点」：无筛选 dual-column 目录；「添加筛选」展开季节/行程/主题
-- 「地图选区」cover：仅搜索 + 地图；点大区 → 省份 → 路线
-- 结果页 identity chips 可移除；sticky「返回」回全部景点
+- 搜索在 tabs 之上；默认「全部景点」dual-column；名景优先；分页懒加载
+- 「地图选区」cover：仅搜索 + 地图（iPhone 首屏 SVG ≥40%）；点大区 → 省份 → 路线
+- 结果页 identity chips 可移除；省内「移除筛选 华北」→ 干净全部景点
+- 干净目录隐藏 sticky「返回」；有筛选/钻取时「返回」回全部景点
 - 搜索框：婺源 / 九寨可命中；名景经添加筛选 → `grid-cols-2`
 - 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算
 - 详情 sticky「本页目录」；路线指南+时间规划默认展开

@@ -111,10 +111,18 @@ export function ChinaMapExplorer() {
   /** Cover: map tab with zero scope — search + map only. */
   const coverMode = !resultsMode;
 
-  const catalogRoutes = useMemo(
-    () => routes.filter((r) => routeMatches(r, filterOpts)),
-    [filterOpts],
-  );
+  const catalogRoutes = useMemo(() => {
+    const matched = routes.filter((r) => routeMatches(r, filterOpts));
+    // Default catalog: 名景 first, then 从北京 — softens long unfiltered lists
+    return [...matched].sort((a, b) => {
+      const af = a.themes?.includes("famous-scenic") ? 0 : 1;
+      const bf = b.themes?.includes("famous-scenic") ? 0 : 1;
+      if (af !== bf) return af - bf;
+      const ah = a.fromHome ? 0 : 1;
+      const bh = b.fromHome ? 0 : 1;
+      return ah - bh;
+    });
+  }, [filterOpts]);
 
   const themedRoutes = useMemo(
     () => routes.filter((r) => routeMatches(r, filterOpts) && r.themes?.length),
@@ -259,6 +267,9 @@ export function ChinaMapExplorer() {
     fromHomeOnly ||
     theme !== undefined;
 
+  /** Sticky 返回 only when there is scope to clear. */
+  const showExitBack = hasIdentityChips;
+
   const resultsTitle = searchActive
     ? `搜索 · ${searchHits.length} 条`
     : level.kind === "province" && provinceMeta
@@ -271,61 +282,14 @@ export function ChinaMapExplorer() {
 
   return (
     <div className="space-y-2 sm:space-y-3">
-      {/* Top tabs */}
-      <div
-        role="tablist"
-        aria-label="探索方式"
-        className="flex gap-1 rounded-xl bg-sky-100/70 p-1 ring-1 ring-sky-900/5"
-      >
-        <TabButton
-          active={tab === "all"}
-          onClick={() => selectTab("all")}
-          label="全部景点"
-        />
-        <TabButton
-          active={tab === "map"}
-          onClick={() => selectTab("map")}
-          label="地图选区"
-        />
-      </div>
-
-      {/* Sticky toolbar: search always; results chrome when scoped */}
+      {/* Sticky: search FIRST, then tabs, then results chrome */}
       <div
         className={
           resultsMode
-            ? "sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-b-xl sm:px-0"
-            : "rounded-2xl bg-white/85 px-2.5 py-2 shadow-sm ring-1 ring-sky-900/6 sm:px-3.5 sm:py-2.5"
+            ? "sticky top-0 z-20 -mx-4 space-y-2 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-2 backdrop-blur-md sm:mx-0 sm:rounded-b-xl sm:px-0"
+            : "space-y-2 rounded-2xl bg-white/85 px-2.5 py-2 shadow-sm ring-1 ring-sky-900/6 sm:px-3.5 sm:py-2.5"
         }
       >
-        {resultsMode ? (
-          <div className="mb-2 flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={exitToAll}
-              aria-label="返回"
-              className="inline-flex min-h-9 shrink-0 items-center gap-1 rounded-lg bg-sky-800 px-3 text-[0.95rem] font-semibold text-white hover:bg-sky-900"
-            >
-              <span aria-hidden>←</span>
-              返回
-            </button>
-            {!searchActive && level.kind === "province" && regionMeta ? (
-              <button
-                type="button"
-                onClick={() => goRegion(level.regionId)}
-                aria-label={`上一级，${regionMeta.name}`}
-                className="inline-flex min-h-9 shrink-0 items-center rounded-lg bg-white px-3 text-[0.95rem] font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
-              >
-                上一级
-              </button>
-            ) : null}
-            <div className="min-w-0 flex-1">
-              <p className="font-display text-[1.05rem] font-bold leading-snug text-sky-950 sm:text-lg">
-                {resultsTitle}
-              </p>
-            </div>
-          </div>
-        ) : null}
-
         <label className="block">
           <span className="sr-only">搜索路线</span>
           <div className="flex items-stretch gap-2">
@@ -341,14 +305,14 @@ export function ChinaMapExplorer() {
               autoComplete="off"
               autoCorrect="off"
               spellCheck={false}
-              className="min-h-11 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.05rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/80 focus:outline-none focus:ring-2 focus:ring-sky-600"
+              className="min-h-10 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.02rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/75 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:min-h-11"
             />
             {searchInput ? (
               <button
                 type="button"
                 onClick={clearSearch}
                 aria-label="清除搜索"
-                className="inline-flex min-h-11 shrink-0 items-center rounded-xl bg-white px-3 text-[0.95rem] font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
+                className="inline-flex min-h-10 shrink-0 items-center rounded-xl bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-11 sm:text-[0.95rem]"
               >
                 清除
               </button>
@@ -356,8 +320,59 @@ export function ChinaMapExplorer() {
           </div>
         </label>
 
+        <div
+          role="tablist"
+          aria-label="探索方式"
+          className="flex gap-1 rounded-xl bg-sky-100/70 p-1 ring-1 ring-sky-900/5"
+        >
+          <TabButton
+            active={tab === "all"}
+            onClick={() => selectTab("all")}
+            label="全部景点"
+          />
+          <TabButton
+            active={tab === "map"}
+            onClick={() => selectTab("map")}
+            label="地图选区"
+          />
+        </div>
+
         {resultsMode ? (
-          <div className="mt-2 space-y-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {showExitBack ? (
+              <button
+                type="button"
+                onClick={exitToAll}
+                aria-label="返回"
+                className="inline-flex min-h-8 shrink-0 items-center gap-1 rounded-lg bg-sky-800 px-2.5 text-sm font-semibold text-white hover:bg-sky-900 sm:min-h-9 sm:px-3 sm:text-[0.95rem]"
+              >
+                <span aria-hidden>←</span>
+                返回
+              </button>
+            ) : null}
+            {showExitBack &&
+            !searchActive &&
+            level.kind === "province" &&
+            regionMeta ? (
+              <button
+                type="button"
+                onClick={() => goRegion(level.regionId)}
+                aria-label={`上一级，${regionMeta.name}`}
+                className="inline-flex min-h-8 shrink-0 items-center rounded-lg bg-white px-2.5 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-9 sm:px-3 sm:text-[0.95rem]"
+              >
+                上一级
+              </button>
+            ) : null}
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-[1.02rem] font-bold leading-snug text-sky-950 sm:text-lg">
+                {resultsTitle}
+              </p>
+            </div>
+          </div>
+        ) : null}
+
+        {resultsMode ? (
+          <div className="space-y-1.5">
             <ActiveFilterChips
               searchQuery={searchActive ? searchQuery.trim() : undefined}
               level={level}
@@ -367,11 +382,8 @@ export function ChinaMapExplorer() {
               theme={theme}
               onDismissSearch={clearSearch}
               onDismissRegion={() => {
-                if (level.kind === "province") {
-                  goRegion(level.regionId);
-                } else {
-                  goChina();
-                }
+                goChina();
+                setTab("all");
               }}
               onDismissProvince={() => {
                 if (level.kind === "province") goRegion(level.regionId);
@@ -408,8 +420,8 @@ export function ChinaMapExplorer() {
               filtersDirty={filtersDirty}
             />
             {!hasIdentityChips ? (
-              <p className="text-sm text-sky-700/85 sm:text-[0.95rem]">
-                未筛选 · 可点「添加筛选」或上方搜索
+              <p className="text-xs text-sky-700/85 sm:text-sm">
+                未筛选 · 先显示名景，可点「添加筛选」或上方搜索收窄
               </p>
             ) : null}
           </div>
@@ -418,18 +430,19 @@ export function ChinaMapExplorer() {
 
       {/* —— Cover: search + map only —— */}
       {coverMode ? (
-        <section className="space-y-2 sm:space-y-3" aria-label="地图选区">
+        <section className="space-y-1.5 sm:space-y-3" aria-label="地图选区">
           <div>
-            <h2 className="font-display text-base font-bold tracking-tight text-sky-950 sm:text-2xl">
+            <h2 className="font-display text-[0.95rem] font-bold tracking-tight text-sky-950 sm:text-2xl">
               <span className="sm:hidden">点地图选大区</span>
               <span className="hidden sm:inline">点击中国地图选大区</span>
             </h2>
-            <p className="mt-0.5 text-[0.95rem] text-sky-700/90 sm:text-base">
+            <p className="mt-0.5 hidden text-base text-sky-700/90 sm:block">
               点选大区进入路线；或切到「全部景点」浏览全部。
             </p>
-            <div className="mt-1.5 sm:mt-2">
+            <div className="mt-1 sm:mt-2">
               <RegionMap
                 compact
+                cover
                 selected={undefined}
                 regionsWithRoutes={undefined}
                 onSelect={(id) => {
@@ -452,7 +465,11 @@ export function ChinaMapExplorer() {
               </span>
             </p>
           ) : (
-            <RouteCardGrid routes={searchHits} aria-label="搜索结果路线" />
+            <RouteCardGrid
+              routes={searchHits}
+              aria-label="搜索结果路线"
+              paginate={searchHits.length > 12}
+            />
           )}
         </section>
       ) : null}
@@ -460,9 +477,16 @@ export function ChinaMapExplorer() {
       {/* —— 全部景点 / theme list (china level) —— */}
       {!searchActive && level.kind === "china" && allListMode ? (
         <section aria-label="全部景点" className="space-y-2">
+          {!filtersDirty ? (
+            <p className="text-sm leading-snug text-sky-700/90 sm:text-[0.95rem]">
+              先显示名景与从北京出发的路线，向下滚动可看全部{" "}
+              {catalogRoutes.length} 条。
+            </p>
+          ) : null}
           <RouteCardGrid
             routes={catalogRoutes}
             aria-label="全部景点路线"
+            paginate
           />
         </section>
       ) : null}
@@ -483,6 +507,7 @@ export function ChinaMapExplorer() {
           <RouteCardGrid
             routes={themedRoutes}
             aria-label={`${THEME_LABELS[theme]}路线`}
+            paginate={themedRoutes.length > 12}
           />
         </section>
       ) : null}
@@ -605,7 +630,7 @@ function TabButton({
       role="tab"
       aria-selected={active}
       onClick={onClick}
-      className={`min-h-10 flex-1 rounded-lg px-3 text-[0.95rem] font-semibold transition-colors sm:min-h-11 sm:text-base ${
+      className={`min-h-9 flex-1 rounded-lg px-3 text-sm font-semibold transition-colors sm:min-h-10 sm:text-[0.95rem] ${
         active
           ? "bg-white text-sky-950 shadow-sm ring-1 ring-sky-900/8"
           : "text-sky-800 hover:bg-white/50"
@@ -707,7 +732,7 @@ function ActiveFilterChips({
     return (
       <div
         aria-label="当前筛选"
-        className="flex min-h-8 flex-wrap items-center gap-1.5"
+        className="flex min-h-7 flex-wrap items-center gap-1.5"
       />
     );
   }
@@ -723,10 +748,10 @@ function ActiveFilterChips({
           type="button"
           onClick={c.onDismiss}
           aria-label={`移除筛选 ${c.label}`}
-          className="inline-flex min-h-8 items-center gap-1 rounded-full bg-sky-800/90 px-2.5 py-0.5 text-sm font-semibold text-white hover:bg-sky-900"
+          className="inline-flex min-h-7 items-center gap-1 rounded-full bg-sky-800/88 px-2 py-0.5 text-xs font-semibold text-white shadow-sm hover:bg-sky-900 sm:min-h-8 sm:px-2.5 sm:text-sm"
         >
           {c.label}
-          <span aria-hidden className="text-sky-200">
+          <span aria-hidden className="text-sky-200/90">
             ×
           </span>
         </button>
@@ -772,9 +797,11 @@ function AddFiltersPanel({
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="inline-flex min-h-9 items-center gap-1 rounded-lg bg-white px-3 text-[0.95rem] font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50"
+        className="inline-flex min-h-8 items-center gap-1 rounded-full bg-white/90 px-2.5 text-xs font-semibold text-sky-900 ring-1 ring-sky-300/90 hover:bg-sky-50 sm:min-h-9 sm:px-3 sm:text-sm"
       >
-        <span aria-hidden>{open ? "▾" : "▸"}</span>
+        <span aria-hidden className="text-sky-500">
+          {open ? "▾" : "+"}
+        </span>
         添加筛选
       </button>
       {open ? (
@@ -913,7 +940,7 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       aria-label={ariaLabel}
-      className={`min-h-9 rounded-lg px-2.5 py-1 text-sm font-semibold transition-colors sm:min-h-10 sm:px-3 sm:text-[0.95rem] ${
+      className={`min-h-8 rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors sm:min-h-9 sm:px-3 sm:text-sm ${
         active ? activeClass : idleClass
       }`}
     >

@@ -91,6 +91,11 @@ export default async function RouteDetailPage({
               从北京家出发
             </span>
           )}
+          {route.themes?.includes("famous-scenic") && (
+            <span className="rounded-lg bg-rose-700 px-3 py-1.5 text-lg font-medium text-white">
+              名景
+            </span>
+          )}
           {route.themes?.includes("grand-loop") && (
             <span className="rounded-lg bg-amber-700 px-3 py-1.5 text-lg font-medium text-white">
               全国大环线

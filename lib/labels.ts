@@ -20,6 +20,7 @@ export const TRIP_TYPE_LABELS: Record<TripType, string> = {
 };
 
 export const THEME_LABELS: Record<RouteTheme, string> = {
+  "famous-scenic": "名景",
   "grand-loop": "全国大环线",
   frontier: "边陲城市",
   "long-stay": "长居推荐",

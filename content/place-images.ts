@@ -95,6 +95,18 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'hks-kunming-buffer', // 昆明缓冲无专用 → 河口同廊衔接示意
   'hks-border-crossing', // 口岸通关 ↔ 河口老码头同城动线示意
   'hks-return-hekou', // 返回河口 ↔ 河口主图同城
+  // famous stitch soft
+  'wuyuan-huangling',
+  'wuyuan-village',
+  'jdz-imperial-kiln',
+  'jz-airport-buffer',
+  'jz-shuzheng',
+  'fh-night-riverside',
+  'urumqi-museum',
+  'urumqi-bazaar-optional',
+  'ls-jiujiang-gate',
+  'sx-hangzhou-optional',
+  'wt-dailuoding-optional',
 ]);
 
 export function generatedPlacePath(id: string): string {
@@ -152,7 +164,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'huabei-shandong-yantai':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/%E7%85%99%E5%8F%B0%E5%B1%B1%E6%99%AF%E5%8D%80.jpg/1280px-%E7%85%99%E5%8F%B0%E5%B1%B1%E6%99%AF%E5%8D%80.jpg',
   'huanan-sanya-winter': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sanya_Bay_panorama.jpg/1280px-Sanya_Bay_panorama.jpg',
-  'huanan-xiamen-winter': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiamen.jpg/1280px-Xiamen.jpg',
+  'huanan-xiamen-winter': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Gulangyu_Island.jpg/1280px-Gulangyu_Island.jpg',
   'huanan-zhuhai-3d': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Zhuhai.jpg/1280px-Zhuhai.jpg',
   'huazhong-hunan-changsha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Yuelu_Academy.jpg/1280px-Yuelu_Academy.jpg',
   'huazhong-luoyang-kaifeng': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/1280px-27427-Luoyang_%2849067744628%29.jpg',
@@ -258,6 +270,19 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg/1280px-Qingdao_Harbour_51341-Qingdao_%2849055637186%29.jpg',
   'yunnan-g214-shangri-la-taste':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Roofs_of_Shangri-La_Old_Town_1.JPG/1280px-Roofs_of_Shangri-La_Old_Town_1.JPG',
+  // famous stitch 20260802 (new ids)
+  'xinan-sichuan-jiuzhaigou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/1280px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
+  'huazhong-hunan-fenghuang':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hunan_Fenghuang_County_ancient_town.jpg/1280px-Hunan_Fenghuang_County_ancient_town.jpg',
+  'xibei-xinjiang-urumqi-city':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Urumqi_skyline.jpg/1280px-Urumqi_skyline.jpg',
+  'huadong-jiangxi-lushan':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mount_Lu.jpg/1280px-Mount_Lu.jpg',
+  'huadong-zhejiang-shaoxing':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Shaoxing_Cityscape.jpg/1280px-Shaoxing_Cityscape.jpg',
+  'huabei-shanxi-wutai':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Wutai_shan_temples.jpg/1280px-Wutai_shan_temples.jpg',
 };
 
 export const PLACE_STOP_IMAGES: Record<string, string> = {
@@ -348,7 +373,8 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'erguna-riverside': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Erguna.jpg/1280px-Erguna.jpg',
   'erlian-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Erenhot_port.jpg/1280px-Erenhot_port.jpg',
   'erlian-guomen': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Erenhot_port.jpg/1280px-Erenhot_port.jpg',
-  'fenghuang-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Fenghuang_Ancient_City.jpg/1280px-Fenghuang_Ancient_City.jpg',
+  'fenghuang-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hunan_Fenghuang_County_ancient_town.jpg/1280px-Hunan_Fenghuang_County_ancient_town.jpg',
   'furong-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Furong_Zhen.jpg/1280px-Furong_Zhen.jpg',
   'grape-valley': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Grape_Valley.jpg/1280px-Grape_Valley.jpg',
   'guangzhou-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Canton_Tower_20241027.jpg/1280px-Canton_Tower_20241027.jpg',
@@ -438,7 +464,8 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'nalati': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
   'namtso-day': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Namtso.jpg/1280px-Namtso.jpg',
   'nanjing-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nanjing_Museum.jpg/1280px-Nanjing_Museum.jpg',
-  'nanjing-tulou': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zhenchenglou.JPG/1280px-Zhenchenglou.JPG',
+  'nanjing-tulou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Nanjing_Tianluokeng_Tulou_cluster_20140829.JPG/1280px-Nanjing_Tianluokeng_Tulou_cluster_20140829.JPG',
   'nanning-hub': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Nanning.jpg/1280px-Nanning.jpg',
   'nanshan-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Nanshan_Temple_of_Sanya.jpg/1280px-Nanshan_Temple_of_Sanya.jpg',
   'nanshan-view': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Chongqing_Nightscape.jpg/1280px-Chongqing_Nightscape.jpg',
@@ -754,6 +781,51 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Bita_Lake%2C_Potatso_%28Pudacuo%29_National_Park%2C_Diqing_-_panoramio.jpg/1280px-Bita_Lake%2C_Potatso_%28Pudacuo%29_National_Park%2C_Diqing_-_panoramio.jpg',
   'g214s-exit':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Roofs_of_Shangri-La_Old_Town_1.JPG/1280px-Roofs_of_Shangri-La_Old_Town_1.JPG',
+  // famous stitch stops
+  'jdz-ceramic-museum':
+    'https://upload.wikimedia.org/wikipedia/commons/3/37/Porcelain_Workshop%2C_Jingdezhen%2C_Jiangxi%2C_China.jpg',
+  'jdz-imperial-kiln':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/%E6%99%AF%E5%BE%B7%E9%95%87%E5%B8%82%E6%98%8C%E6%B1%9F%E4%B8%9C%E5%B2%B8.JPG/1280px-%E6%99%AF%E5%BE%B7%E9%95%87%E5%B8%82%E6%98%8C%E6%B1%9F%E4%B8%9C%E5%B2%B8.JPG',
+  'jz-airport-buffer':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Jiuzhaigou_Sichuan_China_Jiuzhaigou-Valley-02.jpg/1280px-Jiuzhaigou_Sichuan_China_Jiuzhaigou-Valley-02.jpg',
+  'jz-rize-boardwalk':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/1280px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
+  'jz-shuzheng':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Jiuzhaigou_Sichuan_China_Jiuzhaigou-Valley-02.jpg/1280px-Jiuzhaigou_Sichuan_China_Jiuzhaigou-Valley-02.jpg',
+  'jz-huanglong-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Huanglong_Sichuan_China_Multicolored-ponds-02.jpg/1280px-Huanglong_Sichuan_China_Multicolored-ponds-02.jpg',
+  'fh-tuojiang-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hunan_Fenghuang_County_ancient_town.jpg/1280px-Hunan_Fenghuang_County_ancient_town.jpg',
+  'fh-night-riverside':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Fenghuang_County%2C_Hunan%2C_China%2C_21_December_2016a.jpg/1280px-Fenghuang_County%2C_Hunan%2C_China%2C_21_December_2016a.jpg',
+  'fh-furong-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Furong_Zhen.jpg/1280px-Furong_Zhen.jpg',
+  'urumqi-city-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Urumqi_skyline.jpg/1280px-Urumqi_skyline.jpg',
+  'urumqi-hongshan':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/A_glance_at_Urumqi_from_Hongshan_Park.jpg/1280px-A_glance_at_Urumqi_from_Hongshan_Park.jpg',
+  'urumqi-museum':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Urumqi_skyline.jpg/1280px-Urumqi_skyline.jpg',
+  'urumqi-bazaar-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Hongshan_Park_-_Entrance%2C_Urumuqi.jpg/1280px-Hongshan_Park_-_Entrance%2C_Urumuqi.jpg',
+  'ls-jiujiang-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mount_Lu.jpg/1280px-Mount_Lu.jpg',
+  'ls-guling-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Mount_Lu_16147-Lushan_%2849052568127%29.jpg/1280px-Mount_Lu_16147-Lushan_%2849052568127%29.jpg',
+  'ls-viewpoint':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mount_Lu_16158-Lushan_%2849052568687%29.jpg/1280px-Mount_Lu_16158-Lushan_%2849052568687%29.jpg',
+  'sx-city-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Shaoxing_Cityscape.jpg/1280px-Shaoxing_Cityscape.jpg',
+  'sx-luxun':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Ke_Bridge_in_Shaoxing_01_2017-08.jpg/1280px-Ke_Bridge_in_Shaoxing_01_2017-08.jpg',
+  'sx-hangzhou-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/West_Lake%2C_Hangzhou_2025.jpg/1280px-West_Lake%2C_Hangzhou_2025.jpg',
+  'wt-taihuai-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Wutai_shan_temples.jpg/1280px-Wutai_shan_temples.jpg',
+  'wt-xiantong':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Wutai_2009_431.jpg/1280px-Wutai_2009_431.jpg',
+  'wt-dailuoding-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Wutai_Shan_Buddhist_Garden_woodwork.jpg/1280px-Wutai_Shan_Buddhist_Garden_woodwork.jpg',
 };
 
 /** Neutral China fallback (Great Wall) — never foreign Unsplash scenery. */

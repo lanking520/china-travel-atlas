@@ -56,7 +56,9 @@ function routeMatches(
 
 export function ChinaMapExplorer() {
   const currentSeason = getSeasonNow();
-  const [season, setSeason] = useState<Season | undefined>(currentSeason);
+  // Default: no season filter — parents searching famous places (婺源春/厦鼓冬/乐山春秋)
+  // must not land on an empty map just because「当季」was pre-selected.
+  const [season, setSeason] = useState<Season | undefined>(undefined);
   const [tripType, setTripType] = useState<TripType | undefined>(undefined);
   const [fromHomeOnly, setFromHomeOnly] = useState(false);
   const [theme, setTheme] = useState<RouteTheme | undefined>(undefined);
@@ -379,13 +381,15 @@ export function ChinaMapExplorer() {
               </span>
             </h2>
             <p className="mt-1 max-w-2xl text-base leading-relaxed text-sky-800/90">
-              {theme === "grand-loop"
-                ? "跨省慢环：拆段走、日驾短、段末可回京；不是特种兵一天一千公里。"
-                : theme === "frontier"
-                  ? "边陲城市短住：看口岸与边境风光，不涉越境；规定以当地公告为准。"
-                  : theme === "corridor"
-                    ? "经典走廊浅段：318/江南水乡等只走适老可控段；高原走廊写清海拔与可跳过。"
-                    : "长居慢住：空气相对清新、周边自然与日归丰富；约三四周节奏，不是赶景点清单。"}
+              {theme === "famous-scenic"
+                ? "名景专线：九寨、婺源、厦鼓、土楼、乐山峨眉、黄山张家界等父母常搜目的地；点标题即可，不必先钻地图。"
+                : theme === "grand-loop"
+                  ? "跨省慢环：拆段走、日驾短、段末可回京；不是特种兵一天一千公里。"
+                  : theme === "frontier"
+                    ? "边陲城市短住：看口岸与边境风光，不涉越境；规定以当地公告为准。"
+                    : theme === "corridor"
+                      ? "经典走廊浅段：318/江南水乡等只走适老可控段；高原走廊写清海拔与可跳过。"
+                      : "长居慢住：空气相对清新、周边自然与日归丰富；约三四周节奏，不是赶景点清单。"}
             </p>
           </div>
           <ul className="divide-y divide-sky-100">
@@ -568,6 +572,12 @@ function ShortcutChips({
         onClick={onCurrentSeason}
         label={`当季（${SEASON_FULL_LABELS[currentSeason]}）`}
         tone="emerald"
+      />
+      <FilterChip
+        active={theme === "famous-scenic"}
+        onClick={() => onTheme("famous-scenic")}
+        label="名景"
+        tone="amber"
       />
       <FilterChip
         active={theme === "grand-loop"}

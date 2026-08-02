@@ -384,6 +384,7 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
   },
 
   'huadong-huangshan-hui': {
+    themes: ['famous-scenic'],
     tripType: 'short',
     daysLabel: '5–7天',
     summary:
@@ -394,10 +395,8 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
   },
 
   'huadong-wuyuan-spring': {
-    summary:
-      '春日梯田花海。江岭观景台为主，篁岭可坐缆车；古村浅逛一处即可。可独立或挂黄山线，结束后高铁返京。',
-    transport:
-      '高铁至婺源站，包车串江岭/篁岭；亦可黄山北转车；结束后高铁返京',
+    // Full stitch (婺源+景德镇) in routes-famous-stitch-20260802 — do not clobber.
+    themes: ['famous-scenic'],
   },
 
   'huazhong-wudang-3d': {
@@ -414,10 +413,11 @@ export const routeFieldPatches: Record<string, Partial<Route>> = {
   },
 
   'huazhong-zhangjiajie': {
+    themes: ['famous-scenic'],
     tripType: 'short',
     daysLabel: '5–7天',
     summary:
-      '武陵源靠三索一梯+环保车看峰林，每天一条线早出早歇。金鞭溪浅走；芙蓉或凤凰二选一。结束后飞/高铁返京。',
+      '武陵源靠三索一梯+环保车看峰林，每天一条线早出早歇。金鞭溪浅走；芙蓉可选。凤凰请走独立「凤凰古城」线，勿与本线两天连赶。结束后飞/高铁返京。',
     transport:
       '飞张家界荷花机场或高铁至张家界西；景区内环保车+三索一梯；结束后飞或高铁返京',
     budgetLabel: '本趟约4500–7500元（含机票分摊+三索一梯）',

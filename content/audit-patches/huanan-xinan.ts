@@ -158,10 +158,14 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
 /** 仅覆盖需要改的顶层字段，如 summary/transport/budgetLabel/fromHome */
 export const routeFieldPatches: Record<string, Partial<Route>> = {
   'huanan-xiamen-winter': {
-    transport:
-      '北京飞厦门，市区打车/地铁即可，不必租车；鼓浪屿须提前预约轮渡；结束飞回北京',
-    summary:
-      '冬日均温约15℃，适合暖冬避寒慢住。环岛路散步、植物园乘观光车、鼓浪屿逛菽庄花园，节奏慢、海鲜鲜，无需赶场。结束后飞回北京休整。',
+    // Title/themes/stops overwritten by routes-famous-stitch-20260802
+    seasons: ['winter', 'spring'],
+  },
+  'huanan-guilin-yangshuo': {
+    themes: ['famous-scenic'],
+  },
+  'xinan-sichuan-leshan-emei': {
+    themes: ['famous-scenic'],
   },
   'huanan-sanya-winter': {
     seasons: ['winter', 'spring'],

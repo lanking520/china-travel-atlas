@@ -154,4 +154,11 @@ export const routeProvinces: Record<
   'yunnan-g214-shangri-la-taste': { primary: 'yunnan' },
   // Yunnan cross-border corridor (Hekou→Sapa); primary remains Yunnan anchor
   'yunnan-hekou-sapa-corridor': { primary: 'yunnan' },
+  // Famous stitch 20260802 (new ids; wuyuan/xiamen/leshan overwrite keep keys)
+  'xinan-sichuan-jiuzhaigou': { primary: 'sichuan' },
+  'huazhong-hunan-fenghuang': { primary: 'hunan' },
+  'xibei-xinjiang-urumqi-city': { primary: 'xinjiang' },
+  'huadong-jiangxi-lushan': { primary: 'jiangxi' },
+  'huadong-zhejiang-shaoxing': { primary: 'zhejiang' },
+  'huabei-shanxi-wutai': { primary: 'shanxi' },
 };

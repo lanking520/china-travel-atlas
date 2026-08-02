@@ -2,8 +2,13 @@ export type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 export type TripType = 'long' | 'short';
 
-/** 跨省大环线 / 边陲城市 / 长居慢住 / 经典走廊等探索主题（非省份互斥） */
-export type RouteTheme = 'grand-loop' | 'frontier' | 'long-stay' | 'corridor';
+/** 跨省大环线 / 边陲城市 / 长居慢住 / 经典走廊 / 名景等探索主题（非省份互斥） */
+export type RouteTheme =
+  | 'grand-loop'
+  | 'frontier'
+  | 'long-stay'
+  | 'corridor'
+  | 'famous-scenic';
 
 export type Pace = 'slow' | 'fast';
 

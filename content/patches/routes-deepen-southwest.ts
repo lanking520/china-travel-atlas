@@ -2,7 +2,7 @@ import type { Route } from '../types';
 
 /** 西南深挖：版纳避寒 / 滇西腾冲 / 川西慢走（非新疆） */
 export const patchRoutes: Route[] = [
-  // ── 西南 · 西双版纳冬避寒 ─────────────────────────────────────
+  // ── 西南 · 西双版纳冬避寒（县域深挖 enrich 2026-08-02）────────
   {
     id: 'yunnan-xishuangbanna-winter',
     title: '西双版纳 · 冬避寒慢住',
@@ -12,18 +12,31 @@ export const patchRoutes: Route[] = [
     fromHome: false,
     daysLabel: '约2–4周（也可压到10–14天）',
     transport:
-      '北京飞西双版纳嘎洒（常经昆明中转），市区/告庄打车；景洪周边包车日归；结束飞回北京',
+      '北京飞西双版纳嘎洒（常经昆明中转），市区/告庄打车；勐海/勐仑/野象谷包车日归；结束飞回北京。不经河口出境（跨境见独立廊道）',
     budgetLabel: '对照月预算约2万（含机票分摊）；10–14天版约8000–14000元',
     coverImage:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG/1280px-City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG',
     summary:
-      '冬春避寒选景洪：告庄夜市浅逛、曼听公园平地慢走，热带植物园按体力选段。湿热蚊虫多，午休必留；不必赶勐腊、勐海全线。结束后飞回北京休整。',
+      '冬春避寒以景洪为锚：告庄浅逛、曼听平地，再按体力选勐仑植物园、勐海茶山外观或野象谷观光车。湿热蚊虫多，午休必留；勐腊过夜与高强度雨林徒步默认可删。结束后飞回北京休整。',
+    introduction:
+      '西双版纳傣族自治州以景洪为进出枢纽。爸妈产品优先「景洪电梯短租 + 每周最多一两次县域日归」：曼听/告庄平缓街区打底，中科院勐仑植物园靠观光车，勐海以茶园外观与集镇补给为主，野象谷只走正规景区观光段。\n\n不把勐腊—磨憨口岸硬塞进默认线；不安排未开放通道与夜间山路。跨境越南见河口—沙巴独立廊道，勿与本线连轴。',
+    seasonGuide:
+      '主推冬春避寒（干季相对好走）。盛夏湿热更重宜缩短户外；雨季路面滑、防蚊升级。雾霾少但紫外强，备帽与驱蚊。',
     whyFast:
-      '中科院植物园观光车半日快览即可；主体时间留给景洪慢住与空白日，勿连刷边境口岸。',
+      '植物园/勐海/野象谷任一段可删；主体留给景洪慢住与空白日，勿连刷边境口岸。',
+    notices: [
+      '行前关注天气预报与景区预约；腿脚紧优先观光车/电瓶车。',
+      '全年防晒驱蚊；午后强制回酒店歇，防中暑与肠胃不适。',
+      '傣味少油辣、少生腌；饮用水与冰块卫生自判。',
+      '野象谷遵守园区规定，勿投喂、勿离开步道；体力不够整段删。',
+      '不默认过夜勐腊/磨憨；不与河口出境线同趟特种兵。',
+    ],
     researchKeywords: [
       '西双版纳 过冬 慢住 退休',
       '景洪 告庄 曼听 攻略',
       '西双版纳 热带植物园 观光车',
+      '勐海 爸妈 日归',
+      '野象谷 观光车 父母',
     ],
     sources: [
       {
@@ -49,16 +62,28 @@ export const patchRoutes: Route[] = [
       {
         id: 'jinghong-base',
         name: '景洪（慢住基地）',
-        days: 14,
+        days: 10,
         pace: 'slow',
         lat: 22.009,
         lng: 100.797,
         summary:
-          '选告庄或市区电梯公寓，傍晚告庄浅逛、曼听公园平路；每天最多一个主点，下午回酒店歇。',
+          '告庄或市区电梯公寓连住；抵达先适应湿热，每天最多一个主点，下午回酒店歇。',
         tips:
-          '北京常经昆明中转；落地湿热，备轻薄长袖防蚊。选近医院电梯房，先订一周试住再续。饮食清淡，少试生腌；肠胃敏感备常备药。10–14天版把基地压到7–8天即可。',
+          '北京常经昆明中转；备轻薄长袖防蚊。近医院电梯房，先订一周试住再续。10–14天版把基地压到7–8天。',
         image:
-          'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG/1280px-City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG',
+      },
+      {
+        id: 'gaozhuang-optional',
+        name: '告庄西双景浅逛',
+        days: 2,
+        pace: 'slow',
+        lat: 22.0,
+        lng: 100.78,
+        summary: '傍晚平地浅逛与夜市外观；人多即撤，勿深夜久留。',
+        tips: '台阶与石板量力；消费货比三家。可与基地日合并。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/1/1b/Jinghong-street-with-palms.jpg',
       },
       {
         id: 'manting-park',
@@ -70,23 +95,63 @@ export const patchRoutes: Route[] = [
         summary:
           '平地园林与佛寺外观，树荫多；上午或傍晚去，避开正午暴晒。',
         tips:
-          '穿防滑鞋，石板偶有潮。寺庙内尊重习俗、少大声。人多即撤，不必打卡完所有角落。',
+          '穿防滑鞋。寺庙内尊重习俗、少大声。人多即撤。',
         image:
-          'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Xishuangbanna.jpg/1280px-Xishuangbanna.jpg',
       },
       {
         id: 'xtbg-optional',
-        name: '中科院热带植物园（可选）',
+        name: '勐仑 · 中科院热带植物园（可选）',
         days: 1,
         pace: 'fast',
         lat: 21.928,
         lng: 101.252,
         summary:
-          '包车往返勐仑，园内观光车串联；选1–2个片区即可，体力不够整段跳过。',
+          '包车往返勐仑（勐腊县境），园内观光车串联；选1–2个片区即可。',
         tips:
-          '车程约1.5–2小时，建议包车当日往返。园大勿硬走完全程；带水帽防晒。门票与观光车以当日公告为准。',
+          '车程约1.5–2小时当日往返。园大勿硬走完全程；门票与观光车以当日公告为准。',
         image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg/1280px-Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg',
+      },
+      {
+        id: 'menghai-day-optional',
+        name: '勐海茶山/集镇日归（可选）',
+        days: 1,
+        pace: 'fast',
+        lat: 21.96,
+        lng: 100.45,
+        summary:
+          '景洪西向包车：茶园外观与勐海县城补给；不排长距徒步采茶体验。',
+        tips: '车程约1.5小时级；暑热缩短停留。可整段删。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/3/39/Pu-erh_tea.jpg',
+      },
+      {
+        id: 'wild-elephant-optional',
+        name: '野象谷观光车（可选）',
+        days: 1,
+        pace: 'fast',
+        lat: 22.17,
+        lng: 100.87,
+        summary:
+          '正规景区观光车/栈道选段；以观景与科普为主，不期待必见野象。',
+        tips:
+          '遵守园区规定，勿投喂离道；雨天防滑。体力或排队过长即删。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Elephantvalley-elephants.jpg/1280px-Elephantvalley-elephants.jpg',
+      },
+      {
+        id: 'mengla-buffer-optional',
+        name: '勐腊浅停缓冲（可选可删）',
+        days: 1,
+        pace: 'fast',
+        lat: 21.48,
+        lng: 101.56,
+        summary:
+          '仅当植物园往返过累需中途歇脚时考虑；默认不过夜、不进磨憨口岸。',
+        tips: '默认可删；跨境老挝不在本产品范围。',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg/1280px-Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg',
       },
     ],
   },

@@ -945,36 +945,16 @@ export const routeDetails: Record<string, RouteDetailFields> = {
   },
   'yunnan-xishuangbanna-winter': {
     introduction:
-      '冬春避寒选景洪：告庄夜市浅逛、曼听公园平地慢走，热带植物园按体力选段。湿热蚊虫多，午休必留；不必赶勐腊、勐海全线。\n\n北京常经昆明中转飞嘎洒，结束后飞回北京休整。可压到10–14天，也可慢住两三周。',
+      '西双版纳傣族自治州以景洪为进出枢纽。爸妈产品优先「景洪电梯短租 + 每周最多一两次县域日归」：曼听/告庄平缓街区打底，中科院勐仑植物园靠观光车，勐海以茶园外观与集镇补给为主，野象谷只走正规景区观光段。\n\n不把勐腊—磨憨口岸硬塞进默认线；跨境越南见河口—沙巴独立廊道，勿与本线连轴。可压到10–14天，也可慢住两三周。',
     seasonGuide:
-      '主推冬春避寒。盛夏湿热更重，宜缩短户外；雨季路面滑，防滑鞋必备。',
+      '主推冬春避寒（干季相对好走）。盛夏湿热更重宜缩短户外；雨季路面滑、防蚊升级。紫外强，备帽与驱蚊。',
     notices: [
       '行程约2–4周（可压10–14天）：景洪慢住为主。',
       '交通：飞西双版纳（常经昆明），结束飞回北京。',
-      '防蚊防晒，午休必留；饮食清淡。',
-      '植物园观光车半日即可，体力不够整段跳过。',
+      '防蚊防晒，午休必留；饮食清淡少生腌。',
+      '植物园/勐海/野象谷任一段可删；优先观光车。',
+      '不默认过夜勐腊/磨憨；不与河口出境线同趟特种兵。',
       '票务与开放以景区公告为准。',
-    ],
-    gallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200',
-        caption: '西双版纳 · 冬避寒慢住 · 封面景色',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-        caption: '景洪（慢住基地）',
-        stopId: 'jinghong-base',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
-        caption: '曼听公园 · 傣式慢走',
-        stopId: 'manting-park',
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800',
-        caption: '中科院热带植物园（可选）',
-        stopId: 'xtbg-optional',
-      },
     ],
   },
   'yunnan-dianxi-tengchong': {

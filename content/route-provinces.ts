@@ -152,4 +152,6 @@ export const routeProvinces: Record<
     also: ['tianjin', 'shandong', 'jiangsu'],
   },
   'yunnan-g214-shangri-la-taste': { primary: 'yunnan' },
+  // Yunnan cross-border corridor (Hekou→Sapa); primary remains Yunnan anchor
+  'yunnan-hekou-sapa-corridor': { primary: 'yunnan' },
 };

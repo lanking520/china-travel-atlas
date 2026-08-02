@@ -86,6 +86,15 @@ export const PLACE_SOFT_IDS = new Set<string>([
   // coverage wave 20260802c soft
   'g214s-adapt', // 香格里拉适应 ↔ 独克宗同城
   'g214s-exit', // 飞撤 ↔ 独克宗同城
+  // banna enrich soft same-city / same-corridor
+  'gaozhuang-optional', // 告庄 ↔ 景洪同城
+  'manting-park', // 曼听无专用 Commons → 版纳同城示意
+  'menghai-day-optional', // 勐海日归 ↔ 普洱茶题材示意（非错省）
+  'mengla-buffer-optional', // 勐腊缓冲 ↔ 勐仑植物园同廊
+  // hekou-sapa soft
+  'hks-kunming-buffer', // 昆明缓冲无专用 → 河口同廊衔接示意
+  'hks-border-crossing', // 口岸通关 ↔ 河口老码头同城动线示意
+  'hks-return-hekou', // 返回河口 ↔ 河口主图同城
 ]);
 
 export function generatedPlacePath(id: string): string {
@@ -180,7 +189,10 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'xinan-guizhou-zhenyuan': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Guizhou_Zhenyuan_Ancient_Town4_%28cropped%29.jpg/1280px-Guizhou_Zhenyuan_Ancient_Town4_%28cropped%29.jpg',
   'yunnan-dali-lijiang': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg/1280px-%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8-2064560.jpg',
   'yunnan-dianxi-tengchong': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tengchong.jpg/1280px-Tengchong.jpg',
-  'yunnan-xishuangbanna-winter': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Xishuangbanna.jpg/1280px-Xishuangbanna.jpg',
+  'yunnan-xishuangbanna-winter':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG/1280px-City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG',
+  'yunnan-hekou-sapa-corridor':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sa_Pa_Rice_Terrace_I.jpg/1280px-Sa_Pa_Rice_Terrace_I.jpg',
   // coverage wave 20260802
   'huazhong-hubei-wuhan':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Yellow_Crane_Tower_61469-Wuhan_%2849149984218%29.jpg/1280px-Yellow_Crane_Tower_61469-Wuhan_%2849149984218%29.jpg',
@@ -365,7 +377,34 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'hunan-museum': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Hunan_Provincial_Museum.jpg/1280px-Hunan_Provincial_Museum.jpg',
   'jiayuguan': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Jiayuguan_20151012.jpg/1280px-Jiayuguan_20151012.jpg',
   'jinbian-creek': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/1280px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg',
-  'jinghong-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Xishuangbanna.jpg/1280px-Xishuangbanna.jpg',
+  'jinghong-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG/1280px-City_of_Jinghong%2C_Yunnan%2C_China_in_2015.JPG',
+  'gaozhuang-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/1/1b/Jinghong-street-with-palms.jpg',
+  'manting-park':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Xishuangbanna.jpg/1280px-Xishuangbanna.jpg',
+  'menghai-day-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/3/39/Pu-erh_tea.jpg',
+  'wild-elephant-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Elephantvalley-elephants.jpg/1280px-Elephantvalley-elephants.jpg',
+  'mengla-buffer-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg/1280px-Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg',
+  'hks-kunming-buffer':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hekou%2C_Yunnan%2C_China.jpg/1280px-Hekou%2C_Yunnan%2C_China.jpg',
+  'hks-hekou-base':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hekou%2C_Yunnan%2C_China.jpg/1280px-Hekou%2C_Yunnan%2C_China.jpg',
+  'hks-hekou-wharf':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/2025-02-09_Old_Hekou_Wharf_%E6%B2%B3%E5%8F%A3%E8%80%81%E7%A2%BC%E9%A0%AD_03.jpg/1280px-2025-02-09_Old_Hekou_Wharf_%E6%B2%B3%E5%8F%A3%E8%80%81%E7%A2%BC%E9%A0%AD_03.jpg',
+  'hks-border-crossing':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/2025-02-09_Old_Hekou_Wharf_%E6%B2%B3%E5%8F%A3%E8%80%81%E7%A2%BC%E9%A0%AD_03.jpg/1280px-2025-02-09_Old_Hekou_Wharf_%E6%B2%B3%E5%8F%A3%E8%80%81%E7%A2%BC%E9%A0%AD_03.jpg',
+  'hks-laocai-buffer':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Sapa_Mountains_Lao_Cai_Vietnam_%2856123%29.jpg/1280px-Sapa_Mountains_Lao_Cai_Vietnam_%2856123%29.jpg',
+  'hks-sapa-slow':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sa_Pa_Rice_Terrace_I.jpg/1280px-Sa_Pa_Rice_Terrace_I.jpg',
+  'hks-fansipan-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Fansipan.jpg/1280px-Fansipan.jpg',
+  'hks-return-hekou':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hekou%2C_Yunnan%2C_China.jpg/1280px-Hekou%2C_Yunnan%2C_China.jpg',
   'kaifeng-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Iron_Pagoda.jpg/1280px-Iron_Pagoda.jpg',
   'kalajun': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Kalajun.jpg/1280px-Kalajun.jpg',
   'kanas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
@@ -387,7 +426,6 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'lijiang-loop-taste': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lijiang_Old_Town.jpg/1280px-Lijiang_Old_Town.jpg',
   'longmen-grottoes': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/1280px-27427-Luoyang_%2849067744628%29.jpg',
   'lushun-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/L%C3%BCshun.jpg/1280px-L%C3%BCshun.jpg',
-  'manting-park': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Xishuangbanna.jpg/1280px-Xishuangbanna.jpg',
   'manzhouli-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Manzhouli.jpg/1280px-Manzhouli.jpg',
   'manzhouli-half': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Manzhouli.jpg/1280px-Manzhouli.jpg',
   'manzhouli-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Manzhouli.jpg/1280px-Manzhouli.jpg',

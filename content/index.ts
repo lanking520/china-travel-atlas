@@ -22,6 +22,7 @@ import { patchRoutes as prefectureHebeiShandongRoutes } from './patches/routes-p
 import { patchRoutes as coverageWave20260802Routes } from './patches/routes-coverage-wave-20260802';
 import { patchRoutes as coverageWave20260802bRoutes } from './patches/routes-coverage-wave-20260802b';
 import { patchRoutes as coverageWave20260802cRoutes } from './patches/routes-coverage-wave-20260802c';
+import { patchRoutes as yunnanHekouSapaRoutes } from './patches/routes-yunnan-hekou-sapa';
 import {
   applyRouteFieldPatches,
   getMergedRouteDetails,
@@ -78,6 +79,7 @@ export const routes: Route[] = (() => {
     ...coverageWave20260802Routes,
     ...coverageWave20260802bRoutes,
     ...coverageWave20260802cRoutes,
+    ...yunnanHekouSapaRoutes,
   ]) {
     map.set(r.id, r);
   }

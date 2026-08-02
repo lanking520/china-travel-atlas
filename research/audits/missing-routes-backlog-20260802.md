@@ -1,25 +1,35 @@
-# Missing / thin routes backlog · 2026-08-02（updated after prefecture-wave d）
+# Missing / thin routes backlog · 2026-08-02（updated after prefecture-wave e）
 
-> Catalog size: **148** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
-> Was 144 (post famous-P2 / dead-lead)；**+4 new** this wave.  
+> Catalog size: **159** route ids (`content/route-provinces.ts` ↔ patches, 1:1).  
+> Was 148 (post prefecture-d / Explore IA)；**+11 new** this wave.  
 > Legend: **M** = no dedicated route · **T** = thin · **C** = dedicated covered · **D** = discoverability fixed.
 
 ---
 
-## Closed this wave（prefecture d）
+## Closed this wave（prefecture e）
 
 | Item | Status | id |
 |------|--------|-----|
-| 洛阳孟津/偃师 | **C** | `huazhong-henan-luoyang-county`（独立浅线） |
-| 开封 | **C** | `huazhong-henan-kaifeng` |
-| 苏州县域 | **C** | `huadong-jiangsu-suzhou-county` |
-| 大理州表格式日归 | **C** | `xinan-yunnan-dali-daytrips`（非长居；与 `longstay-dali` 分卡） |
+| 忻州县域 | **C** | `huabei-shanxi-xinzhou-county` |
+| 扬州县域 | **C** | `huadong-jiangsu-yangzhou-county` |
+| 镇江三山 | **C** | `huadong-jiangsu-zhenjiang` |
+| 阿尔山 | **C** | `huabei-neimeng-aershan` |
+| 安阳殷墟 | **C** | `huazhong-henan-anyang` |
+| 焦作云台山 | **C** | `huazhong-henan-jiaozuo` |
+| 南通濠河 | **C** | `huadong-jiangsu-nantong` |
+| 嘉兴南湖/西塘 | **C** | `huadong-zhejiang-jiaxing` |
+| 湖州南浔 | **C** | `huadong-zhejiang-huzhou` |
+| 岳阳楼 | **C** | `huazhong-hunan-yueyang` |
+| 邯郸丛台 | **C**（图 soft） | `huabei-hebei-handan` |
 
 ---
 
 ## Still open（next）
 
-忻州县域表（五台减负已有） · 扬州县域补强 · 其余地级深挖见 prefecture backlog …
+- **图升**：邯郸丛台专用 Commons；南通濠河岸线风景（现公交廊 soft）  
+- **地级再挖**：运城/临汾、潍坊、皖南宣城、湖北荆州等（见 `research/notes/prefecture-depth/backlog.md`）  
+- **走廊浅段**：G210 非延安段（低优先）  
+- shortlist 仍「待评估」且未立项：天津海河加深、阿尔山已 C、景德镇独立（刻意并入婺源廊）等  
 
 ---
 
@@ -33,4 +43,4 @@
 
 - Count = keys in `route-provinces.ts`（须与 routes merge 1:1）.  
 - Visibility: run `node research/scripts/dead-lead-audit.mjs`  
-- Prefecture notes: `research/notes/prefecture-depth/`
+- Prefecture notes: `research/notes/prefecture-depth/`  

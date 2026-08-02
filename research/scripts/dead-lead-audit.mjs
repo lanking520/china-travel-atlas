@@ -131,6 +131,22 @@ const expectSearch = [
   "洱源",
   "剑川",
   "沙溪",
+  "雁门关",
+  "代县",
+  "高邮",
+  "盂城驿",
+  "金山寺",
+  "焦山",
+  "阿尔山",
+  "殷墟",
+  "云台山",
+  "南通",
+  "濠河",
+  "嘉兴南湖",
+  "西塘",
+  "南浔",
+  "岳阳楼",
+  "邯郸",
 ];
 
 const searchReport = {};
@@ -146,7 +162,7 @@ for (const q of expectSearch) {
 const searchMiss = expectSearch.filter((q) => searchReport[q].count === 0);
 const searchNotOnFamous = expectSearch.filter((q) => {
   const r = searchReport[q];
-  return r.count > 0 && r.onFamousChip.length === 0 && ["梵净","荔波","神农架","恩施","西江","肇兴","潮州","平遥","黄果树","武夷","千岛湖","婺源","北海","普陀","开平","九华","武隆","乔家","开封","周庄","沙溪","白马寺"].includes(q);
+  return r.count > 0 && r.onFamousChip.length === 0 && ["梵净","荔波","神农架","恩施","西江","肇兴","潮州","平遥","黄果树","武夷","千岛湖","婺源","北海","普陀","开平","九华","武隆","乔家","开封","周庄","沙溪","白马寺","雁门关","高邮","金山寺","阿尔山","殷墟","云台山","南浔","岳阳楼"].includes(q);
 });
 
 const out = {

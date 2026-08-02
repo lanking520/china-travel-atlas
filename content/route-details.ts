@@ -1527,35 +1527,35 @@ export const routeDetails: Record<string, RouteDetailFields> = {
   },
   'huabei-shandong-taishan': {
     introduction:
-      '与青岛海滨长线互补：泰安高铁进出，天外村/桃花源缆车上山浅看，绝不硬爬十八盘。看够高铁回京。',
+      '泰山与曲阜同属鲁中、高铁/高速约一小时，地理串廊自然。爸妈先索道减负看山，再三孔庭院文化线——台阶与人流都可控。\n\n泰安歇一夜缆车浅尝泰山（不盘道夜爬），再开进曲阜孔庙孔府平地慢走；三孔与索道分日，勿同一天特种兵。青岛海滨长线互补，勿同短假半岛+鲁中硬拼。',
     seasonGuide:
-      '春秋最宜。夏暴晒与暴雨宜早晚短登；冬冰雪路面慎行，缆车或停运须改期。',
+      '春秋最佳。夏可走，山顶与庭院午后避开暴晒。冬冰雪索道可能停运，以公告为准。',
     notices: [
-      '行程约2–4天 short。',
-      '交通：北京南高铁至泰安约1.5–2小时，结束高铁回京。',
-      '只乘缆车/索道，禁止盘道硬爬与夜爬。',
-      '雾大风强可改期或只逛山脚。',
-      '勿再塞曲阜三孔同一短假。',
+      '行程约3–5天：泰安与曲阜各住，少当日折返过劳。',
+      '北京南高铁泰安；曲阜东/济南高铁回京。',
+      '禁止十八盘硬爬与夜爬看日出；只乘缆车/索道。',
+      '索道排队早到；雾冰可改曲阜日。',
+      '孔庙石板防滑；孔林路线长可只孔庙孔府。',
     ],
     gallery: [
       {
-        url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
-        caption: '泰安 · 泰山缆车浅尝 · 封面景色',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Mount_Tai.jpg/1280px-Mount_Tai.jpg',
+        caption: '泰山曲阜 · 鲁中名景廊 · 封面景色',
       },
       {
-        url: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800',
-        caption: '泰安市区（高铁进出）',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Mount_Tai.jpg/1280px-Mount_Tai.jpg',
+        caption: '泰安市区',
         stopId: 'taian-base',
       },
       {
-        url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Mount_Tai.jpg/1280px-Mount_Tai.jpg',
         caption: '泰山（缆车浅尝）',
         stopId: 'taishan-cable',
       },
       {
-        url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
-        caption: '泰安缓冲 / 高铁回京',
-        stopId: 'taian-return',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Temple_of_Confucius.jpg/1280px-Temple_of_Confucius.jpg',
+        caption: '曲阜三孔（孔庙孔府）',
+        stopId: 'qufu-sankong',
       },
     ],
   },

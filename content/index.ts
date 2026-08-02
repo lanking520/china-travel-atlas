@@ -27,6 +27,7 @@ import { patchRoutes as famousStitch20260802Routes } from './patches/routes-famo
 import { patchRoutes as famousP120260802Routes } from './patches/routes-famous-p1-20260802';
 import { patchRoutes as famousP220260802Routes } from './patches/routes-famous-p2-20260802';
 import { patchRoutes as prefectureWave20260802dRoutes } from './patches/routes-prefecture-wave-20260802d';
+import { patchRoutes as prefectureWave20260802eRoutes } from './patches/routes-prefecture-wave-20260802e';
 import {
   applyRouteFieldPatches,
   getMergedRouteDetails,
@@ -88,6 +89,7 @@ export const routes: Route[] = (() => {
     ...famousP120260802Routes,
     ...famousP220260802Routes,
     ...prefectureWave20260802dRoutes,
+    ...prefectureWave20260802eRoutes,
   ]) {
     map.set(r.id, r);
   }

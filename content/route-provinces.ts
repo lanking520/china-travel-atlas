@@ -189,4 +189,16 @@ export const routeProvinces: Record<
   'huazhong-henan-kaifeng': { primary: 'henan' },
   'huadong-jiangsu-suzhou-county': { primary: 'jiangsu' },
   'xinan-yunnan-dali-daytrips': { primary: 'yunnan' },
+  // Prefecture / famous gap wave 20260802e
+  'huabei-shanxi-xinzhou-county': { primary: 'shanxi' },
+  'huadong-jiangsu-yangzhou-county': { primary: 'jiangsu' },
+  'huadong-jiangsu-zhenjiang': { primary: 'jiangsu' },
+  'huabei-neimeng-aershan': { primary: 'neimenggu' },
+  'huazhong-henan-anyang': { primary: 'henan' },
+  'huazhong-henan-jiaozuo': { primary: 'henan' },
+  'huadong-jiangsu-nantong': { primary: 'jiangsu' },
+  'huadong-zhejiang-jiaxing': { primary: 'zhejiang' },
+  'huadong-zhejiang-huzhou': { primary: 'zhejiang' },
+  'huazhong-hunan-yueyang': { primary: 'hunan' },
+  'huabei-hebei-handan': { primary: 'hebei' },
 };

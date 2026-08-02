@@ -2609,6 +2609,138 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       { name: '大理白族自治州人民医院', level: '三甲', area: '大理市区', note: '请用高德核实' },
     ],
   },
+  'huabei-shanxi-xinzhou-county': {
+    routeGuide:
+      '高铁忻州/原平→电梯酒店→代县古城+阿育王塔→雁门关关城外观→定襄河边可选→回京。\n\n可跳过：河边、宁武芦芽；五台走专线。',
+    timePlan: ['D1：抵达', 'D2：代县', 'D3：雁门关', 'D4：可选或回京'],
+    sightsTips: '· 雁门只外观。\n· 勿串五台顶峰。\n· 山路少夜赶。',
+    dining: '面食少油；慎生冷。',
+    longStay: '忻州或代县电梯酒店连住。',
+    hospitals: [
+      { name: '忻州市人民医院', level: '三甲', area: '忻州', note: '请用高德核实' },
+      { name: '代县人民医院', level: '二级', area: '代县', note: '急转市；请用高德核实' },
+    ],
+  },
+  'huadong-jiangsu-yangzhou-county': {
+    routeGuide:
+      '高铁扬州东→市区电梯酒店→高邮盂城驿/运河→仪征或邵伯可选→回京。\n\n可跳过：仪征、邵伯；瘦西湖走专线。',
+    timePlan: ['D1：抵达', 'D2–3：高邮', 'D4：仪征或空白', '回京'],
+    sightsTips: '· 运河防滑。\n· 勿塞瘦西湖全线。\n· 高邮仪征分日。',
+    dining: '扬州炒饭少油；高邮咸鸭蛋浅尝。',
+    longStay: '扬州或高邮电梯酒店。',
+    hospitals: [
+      { name: '苏北人民医院', level: '三甲', area: '扬州', note: '请用高德核实' },
+      { name: '高邮市人民医院', level: '三级', area: '高邮', note: '请用高德核实' },
+    ],
+  },
+  'huadong-jiangsu-zhenjiang': {
+    routeGuide:
+      '高铁镇江→市区电梯酒店→金山选段→焦山分日→北固可删→回京。\n\n可跳过：北固、焦山轮渡。',
+    timePlan: ['D1：抵达', 'D2：金山', 'D3：焦山或回京'],
+    sightsTips: '· 每天一山。\n· 台阶防滑。\n· 勿与扬州同日。',
+    dining: '锅盖面少油；慎河鲜过敏。',
+    longStay: '大市口/金山方向电梯酒店。',
+    hospitals: [
+      { name: '江苏大学附属医院', level: '三甲', area: '镇江', note: '请用高德核实' },
+      { name: '镇江市第一人民医院', level: '三甲', area: '镇江', note: '请用高德核实' },
+    ],
+  },
+  'huabei-neimeng-aershan': {
+    routeGuide:
+      '飞乌兰浩特/海拉尔转阿尔山→温泉镇电梯酒店→森林公园观光车→天池外观→五里泉可选→返京。\n\n可跳过：天池、长徒步。',
+    timePlan: ['D1：抵达适应', 'D2–3：公园', 'D4：天池或空白', '返京'],
+    sightsTips: '· 观光车减步。\n· 温差分层穿衣。\n· 泡汤遵医嘱。',
+    dining: '清淡牛羊肉；少生冷。',
+    longStay: '温泉镇电梯/温泉酒店连住。',
+    hospitals: [
+      { name: '阿尔山市人民医院', level: '二级', area: '阿尔山', note: '急转乌兰浩特；请用高德核实' },
+      { name: '兴安盟人民医院', level: '三甲', area: '乌兰浩特', note: '下撤；请用高德核实' },
+    ],
+  },
+  'huazhong-henan-anyang': {
+    routeGuide:
+      '高铁安阳→市区电梯酒店→殷墟博物馆→遗址选段→文峰塔可选→回京。\n\n可跳过：文峰塔、红旗渠。',
+    timePlan: ['D1：抵达', 'D2：博物馆+遗址', '回京'],
+    sightsTips: '· 室内优先。\n· 查闭馆。\n· 勿串洛阳同日。',
+    dining: '安阳烩菜少油；面食为主。',
+    longStay: '市区电梯酒店。',
+    hospitals: [
+      { name: '安阳市人民医院', level: '三甲', area: '安阳', note: '请用高德核实' },
+      { name: '安阳地区医院', level: '三甲', area: '安阳', note: '请用高德核实' },
+    ],
+  },
+  'huazhong-henan-jiaozuo': {
+    routeGuide:
+      '高铁焦作/修武→景区口电梯酒店→红石峡或泉瀑峡二选一观光车→茱萸峰可删→回京。\n\n可跳过：另一峡谷、茱萸峰。',
+    timePlan: ['D1：抵达', 'D2：一峡', 'D3：空白或回京'],
+    sightsTips: '· 二选一峡谷。\n· 观光车优先。\n· 雨后防滑。',
+    dining: '怀药炖品浅尝；少油炸。',
+    longStay: '景区口或修武电梯酒店。',
+    hospitals: [
+      { name: '焦作市人民医院', level: '三甲', area: '焦作', note: '请用高德核实' },
+      { name: '修武县人民医院', level: '二级', area: '修武', note: '急转市；请用高德核实' },
+    ],
+  },
+  'huadong-jiangsu-nantong': {
+    routeGuide:
+      '高铁南通→濠河电梯酒店→濠河浅走→狼山选段→博物苑可选→回京。\n\n可跳过：狼山登高、博物苑。',
+    timePlan: ['D1：抵达濠河', 'D2：狼山或空白', '回京'],
+    sightsTips: '· 濠河平路。\n· 狼山台阶量力。\n· 游船可选。',
+    dining: '江海鲜清蒸；少生冷。',
+    longStay: '濠河沿线电梯酒店。',
+    hospitals: [
+      { name: '南通大学附属医院', level: '三甲', area: '南通', note: '请用高德核实' },
+      { name: '南通市第一人民医院', level: '三甲', area: '南通', note: '请用高德核实' },
+    ],
+  },
+  'huadong-zhejiang-jiaxing': {
+    routeGuide:
+      '高铁嘉兴→市区电梯酒店→南湖→西塘连住可选→回京。\n\n可跳过：西塘；勿与乌镇同日。',
+    timePlan: ['D1：抵达', 'D2：南湖', 'D3：西塘或回京'],
+    sightsTips: '· 石板防滑。\n· 西塘乌镇二选一。\n· 南湖游船量力。',
+    dining: '嘉兴粽浅尝；少甜腻。',
+    longStay: '市区或西塘电梯酒店。',
+    hospitals: [
+      { name: '嘉兴学院附属医院', level: '三甲', area: '嘉兴', note: '请用高德核实' },
+      { name: '嘉兴市第一医院', level: '三甲', area: '嘉兴', note: '请用高德核实' },
+    ],
+  },
+  'huadong-zhejiang-huzhou': {
+    routeGuide:
+      '高铁湖州→南浔电梯酒店→小莲庄选段→百间楼→飞英塔可选→回京。\n\n可跳过：飞英塔；勿与西塘同日。',
+    timePlan: ['D1：抵达南浔', 'D2：园林+水巷', '回京'],
+    sightsTips: '· 园林二选一。\n· 石板防滑。\n· 勿一日三镇。',
+    dining: '湖羊浅尝；粥面为主。',
+    longStay: '南浔古镇外电梯酒店。',
+    hospitals: [
+      { name: '湖州市中心医院', level: '三甲', area: '湖州', note: '请用高德核实' },
+      { name: '南浔区人民医院', level: '二级', area: '南浔', note: '急转市；请用高德核实' },
+    ],
+  },
+  'huazhong-hunan-yueyang': {
+    routeGuide:
+      '高铁岳阳东→近楼电梯酒店→岳阳楼选段→洞庭湖岸→回京。\n\n可跳过：登楼、游船。',
+    timePlan: ['D1：抵达', 'D2：岳阳楼+湖岸', '回京'],
+    sightsTips: '· 登楼可删。\n· 湖风备外套。\n· 勿串张家界。',
+    dining: '鱼鲜清蒸；少油炸。',
+    longStay: '近岳阳楼电梯酒店。',
+    hospitals: [
+      { name: '岳阳市中心医院', level: '三甲', area: '岳阳', note: '请用高德核实' },
+      { name: '岳阳职业技术学院附属医院', level: '三级', area: '岳阳', note: '请用高德核实' },
+    ],
+  },
+  'huabei-hebei-handan': {
+    routeGuide:
+      '高铁邯郸→丛台电梯酒店→丛台公园→响堂山可删→回京。\n\n可跳过：响堂山。',
+    timePlan: ['D1：抵达', 'D2：丛台', '回京'],
+    sightsTips: '· 平地优先。\n· 响堂默认可删。\n· 勿与正定同日。',
+    dining: '邯郸捞面少油；慎生冷。',
+    longStay: '丛台附近电梯酒店。',
+    hospitals: [
+      { name: '邯郸市中心医院', level: '三甲', area: '邯郸', note: '请用高德核实' },
+      { name: '邯郸市第一医院', level: '三甲', area: '邯郸', note: '请用高德核实' },
+    ],
+  },
 };
 
 export const PRACTICAL_GUIDE_WAVE1_IDS = Object.keys(practicalGuides);

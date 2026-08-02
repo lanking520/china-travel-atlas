@@ -20,20 +20,36 @@
 | 河南 | 开封 | `huazhong-henan-kaifeng`（新建） | [henan-kaifeng.md](./henan-kaifeng.md) |
 | 江苏 | 苏州县域 | `huadong-jiangsu-suzhou-county`（新建） | [jiangsu-suzhou.md](./jiangsu-suzhou.md) |
 | 云南 | 大理州日归表 | `xinan-yunnan-dali-daytrips`（新建；非长居） | [yunnan-dali.md](./yunnan-dali.md) |
+| 山西 | 忻州县域 | `huabei-shanxi-xinzhou-county`（新建） | [shanxi-xinzhou.md](./shanxi-xinzhou.md) |
+| 江苏 | 扬州县域 | `huadong-jiangsu-yangzhou-county`（新建） | [jiangsu-yangzhou.md](./jiangsu-yangzhou.md) |
+| 江苏 | 镇江 | `huadong-jiangsu-zhenjiang`（新建） | multi-discovery wave e |
+| 内蒙古 | 阿尔山 | `huabei-neimeng-aershan`（新建） | multi-discovery wave e |
+| 河南 | 安阳 | `huazhong-henan-anyang`（新建） | multi-discovery wave e |
+| 河南 | 焦作云台 | `huazhong-henan-jiaozuo`（新建） | multi-discovery wave e |
+| 江苏 | 南通 | `huadong-jiangsu-nantong`（新建） | multi-discovery wave e |
+| 浙江 | 嘉兴 | `huadong-zhejiang-jiaxing`（新建） | multi-discovery wave e |
+| 浙江 | 湖州南浔 | `huadong-zhejiang-huzhou`（新建） | multi-discovery wave e |
+| 湖南 | 岳阳 | `huazhong-hunan-yueyang`（新建） | multi-discovery wave e |
+| 河北 | 邯郸 | `huabei-hebei-handan`（新建；图 soft） | multi-discovery wave e |
 
 关联长居（城市基地，非县域深挖）：见 `research/notes/long-stay-cities-20260802.md`。
 
 ## 下一批建议（华北/父母友好）
 
-1. **忻州**（五台山适老减负版已有 `huabei-shanxi-wutai`，可再县域表）  
+1. ~~**忻州**~~ → 已完成 `huabei-shanxi-xinzhou-county`（2026-08-02e）  
 2. ~~**河南洛阳**（孟津/偃师县域）~~ → 已完成 `huazhong-henan-luoyang-county`（2026-08-02d）  
-3. ~~**晋中**（太谷/祁县与平遥织紧）~~ → 已完成 `huabei-shanxi-pingyao-deep`（2026-08-02 P2） 
+3. ~~**晋中**（太谷/祁县与平遥织紧）~~ → 已完成 `huabei-shanxi-pingyao-deep`（2026-08-02 P2）  
+4. **运城 / 临汾**（盐湖/尧庙浅线，父母友好）  
+5. **潍坊**（鲁中城市补线）  
 
 ## 再下一批（走廊向）
 
 - ~~河南：开封~~ → 已完成 `huazhong-henan-kaifeng`  
-- ~~江苏：苏州（昆山/常熟日归）~~ → 已完成 `huadong-jiangsu-suzhou-county`；扬州县域补强仍开  
+- ~~江苏：苏州（昆山/常熟日归）~~ → 已完成 `huadong-jiangsu-suzhou-county`  
+- ~~江苏：扬州县域~~ → 已完成 `huadong-jiangsu-yangzhou-county`  
 - ~~云南：大理州（洱源/剑川表格式）~~ → 已完成 `xinan-yunnan-dali-daytrips`（与 `longstay-dali` 分卡）  
+- 湖北：荆州古城浅住  
+- 安徽：宣城/泾县（与黄山分周）  
 
 ## 暂缓
 

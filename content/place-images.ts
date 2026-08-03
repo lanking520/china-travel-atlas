@@ -17,47 +17,22 @@ export const PLACE_GENERATED_IDS = new Set<string>([
  * Prefer upgrading to place-accurate Commons when found; do not use wrong-province stand-ins.
  */
 export const PLACE_SOFT_IDS = new Set<string>([
-
-  'zhuhai-optional', // 珠海可选 ↔ 珠海主图同城
+  // Intentional same-corridor / same-city buffers (not wrong-province).
+  // Upgraded out when dedicated Commons appears (仪征/邵伯/铜仁/珠海情侣路/汕头港 20260802).
   'shapotou-optional', // 沙坡头可选 ↔ 沙坡头主图同景区
-  // famous P1 soft same-corridor
-
-  // prefecture wave 20260802e soft
   'yzc-base', // 扬州锚点 ↔ 瘦西湖同城（县域进出）
-  'yzc-yizheng-optional', // 仪征无专用 ↔ 高邮运河同廊
-  'yzc-shaobo-optional', // 邵伯 ↔ 高邮湖同廊示意
   'zj-base', // 镇江住 ↔ 金山同城
-
-  // prefecture wave 20260802f soft
-  'yc-museum-optional', // 运城馆线 ↔ 关帝庙同廊示意
-  'xc-base', // 宣城锚点 ↔ 广教寺双塔同市示意
-
-  'qd-hangzhou-note', // 返杭缓冲：西湖专用照，标注同廊衔接
+  'yc-museum-optional', // 运城馆线 ↔ 关帝庙同廊（无馆外景）
+  'xc-base', // 宣城锚点 ↔ 广教寺双塔同市
+  'qd-hangzhou-note', // 返杭缓冲：西湖
   'qufu-exit', // 曲阜东 ↔ 孔庙同城
-  // famous P2 soft same-corridor
-  'fj-gate', // 铜仁缓冲 ↔ 梵净同廊
-
-  'cs-shantou', // 汕头 ↔ 潮汕同廊（骑楼/港湾）
-
-
   'lz-buffer-optional',
   'g318-exit',
   'jn-hangzhou-gate',
   'jn-exit',
-
-
-  // hh-city / hh-buffer：已升呼市大召专用 Commons（离呼伦贝尔错城）
-  // coverage wave 20260802b soft same-city / same-corridor
-  // (可园/莞城/虎门馆/岭南天地=东华里/古运河/普达措/枣园/西宁适应/京沪出京 等已升专用 Commons)
   'qzr-exit', // 段末出藏 ↔ 青藏列车同主题
-  // coverage wave 20260802c soft
   'g214s-exit', // 飞撤 ↔ 独克宗同城
-  // banna enrich soft same-city / same-corridor
-
   'mengla-buffer-optional', // 勐腊缓冲 ↔ 勐仑植物园同廊
-  // hekou-sapa soft（昆明缓冲已升 Kunming.jpg）
-  // famous stitch soft
-
   'sx-hangzhou-optional',
 ]);
 
@@ -697,7 +672,8 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'zhenyuan-or-qiandongnan': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Guizhou_Zhenyuan_Ancient_Town4_%28cropped%29.jpg/1280px-Guizhou_Zhenyuan_Ancient_Town4_%28cropped%29.jpg',
   'zhongwei-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Shapotou.jpg/1280px-Shapotou.jpg',
   'zhuhai-lover-road': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Zhuhai.jpg/1280px-Zhuhai.jpg',
-  'zhuhai-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Zhuhai.jpg/1280px-Zhuhai.jpg',
+  'zhuhai-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Palm_trees%2C_Lover%27s_Road%2C_Zhuhai.jpg/1280px-Palm_trees%2C_Lover%27s_Road%2C_Zhuhai.jpg',
   'zhujiajiao-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Zhujiajiao_Town.jpg/1280px-Zhujiajiao_Town.jpg',
   // coverage wave 20260802
   'wh-wuchang-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/%E6%AD%A6%E6%98%8C%E6%B1%9F%E6%BB%A9_-_Wuchang_River_Beach_Park_-_2016.04_-_panoramio.jpg/1280px-%E6%AD%A6%E6%98%8C%E6%B1%9F%E6%BB%A9_-_Wuchang_River_Beach_Park_-_2016.04_-_panoramio.jpg',
@@ -989,7 +965,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/%E7%A8%94%E5%B9%B3%E5%8D%8A%E5%B2%9B%E6%B8%AF%E5%8F%A3%E9%95%87%E8%A7%82%E6%99%AF%E5%8F%B0%E5%BE%80%E5%8F%8C%E6%9C%88%E6%B9%BE.jpg/1280px-%E7%A8%94%E5%B9%B3%E5%8D%8A%E5%B2%9B%E6%B8%AF%E5%8F%A3%E9%95%87%E8%A7%82%E6%99%AF%E5%8F%B0%E5%BE%80%E5%8F%8C%E6%9C%88%E6%B9%BE.jpg',
   // famous P2 20260802 stops
   'fj-gate':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fanjingshan-new.jpg/1280px-Fanjingshan-new.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Tongren_Guizhou.jpg/1280px-Tongren_Guizhou.jpg',
   'fj-cable':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fanjingshan-new.jpg/1280px-Fanjingshan-new.jpg',
   'fj-jinding-optional':
@@ -1102,9 +1078,9 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'yzc-gaoyou':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Yucheng_Postal_Stop_entrance.jpg/1280px-Yucheng_Postal_Stop_entrance.jpg',
   'yzc-yizheng-optional':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E4%BA%AC%E6%9D%AD%E8%BF%90%E6%B2%B3%E9%AB%98%E9%82%AE%E6%AE%B51437.jpg/1280px-%E4%BA%AC%E6%9D%AD%E8%BF%90%E6%B2%B3%E9%AB%98%E9%82%AE%E6%AE%B51437.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/%E4%BB%AA%E5%BE%81%E5%9B%AD%E5%8D%9A%E5%9B%AD%E8%BF%9C%E7%9C%BA.jpg/1280px-%E4%BB%AA%E5%BE%81%E5%9B%AD%E5%8D%9A%E5%9B%AD%E8%BF%9C%E7%9C%BA.jpg',
   'yzc-shaobo-optional':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E9%AB%98%E9%82%AE%E6%B9%961144.jpg/1280px-%E9%AB%98%E9%82%AE%E6%B9%961144.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Shaobo_Shiplock.jpg/1280px-Shaobo_Shiplock.jpg',
   'zj-base':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/%E9%95%87%E6%B1%9F%E9%87%91%E5%B1%B1%E5%AF%BA.jpg/1280px-%E9%95%87%E6%B1%9F%E9%87%91%E5%B1%B1%E5%AF%BA.jpg',
   'zj-jinshan':

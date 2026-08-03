@@ -9,6 +9,7 @@
 | `PLACE_STOP_IMAGES` | 593 | 593 |
 | `PLACE_ROUTE_COVERS` | 182 | 182 |
 | `PLACE_SOFT_IDS` (同区示意 captions) | **131** | **97** |
+| Soft after 华中/华南 batch (this note + `place-images-batch-huazhong-huanan-20260802.md`) | 97 | **78** |
 | `PLACE_GENERATED_IDS` (示意生成图) | 3 | 3 |
 | Wired `/generated/places/` stop srcs | 3 | 3 |
 | Unsplash in place-images map | 0 | 0 |

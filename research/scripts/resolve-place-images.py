@@ -327,7 +327,7 @@ FILES: dict[str, str] = {
     "huanan-hainan-haikou": "Haikou_Century_Bridge_in_2015.jpg",
     "hk-longhua-base": "Haikou_Century_Bridge_in_2015.jpg",
     "hk-west-coast": "Haikou_Century_Bridge_in_2015.jpg",
-    "hk-volcano-optional": "Haikou_Century_Bridge_in_2015.jpg",
+    "hk-volcano-optional": "海南国际旅游岛——海口.世界火山地质公园熔岩流保护区景观（西南向）_-_panoramio.jpg",
     "hk-qilou": "海口骑楼老街_-_Haikou_Arcaded_Streets_-_2016.01_-_panoramio.jpg",
     "huabei-neimeng-hohhot": "Da_Zhao_Temple_in_Hohhot3.JPG",
     "hh-city-base": "Da_Zhao_Temple_in_Hohhot3.JPG",
@@ -396,6 +396,21 @@ FILES: dict[str, str] = {
 
     "jz-zhuyu-optional": "茱萸峰_-_panoramio_(2).jpg",
 
+    "zz-jinshui-base": "Erqi_Memorial_Tower.jpg",
+    "cs-ningxiang-optional": "少奇故里-万德鼎-花明楼_-_panoramio.jpg",
+    "bh-oldtown": "北海市_百年老街_-_panoramio.jpg",
+    "hz-shuangyue-optional": "稔平半岛港口镇观景台往双月湾.jpg",
+    "jgz-park-optional": "荆州城东门外的护城河.jpg",
+    "wh-wuchang-base": "武昌江滩_-_Wuchang_River_Beach_Park_-_2016.04_-_panoramio.jpg",
+    "cs-xiangjiang-base": "长沙湘江风光带_-_panoramio.jpg",
+    "nn-qingxiu-base": "青秀山风景区panoramio103204924.jpg",
+    "sz-nanshan-base": "深圳湾公园_shen_zhen_wan_gong_yuan_-_panoramio.jpg",
+    "kp-base": "Kaiping_diaolou_zili_village_2012_01.jpg",
+    "zs-park-optional": "中山市岐江公园_qi_jiang_gong_yuan_-_panoramio.jpg",
+    "zs-base": "GD_廣東_ZS_中山市_Zhongshan_石岐河_Shiqi_River_岐江橋_QiJiang_Bridge_view_buildings_February_2025_R12S_03.jpg",
+    "fh-night-riverside": "Fenghuang_County_night_view_20190727.jpg",
+    "snj-gate": "宜昌滨江公园_-_panoramio.jpg",
+    "dx-shaoguan-gate": "韶关市中心的马路边_-_By_科技小辛_-_panoramio.jpg",
 }
 
 

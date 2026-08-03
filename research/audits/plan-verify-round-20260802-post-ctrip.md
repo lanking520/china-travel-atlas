@@ -34,7 +34,7 @@ Core Explore IA + composition model + discovery gate match shipped product. Post
 | **Content** | Optional corridors: 粤西开平–湛江、东北冬冰雪 | open | Only if product asks |
 | **Content** | Extreme alpine honesty (no forced compose) | standing | Non-goal reminder, not a build ticket |
 | **Content** | Optional 华北/东北 Ctrip **introduction** parity | open | PG done; intros still light by design (rollup) |
-| **Ops** | Aliyun OSS+CDN dual-deploy | open | Stub only until ICP/domain/secrets |
+| **Ops** | Aliyun OSS+CDN dual-deploy | deferred | Optional later (WeChat-max); **do not build now** — CF Pages covers interim CDN |
 | **Polish** | — | — | — |
 
 ### DONE / retired (do not re-open)
@@ -51,6 +51,7 @@ Core Explore IA + composition model + discovery gate match shipped product. Post
 | Brand rename 爸妈… → 中国旅游地图 | **DONE** |
 | 从郑州家出发 tags | **DONE** (8 routes) |
 | Compose→leg Back → long-line detail | **DONE** |
+| Ops mainland CDN interim (Cloudflare Pages) | **DONE** — live https://china-travel-atlas.pages.dev/ (Aliyun+ICP optional later only) |
 
 Historical verifies (`*-explore-ia.md`, early `*-ux-clean.md`, FINAL “detail maps kept”) describing map-tab or detail maps as current — **obsolete**.
 
@@ -81,10 +82,10 @@ Historical verifies (`*-explore-ia.md`, early `*-ux-clean.md`, FINAL “detail m
 
 ## 5 next tasks (ranked by value)
 
-1. **Ops — China CDN dual-deploy** when ICP/domain + secrets ready (`china-mainland-access-20260802.md`). Biggest mainland-phone access win; do **not** enable stub early.
-2. **Content — optional 华北/东北 intro rewrite** for parity with 华东-style Ctrip intros (PG already present; 4 short lines stay skipped).
-3. **UX/content — Explore 长居 chip / base detail polish** if hubs feel hard to find via 主题·长居 alone.
-4. **Images — Soft→Commons residual** only when dedicated scenic appears for the ~15 intentional same-corridor buffers (gen leftovers stay unless Commons appears).
-5. **UX — density / virtualization / embla** only after live parent feedback or proven mid-phone jank — do not preempt.
+1. **Content — optional 华北/东北 intro rewrite** for parity with 华东-style Ctrip intros (PG already present; 4 short lines stay skipped).
+2. **UX/content — Explore 长居 chip / base detail polish** if hubs feel hard to find via 主题·长居 alone.
+3. **Images — Soft→Commons residual** only when dedicated scenic appears for the ~15 intentional same-corridor buffers (gen leftovers stay unless Commons appears).
+4. **UX — density / virtualization / embla** only after live parent feedback or proven mid-phone jank — do not preempt.
+5. **Ops — Aliyun OSS+CDN+ICP** only if CF Pages proves insufficient for WeChat parents (`china-mainland-access-20260802.md`). Do **not** enable stub early.
 
 **Do not:** reintroduce map tab or detail overview maps; resurrect `national-*`; block new ids on XHS MCP health (multi-discovery remains the gate).

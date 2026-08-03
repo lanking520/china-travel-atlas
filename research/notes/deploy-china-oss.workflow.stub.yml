@@ -1,6 +1,8 @@
 # STUB — copy into `.github/workflows/deploy-china-oss.yml` only after
-# Aliyun secrets + ICP/domain are ready. Do NOT place this file under
-# `.github/workflows/` until then (Actions picks up every `*.yml` there).
+# Aliyun secrets + ICP/domain are ready AND product asks for WeChat-max
+# beyond Cloudflare Pages. Do NOT place this file under `.github/workflows/`
+# until then (Actions picks up every `*.yml` there).
+# Interim CDN is already live: https://china-travel-atlas.pages.dev/
 # See research/notes/china-mainland-access-20260802.md
 
 name: Deploy China OSS mirror

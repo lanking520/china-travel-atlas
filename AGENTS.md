@@ -9,6 +9,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 Private→public static atlas for **Beijing-based parents (~60, active retirement)** planning mainland China trips over ~2 years. Home bases: **北京家** (`fromHome`) and **郑州家 / 岳父岳母** (`fromZhengzhouHome`). Mix of private-car short trips and fly+local-drive long trips. Monthly travel budget mindset ≈ **¥20k**.
 
 Live Pages: https://lanking520.github.io/china-travel-atlas/  
+Mainland-friendly mirror (Cloudflare Pages): https://china-travel-atlas.pages.dev/  
 Deploy: push `main` → `.github/workflows/deploy-pages.yml` (must stay green).
 
 ## Audience & non-goals
@@ -34,7 +35,7 @@ Deploy: push `main` → `.github/workflows/deploy-pages.yml` (must stay green).
 
 Config: `next.config.ts`. Deploy notes: `docs/部署与私有仓库说明.md`.
 
-Mainland phone access (GH Pages flaky): see `research/notes/china-mainland-access-20260802.md`.
+Mainland phone access: GH Pages can be flaky; prefer CF Pages mirror — see `research/notes/china-mainland-access-20260802.md`.
 
 ## Content model
 
@@ -148,4 +149,4 @@ Retired ids stay **gone** from the live catalog (dead-lead OK). Don’t reintrod
 
 - **Do not commit** `.env`, cookies, XHS tokens, cloud AccessKeys, private keys  
 - Pages workflow must stay green (`build:pages` smoke + live curl)  
-- Optional China CDN dual-deploy: research note + stub only until secrets/ICP are ready — see `research/notes/china-mainland-access-20260802.md` and `research/notes/deploy-china-oss.workflow.stub.yml` (copy into `.github/workflows/` only when ready)
+- Mainland CDN interim: **Cloudflare Pages** (`https://china-travel-atlas.pages.dev/`) — do **not** build Aliyun dual-deploy now. Aliyun OSS+CDN+ICP remains optional later for WeChat-max only — see `research/notes/china-mainland-access-20260802.md` and stub `research/notes/deploy-china-oss.workflow.stub.yml`

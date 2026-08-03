@@ -98,9 +98,17 @@ export default function AboutPage() {
         <section className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6">
           <h2 className="text-2xl font-bold text-amber-950">访问与离线</h2>
           <p className="mt-3 text-lg text-amber-900">
-            当前托管在 GitHub Pages。大陆手机网络有时打不开或很慢——国内访问方案另见仓库笔记
-            <code className="mx-1 rounded bg-white px-1">research/notes/china-mainland-access-20260802.md</code>
-            （双部署/备案 CDN 仍在规划，请先用离线包或子女转发的可用链接）。
+            当前托管在 GitHub Pages；大陆手机若打不开或很慢，可先试 Cloudflare 镜像
+            <a
+              className="mx-1 underline decoration-amber-400 underline-offset-2"
+              href="https://china-travel-atlas.pages.dev/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              china-travel-atlas.pages.dev
+            </a>
+            ，或用离线包。阿里云备案 CDN 仅为后续可选加强（非当前必做），详见
+            <code className="mx-1 rounded bg-white px-1">research/notes/china-mainland-access-20260802.md</code>。
           </p>
           <p className="mt-3 text-lg text-amber-900">
             本站支持 PWA（添加到主屏幕 + 访问过的页面可缓存）。完整静态站另见 GitHub Releases 的离线 zip；外链图片仍可能需要网络。

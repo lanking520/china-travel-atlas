@@ -39,7 +39,7 @@ Clean-context wrap-up after Explore 地区 dim / map-tab removal, detail map ret
 
 - UX: density pass after live feedback; virtualization if ≫~200 janks; P2 embla + motion; offline search index
 - Content: 长居 chip / base polish; Soft→Commons residual buffers; 粤西 / 东北冬 only if product asks; optional 华北/东北 intro parity
-- Ops: Aliyun OSS+CDN dual-deploy after ICP/domain (see mainland-access note)
+- Ops: mainland CDN interim **DONE** (Cloudflare Pages https://china-travel-atlas.pages.dev/); Aliyun OSS+CDN+ICP optional later only if WeChat-max needed (do not build stub now)
 
 ---
 

@@ -19,8 +19,10 @@ HEAD: `9478529`
 | Catalog | **~201** · compose **31** · leg **67** · base **3** |
 
 ## Top next tasks
-1. China CDN dual-deploy when ICP/domain ready (mainland-access note)
-2. Optional 华北/东北 Ctrip introduction parity
-3. Optional Explore 长居 chip / base detail polish
-4. Soft→Commons residual only if dedicated scenic appears
-5. UX density / virtualization / embla only after live feedback or proven jank
+1. Optional 华北/东北 Ctrip introduction parity
+2. Optional Explore 长居 chip / base detail polish
+3. Soft→Commons residual only if dedicated scenic appears
+4. UX density / virtualization / embla only after live feedback or proven jank
+5. Aliyun OSS+CDN+ICP only if CF Pages insufficient for WeChat (mainland-access note; do not build now)
+
+**Ops note:** Mainland CDN interim **DONE** via Cloudflare Pages — https://china-travel-atlas.pages.dev/

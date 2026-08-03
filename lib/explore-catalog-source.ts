@@ -43,11 +43,16 @@ import { placeCoverForRoute } from "@/lib/place-images";
 import { exploreRouteFieldPatchList } from "@/lib/explore-catalog-fields";
 import { stopTipPatches } from "@/content/audit-patches/high-traffic-stops-20260802";
 import { routeFieldPatches as composeLegKindPatches } from "@/content/audit-patches/compose-leg-kind-20260802";
+import { routeFieldPatches as zhengzhouHomePatches } from "@/content/audit-patches/zhengzhou-home-20260802";
 
 
 function applyRouteFieldPatches(route: Route): Route {
   let next = route;
-  for (const patch of [...exploreRouteFieldPatchList, composeLegKindPatches]) {
+  for (const patch of [
+    ...exploreRouteFieldPatchList,
+    composeLegKindPatches,
+    zhengzhouHomePatches,
+  ]) {
     const p = patch?.[route.id];
     if (p) next = { ...next, ...p };
   }
@@ -86,6 +91,7 @@ function toCatalogRoute(route: Route): Route {
     glue: route.glue,
     nearbyLegs: route.nearbyLegs,
     fromHome: route.fromHome,
+    fromZhengzhouHome: route.fromZhengzhouHome,
     themes: route.themes,
     daysLabel: route.daysLabel,
     transport: route.transport,

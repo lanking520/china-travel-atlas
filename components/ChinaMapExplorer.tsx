@@ -159,8 +159,8 @@ export function ChinaMapExplorer() {
       const af = a.themes?.includes("famous-scenic") ? 0 : 1;
       const bf = b.themes?.includes("famous-scenic") ? 0 : 1;
       if (af !== bf) return af - bf;
-      const ah = a.fromHome ? 0 : 1;
-      const bh = b.fromHome ? 0 : 1;
+      const ah = a.fromHome || a.fromZhengzhouHome ? 0 : 1;
+      const bh = b.fromHome || b.fromZhengzhouHome ? 0 : 1;
       return ah - bh;
     });
   }, [filterOpts]);

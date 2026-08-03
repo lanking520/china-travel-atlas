@@ -101,7 +101,10 @@ export interface Route {
   provinces?: import('./provinces').ProvinceId[];
   seasons: Season[];
   tripType: TripType;
+  /** 从北京家出发（父母主居） */
   fromHome: boolean;
+  /** 从郑州家出发（岳父岳母）；可与 fromHome 同时为 true */
+  fromZhengzhouHome?: boolean;
   /** 短线 / 长线组合 / 长居枢纽（逐步迁移；缺省时由 tripType + themes 推断） */
   compositionKind?: CompositionKind;
   /**

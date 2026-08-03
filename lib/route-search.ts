@@ -68,6 +68,7 @@ function haystackForRoute(route: Route): string {
     stopBits,
     ...(route.researchKeywords ?? []),
     route.fromHome ? "从北京 北京家出发 短途" : "",
+    route.fromZhengzhouHome ? "从郑州 郑州家出发 岳父岳母 中原" : "",
   ];
 
   return parts.join(" ").toLowerCase().replace(/\s+/g, " ");

@@ -87,10 +87,19 @@ export function RouteCard({
         aria-hidden
       />
       <div className="relative mt-auto flex flex-col justify-end gap-0.5 p-2 sm:p-2.5">
-        {route.fromHome ? (
-          <span className="mb-0.5 w-fit rounded-md bg-emerald-600/95 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
-            从北京
-          </span>
+        {(route.fromHome || route.fromZhengzhouHome) ? (
+          <div className="mb-0.5 flex flex-wrap gap-1">
+            {route.fromHome ? (
+              <span className="w-fit rounded-md bg-emerald-600/95 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
+                从北京
+              </span>
+            ) : null}
+            {route.fromZhengzhouHome ? (
+              <span className="w-fit rounded-md bg-sky-600/95 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
+                从郑州
+              </span>
+            ) : null}
+          </div>
         ) : themeHint ? (
           <span className="mb-0.5 w-fit rounded-md bg-amber-600/90 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
             {themeHint}

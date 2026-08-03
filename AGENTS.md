@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # China Travel Atlas — agent / contributor guide
 
-Private→public static atlas for **Beijing-based parents (~60, active retirement)** planning mainland China trips over ~2 years. Home base: Beijing. Mix of private-car short trips and fly+local-drive long trips. Monthly travel budget mindset ≈ **¥20k**.
+Private→public static atlas for **Beijing-based parents (~60, active retirement)** planning mainland China trips over ~2 years. Home bases: **北京家** (`fromHome`) and **郑州家 / 岳父岳母** (`fromZhengzhouHome`). Mix of private-car short trips and fly+local-drive long trips. Monthly travel budget mindset ≈ **¥20k**.
 
 Live Pages: https://lanking520.github.io/china-travel-atlas/  
 Deploy: push `main` → `.github/workflows/deploy-pages.yml` (must stay green).

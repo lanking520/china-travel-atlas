@@ -52,9 +52,14 @@ export function buildIntroduction(route: Route): string {
               `${s.name}（${s.pace === "slow" ? "慢游" : "快览"}，约${s.days}天）：${s.summary}`,
           )
           .join("\n");
-        const home = route.fromHome
-          ? "这条线从北京家门口出发，适合周末或节假日练手。"
-          : "这条线通常从北京飞/坐高铁抵达后当地活动，结束后建议回京休整。";
+        const home =
+          route.fromHome && route.fromZhengzhouHome
+            ? "这条线可从北京家或郑州家出发，适合周末或节假日练手。"
+            : route.fromHome
+              ? "这条线从北京家门口出发，适合周末或节假日练手。"
+              : route.fromZhengzhouHome
+                ? "这条线从郑州家门口出发，适合周末或节假日练手。"
+                : "这条线通常从北京飞/坐高铁抵达后当地活动，结束后建议回京休整。";
         return [
           route.summary,
           home,
@@ -86,7 +91,7 @@ export function buildNotices(route: Route): string[] {
   if (route.tripType === "long") {
     extras.push("长旅行结束后建议回北京家休整几天，再安排下一段。");
   }
-  if (route.fromHome) {
+  if (route.fromHome || route.fromZhengzhouHome) {
     extras.push("当天往返请早出早归，预留堵车与检票时间。");
   }
   const merged = [...custom, ...extras, ...DEFAULT_NOTICES];
@@ -539,12 +544,21 @@ export function buildRoutePracticalBrief(route: Route): {
   gaps: string[];
 } {
   const transport = route.transport?.trim() || "";
-  const howToArrive = route.fromHome
-    ? transport
-      ? `从北京家出发。${transport}`
-      : "从北京家出发；具体车次/路况出行前用高德或12306核对。"
-    : transport ||
-      "建议飞机或高铁抵达后当地活动；大交通以出行当日时刻为准。";
+  const howToArrive =
+    route.fromHome && route.fromZhengzhouHome
+      ? transport
+        ? `从北京家或郑州家出发。${transport}`
+        : "从北京家或郑州家出发；具体车次/路况出行前用高德或12306核对。"
+      : route.fromHome
+        ? transport
+          ? `从北京家出发。${transport}`
+          : "从北京家出发；具体车次/路况出行前用高德或12306核对。"
+        : route.fromZhengzhouHome
+          ? transport
+            ? `从郑州家出发。${transport}`
+            : "从郑州家出发；具体车次/路况出行前用高德或12306核对。"
+          : transport ||
+            "建议飞机或高铁抵达后当地活动；大交通以出行当日时刻为准。";
 
   let localTransport: string;
   if (route.compositionKind === "compose" && route.glue && route.glue.length > 0) {
@@ -552,7 +566,10 @@ export function buildRoutePracticalBrief(route: Route): {
   } else if (route.compositionKind === "base") {
     localTransport =
       "枢纽内以打车、地铁或短租车为主；周边景点正文在「辐射」短线卡，不在本枢纽复述。";
-  } else if (route.tripType === "short" && route.fromHome) {
+  } else if (
+    route.tripType === "short" &&
+    (route.fromHome || route.fromZhengzhouHome)
+  ) {
     localTransport =
       "段内多以自驾或城际衔接；站点顺序与可删减见下方「路线指南」。";
   } else {

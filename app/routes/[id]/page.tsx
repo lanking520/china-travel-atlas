@@ -105,6 +105,11 @@ export default async function RouteDetailPage({
               从北京家出发
             </span>
           )}
+          {route.fromZhengzhouHome && (
+            <span className="rounded-lg bg-sky-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
+              从郑州家出发
+            </span>
+          )}
           {route.themes?.includes("famous-scenic") && (
             <span className="rounded-lg bg-rose-700 px-2.5 py-1 text-sm font-medium text-white sm:px-3 sm:py-1.5 sm:text-lg">
               名景

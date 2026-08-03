@@ -64,7 +64,11 @@ export default function OverviewPage() {
               <span className="text-xl font-bold text-sky-700">春 / 秋</span>
               <p className="mt-2">
                 <strong>华北短途练手</strong>
-                ——从北京家开车或高铁当天/隔夜往返，熟悉「慢走、多歇、不赶场」。探索里地区选「华北」即可收窄。
+                ——从北京家开车或高铁当天/隔夜往返，熟悉「慢走、多歇、不赶场」。探索里地区选「华北」即可收窄。若人在郑州家，可改练
+                <RouteLink id="huazhong-henan-zhengzhou">郑州浅访</RouteLink>、
+                <RouteLink id="huazhong-henan-kaifeng">开封宋韵</RouteLink>、
+                <RouteLink id="huazhong-luoyang-kaifeng">洛阳龙门</RouteLink>
+                （卡片带「从郑州」）。
               </p>
               <p className="mt-2 text-sky-800">
                 可参考：

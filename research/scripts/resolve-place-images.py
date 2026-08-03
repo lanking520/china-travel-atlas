@@ -187,7 +187,7 @@ FILES: dict[str, str] = {
     "hanzhong-base": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
     "huazhong-shaanxi-hanzhong": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
     "hanzhong-wuhou": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
-    "xinghan-optional": "兴汉胜境16.jpg",
+    "xinghan-optional": "兴汉胜境05.jpg",
     "three-gorges-dam": "Three_Gorges_Dam.jpg",
     "three-gorges-boat": "Three_Gorges_Dam.jpg",
     "yichang-base": "Three_Gorges_Dam.jpg",
@@ -436,6 +436,12 @@ FILES: dict[str, str] = {
 
     # huadong soft upgrades 20260802 batch
     "hf-baohe-base": "天鹅湖.jpg",
+    "hf-swan-lake": "安徽合肥天鹅湖.jpg",
+    "fz-sanfang": "福州三坊七巷南后街oeotwc_-_panoramio.jpg",
+    "nc-tengwang": "南昌滕王阁.jpg",
+    "nc-qiushui": "南昌滕王阁.jpg",
+    "nj-xuanwu-lake": "Xuanwu_Lake,_Nanjing.jpg",
+    "gy-jiaxiu": "甲秀楼_-_Jiaxiu_Pavilion_-_2015.07_-_panoramio.jpg",
     "hf-sanhe-optional": "三河古镇老街.jpg",
     "fz-gulou-base": "福州三坊七巷南后街oeotwc_-_panoramio.jpg",
     "fz-rongcheng-optional": "20181004_福州上下杭_04.jpg",
@@ -459,7 +465,7 @@ FILES: dict[str, str] = {
     # huabei/dongbei soft upgrades 20260802 batch 1/5
     "hh-xilamuren-optional": "希拉穆仁草原_保护区_-_panoramio.jpg",
     "hrb-central-street": "哈尔滨_中央大街_-_panoramio.jpg",
-    "hrb-daoli-base": "Saint_Sophia_Cathedral_in_Harbin.jpg",
+    "hrb-daoli-base": "哈尔滨中央大街西十一道街北.jpg",
     "lf-base": "临汾滨河新城，10月2010.jpg",
     "putuo-zongcheng": "Putuo_Zongcheng_Temple_20120804.JPG",
     "qingchui-peak": "磬锤峰20120804.JPG",

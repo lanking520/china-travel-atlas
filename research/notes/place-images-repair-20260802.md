@@ -10,6 +10,7 @@
 | `PLACE_ROUTE_COVERS` | 182 | 182 |
 | `PLACE_SOFT_IDS` (同区示意 captions) | **131** | **97** |
 | Soft after 华中/华南 batch (this note + `place-images-batch-huazhong-huanan-20260802.md`) | 97 | **78** |
+| Soft after regional batches 2–4 + hard leftovers batch 5/5 | — | **~20** (corridor/gate only; see `place-images-batch-hard-softs-20260802.md`) |
 | `PLACE_GENERATED_IDS` (示意生成图) | 3 | 3 |
 | Wired `/generated/places/` stop srcs | 3 | 3 |
 | Unsplash in place-images map | 0 | 0 |
@@ -121,3 +122,4 @@ Need place photo
 - Strategy: `research/audits/image-source-strategy.md`
 - Decision tree: `research/notes/image-sources-options.md`
 - Session log: `research/audits/image-coverage-progress-20260802.md`
+- Batch 5/5 hard leftovers: `research/notes/place-images-batch-hard-softs-20260802.md`

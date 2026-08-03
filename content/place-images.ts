@@ -17,23 +17,9 @@ export const PLACE_GENERATED_IDS = new Set<string>([
  * Prefer upgrading to place-accurate Commons when found; do not use wrong-province stand-ins.
  */
 export const PLACE_SOFT_IDS = new Set<string>([
-  // Intentional same-corridor / same-city buffers (not wrong-province).
-  // Upgraded out when dedicated Commons appears (仪征/邵伯/铜仁/珠海情侣路/汕头港 20260802).
-  'shapotou-optional', // 沙坡头可选 ↔ 沙坡头主图同景区
-  'yzc-base', // 扬州锚点 ↔ 瘦西湖同城（县域进出）
-  'zj-base', // 镇江住 ↔ 金山同城
-  'yc-museum-optional', // 运城馆线 ↔ 关帝庙同廊（无馆外景）
-  'xc-base', // 宣城锚点 ↔ 广教寺双塔同市
-  'qd-hangzhou-note', // 返杭缓冲：西湖
-  'qufu-exit', // 曲阜东 ↔ 孔庙同城
-  'lz-buffer-optional',
-  'g318-exit',
-  'jn-hangzhou-gate',
-  'jn-exit',
-  'qzr-exit', // 段末出藏 ↔ 青藏列车同主题
-  'g214s-exit', // 飞撤 ↔ 独克宗同城
-  'mengla-buffer-optional', // 勐腊缓冲 ↔ 勐仑植物园同廊
-  'sx-hangzhou-optional',
+  // Residual soft→Commons 20260802: 14 upgraded to dedicated place-accurate files.
+  // Gen trio (棋子湾/乐亭/左云) still PLACE_GENERATED_IDS — no scenic Commons.
+  'yc-museum-optional', // 运城馆线 ↔ 关帝庙同廊（Commons 仍无馆外景）
 ]);
 
 export function generatedPlacePath(id: string): string {
@@ -472,7 +458,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'wild-elephant-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Elephantvalley-elephants.jpg/1280px-Elephantvalley-elephants.jpg',
   'mengla-buffer-optional':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg/1280px-Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Mengla_intersection.JPG/1280px-Mengla_intersection.JPG',
   'hks-kunming-buffer':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kunming.jpg/1280px-Kunming.jpg',
   'hks-hekou-base':
@@ -561,7 +547,8 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'shanghai-bund': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/1280px-The_Bund_2.jpg',
   'shanghai-museum': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Shanghai_Museum_20124-Shanghai_%2832824760281%29.jpg/1280px-Shanghai_Museum_20124-Shanghai_%2832824760281%29.jpg',
   'shaolin-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Shaolin_Monastery.jpg/1280px-Shaolin_Monastery.jpg',
-  'shapotou-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Shapotou.jpg/1280px-Shapotou.jpg',
+  'shapotou-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/%E6%B2%99%E5%9D%A1%E5%A4%B4%E9%BB%84%E6%B2%B3%E5%A4%A7%E8%BD%AC%E5%BC%AF_-_panoramio.jpg/1280px-%E6%B2%99%E5%9D%A1%E5%A4%B4%E9%BB%84%E6%B2%B3%E5%A4%A7%E8%BD%AC%E5%BC%AF_-_panoramio.jpg',
   'shapotou-scenic': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Shapotou.jpg/1280px-Shapotou.jpg',
   'shaxi': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Shaxi_Yunnan.jpg/1280px-Shaxi_Yunnan.jpg',
   'shenyang-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Mukden_Palace.jpg/1280px-Mukden_Palace.jpg',
@@ -738,19 +725,23 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'lz-bayi-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Bayi%2C_Nyingchi%2C_Tibet%2C_China_-_panoramio_%281%29.jpg/1280px-Bayi%2C_Nyingchi%2C_Tibet%2C_China_-_panoramio_%281%29.jpg',
   'lz-lulang': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg/1280px-Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg',
   'lz-yarlung-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/%E9%9B%85%E9%B2%81%E8%97%8F%E5%B8%83%E6%B1%9F_yaluzangbu_river_-_panoramio.jpg/1280px-%E9%9B%85%E9%B2%81%E8%97%8F%E5%B8%83%E6%B1%9F_yaluzangbu_river_-_panoramio.jpg',
-  'lz-buffer-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg/1280px-Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg',
+  'lz-buffer-optional':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Nyingchi_city_June_2019.jpg/1280px-Nyingchi_city_June_2019.jpg',
   'g318-lhasa-adapt': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Potala_palace23.jpg/1280px-Potala_palace23.jpg',
   'g318-road-day': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg/1280px-Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg',
   'g318-nyingchi-stay': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg/1280px-Shergyla_Mountain%2C_Nyingchi%2C_Tibet_Banner.jpg',
-  'g318-exit': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
+  'g318-exit':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Lhasa_Gonggar_Airport_Terminal_3_%2854760927444%29.jpg/1280px-Lhasa_Gonggar_Airport_Terminal_3_%2854760927444%29.jpg',
   'g318e-chengdu-buffer': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%E9%9B%AA%E5%B1%B1%E4%B8%8B%E7%9A%84%E6%88%90%E9%83%BD%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_Chengdu_skyline_with_snow_capped_mountains.jpg/1280px-%E9%9B%AA%E5%B1%B1%E4%B8%8B%E7%9A%84%E6%88%90%E9%83%BD%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_Chengdu_skyline_with_snow_capped_mountains.jpg',
   'g318e-kangding': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mount_Qingcheng.jpg/1280px-Mount_Qingcheng.jpg',
   'g318e-xinduqiao-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Xinduqiao.jpg/1280px-Xinduqiao.jpg',
   'g318e-descend': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_at_Chengdu.jpg/1280px-Giant_Panda_at_Chengdu.jpg',
-  'jn-hangzhou-gate': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/West_Lake%2C_Hangzhou_2025.jpg/1280px-West_Lake%2C_Hangzhou_2025.jpg',
+  'jn-hangzhou-gate':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hangzhou_East_Railway_Station.jpg/1280px-Hangzhou_East_Railway_Station.jpg',
   'jn-wuzhen': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/1_wuzhen_aerial_2023.jpg/1280px-1_wuzhen_aerial_2023.jpg',
   'jn-xitang-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/1_xitang_zhejiang_2023.jpg/1280px-1_xitang_zhejiang_2023.jpg',
-  'jn-exit': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/West_Lake%2C_Hangzhou_2025.jpg/1280px-West_Lake%2C_Hangzhou_2025.jpg',
+  'jn-exit':
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/20151226%E6%9D%AD%E5%B7%9E%E4%B8%9C%E7%AB%99%E8%A5%BF%E5%B9%BF%E5%9C%BA%E5%85%A8%E6%99%AF.jpg/1280px-20151226%E6%9D%AD%E5%B7%9E%E4%B8%9C%E7%AB%99%E8%A5%BF%E5%B9%BF%E5%9C%BA%E5%85%A8%E6%99%AF.jpg',
   'le-leshan-base': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/%E5%87%8C%E4%BA%91%E8%B7%AF%E6%B1%9F%E5%A0%A4%E9%9A%94%E6%B1%9F%E7%9C%8B%E4%B9%90%E5%B1%B1%E5%9F%8E%E5%8C%BA_-_panoramio.jpg/1280px-%E5%87%8C%E4%BA%91%E8%B7%AF%E6%B1%9F%E5%A0%A4%E9%9A%94%E6%B1%9F%E7%9C%8B%E4%B9%90%E5%B1%B1%E5%9F%8E%E5%8C%BA_-_panoramio.jpg',
   'le-giant-buddha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Leshan_Giant_Buddha%2C_20161102.jpg/1280px-Leshan_Giant_Buddha%2C_20161102.jpg',
   'le-emei-optional': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/EmeiShanTop.jpg/1280px-EmeiShanTop.jpg',
@@ -827,7 +818,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'qzr-lhasa-taste-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/1280px-Potala_Palace_HQ.jpg',
   'qzr-exit':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Qingzang_railway_Train_01.jpg/1280px-Qingzang_railway_Train_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/%E6%8B%89%E8%90%A8%E7%81%AB%E8%BD%A6%E7%AB%99.jpg/1280px-%E6%8B%89%E8%90%A8%E7%81%AB%E8%BD%A6%E7%AB%99.jpg',
   // coverage wave 20260802c stops
   'jhc-tianjin-haihe':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Tianjin_Eye_and_Tianjin.jpg/1280px-Tianjin_Eye_and_Tianjin.jpg',
@@ -846,7 +837,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'g214s-pudacuo-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Bita_Lake%2C_Potatso_%28Pudacuo%29_National_Park%2C_Diqing_-_panoramio.jpg/1280px-Bita_Lake%2C_Potatso_%28Pudacuo%29_National_Park%2C_Diqing_-_panoramio.jpg',
   'g214s-exit':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Roofs_of_Shangri-La_Old_Town_1.JPG/1280px-Roofs_of_Shangri-La_Old_Town_1.JPG',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Shangri-la_airport_%28DIG%29%2C_Yunnan%2C_China.JPG/1280px-Shangri-la_airport_%28DIG%29%2C_Yunnan%2C_China.JPG',
   // famous stitch stops
   'jdz-ceramic-museum':
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Porcelain_Workshop%2C_Jingdezhen%2C_Jiangxi%2C_China.jpg',
@@ -914,7 +905,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'qufu-sankong':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg/1280px-%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg',
   'qufu-exit':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg/1280px-%E6%9B%B2%E9%98%9C%E5%AD%94%E5%BA%99%E5%A4%A7%E6%88%90%E6%AE%BF.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Qufudong_Railway_Station_2015.08.16_12-24-12.jpg/1280px-Qufudong_Railway_Station_2015.08.16_12-24-12.jpg',
   'kp-base':
     
     'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Kaiping_diaolou_zili_village_2012_01.jpg/1280px-Kaiping_diaolou_zili_village_2012_01.jpg',
@@ -936,7 +927,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'qd-cruise':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/%E5%8D%83%E5%B2%9B%E6%B9%96.jpg/1280px-%E5%8D%83%E5%B2%9B%E6%B9%96.jpg',
   'qd-hangzhou-note':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/West_Lake%2C_Hangzhou_2025.jpg/1280px-West_Lake%2C_Hangzhou_2025.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/West_fa%C3%A7ade_of_Hangzhou_East_Railway_Station_%2820190807173604%29.jpg/1280px-West_fa%C3%A7ade_of_Hangzhou_East_Railway_Station_%2820190807173604%29.jpg',
   'wl-cq-buffer':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Chongqing_Nightscape.jpg/1280px-Chongqing_Nightscape.jpg',
   'wl-three-bridges':
@@ -1074,7 +1065,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'xz-ningwu-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/%E8%8A%A6%E8%8A%BD%E5%B1%B1%E8%87%AA%E7%84%B6%E4%BF%9D%E6%8A%A4%E5%8C%BA%E5%86%85%E4%BA%94%E5%9D%9D%E7%BA%BF%E2%80%94%E2%80%942012-04-30_-_panoramio.jpg/1280px-%E8%8A%A6%E8%8A%BD%E5%B1%B1%E8%87%AA%E7%84%B6%E4%BF%9D%E6%8A%A4%E5%8C%BA%E5%86%85%E4%BA%94%E5%9D%9D%E7%BA%BF%E2%80%94%E2%80%942012-04-30_-_panoramio.jpg',
   'yzc-base':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Slender_West_Lake.jpg/1280px-Slender_West_Lake.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%E6%89%AC%E5%B7%9E%E6%96%87%E6%98%8C%E9%98%81.jpg/1280px-%E6%89%AC%E5%B7%9E%E6%96%87%E6%98%8C%E9%98%81.jpg',
   'yzc-gaoyou':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Yucheng_Postal_Stop_entrance.jpg/1280px-Yucheng_Postal_Stop_entrance.jpg',
   'yzc-yizheng-optional':
@@ -1082,7 +1073,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
   'yzc-shaobo-optional':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Shaobo_Shiplock.jpg/1280px-Shaobo_Shiplock.jpg',
   'zj-base':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/%E9%95%87%E6%B1%9F%E9%87%91%E5%B1%B1%E5%AF%BA.jpg/1280px-%E9%95%87%E6%B1%9F%E9%87%91%E5%B1%B1%E5%AF%BA.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/%E8%A5%BF%E6%B4%A5%E6%B8%A1%E5%8E%86%E5%8F%B2%E6%96%87%E5%8C%96%E8%A1%97%E5%8C%BA_-_Xijin_Ferry_Historic_Area_-_2015.04_-_panoramio.jpg/1280px-%E8%A5%BF%E6%B4%A5%E6%B8%A1%E5%8E%86%E5%8F%B2%E6%96%87%E5%8C%96%E8%A1%97%E5%8C%BA_-_Xijin_Ferry_Historic_Area_-_2015.04_-_panoramio.jpg',
   'zj-jinshan':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/%E9%95%87%E6%B1%9F%E9%87%91%E5%B1%B1%E5%AF%BA.jpg/1280px-%E9%95%87%E6%B1%9F%E9%87%91%E5%B1%B1%E5%AF%BA.jpg',
   'zj-jiaoshan':
@@ -1179,7 +1170,7 @@ export const PLACE_STOP_IMAGES: Record<string, string> = {
     
     'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/%E8%8D%86%E5%B7%9E%E5%9F%8E%E4%B8%9C%E9%97%A8%E5%A4%96%E7%9A%84%E6%8A%A4%E5%9F%8E%E6%B2%B3.jpg/1280px-%E8%8D%86%E5%B7%9E%E5%9F%8E%E4%B8%9C%E9%97%A8%E5%A4%96%E7%9A%84%E6%8A%A4%E5%9F%8E%E6%B2%B3.jpg',
   'xc-base':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Twin_Pagodas_of_Guangjiao_Temple_04_2021-03.jpg/1280px-Twin_Pagodas_of_Guangjiao_Temple_04_2021-03.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Xuancheng_City_Skyline.JPG/1280px-Xuancheng_City_Skyline.JPG',
   'xc-guangjiao':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Twin_Pagodas_of_Guangjiao_Temple_04_2021-03.jpg/1280px-Twin_Pagodas_of_Guangjiao_Temple_04_2021-03.jpg',
   'xc-zhaji':

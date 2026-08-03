@@ -24,6 +24,21 @@ WIDTH = 1280
 
 # stopId / routeId → Commons filename (underscores). Place-named photos only.
 FILES: dict[str, str] = {
+    # soft residual → Commons 20260802
+    "yzc-base": "扬州文昌阁.jpg",
+    "zj-base": "西津渡历史文化街区_-_Xijin_Ferry_Historic_Area_-_2015.04_-_panoramio.jpg",
+    "xc-base": "Xuancheng_City_Skyline.JPG",
+    "qufu-exit": "Qufudong_Railway_Station_2015.08.16_12-24-12.jpg",
+    "mengla-buffer-optional": "Mengla_intersection.JPG",
+    "shapotou-optional": "沙坡头黄河大转弯_-_panoramio.jpg",
+    "g318-exit": "Lhasa_Gonggar_Airport_Terminal_3_(54760927444).jpg",
+    "qzr-exit": "拉萨火车站.jpg",
+    "g214s-exit": "Shangri-la_airport_(DIG),_Yunnan,_China.JPG",
+    "lz-buffer-optional": "Nyingchi_city_June_2019.jpg",
+    "jn-hangzhou-gate": "Hangzhou_East_Railway_Station.jpg",
+    "jn-exit": "20151226杭州东站西广场全景.jpg",
+    "qd-hangzhou-note": "West_façade_of_Hangzhou_East_Railway_Station_(20190807173604).jpg",
+    # sx-hangzhou-optional keeps West_Lake,_Hangzhou_2025.jpg (place-accurate 西湖半日; out of SOFT)
     "menghai-day-optional": "西双版纳勐海县打洛口岸_04.jpg",
     "jz-airport-buffer": "Jiuzhaigou_Sichuan_China_Main-entrance-to-the-valleys-01.jpg",
     "hks-border-crossing": "Hekou-Kim_Thành_border_crossing_-_P1380333.JPG",
@@ -291,7 +306,7 @@ FILES: dict[str, str] = {
     "sangke-optional": "Sangke_grassland.jpg",
     "shapotou-scenic": "Shapotou.jpg",
     "zhongwei-base": "Shapotou.jpg",
-    "shapotou-optional": "Shapotou.jpg",
+    "shapotou-optional": "沙坡头黄河大转弯_-_panoramio.jpg",
     "xibei-ningxia-shapotou": "Shapotou.jpg",
     "xixia-tombs": "Western_Xia_tombs.jpg",
     "xibei-ningxia-3d": "Western_Xia_tombs.jpg",

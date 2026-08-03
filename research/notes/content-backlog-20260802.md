@@ -44,6 +44,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
   - *2026-08-02 wave 5:* Commons API 403 / 仍无适老风景 → **leave** soft/gen
   - *2026-08-02 wave 6:* 乐亭/左云/qiziwan 仍无安全 Commons → **leave**（不换图）
   - *2026-08-02 wave 7 (done leftovers):* Commons+Openverse 再搜仍无安全风景 → **示意生成图** 优于错地标 soft：`ts-laoting-optional` / `datong-zuoyun-optional` / `qiziwan-optional` → `public/generated/places/{id}.png` + `PLACE_GENERATED_IDS`；自 `PLACE_SOFT_IDS` 移除乐亭/左云。残余 soft = 有意同城/同廊示意（兴汉/联峰山/平遥墙/珠海/沙坡头及 famous-P1 缓冲等），非错省顶替。高流量 HEAD 本波 Wikimedia 429，未发现新 404 证据。
+  - *2026-08-02 soft residual:* **14** corridor/gate → dedicated Commons（文昌阁/西津渡/宣城天际/曲阜东站/勐腊/沙坡头黄河弯/贡嘎/拉萨站/香格里拉机场/林芝城/杭州东×3 + 西湖半日出 soft）；`PLACE_SOFT_IDS`=**1**；gen trio 仍无风景。`resolve-place-images.py` FILES 同步。
 - [x] **Regional / attraction character** — each route should convey 地区特色、文化、美食 beyond thin logistics stubs
   - *2026-08-02 wave:* **26** city/famous THIN → `city-character-20260802` detailPatches（文化+饮食 framing；preferRicherText）
   - *2026-08-02 wave 3:* **30** coverage/prefecture THIN → `coverage-character-20260802`（省会/地市廊：南宁贵阳济南昆明太原等；文化+饮食+notices≥5）
@@ -95,7 +96,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 - [x] Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
 - [x] **逐条精细化** — high-traffic stop tips (`high-traffic-stops-20260802`) + Ctrip enrich PG\|intro **197/201** (`9478529`); residual opportunistic only
-- [ ] Soft→Commons **residual** buffers only if dedicated scenic appears（mass soft→Commons waves done; `PLACE_SOFT_IDS` ≈15 intentional same-corridor; 乐亭/左云/qiziwan gen）
+- [x] Soft→Commons **residual** — **14** dedicated Commons upgrades; `PLACE_SOFT_IDS` → **1** (`yc-museum-optional`); gen trio unchanged. Note: `place-images-batch-soft-residual-20260802.md`
 - [ ] Optional corridors if product asks：粤西开平–湛江（需湛江 leg）、东北冬冰雪专廊
 - [x] Optional：华北/东北 Ctrip **introduction** parity — **44** intros（43 PG batch + thin `mutianyu-day`; skipped strong `gubei-overnight` / `tianjin-day` / `huabei-shanxi-loop`）
 - Standing (not a build ticket): extreme alpine cards keep honest warnings; do **not** force compose splits

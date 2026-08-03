@@ -14,6 +14,17 @@
 - `sources` 附真实 URL；`kind: 'other'`，note 标明「改写参考，非官方」
 - 河口–沙巴：**加强通关排队、白昼赴山、换钱通信、镇区慢住**等实用，**不削弱**护照/签证/正式口岸警告；官方源（领事服务网、红河州政府）保留
 
+## Overlay totals
+
+| Field | Count |
+| --- | ---: |
+| detail ids | 37 |
+| introduction | 37 |
+| practicalGuide | **37**（初版 6 → 补全后 37） |
+| routeField sources | 37 |
+
+初版 fan-out 仅 6 条 compose/跨境腿带 `practicalGuide`；2026-08-02 跟进把其余 **31** 条短线/长居/compose 补齐（医院名沿用手写 PG，文案按携程节奏改写，非原文搬运）。河口–沙巴三卡 PG 未改弱证件诚实。
+
 ## Sample ids
 
 | id | 改写重点 |

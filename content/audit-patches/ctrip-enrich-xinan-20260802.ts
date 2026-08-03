@@ -21,6 +21,33 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '火锅改清汤/番茄锅；豆花抄手保底，少喝酒。',
       '优先电梯房、近三甲；结束后飞回北京休整。',
     ],
+    practicalGuide: {
+      routeGuide: '北京飞双流/天府→一环电梯酒店→人民公园/博物馆节奏→熊猫基地早场+观光车→都江堰可选一日。每天最多一主点，午后强制歇。\n\n可跳过：都江堰、宽窄锦里排队、全馆刷博物馆。',
+      timePlan: [
+        '第1–2日：抵达安顿、药店超市踩点',
+        '第3–5日：茶馆/博物馆空调日+空白',
+        '第6–7日：宽窄/锦里浅逛或空白',
+        '插入：熊猫基地早8点半日+观光车',
+        '可选：都江堰一日；段末飞京',
+      ],
+      sightsTips: '· 熊猫基地买观光车，别墅与幼年区即可。\n· 宽窄/锦里宜上午9点前或傍晚浅逛即撤。\n· 都江堰观光车+折叠凳，久站量力。',
+      dining: '成都适老（携程爸妈线）：火锅改清汤/番茄锅；豆花、白汤抄手、蒸蛋、烫青菜。少麻辣暴食与喝酒。',
+      longStay: '一环近地铁电梯酒店/短租；近华西更安心。每天强制午休。',
+      hospitals: [
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '武侯区·国学巷',
+          note: '请用高德核实'
+        },
+        {
+          name: '四川省人民医院',
+          level: '三甲',
+          area: '青羊区',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'leg-chengdu-adapt': {
     introduction:
@@ -36,6 +63,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '可单订或作川西/川滇第一段。',
       '不适勿硬赶下一站；可延长平原日。',
     ],
+    practicalGuide: {
+      routeGuide: '飞达成都平原缓冲2–3天：电梯酒店连住→人民公园喝茶+药店踩点→熊猫半日可选。作川西/川滇保险丝，不是宽窄打卡赛。\n\n可跳过：熊猫基地、宽窄巷。不适勿硬赶下一站。',
+      timePlan: [
+        'D1：抵达歇稳、超市药店踩点',
+        'D2：人民公园/博物馆半日',
+        'D3：熊猫半日或空白；转下一站或飞京',
+      ],
+      sightsTips: '· 茶馆半日+药店踩点即达标。\n· 熊猫观光车可选。\n· 更长慢住改订 xinan-chengdu-slow。',
+      dining: '成都缓冲适老：豆花、白汤抄手、蒸蛋、烫青菜；火锅改清汤/番茄。少麻辣喝酒。',
+      longStay: '电梯酒店少换店；本卡仅适应锚，月租级见成都慢住卡。',
+      hospitals: [
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '武侯区·国学巷',
+          note: '请用高德核实'
+        },
+        {
+          name: '四川省人民医院',
+          level: '三甲',
+          area: '青羊区',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-dujiangyan-2d': {
     introduction:
@@ -51,6 +103,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '住市区电梯酒店，少换店搬行李。',
       '本趟约 1500–3000（不含大交通）；结束回成都或飞京。',
     ],
+    practicalGuide: {
+      routeGuide: '成都高铁/打车至都江堰→堰区平地半日→青城前山+索道（后山默认可删）→回成都或飞京。暑热避开正午。\n\n可跳过：青城后山、青城整段。',
+      timePlan: [
+        'D1：都江堰平地看堰+午歇',
+        'D2：青城前山索道或空白',
+        '回成都衔接或飞京',
+      ],
+      sightsTips: '· 都江堰久站带折叠凳。\n· 青城只前山+索道；雨天石阶防滑。\n· 恐高可只逛山门一带。',
+      dining: '都江堰适老：清汤豆花/抄手少油、蒸蛋青菜；景区日简餐即可。少麻辣油烟。',
+      longStay: '住都江堰市区或成都电梯酒店；少换店搬行李。',
+      hospitals: [
+        {
+          name: '都江堰市人民医院',
+          level: '三级',
+          area: '都江堰',
+          note: '请用高德核实'
+        },
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'longstay-dujiangyan': {
     introduction:
@@ -66,6 +143,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '段末经成都飞回北京，机票留弹性。',
       '对照月预算约 1.4–1.9 万（双人）。',
     ],
+    practicalGuide: {
+      routeGuide: '都江堰短租电梯公寓试住→堰区零星半日→青城前山+索道量力可删。每周至少两空白日；重症下撤成都三甲。\n\n可跳过：青城后山、天天出城。',
+      timePlan: [
+        '第1周：试住+堰区浅看',
+        '后续：每周最多1–2次景区/前山',
+        '每周≥2空白日买菜歇脚',
+        '段末经成都飞京',
+      ],
+      sightsTips: '· 水利可反复细看，不必一次走完。\n· 青城索道减步；后山默认可删。\n· 勿每日通勤成都特种兵。',
+      dining: '川西缘适老：清汤豆花饭、青城素斋浅尝；麻辣改清汤/番茄锅。茶馆盖碗茶配清淡点心。',
+      longStay: '短租先试住一周；问清电梯防潮。空气清新是成功标准，不是天天进景区。',
+      hospitals: [
+        {
+          name: '都江堰市人民医院（都江堰市医疗中心）',
+          level: '三甲',
+          area: '都江堰',
+          note: '请用高德核实'
+        },
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '专科下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-sichuan-leshan-emei': {
     introduction:
@@ -81,6 +184,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '住山下电梯酒店；成都高铁进出。',
       '本趟约 2200–4200（含索道）；结束回成都飞京。',
     ],
+    practicalGuide: {
+      routeGuide: '成都高铁至乐山→城区电梯酒店→大佛优先游船观全景→峨眉观光车+索道金顶（血压不适可删）→回成都缓冲再飞京。\n\n可跳过：金顶整段、全山徒步、夜宿金顶。',
+      timePlan: [
+        'D1：抵乐山安顿',
+        'D2：大佛游船/观光车',
+        'D3–4：峨眉索道或空白（可删）',
+        '回成都过夜飞京',
+      ],
+      sightsTips: '· 大佛台阶量力，游船看开凿与水上全貌更省。\n· 金顶风大备外套；猴子区收好食品勿投喂。\n· 心脏病/严重高血压建议放弃金顶。',
+      dining: '乐山适老：白油豆腐菜、甜皮鸭浅尝去皮、清汤跷脚牛肉少辣；峨眉素斋可试。少麻辣油烟与冷饮。',
+      longStay: '住山下/乐山城区电梯酒店；勿金顶过夜若睡眠差。',
+      hospitals: [
+        {
+          name: '乐山市人民医院',
+          level: '三甲',
+          area: '乐山',
+          note: '请用高德核实'
+        },
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-sichuan-jiuzhaigou': {
     introduction:
@@ -96,6 +225,39 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '清汤面时蔬；少饮酒油腻烤羊。',
       '勿与四姑娘/稻城同周；结束经成都飞京。',
     ],
+    practicalGuide: {
+      routeGuide: '经成都飞/转九寨→沟口电梯酒店连住→官方预约门票+观光车→坐车看海子+平缓栈道分两日→黄龙另日默认可删→回撤成都飞京。\n\n可跳过：黄龙、原始森林远端徒步。高反加重立即下撤。',
+      timePlan: [
+        'D1：抵达沟口歇，少剧烈活动',
+        'D2：日则/树正择一+观光车',
+        'D3：另一沟段或空白',
+        'D4：黄龙可删或空白',
+        '经成都飞京',
+      ],
+      sightsTips: '· 门票观光车官方渠道预约，当日有效勿信黄牛。\n· 早进早出，午后强制歇。\n· 备血氧仪；持续头痛呕吐下撤成都。',
+      dining: '高原适老：清汤面、清炒时蔬、土豆泥/糌粑浅尝；少饮酒与油腻烤羊。诺日朗换乘中心歇脚吃饭。',
+      longStay: '沟口电梯酒店连住少换店；勿与四姑娘/稻城同周。',
+      hospitals: [
+        {
+          name: '九寨沟县人民医院',
+          level: '县级',
+          area: '漳扎/沟口',
+          note: '请用高德核实'
+        },
+        {
+          name: '阿坝州人民医院',
+          level: '三甲',
+          area: '马尔康',
+          note: '州级；请用高德核实'
+        },
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'compose-chuanxi-chengdu-leshan-jiuzhai': {
     introduction:
@@ -143,6 +305,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '供氧/电梯住宿优先。',
       '结束必须回撤成都再飞京。',
     ],
+    practicalGuide: {
+      routeGuide: '成都平原缓冲2–3日→仅低风险观景台短停（康定/新都桥量力）→必须回撤成都再飞京。多数父母更稳选川西浅廊（成都→乐山→九寨）。\n\n默认可跳过整卡。不贯通拉萨、不与稻城同周。',
+      timePlan: [
+        '平原缓冲2–3日',
+        '可选：低风险观景短停1–2日',
+        '立即回撤成都飞京',
+      ],
+      sightsTips: '· 海拔跳变大：备血氧仪，不适立刻下撤。\n· 新都桥观景浅停即可。\n· 心脑血管基础病应放弃本卡。',
+      dining: '高原适老：清淡面粥、清炒时蔬、蒸蛋；少饮酒。多温水缓行，勿暴食。',
+      longStay: '供氧/电梯住宿优先；禁止落地即冲高原。',
+      hospitals: [
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '请用高德核实'
+        },
+        {
+          name: '甘孜州人民医院',
+          level: '综合',
+          area: '康定',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-sichuan-g318-mid': {
     introduction:
@@ -158,6 +345,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '清淡饮食；少喝酒。',
       '本趟约 2800–4800（双人）。',
     ],
+    practicalGuide: {
+      routeGuide: '成都缓冲→雅安–泸定低海拔走廊车览/短停→泸定桥外观量力→当天或次日回撤成都飞京。不西进康定新都桥以外高原。\n\n可跳过：泸定桥台阶、整段改订成都适应锚。',
+      timePlan: [
+        'D1：成都出发至雅安/泸定',
+        'D2：河谷浅停+外观',
+        '回撤成都飞京',
+      ],
+      sightsTips: '· 「中段」不等于冲四千米；本卡只留低海拔门户。\n· 雨天防滑；河谷午休强制。\n· 不与拉萨贯通。',
+      dining: '河谷适老：川菜微辣/免辣、清汤面青菜、蒸蛋；少麻辣油烟与喝酒。',
+      longStay: '电梯酒店连住；结束必须回撤成都。',
+      hospitals: [
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '下撤首选；请用高德核实'
+        },
+        {
+          name: '雅安市人民医院',
+          level: '三甲',
+          area: '雅安',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-chongqing-slow': {
     introduction:
@@ -173,6 +385,33 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '武隆可选另日，电梯下坑量力即返。',
       '结束后飞回北京休整。',
     ],
+    practicalGuide: {
+      routeGuide: '北京飞江北→解放碑/江北嘴电梯酒店→一天一个片区（轻轨+打车拆段）→南山傍晚观景→武隆天生三桥另日可选（电梯下坑）。\n\n可跳过：武隆、长江索道、鹅岭。',
+      timePlan: [
+        '第1–2日：抵达、主城一片区',
+        '第3–8日：每天一片区+午休（可压）',
+        '插入：南山夜景半日',
+        '可选：武隆一日',
+        '飞京',
+      ],
+      sightsTips: '· 李子坝错开早晚高峰；洪崖洞以外观夜景为主。\n· 雨天防滑鞋；坡道随时歇。\n· 武隆坑底缓坡量力，勿同日塞仙女山。',
+      dining: '重庆适老：火锅清油/番茄微辣；豆花小面、蒸蛋；备肠胃药。少油烟重辣连吃。',
+      longStay: '电梯酒店近地铁/轻轨；一天一片区，1–2周版把基地压到6–8天。',
+      hospitals: [
+        {
+          name: '重庆医科大学附属第一医院',
+          level: '三甲',
+          area: '渝中/袁家岗等',
+          note: '请用高德核实院区'
+        },
+        {
+          name: '西南医院',
+          level: '三甲',
+          area: '沙坪坝',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-chongqing-wulong': {
     introduction:
@@ -188,6 +427,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '清淡饮食；少当日重麻辣。',
       '结束经重庆飞京；本趟约 2000–3800。',
     ],
+    practicalGuide: {
+      routeGuide: '重庆高铁至武隆→观光电梯/扶梯下坑看天龙青龙桥→量力即返→经重庆飞京。仙女山勿同日硬塞。\n\n可跳过：坑底全程、仙女山、整段。',
+      timePlan: [
+        'D1：抵武隆或主城缓冲',
+        'D2：三桥电梯半日+歇脚',
+        '经重庆飞京',
+      ],
+      sightsTips: '· 门票+电梯以官方当日为准。\n· 坑底仍有缓坡，穿防滑鞋带水。\n· 雨天石阶湿滑可改期。',
+      dining: '渝味适老：清汤小面、豆花、清炒时蔬；少当日重麻辣与冰啤。',
+      longStay: '武隆县城或景区口电梯酒店；体力一般只排一日。',
+      hospitals: [
+        {
+          name: '武隆区人民医院',
+          level: '二级',
+          area: '武隆',
+          note: '请用高德核实'
+        },
+        {
+          name: '重庆医科大学附属第一医院',
+          level: '三甲',
+          area: '重庆',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'compose-chuanyu-chengdu-chongqing': {
     introduction:
@@ -234,6 +498,44 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '近贵医附院/省医院选住更安心。',
       '结束后飞回北京；对照本趟约 8000–14000。',
     ],
+    practicalGuide: {
+      routeGuide: '北京飞龙洞堡→贵阳慢住基地→黄果树（安旅通预约+观光车+扶梯）→镇远或黔东南二选一→回贵阳飞京。两线勿一周硬拼。\n\n可跳过：天星桥、黔东南或镇远整条。',
+      timePlan: [
+        '第1–8日：贵阳慢住+空白',
+        '第9–10日：黄果树扶梯观瀑',
+        '第11–14日：镇远或黔东南择一',
+        '贵阳飞京',
+      ],
+      sightsTips: '· 黄果树至少提前一天官方分时预约，勿信黄牛。\n· 大瀑布扶梯省腿；天星桥台阶多可跳过。\n· 黔东南村寨台阶多，选短线包车。',
+      dining: '黔味适老：酸汤鱼/丝娃娃点微辣或免辣；米豆腐、清汤粉面。多雨备薄外套。',
+      longStay: '观山湖或喷水池附近电梯酒店；近贵医附院更安心。',
+      hospitals: [
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州省人民医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '请用高德核实'
+        },
+        {
+          name: '安顺市人民医院',
+          level: '三甲',
+          area: '安顺',
+          note: '黄果树段就近；请用高德核实'
+        },
+        {
+          name: '镇远县人民医院',
+          level: '二甲',
+          area: '镇远',
+          note: '黔东就近；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-guizhou-huangguoshu': {
     introduction:
@@ -249,6 +551,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '黔味微辣/免辣；清汤粉保底。',
       '结束回贵阳飞京；本趟约 1800–3500。',
     ],
+    practicalGuide: {
+      routeGuide: '贵阳进出→安顺或景区口电梯酒店→官方预约+观光车串联→大瀑布扶梯往返→水帘洞量力→回贵阳飞京。\n\n可跳过：天星桥、水帘洞、与梵净/荔波同短假。',
+      timePlan: [
+        'D1：抵安顺/景区口',
+        'D2：大瀑布扶梯半日',
+        'D3：空白或回贵阳飞京',
+      ],
+      sightsTips: '· 观光车必买；扶梯省腿。\n· 瀑区备雨衣防滑鞋。\n· 只看大瀑布也完整。',
+      dining: '黔味适老：丝娃娃、清汤粉/蒸蛋保底；折耳根可免点。瀑布日少油炸烧烤。',
+      longStay: '安顺或景区口电梯酒店；与黔东黔南名山分次。',
+      hospitals: [
+        {
+          name: '安顺市人民医院',
+          level: '三甲',
+          area: '安顺',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-guizhou-guiyang': {
     introduction:
@@ -264,6 +591,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '结束后飞京或转下一站。',
       '本趟约 2200–4200。',
     ],
+    practicalGuide: {
+      routeGuide: '飞/高铁入贵阳→南明/观山湖电梯酒店→甲秀楼/南明河平地→省博空调半日→黔灵山半山即返可删。作黄果树/镇远前后缓冲。\n\n可跳过：黔灵山、同日硬拼黄果树。',
+      timePlan: [
+        'D1：抵达歇稳',
+        'D2：河岸平走',
+        'D3：一馆空调日',
+        'D4–5：空白或转下一站',
+      ],
+      sightsTips: '· 每天一主点；阴雨备薄外套防滑鞋。\n· 近三甲选住。\n· 勿一日赶黄果树。',
+      dining: '贵阳适老：酸汤鱼少酸辣、丝娃娃浅尝、清粥米豆腐；少油炸冷饮。',
+      longStay: '南明/观山湖电梯酒店；可作进出枢纽非长居月租（月租见 base-guiyang）。',
+      hospitals: [
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州省人民医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'base-guiyang': {
     introduction:
@@ -279,6 +632,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '黔味微辣/免辣；备薄外套。',
       '段末龙洞堡飞京，机票留弹性。',
     ],
+    practicalGuide: {
+      routeGuide: '龙洞堡入城→市区电梯短租约三四周→按周点开 nearbyLegs（镇远/黄果树/侗寨），勿一周硬拼两线。镇远不作月租主锚。\n\n可跳过：任一辐射短线。',
+      timePlan: [
+        '第1周：试住+市区节奏',
+        '后续：每周最多一条短线日归/过夜',
+        '每周≥2空白日',
+        '段末飞京',
+      ],
+      sightsTips: '· 景点正文只在 nearbyLegs 各卡。\n· 本地三甲达标：贵医附院/省人民。\n· 阴凉多雨备薄外套。',
+      dining: '黔味适老：酸汤鱼/丝娃娃微辣或免辣；米豆腐、清汤粉面保底。',
+      longStay: '固定电梯短租；先试住一周。三门槛：机场高铁、商超一月、本地三甲。',
+      hospitals: [
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '本地主院；请用高德核实'
+        },
+        {
+          name: '贵州省人民医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-guizhou-zhenyuan': {
     introduction:
@@ -294,6 +673,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '勿与西江肇兴同周硬拼三线。',
       '结束经贵阳飞京；本趟约 2500–4000。',
     ],
+    practicalGuide: {
+      routeGuide: '贵阳高铁至镇远→舞阳河附近电梯酒店→沿江平地慢走→祝圣桥外观→青龙洞台阶量力可删→急症高铁下撤贵阳。\n\n可跳过：游船、青龙洞、与西江肇兴同周。',
+      timePlan: [
+        'D1：抵镇远安顿',
+        'D2：沿江平走+夜景',
+        'D3：空白或浅景',
+        '经贵阳飞京',
+      ],
+      sightsTips: '· 石板雨后滑，穿防滑鞋。\n· 游船可选可删。\n· 已降级非长居；成功标准是住两晚看懂。',
+      dining: '镇远适老：酸汤鱼微辣/免辣、米豆腐、清汤粉面；少强劝酒。',
+      longStay: '江城短住数日即可；月租级勿锚定县城。',
+      hospitals: [
+        {
+          name: '镇远县人民医院',
+          level: '二甲',
+          area: '镇远',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'longstay-zhenyuan': {
     introduction:
@@ -309,6 +714,31 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '段末经贵阳飞京。',
       '本趟约 2800–4800。',
     ],
+    practicalGuide: {
+      routeGuide: '镇远短住（非月租）→沿江平走+空白→不适即高铁下撤贵阳三甲。勿连赶西江肇兴黄果树。\n\n可跳过：高坡苗寨、夜场特种兵。',
+      timePlan: [
+        'D1–2：沿江安顿浅走',
+        'D3：游船或空白',
+        '不适即撤；段末经贵阳飞京',
+      ],
+      sightsTips: '· 三甲与物资达不到站立长居门槛。\n· 青龙洞外观/平缓段即可。\n· 比三日古城卡略松，仍非月租。',
+      dining: '黔东适老：清蒸舞阳河鱼、米豆腐、糯米饭浅尝；酸汤鱼微酸或免酸。',
+      longStay: '短住非月租；进出与就医下撤用贵阳。',
+      hospitals: [
+        {
+          name: '镇远县人民医院',
+          level: '综合医院（非三甲）',
+          area: '镇远',
+          note: '就近；请用高德核实'
+        },
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '下撤必知；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-guizhou-fanjing': {
     introduction:
@@ -324,6 +754,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '清淡饮食；备外套。',
       '结束经铜仁/贵阳飞京。',
     ],
+    practicalGuide: {
+      routeGuide: '铜仁进出→山下电梯酒店连住→观光车+索道至观景台→红云金顶窄桥台阶默认可删→经铜仁/贵阳飞京。\n\n可跳过：金顶、恐高/心肺不佳整段、与荔波同短假。',
+      timePlan: [
+        'D1：山下安顿',
+        'D2：索道半日+早歇',
+        'D3–4：空白',
+        '飞京',
+      ],
+      sightsTips: '· 索道观峰是主轴，不硬爬几千级。\n· 票务天气以官方为准。\n· 备外套苏打饼干温水。',
+      dining: '黔东适老：铜仁米豆腐、清汤粉、蒸蛋青菜；辣子鸡免辣或浅尝。山上简餐别久等。',
+      longStay: '山下电梯酒店连住；勿景区山顶过夜若睡眠差。',
+      hospitals: [
+        {
+          name: '铜仁市人民医院',
+          level: '三甲',
+          area: '铜仁',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-guizhou-libo': {
     introduction:
@@ -339,6 +795,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '结束经贵阳飞京。',
       '本趟约 2600–4500。',
     ],
+    practicalGuide: {
+      routeGuide: '经贵阳至荔波→县城电梯酒店→观光车串联小七孔选段栈道→大七孔/漂流默认可删→回贵阳飞京。\n\n可跳过：水上森林全程、与梵净同短假。',
+      timePlan: [
+        'D1：抵荔波',
+        'D2：小七孔观光车选段',
+        'D3–4：空白',
+        '经贵阳飞京',
+      ],
+      sightsTips: '· 穿防滑鞋；暑热早出午休。\n· 不必刷完全线。\n· 雨天缩短停留。',
+      dining: '黔南适老：酸汤鱼微酸或清蒸河鲜、糯米饭浅尝、青菜豆腐汤；忌油腻重辣冰饮。',
+      longStay: '县城电梯酒店少换店。',
+      hospitals: [
+        {
+          name: '荔波县人民医院',
+          level: '二级',
+          area: '荔波',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-guizhou-dong-corridor': {
     introduction:
@@ -354,6 +836,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '电梯/低楼层客栈。',
       '结束回贵阳飞京；本趟约 3200–5500。',
     ],
+    practicalGuide: {
+      routeGuide: '凯里进出→只选西江或肇兴一个主寨深住→鼓楼风雨桥外观+寨内选段→包车少换乘→回贵阳飞京。\n\n可跳过：第二寨、与镇远同周三线。',
+      timePlan: [
+        'D1：抵凯里/主寨',
+        'D2–3：主寨浅访+空白',
+        'D4–5：另一寨可删或空白',
+        '贵阳飞京',
+      ],
+      sightsTips: '· 寨内坡道多，量力；雨天石阶极滑。\n· 尊重村民生活与拍照礼仪。\n· 夜景外观早睡。',
+      dining: '侗乡适老：酸汤鱼清淡少辣、米豆腐、清粥面青菜；少强劝酒油炸。',
+      longStay: '电梯/低楼层客栈；一寨连住少换店。',
+      hospitals: [
+        {
+          name: '黔东南州人民医院',
+          level: '三甲',
+          area: '凯里',
+          note: '请用高德核实'
+        },
+        {
+          name: '贵州医科大学附属医院',
+          level: '三甲',
+          area: '贵阳',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'compose-yun-gui-chuan-shallow': {
     introduction:
@@ -401,6 +909,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '短租先一周试住再续。',
       '滇西另专题，勿同月特种兵。',
     ],
+    practicalGuide: {
+      routeGuide: '长水入城→电梯公寓+菜市场+公园月节奏→石林观光车/抚仙湖/西山索道按周点开量力→滇西另专题勿同月特种兵。野生菌遵官方提示。\n\n可跳过：石林、西山、任一近郊。',
+      timePlan: [
+        '第1周：试住+盆地适应',
+        '后续：每周最多一次近郊日归',
+        '每周≥2空白日',
+        '段末飞京',
+      ],
+      sightsTips: '· 海拔约1900m一般无高反，首日仍慢走。\n· 石林步行距离不短，用观光车。\n· 复杂就医优先主城三甲。',
+      dining: '滇味适老：过桥米线汤少油、汽锅鸡清汤段；野生菌只正规店遵官方提示，不自行采食。',
+      longStay: '短租先一周试住再续；紫外线帽防晒；作西南就医下撤枢纽。',
+      hospitals: [
+        {
+          name: '昆明医科大学第一附属医院',
+          level: '三甲',
+          area: '西昌路',
+          note: '请用高德核实'
+        },
+        {
+          name: '云南省第一人民医院',
+          level: '三甲',
+          area: '金碧路',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-yunnan-kunming-city': {
     introduction:
@@ -416,6 +950,33 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '电梯酒店；近药店。',
       '结束飞京或转下一站；本趟约 2500–4500。',
     ],
+    practicalGuide: {
+      routeGuide: '长水入城先歇→翠湖/地铁沿线电梯酒店→翠湖平路+省博→滇池选段/西山索道量力→石林另日或删→转大理或飞京。\n\n可跳过：石林、西山龙门硬爬、同日石林+西山。',
+      timePlan: [
+        'D1：抵达歇稳',
+        'D2：翠湖浅逛',
+        'D3：省博空调半日',
+        'D4：滇池/西山可选',
+        '转站或飞京',
+      ],
+      sightsTips: '· 紫外线防晒强制。\n· 西山龙门台阶多默认观光车或外观。\n· 可作大理前缓冲。',
+      dining: '昆明适老：过桥米线清汤少油辣、汽锅鸡浅尝、蒸蛋青菜；少生冷不明菌。',
+      longStay: '翠湖/地铁沿线电梯酒店；近药店。',
+      hospitals: [
+        {
+          name: '昆明医科大学第一附属医院',
+          level: '三甲',
+          area: '昆明',
+          note: '请用高德核实'
+        },
+        {
+          name: '云南省第一人民医院',
+          level: '三甲',
+          area: '昆明',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'leg-dali-erhai': {
     introduction:
@@ -431,6 +992,27 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '可接丽江；高铁/商务车均可。',
       '本趟约 2500–5500。',
     ],
+    practicalGuide: {
+      routeGuide: '昆明飞/高铁大理→古城外或海东电梯房→洱海电瓶车/游船选段→喜洲/双廊半日浅尝→苍山索道量力可删。勿一日环海骑行。\n\n可跳过：苍山、双廊、沙溪（见日归卡）。',
+      timePlan: [
+        'D1：抵达安顿',
+        'D2：洱海选段',
+        'D3：古城/喜洲半日',
+        'D4–5：空白或浅景',
+        '接丽江或飞京',
+      ],
+      sightsTips: '· 勿订古城石板深处拖大箱。\n· 紫外线帽防晒补水。\n· 月租级改订 longstay-dali。',
+      dining: '大理适老：饵丝/米线清汤少油、乳扇浅尝、喜洲粑粑少油炸；野生菌只正规店。少饮酒冷饮。',
+      longStay: '海东或古城外电梯房连住；少换店。',
+      hospitals: [
+        {
+          name: '大理大学第一附属医院',
+          level: '三甲',
+          area: '大理',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'longstay-dali': {
     introduction:
@@ -446,6 +1028,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '沙溪日归量力。',
       '段末大理或昆明飞京。',
     ],
+    practicalGuide: {
+      routeGuide: '下关/海东电梯短租试住→古城浅逛即可→环海/沙溪包车日归按周点开→每周≥2空白日→重症下撤昆明。\n\n可跳过：天天环海、沙溪、苍山硬线。',
+      timePlan: [
+        '第1周：试住+买菜节奏',
+        '后续：每周最多1次日归',
+        '每周≥2空白日',
+        '段末大理或昆明飞京',
+      ],
+      sightsTips: '· 生活物资下关更全。\n· 紫外线防晒强制。\n· 三门槛：机场高铁、商超药店、州内三甲+昆明下撤。',
+      dining: '白族家常适老：饵丝/米线清汤、乳扇浅尝、青菜豆腐汤蒸蛋；野生菌只正规店。少饮酒。',
+      longStay: '短租电梯房先试住一周；不是天天环海。',
+      hospitals: [
+        {
+          name: '大理大学第一附属医院',
+          level: '三甲',
+          area: '大理市区',
+          note: '请用高德核实'
+        },
+        {
+          name: '大理白族自治州人民医院',
+          level: '三甲',
+          area: '大理市区',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'xinan-yunnan-dali-daytrips': {
     introduction:
@@ -461,6 +1069,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '沙溪石板防滑。',
       '结束大理或昆明飞京；本趟约 2800–4800。',
     ],
+    practicalGuide: {
+      routeGuide: '大理古城或海东连住→一天最多一个日归（洱源或剑川沙溪）→包车早出早归→想住三四周改订 longstay-dali。\n\n可跳过：第二日归、环海骑行、苍山硬线。',
+      timePlan: [
+        'D1：安顿',
+        'D2：一日归择一',
+        'D3：空白',
+        '飞京或转站',
+      ],
+      sightsTips: '· 沙溪石板防滑。\n· 紫外线防晒；备薄外套。\n· 边界诚实：不排满环海。',
+      dining: '日归适老：饵丝/米线清汤、乳扇浅尝、喜洲/沙溪简餐；野生菌只正规店。',
+      longStay: '电梯酒店连住少换店；长住改慢居卡。',
+      hospitals: [
+        {
+          name: '大理大学第一附属医院',
+          level: '三甲',
+          area: '大理市区',
+          note: '请用高德核实'
+        },
+        {
+          name: '大理白族自治州人民医院',
+          level: '三甲',
+          area: '大理市区',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'leg-lijiang-taste': {
     introduction:
@@ -476,6 +1110,32 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '可接自大理；勿同日赶香格里拉。',
       '本趟约 2000–4500（含索道可选）。',
     ],
+    practicalGuide: {
+      routeGuide: '自大理高铁/商务车或昆明飞入→束河/新城电梯房→大研日间短逛即撤→玉龙索道/蓝月谷量力（高反应删）→抵达先歇再上山。\n\n可跳过：雪山整段、酒吧一条街、同日香格里拉。',
+      timePlan: [
+        'D1：抵达束河歇',
+        'D2：古城浅逛半日',
+        'D3：雪山可选或空白',
+        'D4：空白；飞京或转站',
+      ],
+      sightsTips: '· 海拔约2400m+放慢；雨崩虎跳峡硬线不排。\n· 紫外线+温差：防晒与外套。\n· 勿同日赶香格里拉。',
+      dining: '丽江适老：纳西清淡面、鸡豆凉粉浅尝、蒸蛋青菜白粥；少酒吧劝酒。抵达初期多温水忌暴食。',
+      longStay: '束河/新城电梯房；大研不适合拖大箱长住。',
+      hospitals: [
+        {
+          name: '丽江市人民医院',
+          level: '三甲',
+          area: '丽江',
+          note: '请用高德核实'
+        },
+        {
+          name: '昆明医科大学第一附属医院',
+          level: '三甲',
+          area: '昆明',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'compose-yunnan-dali-lijiang': {
     introduction:
@@ -491,6 +1151,39 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '段末丽江或昆明飞京。',
       '对照约 1.2–2 万（双人）。',
     ],
+    practicalGuide: {
+      routeGuide: '长线组合：leg-dali-erhai → 高铁/商务车衔接 → leg-lijiang-taste；昆明可选中转。每城电梯房连住留白。\n\n可跳过：玉龙大索道、丽江整段、沙溪、泸沽/香格里拉同短假。',
+      timePlan: [
+        '可选：昆明中转1日',
+        '段1：大理约5–7天',
+        '衔接：高铁至丽江，当日少安排',
+        '段2：丽江约3–4天',
+        '丽江或昆明飞京',
+      ],
+      sightsTips: '· 景点正文见各短线。\n· 海拔阶梯：大理后再升丽江。\n· 月租级洱海见 longstay-dali。',
+      dining: '滇西组合适老：大理饵丝米线清汤、乳扇浅尝；丽江清淡面/蒸蛋青菜。少饮酒；野生菌只正规店。',
+      longStay: '本廊短线串；约一个月慢居见 longstay-dali。',
+      hospitals: [
+        {
+          name: '大理大学第一附属医院',
+          level: '三甲',
+          area: '大理市区',
+          note: '请用高德核实'
+        },
+        {
+          name: '大理白族自治州人民医院',
+          level: '三甲',
+          area: '大理市区',
+          note: '请用高德核实'
+        },
+        {
+          name: '丽江市人民医院',
+          level: '三甲',
+          area: '古城区外围',
+          note: '丽江段就近；请用高德核实'
+        }
+      ],
+    },
   },
   'compose-chuandian-chengdu-dali-lijiang': {
     introduction:
@@ -506,6 +1199,39 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '段末丽江或昆明飞京。',
       '对照月预算约 2 万。',
     ],
+    practicalGuide: {
+      routeGuide: '北京飞成都 → leg-chengdu-adapt → 飞/高铁大理 → leg-dali-erhai → 丽江 leg-lijiang-taste；昆明可选中转。成都作医疗下撤锚。\n\n可跳过：丽江/雪山、大理整段、忌七日特种兵。',
+      timePlan: [
+        '段1：成都平原适应约2–3天',
+        '衔接：飞/高铁至大理',
+        '段2：大理约5–7天',
+        '段3：丽江约3–4天',
+        '丽江或昆明飞京',
+      ],
+      sightsTips: '· 海拔：平原→大理约1900m→丽江约2400m+，不可压缩。\n· 雪山索道可删。\n· 景点正文见各短线。',
+      dining: '川滇分段适老：成都豆花清汤；大理饵丝米线少油；丽江少饮酒、野生菌只正规店。',
+      longStay: '分段电梯酒店；成都可随时延长休整。',
+      hospitals: [
+        {
+          name: '四川大学华西医院',
+          level: '三甲',
+          area: '成都',
+          note: '请用高德核实'
+        },
+        {
+          name: '大理大学第一附属医院',
+          level: '三甲',
+          area: '大理',
+          note: '请用高德核实'
+        },
+        {
+          name: '丽江市人民医院',
+          level: '三甲',
+          area: '丽江',
+          note: '请用高德核实'
+        }
+      ],
+    },
   },
   'yunnan-xishuangbanna-winter': {
     introduction:
@@ -521,6 +1247,38 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '可经昆明中转缓冲。',
       '结束飞京；本趟约 8000–14000 或对照月 2 万。',
     ],
+    practicalGuide: {
+      routeGuide: '飞景洪→告庄/市区电梯酒店→勐仑植物园观光车→勐海茶园外观可选→勿经本线出境。主推冬春10–14天，可延两三周。\n\n可跳过：勐腊磨憨口岸、雨林硬徒步。',
+      timePlan: [
+        '第1–3日：景洪安顿+街区平走',
+        '插入：植物园观光车半日',
+        '每周最多1–2次日归',
+        '可经昆明中转；飞京',
+      ],
+      sightsTips: '· 午休防晒驱蚊仍强制。\n· 植物园用观光车少硬徒步。\n· 不经本线安排出境。',
+      dining: '版纳适老：傣味点微辣、米线/饵丝清汤、菠萝饭浅尝；生冷不明菌谨慎。湿热少油炸。',
+      longStay: '告庄/市区电梯酒店少换店；成功标准是景洪住稳。',
+      hospitals: [
+        {
+          name: '西双版纳州人民医院',
+          level: '三甲',
+          area: '景洪',
+          note: '请用高德核实'
+        },
+        {
+          name: '西双版纳傣族自治州中医医院',
+          level: '三甲',
+          area: '景洪',
+          note: '请用高德核实'
+        },
+        {
+          name: '昆明医科大学第一附属医院',
+          level: '三甲',
+          area: '昆明',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'yunnan-dianxi-tengchong': {
     introduction:
@@ -536,6 +1294,33 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '边境延伸另卡（瑞丽），勿同周硬拼。',
       '结束飞京；本趟约 6000–11000。',
     ],
+    practicalGuide: {
+      routeGuide: '保山/昆明进出→腾冲市区电梯酒店→热海观光浅访→和顺石板量力→火山观光车半日足够→与大理丽江/瑞丽分次。\n\n可跳过：高黎贡硬徒步、边境延伸同周。',
+      timePlan: [
+        'D1：抵腾冲安顿',
+        'D2：热海半日',
+        'D3：和顺浅逛',
+        'D4：火山可选或空白',
+        '飞京',
+      ],
+      sightsTips: '· 石板防滑；每天一主点。\n· 包车/摆渡减步行。\n· 瑞丽另卡，勿同周硬拼。',
+      dining: '腾冲适老：清汤饵丝/米线少油、青菜豆腐；野生菌只正规店。少油炸喝酒。',
+      longStay: '市区电梯酒店连住；温泉歇好是主轴。',
+      hospitals: [
+        {
+          name: '腾冲市人民医院',
+          level: '三甲',
+          area: '腾冲',
+          note: '请用高德核实'
+        },
+        {
+          name: '保山市人民医院',
+          level: '三甲',
+          area: '保山',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'frontier-ruili': {
     introduction:
@@ -551,6 +1336,38 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '与腾冲分次出门。',
       '原路经昆明回京；本趟约 3000–5500。',
     ],
+    practicalGuide: {
+      routeGuide: '昆明或芒市进出→瑞丽电梯酒店→畹町桥外观+江岸慢住→只走公开口岸城镇区域。不提供非正式通道/越境建议。\n\n可跳过：姐告若公告限制、与腾冲同周。',
+      timePlan: [
+        'D1：抵达安顿',
+        'D2：畹町桥外观半日',
+        'D3–4：江岸浅走+空白',
+        '原路经昆明回京',
+      ],
+      sightsTips: '· 遵守边境警示；证件随身。\n· 湿热防晒补水午休强制。\n· 口岸与边境管理公告出行前自查。',
+      dining: '德宏适老：清汤米线/饵丝少油、清淡傣味青菜、蒸蛋；生冷菌类与过夜凉拌谨慎。',
+      longStay: '电梯酒店；口岸城镇烟火浅逛即可完整。',
+      hospitals: [
+        {
+          name: '德宏州人民医院',
+          level: '三级',
+          area: '芒市',
+          note: '就近下撤；请用高德核实'
+        },
+        {
+          name: '瑞丽市人民医院',
+          level: '综合医院',
+          area: '瑞丽',
+          note: '请用高德核实'
+        },
+        {
+          name: '昆明医科大学第一附属医院',
+          level: '三甲',
+          area: '昆明',
+          note: '远程下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'yunnan-g214-shangri-la-taste': {
     introduction:
@@ -566,6 +1383,33 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
       '高反应下撤丽江或昆明。',
       '原路飞返再回京；本趟约 4000–7500。',
     ],
+    practicalGuide: {
+      routeGuide: '经丽江缓冲进出更稳→独克宗外围电梯/供氧住宿→抵达先歇→古城选段+松赞林外观→普达措观光车选段→高反应下撤丽江/昆明。禁止西宁沿G214连续贯通叙事。\n\n可跳过：普达措、长徒步、雨崩、整段。',
+      timePlan: [
+        'D1：抵达先歇，少剧烈活动',
+        'D2：古城半日',
+        'D3：松赞林外观或空白',
+        'D4：普达措可选或空白',
+        '原路飞返再回京',
+      ],
+      sightsTips: '· 海拔约3300m须诚实评估心肺；备血氧仪。\n· 供氧住宿优先。\n· 初到忌剧烈活动与饮酒。',
+      dining: '香格里拉适老：清淡面粥、酸奶温服、清炒时蔬；少饮酒酥油硬吃。高原勿暴食多温水。',
+      longStay: '独克宗外围电梯/供氧酒店；高原浅访安全是成功标准。',
+      hospitals: [
+        {
+          name: '迪庆藏族自治州人民医院',
+          level: '三甲',
+          area: '香格里拉',
+          note: '请用高德核实'
+        },
+        {
+          name: '昆明医科大学第一附属医院',
+          level: '三甲',
+          area: '昆明',
+          note: '下撤；请用高德核实'
+        }
+      ],
+    },
   },
   'leg-hekou-border': {
     introduction:

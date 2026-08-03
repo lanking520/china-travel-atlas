@@ -24,17 +24,17 @@ Counts = unique route ids in each patch’s `detailPatches` with `practicalGuide
 | --- | ---: | ---: | ---: | ---: | ---: |
 | 华北/东北 | 43 | 43 | 0 | 43 | 46 |
 | 华东 | 30 | 30 | 30 | 30 | 30 |
-| 西南 | 37 | 6 | 37 | 37 | 37 |
+| 西南 | 37 | 37 | 37 | 37 | 37 |
 | 华中/华南 | 55 | 55 | 55 | 55 | 55 |
 | 西北/青藏 | 32 | 0 | 32 | 32 | 32 |
-| **Unique all** | **197** | **134** | **154** | **197** | **200** |
+| **Unique all** | **197** | **165** | **154** | **197** | **200** |
 
 Catalog check (`lib/generated/explore-routes.json`): **197/201** routes have PG|intro from these patches. Remaining **4** are intentional 华北 skips (already-rich hand PG): `mutianyu-day`, `gubei-overnight`, `tianjin-day`, `huabei-shanxi-loop` — three still got Ctrip `sources` only; `mutianyu-day` already had Ctrip sources.
 
 ## Still thin
 
 - **西北/青藏** — intro/notices only in this fan-out; **0** new `practicalGuide` overlays (rely on prior hand PG / earlier audits).
-- **西南** — intro-heavy; only **6/37** got `practicalGuide` in the Ctrip patch.
+- **西南** — PG backfill done **6→37** (see region note); rollup table above updated.
 - **华北/东北** — PG-only style (no introduction rewrite in batch); 4 short lines skipped by design.
 
 华东 + 华中/华南 are the fullest (intro + PG on every patched id).
@@ -50,11 +50,10 @@ Catalog check (`lib/generated/explore-routes.json`): **197/201** routes have PG|
 
 ## Verdict
 
-**PARTIAL** — fan-out registered and typechecks; catalog coverage of either-overlay is complete aside from 4 intentional 华北 skips. Residual thinness is **practicalGuide** on 西北/青藏 (none) and most of 西南 (6/37), plus no UX lock this round.
+**PARTIAL** — fan-out registered and typechecks; catalog coverage of either-overlay is complete aside from 4 intentional 华北 skips. Residual thinness is **practicalGuide** on 西北/青藏 (none in ctrip batch), plus no UX lock this round. 西南 PG backfill **6→37** done.
 
 ### Next (optional)
 
 1. Backfill `practicalGuide` for 西北/青藏 ctrip batch (or cite prior PG as sufficient).
-2. Extend 西南 PG beyond the 6 already covered.
-3. Run `npm run preview` + `ux:plan` when convenient.
-4. Optional intro pass for 华北/东北 if product wants parity with 华东 style.
+2. Run `npm run preview` + `ux:plan` when convenient.
+3. Optional intro pass for 华北/东北 if product wants parity with 华东 style.

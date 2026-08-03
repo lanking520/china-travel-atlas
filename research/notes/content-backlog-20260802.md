@@ -23,7 +23,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **长居以地点为中心** — `base-kashi` + `nearbyLegs` → kashi leg / kuqa leg / nanjiang compose；门槛审计见上
 - [x] **Pilot schema** — `compositionKind?: leg | compose | base` + `legIds` / `glue` / `nearbyLegs`；filter labels 短线/长线（长居仍用 theme）
 - [x] **南疆 pilot migration** — `leg-kuqa-canyon` + densified `xibei-xinjiang-kashi`；`xibei-xinjiang-south` → `compose-nanjiang-kuqa-kashi`
-- [x] **Explore compose / base UX** — timeline + sticky「组合」+ sky chrome（河西/南疆 verify PASS）；短线/长线 chips 已有；长居仍靠 theme；base 详情 polish 可选
+- [x] **Explore compose / base UX** — timeline + sticky「组合」+ sky chrome（河西/南疆 verify PASS）；短线/长线 chips 已有；长居 Explore 青绿 chip + base 门槛/辐射 polish（2026-08-02）
 - [x] **Compose intro → leg links** — 全部 compose 页 intro 下「嵌入短线」可点进各 leg（`3930888`）
 - [x] **Second corridor sketch** — 河西优先 / 川西备选；见 IA note
 - [x] **Second corridor pilot** — 河西：`leg-dunhuang-mogao` + `leg-zhangye-danxia` + `compose-hexi-dunhuang-zhangye`（嘉峪关 glue）；`xibei-dunhuang-zhangye` 已退役
@@ -93,7 +93,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Open — polish (optional)
 
-- [ ] Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
+- [x] Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
 - [x] **逐条精细化** — high-traffic stop tips (`high-traffic-stops-20260802`) + Ctrip enrich PG\|intro **197/201** (`9478529`); residual opportunistic only
 - [ ] Soft→Commons **residual** buffers only if dedicated scenic appears（mass soft→Commons waves done; `PLACE_SOFT_IDS` ≈15 intentional same-corridor; 乐亭/左云/qiziwan gen）
 - [ ] Optional corridors if product asks：粤西开平–湛江（需湛江 leg）、东北冬冰雪专廊
@@ -115,9 +115,9 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Suggested next session order
 
 1. Optional：华北/东北 Ctrip introduction parity
-2. Optional：Explore 长居 chip / base 详情 polish
-3. Soft→Commons residual only if dedicated scenic appears
-4. New prefecture / corridor coverage only if product asks（粤西、东北冬等）
-5. Aliyun OSS+CDN+ICP only if CF Pages insufficient（mainland-access note; do **not** build dual-deploy now）
+2. Soft→Commons residual only if dedicated scenic appears
+3. New prefecture / corridor coverage only if product asks（粤西、东北冬等）
+4. Aliyun OSS+CDN+ICP only if CF Pages insufficient（mainland-access note; do **not** build dual-deploy now）
+5. UX density / virtualization / embla only after live feedback or proven jank
 
 **Ops:** Mainland CDN interim **DONE** via Cloudflare Pages — https://china-travel-atlas.pages.dev/

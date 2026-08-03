@@ -776,6 +776,11 @@ await check("P23 base 长居三门槛 + nearby 辐射", async () => {
   if (!/长居三门槛|三门槛/.test(gt)) {
     throw new Error("gates section missing 长居三门槛 copy");
   }
+  for (const pillar of ["交通便利", "生活物资", "医疗资源"]) {
+    if (!gt.includes(pillar)) {
+      throw new Error(`gates missing triad chip ${pillar}`);
+    }
+  }
   const nearby = page.locator("#nearby");
   if (!(await nearby.count())) throw new Error("#nearby missing");
   if ((await nearby.locator('a[href*="/routes/"]').count()) < 2) {
@@ -845,7 +850,7 @@ const md = [
   "- 筛选维度：季节/长短/主题/地区 sheets；默认全季节/全部/全部主题/全部地区；无 dim identity chips",
   "- sticky hide-on-scroll: transform + hysteresis（防 flicker）",
   "- mobile bottom nav 探索/两年/说明",
-  "- 长居枢纽：sticky「门槛」「辐射」；#gates 三门槛可见；nearbyLegs 可点",
+  "- 长居枢纽：sticky「门槛」「辐射」高亮；#gates 三门槛 + 交通便利/生活物资/医疗资源 triad；nearbyLegs 可点；封面后先门槛/辐射再交通",
   "- 两年总览含回京；长途含飞入/回京线索",
   "",
   `截图目录：\`${outDir}/\``,

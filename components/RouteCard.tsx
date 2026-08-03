@@ -41,9 +41,12 @@ export function RouteCard({
   priority = false,
 }: RouteCardProps) {
   const src = cardImageForRoute(route);
-  const themeHint = route.themes?.includes("long-stay")
-    ? THEME_LABELS["long-stay"]
-    : route.themes?.[0]
+  /** 长居 / base hubs get a dedicated teal cue (not buried behind 从北京/郑州). */
+  const isLongStay =
+    route.compositionKind === "base" ||
+    Boolean(route.themes?.includes("long-stay"));
+  const otherThemeHint =
+    !isLongStay && route.themes?.[0]
       ? THEME_LABELS[route.themes[0]]
       : undefined;
   const kindLabel = route.compositionKind
@@ -51,6 +54,11 @@ export function RouteCard({
     : TRIP_TYPE_LABELS[route.tripType] === "长旅行"
       ? "长线"
       : TRIP_TYPE_LABELS[route.tripType];
+  const showChipRow =
+    Boolean(route.fromHome) ||
+    Boolean(route.fromZhengzhouHome) ||
+    isLongStay ||
+    Boolean(otherThemeHint);
   const prefetchRef = useRef(false);
 
   const prefetchCover = () => {
@@ -86,36 +94,41 @@ export function RouteCard({
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-sky-950/92 via-sky-950/30 to-sky-950/5"
         aria-hidden
       />
-      <div className="relative mt-auto flex flex-col justify-end gap-0.5 p-2 sm:p-2.5">
-        {(route.fromHome || route.fromZhengzhouHome) ? (
+      <div className="relative mt-auto flex flex-col justify-end gap-px p-1.5 sm:gap-0.5 sm:p-2.5">
+        {showChipRow ? (
           <div className="mb-0.5 flex flex-wrap gap-1">
             {route.fromHome ? (
-              <span className="w-fit rounded-md bg-emerald-600/95 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
+              <span className="w-fit rounded-md bg-emerald-600/95 px-1.5 py-px text-[0.62rem] font-semibold tracking-wide text-white shadow-sm">
                 从北京
               </span>
             ) : null}
             {route.fromZhengzhouHome ? (
-              <span className="w-fit rounded-md bg-sky-600/95 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
+              <span className="w-fit rounded-md bg-sky-600/95 px-1.5 py-px text-[0.62rem] font-semibold tracking-wide text-white shadow-sm">
                 从郑州
               </span>
             ) : null}
+            {isLongStay ? (
+              <span className="w-fit rounded-md bg-teal-600/95 px-1.5 py-px text-[0.62rem] font-semibold tracking-wide text-white shadow-sm">
+                长居
+              </span>
+            ) : otherThemeHint ? (
+              <span className="w-fit rounded-md bg-amber-600/90 px-1.5 py-px text-[0.62rem] font-semibold tracking-wide text-white shadow-sm">
+                {otherThemeHint}
+              </span>
+            ) : null}
           </div>
-        ) : themeHint ? (
-          <span className="mb-0.5 w-fit rounded-md bg-amber-600/90 px-1.5 py-px text-[0.65rem] font-semibold tracking-wide text-white shadow-sm">
-            {themeHint}
-          </span>
         ) : null}
-        <h3 className="font-display text-[1.02rem] font-bold leading-snug text-white drop-shadow-sm sm:text-[1.08rem]">
+        <h3 className="font-display text-[0.98rem] font-bold leading-tight text-white drop-shadow-sm sm:text-[1.08rem] sm:leading-snug">
           {route.title}
         </h3>
-        <p className="text-[0.88rem] font-medium leading-snug text-sky-100/90 sm:text-[0.95rem]">
+        <p className="text-[0.82rem] font-medium leading-tight text-sky-100/90 sm:text-[0.95rem] sm:leading-snug">
           {route.daysLabel}
           <span className="mx-1 text-sky-300/70" aria-hidden>
             ·
           </span>
           {kindLabel}
         </p>
-        <p className="text-[0.88rem] font-semibold leading-snug text-amber-200/95 sm:text-[0.95rem]">
+        <p className="text-[0.82rem] font-semibold leading-tight text-amber-200/95 sm:text-[0.95rem] sm:leading-snug">
           {route.budgetLabel}
         </p>
       </div>
@@ -175,7 +188,7 @@ export function RouteCardGrid({
   return (
     <ul
       aria-label={ariaLabel}
-      className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-2.5"
+      className="grid grid-cols-2 gap-1.5 md:grid-cols-3 md:gap-2.5"
     >
       {shown.map((route, index) => (
         <li key={route.id} className="min-w-0">

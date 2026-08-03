@@ -157,16 +157,23 @@ export default async function RouteDetailPage({
                 ["#hospital", "就医"],
                 ["#notices", "须知"],
               ] as [string, string][]
-            ).map(([href, label]) => (
-              <li key={href} className="shrink-0">
-                <a
-                  href={href}
-                  className="inline-flex min-h-8 items-center rounded-lg px-2.5 py-1 hover:bg-sky-100/80 hover:text-sky-950"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+            ).map(([href, label]) => {
+              const isHubJump = href === "#gates" || href === "#nearby";
+              return (
+                <li key={href} className="shrink-0">
+                  <a
+                    href={href}
+                    className={
+                      isHubJump
+                        ? "inline-flex min-h-8 items-center rounded-lg bg-teal-100/80 px-2.5 py-1 text-teal-950 hover:bg-teal-200/80"
+                        : "inline-flex min-h-8 items-center rounded-lg px-2.5 py-1 hover:bg-sky-100/80 hover:text-sky-950"
+                    }
+                  >
+                    {label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -202,6 +209,103 @@ export default async function RouteDetailPage({
               </figure>
             ))}
           </div>
+        ) : null}
+
+        {showLongStayGates ? (
+          <section
+            id="gates"
+            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-300 bg-teal-50 p-6"
+          >
+            <h2 className="text-2xl font-bold text-teal-950">长居三门槛</h2>
+            <p className="mt-2 text-base text-teal-800">
+              进出交通 · 生活物资 · 本地三甲——达不到就不与枢纽并列推荐。
+            </p>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-3">
+              {(
+                [
+                  ["交通便利", "机场 / 高铁 / 高速进出是否省心"],
+                  ["生活物资", "约一月超市、菜市场与药店"],
+                  ["医疗资源", "本地三甲；弱则写明下撤"],
+                ] as const
+              ).map(([title, blurb]) => (
+                <li
+                  key={title}
+                  className="rounded-xl bg-white/90 px-3 py-2.5 ring-1 ring-teal-200/90"
+                >
+                  <p className="text-base font-semibold text-teal-950">
+                    {title}
+                  </p>
+                  <p className="mt-0.5 text-sm leading-snug text-teal-800">
+                    {blurb}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 space-y-4 text-lg leading-relaxed text-teal-950">
+              {paragraphs(practical.longStay ?? "").map((p) => (
+                <p key={p.slice(0, 24)} className="whitespace-pre-line">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {route.nearbyLegs && route.nearbyLegs.length > 0 ? (
+          <section
+            id="nearby"
+            className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50/90 p-6"
+          >
+            <h2 className="text-2xl font-bold text-sky-950">
+              {isBase ? "从本枢纽可辐射" : "周边短线"}
+            </h2>
+            <p className="mt-2 text-base text-sky-700">
+              {isBase
+                ? "景点正文只在各短线 / 长线卡；本枢纽负责住稳与进出，不复述打卡清单。"
+                : "可辐射的短线 / 过夜日归 / 可选组合；景点正文在各卡。"}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {route.nearbyLegs.map((legId) => {
+                const leg = getRouteById(legId);
+                const kind =
+                  leg?.compositionKind === "compose"
+                    ? "长线"
+                    : leg?.compositionKind === "base"
+                      ? "枢纽"
+                      : "短线";
+                return (
+                  <li
+                    key={legId}
+                    className="rounded-xl bg-white/90 px-4 py-3 ring-1 ring-sky-200/80"
+                  >
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                      <Link
+                        href={`/routes/${legId}/?from=${encodeURIComponent(route.id)}`}
+                        className="font-semibold text-sky-950 underline-offset-2 hover:underline"
+                      >
+                        {leg?.title ?? legId}
+                      </Link>
+                      <span className="rounded-md bg-sky-100 px-1.5 py-0.5 text-sm font-medium text-sky-900">
+                        {kind}
+                      </span>
+                      {leg?.daysLabel ? (
+                        <span className="text-sm text-sky-700">
+                          {leg.daysLabel}
+                        </span>
+                      ) : null}
+                    </div>
+                    {leg?.summary ? (
+                      <p className="mt-1.5 text-base leading-snug text-sky-800/90">
+                        {leg.summary.length > 96
+                          ? `${leg.summary.slice(0, 96)}…`
+                          : leg.summary}
+                      </p>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
         ) : null}
 
         <section
@@ -361,82 +465,6 @@ export default async function RouteDetailPage({
             </div>
           ) : null}
         </section>
-
-        {showLongStayGates ? (
-          <section
-            id="gates"
-            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-300 bg-teal-50 p-6"
-          >
-            <h2 className="text-2xl font-bold text-teal-950">长居三门槛</h2>
-            <p className="mt-2 text-base text-teal-800">
-              进出交通 · 生活物资 · 本地三甲——达不到就不与枢纽并列推荐。
-            </p>
-            <div className="mt-4 space-y-4 text-lg leading-relaxed text-teal-950">
-              {paragraphs(practical.longStay ?? "").map((p) => (
-                <p key={p.slice(0, 24)} className="whitespace-pre-line">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        {route.nearbyLegs && route.nearbyLegs.length > 0 ? (
-          <section
-            id="nearby"
-            className="mt-10 scroll-mt-14 rounded-2xl border border-teal-200 bg-teal-50 p-6"
-          >
-            <h2 className="text-2xl font-bold text-teal-950">
-              {isBase ? "从本枢纽可辐射" : "周边短线"}
-            </h2>
-            <p className="mt-2 text-base text-teal-800">
-              {isBase
-                ? "景点正文只在各短线 / 长线卡维护；本枢纽负责住稳与进出，不复述打卡清单。"
-                : "从本枢纽可辐射的交通方便短线 / 过夜日归 / 可选组合长线；景点正文在各卡。"}
-            </p>
-            <ul className="mt-4 space-y-3">
-              {route.nearbyLegs.map((legId) => {
-                const leg = getRouteById(legId);
-                const kind =
-                  leg?.compositionKind === "compose"
-                    ? "长线"
-                    : leg?.compositionKind === "base"
-                      ? "枢纽"
-                      : "短线";
-                return (
-                  <li
-                    key={legId}
-                    className="rounded-xl bg-white/85 px-4 py-3 ring-1 ring-teal-200/80"
-                  >
-                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                      <Link
-                        href={`/routes/${legId}/?from=${encodeURIComponent(route.id)}`}
-                        className="font-semibold text-teal-950 underline-offset-2 hover:underline"
-                      >
-                        {leg?.title ?? legId}
-                      </Link>
-                      <span className="rounded-md bg-teal-100 px-1.5 py-0.5 text-sm font-medium text-teal-900">
-                        {kind}
-                      </span>
-                      {leg?.daysLabel ? (
-                        <span className="text-sm text-teal-700">
-                          {leg.daysLabel}
-                        </span>
-                      ) : null}
-                    </div>
-                    {leg?.summary ? (
-                      <p className="mt-1.5 text-base leading-snug text-teal-900/90">
-                        {leg.summary.length > 96
-                          ? `${leg.summary.slice(0, 96)}…`
-                          : leg.summary}
-                      </p>
-                    ) : null}
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        ) : null}
 
         <section id="guide" className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50 p-6">
           <h2 className="text-2xl font-bold text-sky-950">路线指南</h2>

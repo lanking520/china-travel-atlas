@@ -20,9 +20,9 @@ HEAD: `9478529`
 
 ## Top next tasks
 1. Optional 华北/东北 Ctrip introduction parity
-2. Optional Explore 长居 chip / base detail polish
-3. Soft→Commons residual only if dedicated scenic appears
-4. UX density / virtualization / embla only after live feedback or proven jank
+2. Soft→Commons residual only if dedicated scenic appears
+3. UX density / virtualization / embla only after live feedback or proven jank
+4. New prefecture / corridor coverage only if product asks
 5. Aliyun OSS+CDN+ICP only if CF Pages insufficient for WeChat (mainland-access note; do not build now)
 
 **Ops note:** Mainland CDN interim **DONE** via Cloudflare Pages — https://china-travel-atlas.pages.dev/

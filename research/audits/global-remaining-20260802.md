@@ -17,7 +17,7 @@ Clean-context wrap-up after Explore 地区 dim / map-tab removal, detail map ret
 | Ctrip enrich | **197/201** PG\|intro; 4 intentional 华北 skips |
 | `ux:plan` | Expect **25 / 25** after preview (P5 = 精细化路线介绍; no map cover) |
 | Content backlog «Open — product» | **0** open |
-| Content backlog «Open — polish» | optional only (长居 chip、soft residual、粤西/东北冬、华北 intro parity) |
+| Content backlog «Open — polish» | optional only (soft residual、粤西/东北冬、华北 intro parity) |
 | UX backlog open | density pass · virtualization · embla/motion/offline index |
 | Mainland access | Research note + OSS dual-deploy **stub** (not enabled) |
 | Detail maps | **Retired** — practical transport copy only |
@@ -38,7 +38,7 @@ Clean-context wrap-up after Explore 地区 dim / map-tab removal, detail map ret
 ## Still optional
 
 - UX: density pass after live feedback; virtualization if ≫~200 janks; P2 embla + motion; offline search index
-- Content: 长居 chip / base polish; Soft→Commons residual buffers; 粤西 / 东北冬 only if product asks; optional 华北/东北 intro parity
+- Content: Soft→Commons residual buffers; 粤西 / 东北冬 only if product asks; optional 华北/东北 intro parity
 - Ops: mainland CDN interim **DONE** (Cloudflare Pages https://china-travel-atlas.pages.dev/); Aliyun OSS+CDN+ICP optional later only if WeChat-max needed (do not build stub now)
 
 ---

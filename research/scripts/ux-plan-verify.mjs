@@ -117,7 +117,7 @@ await check("P1 home: catalog + 4 dim filters (no map tab)", async () => {
   await page.goto(base + "/", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(800);
   const t = await page.locator("body").innerText();
-  mustInclude(t, ["爸妈中国旅游地图"], "home brand");
+  mustInclude(t, ["中国旅游地图"], "home brand");
   if (await page.getByRole("tab", { name: "地图选区" }).count()) {
     throw new Error("地图选区 tab should be removed");
   }

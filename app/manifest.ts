@@ -6,9 +6,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "爸妈中国旅游地图",
-    short_name: "爸妈旅游地图",
-    description: "为北京父母设计的中国旅行路线地图",
+    name: "中国旅游地图",
+    short_name: "中国旅游地图",
+    description: "中国旅行路线图鉴；兼顾北京家与郑州家出发",
     start_url: `${basePath}/`,
     display: "standalone",
     background_color: "#f0f9ff",

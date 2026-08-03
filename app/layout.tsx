@@ -19,12 +19,12 @@ const notoSerifSC = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "爸妈中国旅游地图 | china-travel-atlas",
+  title: "中国旅游地图 | china-travel-atlas",
   description:
-    "为北京父母设计的中国旅行地图：大字易读、按地区季节筛选、慢游快览分明。",
+    "中国旅行路线图鉴：大字易读、按地区季节筛选、慢游快览分明；兼顾北京家与郑州家出发。",
   appleWebApp: {
     capable: true,
-    title: "爸妈旅游地图",
+    title: "中国旅游地图",
     statusBarStyle: "default",
   },
 };

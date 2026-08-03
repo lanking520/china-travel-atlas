@@ -8,7 +8,7 @@ export function Header() {
           href="/"
           className="font-display min-w-0 truncate text-[1.05rem] font-bold tracking-wide text-sky-950 sm:text-2xl"
         >
-          爸妈中国旅游地图
+          中国旅游地图
         </Link>
         {/* Desktop / tablet nav; mobile uses BottomNav */}
         <nav className="hidden shrink-0 gap-2 sm:flex" aria-label="主导航">

@@ -946,14 +946,14 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'leg-hekou-border': {
     routeGuide:
-      '昆明缓冲核验证件→河口慢住熟悉口岸→老码头浅逛。本腿止于中国境内侧；接沙巴（Sa Pa，越南）见跨境短线/中越组合。\n\n可跳过：昆明缓冲、老码头。',
+      '昆明缓冲（可删）→河口慢住→老码头浅逛。本腿止于中国境内侧；接沙巴见跨境短线/中越组合。\n\n可跳过：昆明缓冲、老码头。',
     timePlan: [
       'D1：昆明缓冲（可删）',
       'D2–3：河口慢住',
       'D4：老码头或空白',
       '返昆明飞京，或接跨境短线',
     ],
-    sightsTips: '· 确认口岸开放时段。\n· 不靠近警戒区域。\n· 不出境本腿即完整。',
+    sightsTips: '· 确认口岸开放时段只为熟悉动线。\n· 不靠近警戒区域。\n· 不出境本腿即完整。',
     dining:
       '河口适老：过桥/小锅米线清汤少辣、汽锅鸡浅尝、青菜豆腐；口岸简餐即可。少生冷菌类与隔夜凉拌。',
     longStay: '口岸县城电梯酒店；近医院优先。',
@@ -993,7 +993,7 @@ export const practicalGuides: Record<string, PracticalGuide> = {
 
   'compose-yunnan-hekou-sapa': {
     routeGuide:
-      '长线组合：河口（中国）边贸短线 → 正式口岸通关 glue → 沙巴（Sa Pa，越南）跨境短线 → 原路返回昆明飞京。景点细节只在各短线。\n\n可跳过：昆明缓冲、Fansipan。禁止非正式通道。可只订河口短线不出境。',
+      '组合顺序：河口中国段短线 → 正式口岸 glue → 沙巴越南段短线 → 原路返回昆明飞京。细节只在各短线。\n\n可跳过：昆明缓冲、Fansipan。可只订河口短线不出境。',
     timePlan: [
       '段1：河口短线约3–4天（见 leg-hekou-border）',
       '衔接：正式口岸通关（见 glue / 沙巴短线通关站）',
@@ -1001,11 +1001,10 @@ export const practicalGuides: Record<string, PracticalGuide> = {
       '昆明飞京',
     ],
     sightsTips:
-      '· 各短线景点见各自 PG。\n· 跨境护照/签证自查；只走正式口岸。',
-    dining:
-      '中越组合适老：河口米线清汤/青菜豆腐；越境后热汤面粥稳妥，少冰饮生冷。沙巴偏凉忌油腻；口岸简餐别久等。',
+      '· 各短线景点见各自 PG，本卡不复写。\n· 证件诚实正文见沙巴短线；只走正式口岸。',
+    dining: '餐饮声明见各短线 PG；口岸衔接日简餐别久等。',
     longStay:
-      '分段电梯酒店；跨境段少换店。含境外医疗转运保险建议。',
+      '分段电梯酒店；少换店。境外医疗转运保险建议见沙巴短线。',
     hospitals: [
       { name: '河口县人民医院', level: '县级', area: '河口', note: '中国段；请用高德核实' },
       { name: '红河州第一人民医院', level: '三甲', area: '蒙自', note: '州级下撤；请用高德核实' },

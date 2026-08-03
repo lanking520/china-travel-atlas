@@ -186,7 +186,7 @@ export const PLACE_ROUTE_COVERS: Record<string, string> = {
   'leg-sapa-vietnam':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sa_Pa_Rice_Terrace_I.jpg/1280px-Sa_Pa_Rice_Terrace_I.jpg',
   'compose-yunnan-hekou-sapa':
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sa_Pa_Rice_Terrace_I.jpg/1280px-Sa_Pa_Rice_Terrace_I.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Hekou-Kim_Th%C3%A0nh_border_crossing_-_P1380333.JPG/1280px-Hekou-Kim_Th%C3%A0nh_border_crossing_-_P1380333.JPG',
   // coverage wave 20260802
   'huazhong-hubei-wuhan':
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Yellow_Crane_Tower_61469-Wuhan_%2849149984218%29.jpg/1280px-Yellow_Crane_Tower_61469-Wuhan_%2849149984218%29.jpg',

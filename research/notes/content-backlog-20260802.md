@@ -94,10 +94,11 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 ## Open — polish (optional)
 
 - [ ] Optional：Explore 长居 chip / base 详情 polish（短线/长线 + compose 时间线已上；UX clean-light PASS）
-- [ ] 逐条精细化 — stops/tips beyond character framing for high-traffic hubs（部分高流量 tip overlays 已上）
-- [ ] Soft→Commons image upgrades only if dedicated scenic appears（乐亭/左云/qiziwan 已 gen）
+- [x] **逐条精细化** — high-traffic stop tips (`high-traffic-stops-20260802`) + Ctrip enrich PG\|intro **197/201** (`9478529`); residual opportunistic only
+- [ ] Soft→Commons **residual** buffers only if dedicated scenic appears（mass soft→Commons waves done; `PLACE_SOFT_IDS` ≈15 intentional same-corridor; 乐亭/左云/qiziwan gen）
 - [ ] Optional corridors if product asks：粤西开平–湛江（需湛江 leg）、东北冬冰雪专廊
-- [ ] Extreme alpine cards（如川藏东段康定新都桥）保持诚实警告，不强制拆 compose
+- [ ] Optional：华北/东北 Ctrip **introduction** parity（PG done; intros still light by design — see ctrip rollup）
+- Standing (not a build ticket): extreme alpine cards keep honest warnings; do **not** force compose splits
 
 ## Notes
 
@@ -105,13 +106,16 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - Prefer richer patch intros over thin `route-details` stubs (runtime `preferRicherText`).
 - Content agents avoid Explore chrome (`ChinaMapExplorer`) unless asked.
 - Related: `research/audits/content-quality-screen-20260802.md`
-- Catalog snapshot **~201** routes · **31** compose · **3** base（2026-08-02 evening）
+- Catalog snapshot **~201** routes · **31** compose · **67** leg · **3** base（post-Ctrip `9478529`）
+- Brand: **中国旅游地图**; dual home tags `fromHome` / `fromZhengzhouHome` (8 Henan-circle)
+- Detail overview maps **retired** →「精细化路线介绍」(`route-overview-map-retired-20260802.md`)
 - Mainland phone access research: `research/notes/china-mainland-access-20260802.md`
+- Post-Ctrip verify: `research/audits/plan-verify-round-20260802-post-ctrip.md`
 
 ## Suggested next session order
 
-1. Optional：Explore 长居 chip / base 详情 polish
-2. 逐条精细化 — stops/tips for remaining high-traffic hubs
-3. Soft→Commons only if dedicated scenic appears
-4. New prefecture / corridor coverage only if product asks（粤西、东北冬等）
-5. China CDN dual-deploy when ICP/domain ready（see mainland-access note）
+1. China CDN dual-deploy when ICP/domain ready（see mainland-access note）
+2. Optional：华北/东北 Ctrip introduction parity
+3. Optional：Explore 长居 chip / base 详情 polish
+4. Soft→Commons residual only if dedicated scenic appears
+5. New prefecture / corridor coverage only if product asks（粤西、东北冬等）

@@ -82,4 +82,4 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 - Mobile bottom nav shipped; compose intro「嵌入短线」done in `3930888`.
 - **Redundant dim identity chips** removed (incl. region/province). Clear via 全部* / 全部地区 or sheet「重置」. Search keyword chip only.
 
-*Updated: 2026-08-02 evening · Region as 4th dim; drop map tab; catalog ~201; RegionMap deleted (geo kept for detail maps).*
+*Updated: 2026-08-02 post-Ctrip · Region as 4th dim; drop map tab; catalog ~201; RegionMap deleted; detail RouteOverviewMap / china-geo **also retired** (`a4de5ae`) →「精细化路线介绍」.*

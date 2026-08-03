@@ -1,25 +1,26 @@
 # Verify loop latest
 
-Time: 2026-08-02 (FINAL clean-context verify)
+Time: 2026-08-02 (post-Ctrip clean-context verify)
 
-**Verdict: PASS** (live about copy lags until Pages deploy)
+**Verdict: PASS**
 
-Source: `research/audits/plan-verify-round-20260802-final.md`
+Source: `research/audits/plan-verify-round-20260802-post-ctrip.md`  
+HEAD: `9478529`
 
 | Check | Result |
 | --- | --- |
-| Plan / backlog hygiene | PASS — product open 0; polish opens intentional; multi-discovery gate (not XHS) |
-| Dead code after map-tab removal | PASS — FilterBar/RegionMap gone; detail maps kept |
-| Docs (`AGENTS.md`, README, about/overview) | PASS — 4 dims; no map tab pitch |
-| `tsc --noEmit` | PASS |
-| `ux:plan` | PASS — **25 / 25** (after about P9 string fix) |
+| Plan / backlog hygiene | PASS — product open 0; polish/ops opens intentional; multi-discovery gate |
+| Map tab + detail overview maps | PASS — both retired; practical transport copy |
+| Docs (`AGENTS.md`, live about) | PASS — 中国旅游地图; 4 dims; 精细化路线 |
+| Ctrip enrich + PG fills | PASS — 197/201 overlays; 西南/西北青藏 PG complete |
+| Brand / Zhengzhou / back-nav / photos | PASS |
 | Live home Explore IA | PASS — no 地图选区; 4 dims present |
-| 河口–沙巴 honesty | PASS — Sapa / Vietnam / passport+visa on compose |
+| Pages CI | PASS — green on tip |
 | Catalog | **~201** · compose **31** · leg **67** · base **3** |
 
 ## Top next tasks
-1. After Pages deploy: curl live `/about/` for refreshed 四个维度 copy
-2. China CDN dual-deploy when ICP/domain ready (mainland-access note)
-3. UX optional: density / virtualization only if jank
-4. Content optional: high-traffic stops/tips; 长居 chip polish if wanted
-5. Do not reintroduce map tab or block new ids on XHS MCP
+1. China CDN dual-deploy when ICP/domain ready (mainland-access note)
+2. Optional 华北/东北 Ctrip introduction parity
+3. Optional Explore 长居 chip / base detail polish
+4. Soft→Commons residual only if dedicated scenic appears
+5. UX density / virtualization / embla only after live feedback or proven jank

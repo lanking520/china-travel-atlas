@@ -1,6 +1,7 @@
 # Ctrip enrich rollup · 2026-08-02
 
-Clean verify after global fan-out on `main` (commits `1eb32c0` … `cc478af`), plus regional PG backfills.
+Clean verify after global fan-out on `main` (commits `1eb32c0` … `cc478af`), plus regional PG backfills.  
+**Pinned HEAD:** `9478529` (西北/青藏 PG companion) — rollup still accurate; no new regional batches after tip.
 
 ## Patches registered
 
@@ -51,10 +52,11 @@ Catalog check (`lib/generated/explore-routes.json`): **197/201** routes have PG|
 
 ## Verdict
 
-**PASS** on regional PG|intro coverage for the five Ctrip batches (197 either-overlays; 4 intentional 华北 skips). Residual: no UX lock this round; 华北/东北 still lack introduction rewrites.
+**PASS** on regional PG|intro coverage for the five Ctrip batches (197 either-overlays; 4 intentional 华北 skips). Residual: 华北/东北 still lack introduction rewrites (by design). Post-Ctrip plan verify: `research/audits/plan-verify-round-20260802-post-ctrip.md`.
 
 ### Next (optional)
 
 1. ~~Backfill `practicalGuide` for 西北/青藏 ctrip batch~~ **done (32)**.
-2. Run `npm run preview` + `ux:plan` when convenient.
-3. Optional intro pass for 华北/东北 if product wants parity with 华东 style.
+2. ~~Backfill 西南 PG 6→37~~ **done**.
+3. Run `npm run preview` + `ux:plan` when convenient.
+4. Optional intro pass for 华北/东北 if product wants parity with 华东 style.

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRegionById, getRouteById, routes } from "@/content";
 import { Header } from "@/components/Header";
+import { RouteBackLink } from "@/components/RouteBackLink";
 import { SafeImage } from "@/components/SafeImage";
 import { SoftDetails } from "@/components/SoftDetails";
 import { StopTimeline } from "@/components/StopTimeline";
@@ -59,12 +60,7 @@ export default async function RouteDetailPage({
     <>
       <Header />
       <main className="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-8">
-        <Link
-          href="/"
-          className="mb-4 inline-flex min-h-9 items-center text-base font-medium text-sky-700 hover:text-sky-900"
-        >
-          ← 返回探索
-        </Link>
+        <RouteBackLink />
 
         <h1 className="text-2xl font-bold leading-tight text-sky-950 sm:text-4xl">
           {route.title}
@@ -303,7 +299,7 @@ export default async function RouteDetailPage({
                   return (
                     <li key={legId}>
                       <Link
-                        href={`/routes/${legId}`}
+                        href={`/routes/${legId}/?from=${encodeURIComponent(route.id)}`}
                         className="block rounded-xl bg-white px-4 py-3 ring-1 ring-amber-200/90 transition hover:ring-amber-400"
                       >
                         <div className="flex items-start gap-3">
@@ -414,7 +410,7 @@ export default async function RouteDetailPage({
                   >
                     <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                       <Link
-                        href={`/routes/${legId}`}
+                        href={`/routes/${legId}/?from=${encodeURIComponent(route.id)}`}
                         className="font-semibold text-teal-950 underline-offset-2 hover:underline"
                       >
                         {leg?.title ?? legId}

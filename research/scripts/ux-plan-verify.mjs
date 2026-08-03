@@ -650,6 +650,60 @@ await check("P21 compose sticky「组合」+ embedded legs", async () => {
   if ((await legs.locator('a[href*="/routes/"]').count()) < 2) {
     throw new Error("compose should link ≥2 embedded legs");
   }
+  const legHrefs = await legs.locator("a[href*='/routes/']").evaluateAll((as) =>
+    as.map((a) => a.getAttribute("href") || ""),
+  );
+  if (!legHrefs.some((h) => /[?&]from=compose-hexi-dunhuang-zhangye/.test(h))) {
+    throw new Error("compose leg links should pass ?from=<composeId>");
+  }
+});
+
+await check("P21b compose→leg Back returns to compose", async () => {
+  const composeId = "compose-yunnan-hekou-sapa";
+  await page.goto(base + `/routes/${composeId}/`, {
+    waitUntil: "domcontentloaded",
+  });
+  await page.waitForTimeout(600);
+  const leg = page.locator("#compose-legs a[href*='/routes/']").first();
+  if (!(await leg.count())) throw new Error("no embedded leg link");
+  const href = await leg.getAttribute("href");
+  if (!href || !new RegExp(`[?&]from=${composeId}`).test(href)) {
+    throw new Error("leg href missing from= compose id: " + href);
+  }
+  await leg.click();
+  await page.waitForURL(/\/routes\/[^/]+/, { timeout: 8000 });
+  await page.waitForTimeout(500);
+  if (page.url().includes(composeId)) {
+    throw new Error("still on compose after leg click");
+  }
+  const back = page.getByRole("link", { name: /^← 返回/ }).first();
+  if (!(await back.count())) throw new Error("detail Back link missing");
+  const backHref = await back.getAttribute("href");
+  if (!backHref || !backHref.includes(`/routes/${composeId}`)) {
+    throw new Error("Back should target compose, got: " + backHref);
+  }
+  await back.click();
+  await page.waitForURL(new RegExp(`/routes/${composeId}/`), { timeout: 8000 });
+  await page.waitForTimeout(400);
+  if (!page.url().includes(composeId)) {
+    throw new Error("Back did not return to compose: " + page.url());
+  }
+});
+
+await check("P21c Explore→route Back stays Explore", async () => {
+  await page.goto(base + "/routes/mutianyu-day/", {
+    waitUntil: "domcontentloaded",
+  });
+  await page.waitForTimeout(600);
+  const back = page.getByRole("link", { name: /← 返回探索/ }).first();
+  if (!(await back.count())) {
+    throw new Error("cold detail entry should show ← 返回探索");
+  }
+  const href = (await back.getAttribute("href")) || "";
+  const stripped = href.replace(/\/china-travel-atlas/, "") || "/";
+  if (stripped !== "/" && stripped !== "") {
+    throw new Error("cold detail Back should target explore /, got: " + href);
+  }
 });
 
 await check("P22 season via dim trigger + sheet 重置 (no identity chip)", async () => {
@@ -786,7 +840,8 @@ const md = [
   "- 搜索框：婺源 / 九寨可命中；名景经 主题· sheet → `grid-cols-2`",
   "- 旅行页：详细介绍 / 适合季节 / 精细化路线介绍 / 景点照片 / 旅行须知 / 预算",
   "- 详情 sticky「本页目录」；路线指南+时间规划默认展开",
-  "- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接",
+  "- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接；leg 带 ?from=；Back 回组合",
+  "- 冷进详情「← 返回探索」；About/Overview 不受影响",
   "- 筛选维度：季节/长短/主题/地区 sheets；默认全季节/全部/全部主题/全部地区；无 dim identity chips",
   "- sticky hide-on-scroll: transform + hysteresis（防 flicker）",
   "- mobile bottom nav 探索/两年/说明",

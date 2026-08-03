@@ -175,3 +175,19 @@ Commons + Openverse re-search: no elder-safe scenic for 乐亭/左云/棋子湾 
 | `qiziwan-optional` | shared west-Hainan gen | `/generated/places/qiziwan-optional.png` · dedicated 示意生成图 |
 
 Out of `PLACE_SOFT_IDS`: 乐亭、左云. Residual soft = intentional same-corridor only.
+
+---
+
+## Soft→Commons repair batch — 2026-08-02 (evening)
+
+**Note:** `research/notes/place-images-repair-20260802.md`
+
+| Metric | Before | After |
+| --- | ---: | ---: |
+| `PLACE_SOFT_IDS` | 131 | **97** |
+| Upgraded this round | — | **34** place-accurate Commons |
+| Generated live | 3 | 3 (棋子湾/乐亭/左云) |
+
+Highlights: Fuzhou West Lake off Xiamen; Qianling off Huangguoshu; Emei off Qingcheng; Henan Museum off Iron Pagoda; Nanchang Bayi off Wuyuan; Dameisha/OCT Shenzhen-local; Weizhou Moon Bay; Daqikong dedicated; Wuyuan Huangling; Jiuzhai Shuzheng; etc.
+
+Rejected: `hf-sanhe` (阜阳错城), `bh-oldtown` (无骑楼专用), `xinghan` (玉器误配). No Unsplash. Pipeline FILES synced.

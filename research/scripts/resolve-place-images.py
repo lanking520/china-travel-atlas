@@ -50,7 +50,7 @@ FILES: dict[str, str] = {
     "yingxian-pagoda": "Fogong_Temple_Pagoda.jpg",
     "pingyao-side": "Pingyao_40.JPG",
     "pingyao-deep": "Pingyao_40.JPG",
-    "pingyao-wall-optional": "Pingyao_40.JPG",
+    "pingyao-wall-optional": "平遥城墙-流浪的狗狗_-_panoramio_-_aisccd.jpg",
     "taiyuan-hub": "Taiyuan_Shanxi_China.jpg",
     "huabei-shanxi-pingyao-deep": "Pingyao_40.JPG",
     # 山东
@@ -132,7 +132,7 @@ FILES: dict[str, str] = {
     "hongcun": "Hongcun_Village.jpg",
     "wuyuan-jiangling": "Wuyuan_Jiangxi.jpg",
     "huadong-wuyuan-spring": "Wuyuan_Jiangxi.jpg",
-    "wuyuan-huangling": "Wuyuan_Jiangxi.jpg",
+    "wuyuan-huangling": "婺源篁岭天街_3.jpg",
     "wuyuan-village": "Wuyuan_Jiangxi.jpg",
     "slender-west-lake": "Slender_West_Lake.jpg",
     "huadong-jiangsu-yangzhou": "Slender_West_Lake.jpg",
@@ -237,7 +237,7 @@ FILES: dict[str, str] = {
     "wulong-optional": "Wulongtianshengsanqiao.JPG",
     "jinghong-base": "Xishuangbanna.jpg",
     "yunnan-xishuangbanna-winter": "Xishuangbanna.jpg",
-    "manting-park": "Xishuangbanna.jpg",
+    "manting-park": "景洪_曼听公园之傣族风格跨河桥_01.jpg",
     "xtbg-optional": "Tropical_Botanical_Garden,_Xishuangbanna_-_panoramio.jpg",
     "tengchong-base": "Tengchong.jpg",
     "yunnan-dianxi-tengchong": "Tengchong.jpg",
@@ -334,6 +334,68 @@ FILES: dict[str, str] = {
     "hh-buffer-optional": "Da_Zhao_Temple_in_Hohhot3.JPG",
     "hh-museum": "Altan_Khan_statue_in_Hohhot,_Inner_Mongolia.jpg",
     # hh-xilamuren-optional stays Hulunbuir soft grassland corridor
+    "fz-west-lake-optional": "福州西湖公園oeotwc_-_panoramio.jpg",
+
+    "gy-qianling-optional": "黔灵山.jpg",
+
+    "hf-anhui-museum-optional": "安徽博物院正面.jpg",
+
+    "le-emei-optional": "EmeiShanTop.jpg",
+
+    "nn-museum-optional": "Guangxi_Museum.jpg",
+
+    "zz-henan-museum-optional": "20210220_Henan_Museum_-_main_hall_01.jpg",
+
+    "nc-bayi-optional": "Nanchang_Bayi_Guangchang_20120723-20.jpg",
+
+    "sz-oct-optional": "远看深圳华侨城_OCT,_Shenzhen_-_panoramio.jpg",
+
+    "sz-dameisha-optional": "深圳大梅沙.jpg",
+
+    "wy-tianyuan-optional": "福建省武夷山天游峰风景区景色_-_panoramio_(1).jpg",
+
+    "pt-foding-optional": "普陀山.佛顶山.慧济禅寺_-_panoramio_(1).jpg",
+
+    "bh-weizhou-optional": "北海_涠洲岛_月亮湾_-_panoramio.jpg",
+
+    "jz-hongshi": "河南_云台山_红石峡_标志景点_-_panoramio.jpg",
+
+    "yy-dongting": "洞庭湖大桥.jpg",
+
+    "zj-beigu-optional": "镇江北固山铁塔.jpg",
+
+    "gy-museum-optional": "贵州省博物馆_远.jpg",
+
+    "nj-zijin-optional": "PurpleMountain01.JPG",
+
+    "jn-quancheng-optional": "济南大明湖牌匾夜景.jpg",
+
+    "hrb-sun-island-optional": "哈尔滨太阳岛_2.jpg",
+
+    "wt-dailuoding-optional": "从黛螺顶看五台山寺院.jpg",
+
+    "jz-shuzheng": "四川.九寨沟._树正寨_-_panoramio.jpg",
+
+    "lz-museum-optional": "New_Exhibition_Building_of_the_Gansu_Provincial_Museum.jpg",
+
+    "hz-sizhou-optional": "Huizhou_Sizhou_Ta_2013.09.21_08-26-23.jpg",
+
+    "lz-yarlung-optional": "雅鲁藏布江_yaluzangbu_river_-_panoramio.jpg",
+
+    "km-xishan-optional": "Dianchi.jpg",
+
+    "snj-scenic": "神农架_神农顶景区之冰瀑.jpg",
+
+    "es-dislot-optional": "恩施大峡谷2_-_panoramio.jpg",
+
+    "wh-jianghan-optional": "江汉路步行街.jpg",
+
+    "lb-daqikong-optional": "荔波大七孔，202403_5.jpg",
+
+    "jz-quanpu-optional": "云台山泉瀑峡_-_panoramio.jpg",
+
+    "jz-zhuyu-optional": "茱萸峰_-_panoramio_(2).jpg",
+
 }
 
 

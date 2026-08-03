@@ -10,7 +10,7 @@ Later agents: tick items as done; do **not** fight content agents on `content/*`
 
 ## Framework research status (summary)
 
-Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: **single catalog** + search + dual-column `RouteCard` + four dimension filters (季节/长短/主题/**地区**) + mobile **bottom nav**. Map tab / Explore map cover **removed**; detail corridor maps still use `RouteOverviewMap` + `lib/china-geo` (keep).
+Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no dashboard kit / Flutter rewrite. Audience is **modern XHS/Pinterest feed** (modest type, not 适老-bulky chrome). Explore IA: **single catalog** + search + dual-column `RouteCard` + four dimension filters (季节/长短/主题/**地区**) + mobile **bottom nav**. Map tab / Explore map cover **removed**; detail corridor maps **retired** in favor of practical transport copy (`research/notes/route-overview-map-retired-20260802.md`).
 
 **GH Pages / static export constraints:** no SSR streaming. Catalog in slim `lib/generated/explore-routes.json`. Paginate/window cards; `loading="lazy"`; do **not** import all `route-details` into Explore.
 

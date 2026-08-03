@@ -255,7 +255,7 @@ await check("P5 click route → detail guide", async () => {
   const t = await page.locator("body").innerText();
   mustInclude(
     t,
-    ["详细介绍", "适合季节", "路线地图", "景点照片", "旅行须知", "预算参考"],
+    ["详细介绍", "适合季节", "精细化路线介绍", "景点照片", "旅行须知", "预算参考"],
     "route detail",
   );
   await page.screenshot({
@@ -510,7 +510,7 @@ await check("P16 detail sticky section rail", async () => {
   const pos = await rail.evaluate((el) => getComputedStyle(el).position);
   if (pos !== "sticky")
     throw new Error("本页目录 not position:sticky (got " + pos + ")");
-  for (const label of ["怎么走", "时间", "景点", "吃住", "就医", "须知"]) {
+  for (const label of ["交通", "怎么走", "时间", "景点", "吃住", "就医", "须知"]) {
     if (!(await rail.getByRole("link", { name: label, exact: true }).count())) {
       throw new Error("rail missing link: " + label);
     }
@@ -784,7 +784,7 @@ const md = [
   "- 地区 trigger：`地区·全部` / `地区·华东` / `地区·浙江`；无 region identity chips；清选用「全部地区」或重置",
   "- 干净目录隐藏 sticky「返回」；有筛选时「返回」回全部景点",
   "- 搜索框：婺源 / 九寨可命中；名景经 主题· sheet → `grid-cols-2`",
-  "- 旅行页：详细介绍 / 适合季节 / 路线地图 / 景点照片 / 旅行须知 / 预算",
+  "- 旅行页：详细介绍 / 适合季节 / 精细化路线介绍 / 景点照片 / 旅行须知 / 预算",
   "- 详情 sticky「本页目录」；路线指南+时间规划默认展开",
   "- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接",
   "- 筛选维度：季节/长短/主题/地区 sheets；默认全季节/全部/全部主题/全部地区；无 dim identity chips",

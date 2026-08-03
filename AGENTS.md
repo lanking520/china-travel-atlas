@@ -75,7 +75,7 @@ Home = **single catalog**「全部景点」(dual-column `RouteCard`).
 - Compose detail: sticky「组合」+ embedded leg links under intro
 - Base detail: sticky「门槛」「辐射」+ `#gates` 三门槛
 
-Implementation note: Explore UI still lives in `components/ChinaMapExplorer.tsx` (historical name; **not** a map-tab entry). Detail corridor maps use `RouteOverviewMap` + `lib/china-geo` / `public/geo/china-provinces.json` — **keep** those.
+Implementation note: Explore UI still lives in `components/ChinaMapExplorer.tsx` (historical name; **not** a map-tab entry). Detail **route overview maps are removed** — use「精细化路线介绍」practical transport copy (`buildRoutePracticalBrief`); see `research/notes/route-overview-map-retired-20260802.md`. Do not reintroduce Leaflet/MapLibre.
 
 Locks: `npm run ux:plan` → `research/scripts/ux-plan-verify.mjs`.
 

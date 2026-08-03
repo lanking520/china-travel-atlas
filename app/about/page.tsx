@@ -42,7 +42,7 @@ export default function AboutPage() {
             </li>
           </ol>
           <p className="mt-4 text-lg leading-relaxed text-sky-800">
-            目录没有地图点选入口；大区/省份只在「地区」筛选里选。详情页里的走廊示意图仍可参考，与目录筛选无关。
+            目录没有地图点选入口；大区/省份只在「地区」筛选里选。详情页也不再放走廊示意图，改用「精细化路线介绍」写清怎么去、段内交通、大致车程与节奏；导航请用高德。
           </p>
         </section>
 

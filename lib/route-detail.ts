@@ -523,6 +523,74 @@ export function amapUrlForRoute(route: Route): string | null {
   return `https://uri.amap.com/marker?position=${stop.lng},${stop.lat}&name=${name}`;
 }
 
+const NUMERIC_DRIVE_RE =
+  /\d[\d.~～\-至到]*\s*(?:小时|分钟|公里|千米)|\d[\d.~～\-至到]*\s*h(?:our)?s?\b/i;
+
+/**
+ * Scannable transport / pacing brief for detail intro.
+ * Only surfaces numbers/phrases already in route.transport, glue, or daysLabel —
+ * does not invent km from coordinates.
+ */
+export function buildRoutePracticalBrief(route: Route): {
+  howToArrive: string;
+  localTransport: string;
+  distanceOrDrive: string | null;
+  pacing: string;
+  gaps: string[];
+} {
+  const transport = route.transport?.trim() || "";
+  const howToArrive = route.fromHome
+    ? transport
+      ? `从北京家出发。${transport}`
+      : "从北京家出发；具体车次/路况出行前用高德或12306核对。"
+    : transport ||
+      "建议飞机或高铁抵达后当地活动；大交通以出行当日时刻为准。";
+
+  let localTransport: string;
+  if (route.compositionKind === "compose" && route.glue && route.glue.length > 0) {
+    localTransport = route.glue.join("；");
+  } else if (route.compositionKind === "base") {
+    localTransport =
+      "枢纽内以打车、地铁或短租车为主；周边景点正文在「辐射」短线卡，不在本枢纽复述。";
+  } else if (route.tripType === "short" && route.fromHome) {
+    localTransport =
+      "段内多以自驾或城际衔接；站点顺序与可删减见下方「路线指南」。";
+  } else {
+    localTransport =
+      "抵达后当地租车、包车或公交/地铁衔接；站点顺序与可删减见下方「路线指南」。";
+  }
+
+  const distanceCandidates = [transport, ...(route.glue ?? [])].filter((t) =>
+    NUMERIC_DRIVE_RE.test(t),
+  );
+  const distanceOrDrive =
+    distanceCandidates.length > 0
+      ? [...new Set(distanceCandidates)].join("；")
+      : null;
+
+  const slow = route.stops.filter((s) => s.pace === "slow").length;
+  const fast = route.stops.filter((s) => s.pace === "fast").length;
+  const paceBits: string[] = [`行程约 ${route.daysLabel}。`];
+  if (route.stops.length > 0) {
+    const parts: string[] = [];
+    if (slow) parts.push(`慢游 ${slow} 处`);
+    if (fast) parts.push(`快览 ${fast} 处（可删）`);
+    if (parts.length) paceBits.push(`站点节奏：${parts.join("、")}。`);
+  }
+  paceBits.push("原则：半天一景、午休必留，勿把日程排满。");
+  if (route.tripType === "long") {
+    paceBits.push("远途结束后建议回京休整几天，再出发下一段。");
+  }
+  const pacing = paceBits.join("");
+
+  const gaps: string[] = [];
+  if (!transport) {
+    gaps.push("交通字段暂缺，成行前务必自行核对大交通与当地接驳。");
+  }
+
+  return { howToArrive, localTransport, distanceOrDrive, pacing, gaps };
+}
+
 export function paragraphs(text: string): string[] {
   return text
     .split(/\n\n+/)

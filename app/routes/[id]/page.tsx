@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRegionById, getRouteById, routes } from "@/content";
 import { Header } from "@/components/Header";
-import { RouteMapWithExpand } from "@/components/RouteMapWithExpand";
 import { SafeImage } from "@/components/SafeImage";
 import { SoftDetails } from "@/components/SoftDetails";
 import { StopTimeline } from "@/components/StopTimeline";
@@ -15,6 +14,7 @@ import {
   buildIntroduction,
   buildNotices,
   buildPracticalGuide,
+  buildRoutePracticalBrief,
   buildSeasonGuide,
   paragraphs,
   stopWithImage,
@@ -41,13 +41,10 @@ export default async function RouteDetailPage({
   const notices = buildNotices(route);
   const gallery = buildGallery(route);
   const practical = buildPracticalGuide(route);
+  const brief = buildRoutePracticalBrief(route);
   const timePlanLines = asPlanLines(practical.timePlan ?? []);
   const amap = amapUrlForRoute(route);
   const stops = route.stops.map((s) => stopWithImage(s, route.coverImage));
-
-  const transportNote = route.fromHome
-    ? "近程可北京私家车自驾；远途建议飞机/高铁抵达后当地租车。"
-    : "建议飞机或高铁抵达目的地后当地租车或包车，减少换乘折腾。";
 
   const isBase = route.compositionKind === "base";
   const showLongStayGates =
@@ -151,6 +148,7 @@ export default async function RouteDetailPage({
                 ...(route.nearbyLegs && route.nearbyLegs.length > 0
                   ? ([["#nearby", "辐射"]] as [string, string][])
                   : []),
+                ["#practical", "交通"],
                 ["#guide", "怎么走"],
                 ["#time", "时间"],
                 ["#sights", "景点"],
@@ -170,15 +168,6 @@ export default async function RouteDetailPage({
             ))}
           </ul>
         </nav>
-
-        <div className="mt-6">
-          <RouteMapWithExpand
-            stops={stops}
-            fromHome={route.fromHome}
-            tripType={route.tripType}
-            amapUrl={amap}
-          />
-        </div>
 
         <div className="relative mt-6 -mx-4 aspect-[16/10] overflow-hidden bg-sky-100 sm:mx-0 sm:aspect-[21/9] sm:rounded-2xl">
           <SafeImage
@@ -213,6 +202,71 @@ export default async function RouteDetailPage({
             ))}
           </div>
         ) : null}
+
+        <section
+          id="practical"
+          className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50/90 p-6"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-2xl font-bold text-sky-950">精细化路线介绍</h2>
+              <p className="mt-2 text-base text-sky-700">
+                怎么去、段内怎么衔接、大致车程与节奏——只写已有字段，不画示意地图。
+              </p>
+            </div>
+            {amap ? (
+              <a
+                href={amap}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center rounded-xl bg-sky-700 px-4 py-2 text-base font-semibold text-white hover:bg-sky-800"
+              >
+                在高德打开首站
+              </a>
+            ) : null}
+          </div>
+          <dl className="mt-5 space-y-4">
+            <div className="rounded-xl bg-white/90 px-4 py-3 ring-1 ring-sky-200/80">
+              <dt className="text-base font-semibold text-sky-800">怎么去</dt>
+              <dd className="mt-1 text-lg leading-relaxed text-sky-950">
+                {brief.howToArrive}
+              </dd>
+            </div>
+            <div className="rounded-xl bg-white/90 px-4 py-3 ring-1 ring-sky-200/80">
+              <dt className="text-base font-semibold text-sky-800">段内交通</dt>
+              <dd className="mt-1 text-lg leading-relaxed text-sky-950">
+                {brief.localTransport}
+              </dd>
+            </div>
+            <div className="rounded-xl bg-white/90 px-4 py-3 ring-1 ring-sky-200/80">
+              <dt className="text-base font-semibold text-sky-800">
+                大致距离或车程
+              </dt>
+              <dd className="mt-1 text-lg leading-relaxed text-sky-950">
+                {brief.distanceOrDrive ??
+                  "本卡未单列站间公里数；请结合「怎么去」与高德实估，勿把文案当导航。"}
+              </dd>
+            </div>
+            <div className="rounded-xl bg-white/90 px-4 py-3 ring-1 ring-sky-200/80">
+              <dt className="text-base font-semibold text-sky-800">节奏</dt>
+              <dd className="mt-1 text-lg leading-relaxed text-sky-950">
+                {brief.pacing}
+              </dd>
+            </div>
+          </dl>
+          {brief.gaps.length > 0 ? (
+            <ul className="mt-4 space-y-2 text-base leading-relaxed text-amber-950">
+              {brief.gaps.map((g) => (
+                <li
+                  key={g.slice(0, 40)}
+                  className="rounded-lg bg-amber-50 px-3 py-2 ring-1 ring-amber-200/80"
+                >
+                  {g}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </section>
 
         <section className="mt-10">
           <h2 className="text-2xl font-bold text-sky-950">详细介绍</h2>
@@ -386,7 +440,7 @@ export default async function RouteDetailPage({
         <section id="guide" className="mt-10 scroll-mt-14 rounded-2xl border border-sky-200 bg-sky-50 p-6">
           <h2 className="text-2xl font-bold text-sky-950">路线指南</h2>
           <p className="mt-2 text-base text-sky-700">
-            怎么走、什么节奏、哪些可以跳过——给约 60 岁健康父母的实用版。
+            顺序、可跳过项与体力提示——对照上方「精细化路线介绍」的交通与节奏。
           </p>
           <div className="mt-4 space-y-4 text-lg leading-relaxed text-sky-900">
             {paragraphs(practical.routeGuide ?? "").map((p) => (
@@ -534,17 +588,6 @@ export default async function RouteDetailPage({
               </li>
             ))}
           </ul>
-        </section>
-
-        <section className="mt-6 rounded-2xl border border-sky-200 bg-white p-6">
-          <h2 className="text-2xl font-bold text-sky-950">交通方式</h2>
-          <p className="mt-3 text-lg leading-relaxed text-sky-900">{route.transport}</p>
-          <p className="mt-2 text-lg text-sky-700">{transportNote}</p>
-          {route.tripType === "long" && (
-            <p className="mt-2 text-lg text-sky-700">
-              行程结束后建议回京休整几天，再出发下一段。
-            </p>
-          )}
         </section>
 
         <section className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-6">

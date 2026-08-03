@@ -61,7 +61,7 @@ FILES: dict[str, str] = {
     "tianjin-day": "Tianjin_Eye_and_Tianjin.jpg",
     "beidaihe-base": "Beidaihe_panorama_from_the_south.jpg",
     "huabei-hebei-beidaihe": "Beidaihe_panorama_from_the_south.jpg",
-    "lianfengshan-optional": "Beidaihe_panorama_from_the_south.jpg",
+    "lianfengshan-optional": "从联峰山望海亭看北戴河区.jpg",
     # 山西
     "yungang": "Yungang_Grottoes.jpg",
     "huabei-shanxi-loop": "Yungang_Grottoes.jpg",
@@ -343,7 +343,7 @@ FILES: dict[str, str] = {
     # wrong-city soft upgrades 20260802 (Changchun/Haikou/Hohhot)
     "dongbei-jilin-changchun": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
     "cc-chaoyang-base": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
-    "cc-puppet-palace": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
+    "cc-puppet-palace": "25279-Changchun,_Museum_of_the_Imperial_Palace_of_Manchukuo.jpg",
     "cc-cultural-optional": "Changchun_skyline_with_Ji_Tower_-_panoramio.jpg",
     "cc-nanhu": "Nanhu_Lake_park_-_panoramio.jpg",
     "huanan-hainan-haikou": "Haikou_Century_Bridge_in_2015.jpg",
@@ -355,7 +355,7 @@ FILES: dict[str, str] = {
     "hh-city-base": "Da_Zhao_Temple_in_Hohhot3.JPG",
     "hh-buffer-optional": "Da_Zhao_Temple_in_Hohhot3.JPG",
     "hh-museum": "Altan_Khan_statue_in_Hohhot,_Inner_Mongolia.jpg",
-    # hh-xilamuren-optional stays Hulunbuir soft grassland corridor
+    # hh-xilamuren-optional → 希拉穆仁专用（见下方 batch 1/5 FILES）
     "fz-west-lake-optional": "福州西湖公園oeotwc_-_panoramio.jpg",
 
     "gy-qianling-optional": "黔灵山.jpg",
@@ -456,6 +456,20 @@ FILES: dict[str, str] = {
     "wx-liangxi-base": "无锡三阳广场.jpg",
     "nb-haishu-base": "Tianyi_Square_2019-07_01.jpg",
 
+    # huabei/dongbei soft upgrades 20260802 batch 1/5
+    "hh-xilamuren-optional": "希拉穆仁草原_保护区_-_panoramio.jpg",
+    "hrb-central-street": "哈尔滨_中央大街_-_panoramio.jpg",
+    "hrb-daoli-base": "Saint_Sophia_Cathedral_in_Harbin.jpg",
+    "lf-base": "临汾滨河新城，10月2010.jpg",
+    "putuo-zongcheng": "Putuo_Zongcheng_Temple_20120804.JPG",
+    "qingchui-peak": "磬锤峰20120804.JPG",
+    "ty-fenhe-optional": "Fen_River_Park_Taiyuan_20110709.jpg",
+    "ty-jinci": "Jinci_Temple_(54572159327).jpg",
+    "ty-shanxi-museum": "Shanxi_Museum_20110719.jpg",
+    "ty-yingze-base": "太原迎泽公园_-_panoramio.jpg",
+    "xz-county-base": "山西省忻州市忻府區韓岩村元好問墓的野史亭.jpg",
+    "xz-dingxiang-optional": "Dingxiang_Yan_Xishan_Jiuju_2013.08.28_15-27-08.jpg",
+    "xz-ningwu-optional": "芦芽山自然保护区内五坝线——2012-04-30_-_panoramio.jpg",
 }
 
 

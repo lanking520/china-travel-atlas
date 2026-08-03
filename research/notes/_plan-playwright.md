@@ -1,9 +1,9 @@
 # Plan × Playwright 验证报告
 
-> 生成：2026-08-03T00:03:48.251Z
+> 生成：2026-08-03T03:08:26.163Z
 > Base：http://127.0.0.1:3000
 
-**结果：25 PASS / 0 FAIL**（共 25 项）
+**结果：27 PASS / 0 FAIL**（共 27 项）
 
 | 项 | 状态 | 说明 |
 |----|------|------|
@@ -29,6 +29,8 @@
 | P19 地区 sheet: 大区 optional, no map cover | PASS |  |
 | P20 catalog paginates (lazy load-more) | PASS |  |
 | P21 compose sticky「组合」+ embedded legs | PASS |  |
+| P21b compose→leg Back returns to compose | PASS |  |
+| P21c Explore→route Back stays Explore | PASS |  |
 | P22 season via dim trigger + sheet 重置 (no identity chip) | PASS |  |
 | P23 base 长居三门槛 + nearby 辐射 | PASS |  |
 | P24 mobile bottom nav + theme dim 长居 | PASS |  |
@@ -42,11 +44,12 @@
 - 搜索框：婺源 / 九寨可命中；名景经 主题· sheet → `grid-cols-2`
 - 旅行页：详细介绍 / 适合季节 / 精细化路线介绍 / 景点照片 / 旅行须知 / 预算
 - 详情 sticky「本页目录」；路线指南+时间规划默认展开
-- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接
+- 长线组合：sticky「组合」→ #compose-legs 嵌入短线+衔接；leg 带 ?from=；Back 回组合
+- 冷进详情「← 返回探索」；About/Overview 不受影响
 - 筛选维度：季节/长短/主题/地区 sheets；默认全季节/全部/全部主题/全部地区；无 dim identity chips
 - sticky hide-on-scroll: transform + hysteresis（防 flicker）
 - mobile bottom nav 探索/两年/说明
-- 长居枢纽：sticky「门槛」「辐射」；#gates 三门槛可见；nearbyLegs 可点
+- 长居枢纽：sticky「门槛」「辐射」高亮；#gates 三门槛 + 交通便利/生活物资/医疗资源 triad；nearbyLegs 可点；封面后先门槛/辐射再交通
 - 两年总览含回京；长途含飞入/回京线索
 
 截图目录：`research/raw/playwright-plan/`

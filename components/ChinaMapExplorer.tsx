@@ -235,9 +235,9 @@ export function ChinaMapExplorer() {
               : null;
 
   return (
-    <div className="space-y-2 sm:space-y-3">
+    <div className="space-y-1.5 sm:space-y-2.5">
       <div
-        className={`sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-1.5 backdrop-blur-md transition-transform duration-200 ease-out sm:mx-0 sm:rounded-b-xl sm:px-0 ${
+        className={`sticky top-0 z-20 -mx-4 border-b border-sky-200/50 bg-[color-mix(in_srgb,var(--background)_94%,white)] px-4 py-1 backdrop-blur-md transition-transform duration-200 ease-out sm:mx-0 sm:rounded-b-xl sm:px-0 sm:py-1.5 ${
           chromeOff
             ? "pointer-events-none -translate-y-full"
             : "translate-y-0"
@@ -246,7 +246,7 @@ export function ChinaMapExplorer() {
       >
         <label className="block">
           <span className="sr-only">搜索路线</span>
-          <div className="flex items-stretch gap-2">
+          <div className="flex items-stretch gap-1.5 sm:gap-2">
             <input
               type="search"
               value={searchInput}
@@ -257,7 +257,7 @@ export function ChinaMapExplorer() {
               autoCorrect="off"
               spellCheck={false}
               tabIndex={chromeOff ? -1 : undefined}
-              className="min-h-10 w-full flex-1 rounded-xl border-0 bg-white px-3.5 text-[1.02rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/75 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:min-h-11"
+              className="min-h-9 w-full flex-1 rounded-lg border-0 bg-white px-3 text-[0.98rem] text-sky-950 shadow-sm ring-1 ring-sky-900/10 placeholder:text-sky-500/75 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:min-h-10 sm:rounded-xl sm:px-3.5 sm:text-[1.02rem]"
             />
             {searchInput ? (
               <button
@@ -265,7 +265,7 @@ export function ChinaMapExplorer() {
                 onClick={clearSearch}
                 aria-label="清除搜索"
                 tabIndex={chromeOff ? -1 : undefined}
-                className="inline-flex min-h-10 shrink-0 items-center rounded-xl bg-white px-3 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-11 sm:text-[0.95rem]"
+                className="inline-flex min-h-9 shrink-0 items-center rounded-lg bg-white px-2.5 text-sm font-semibold text-sky-900 ring-1 ring-sky-300 hover:bg-sky-50 sm:min-h-10 sm:rounded-xl sm:px-3 sm:text-[0.95rem]"
               >
                 清除
               </button>
@@ -275,7 +275,7 @@ export function ChinaMapExplorer() {
 
         {/* Back / search-chip row only when scoped — avoid empty min-h band on clean catalog */}
         {showExitBack ? (
-          <div className="mt-1.5 flex min-h-8 items-center gap-1.5">
+          <div className="mt-1 flex min-h-7 items-center gap-1.5">
             <button
               type="button"
               onClick={exitToAll}
@@ -295,7 +295,7 @@ export function ChinaMapExplorer() {
           </div>
         ) : null}
 
-        <div className="mt-1.5">
+        <div className="mt-1">
           <DimensionFilters
             season={season}
             tripType={tripType}
@@ -315,12 +315,12 @@ export function ChinaMapExplorer() {
         </div>
       </div>
 
-      <div className="space-y-0.5 px-0.5">
-        <p className="font-display text-[0.95rem] font-bold leading-snug text-sky-950 sm:text-lg">
+      <div className="space-y-0 px-0.5">
+        <p className="font-display text-[0.92rem] font-bold leading-tight text-sky-950 sm:text-lg sm:leading-snug">
           {resultsTitle}
         </p>
         {catalogClean ? (
-          <p className="text-xs text-sky-700/85 sm:text-sm">
+          <p className="text-[0.7rem] leading-snug text-sky-700/80 sm:text-sm sm:leading-normal">
             未加筛选 · 先显示名景；点季节 / 长短 / 主题 / 地区可收窄
           </p>
         ) : null}
@@ -433,7 +433,7 @@ function DimTrigger({
       onClick={onClick}
       aria-expanded={pressed}
       aria-haspopup="dialog"
-      className={`inline-flex min-h-7 shrink-0 items-center rounded-full px-2.5 text-[0.72rem] font-semibold transition-colors sm:min-h-8 sm:text-xs ${
+      className={`inline-flex min-h-7 shrink-0 items-center rounded-full px-2 text-[0.7rem] font-semibold transition-colors sm:min-h-8 sm:px-2.5 sm:text-xs ${
         active || pressed
           ? "bg-sky-800 text-white"
           : "bg-white/90 text-sky-900 ring-1 ring-sky-200/90 hover:bg-sky-50"
@@ -736,7 +736,7 @@ function DimensionFilters({
     <>
       <div
         aria-label="筛选维度"
-        className="flex flex-nowrap items-center gap-1.5 overflow-x-auto"
+        className="flex flex-nowrap items-center gap-1 overflow-x-auto sm:gap-1.5"
       >
         <DimTrigger
           label={seasonLabel}

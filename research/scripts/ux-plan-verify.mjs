@@ -673,7 +673,9 @@ await check("P21b compose→leg Back returns to compose", async () => {
   await leg.click();
   await page.waitForURL(/\/routes\/[^/]+/, { timeout: 8000 });
   await page.waitForTimeout(500);
-  if (page.url().includes(composeId)) {
+  // Path only — ?from=<composeId> on the leg URL must not count as "still on compose"
+  const afterLegPath = new URL(page.url()).pathname;
+  if (afterLegPath.includes(composeId)) {
     throw new Error("still on compose after leg click");
   }
   const back = page.getByRole("link", { name: /^← 返回/ }).first();

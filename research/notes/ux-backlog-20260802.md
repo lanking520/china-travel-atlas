@@ -32,7 +32,7 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 - [x] **Compose detail timeline** + sticky「组合」
 - [x] **Compose intro → leg links**:「嵌入短线」under intro (`3930888`) — all 14 compose pages
 - [x] Theme discoverability via 主题· dim (名景/长居/走廊/…)
-- [ ] Optional density pass after live feedback
+- [x] **Optional density pass** (light): mobile hero→Header only; sticky search/dims tighter; card pad/gap; results title hierarchy
 
 ## B — Performance
 
@@ -69,7 +69,7 @@ Stay on **Next.js static export + Tailwind 4 + thin headless primitives** — no
 
 ### Remaining (open)
 
-- [ ] Optional density pass after live feedback *(A)*
+- [x] Optional density pass (light) *(A)* — virtualization / embla still deferred
 - [ ] True **virtualization** if ≫ ~200 *(B)*
 - [ ] P2: embla gallery; light motion; offline search index *(E)*
 

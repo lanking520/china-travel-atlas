@@ -3,10 +3,10 @@ import Link from "next/link";
 export function Header() {
   return (
     <header className="border-b border-sky-200/60 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-6 sm:py-3">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-3 py-1.5 sm:gap-3 sm:px-6 sm:py-3">
         <Link
           href="/"
-          className="font-display min-w-0 truncate text-[1.05rem] font-bold tracking-wide text-sky-950 sm:text-2xl"
+          className="font-display min-w-0 truncate text-[1.12rem] font-bold tracking-wide text-sky-950 sm:text-2xl"
         >
           中国旅游地图
         </Link>

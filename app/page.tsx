@@ -9,7 +9,8 @@ export default function HomePage() {
     <>
       <Header />
       <main>
-        <section className="relative overflow-hidden">
+        {/* Desktop hero only — mobile brand lives in Header「中国旅游地图」 */}
+        <section className="relative hidden overflow-hidden sm:block">
           {heroImage && (
             <div
               className="absolute inset-0 bg-cover bg-center opacity-[0.12]"
@@ -17,20 +18,20 @@ export default function HomePage() {
               aria-hidden
             />
           )}
-          <div className="relative mx-auto max-w-5xl px-4 pb-0.5 pt-1.5 sm:px-6 sm:pb-3 sm:pt-8">
-            <p className="hidden text-sm font-medium tracking-[0.08em] text-sky-700 sm:block sm:text-base">
+          <div className="relative mx-auto max-w-5xl px-6 pb-3 pt-8">
+            <p className="text-base font-medium tracking-[0.08em] text-sky-700">
               从北京出发 · 慢慢看中国
             </p>
-            <h1 className="font-display mt-0.5 hidden text-[1.65rem] font-bold leading-[1.2] text-sky-950 sm:mt-1 sm:block sm:text-4xl">
+            <h1 className="font-display mt-1 text-4xl font-bold leading-[1.2] text-sky-950">
               中国旅游地图
             </h1>
-            <p className="mt-1 hidden max-w-xl text-base leading-snug text-sky-800/90 sm:mt-2 sm:block sm:text-lg sm:leading-relaxed">
+            <p className="mt-2 max-w-xl text-lg leading-relaxed text-sky-800/90">
               先浏览全部景点；需要时用地区、季节、长短与主题筛选收窄。
             </p>
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-4 pb-10 pt-1 sm:px-6">
+        <section className="mx-auto max-w-5xl px-4 pb-8 pt-1.5 sm:px-6 sm:pb-10 sm:pt-2">
           <ExploreClient />
         </section>
       </main>

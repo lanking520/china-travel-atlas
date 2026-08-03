@@ -28,10 +28,14 @@ import {
   detailPatches as p11,
   routeFieldPatches as r9,
 } from './ctrip-enrich-xibei-qingzang-20260802';
+import {
+  detailPatches as p12,
+  routeFieldPatches as r10,
+} from './ctrip-enrich-xinan-20260802';
 import { stopTipPatches } from './high-traffic-stops-20260802';
 
-const detailPatchList = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11];
-const routePatchList = [r1, r2, r3, r4, r5, r6, r7, r8, r9];
+const detailPatchList = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
+const routePatchList = [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10];
 
 export function applyDetailPatches(
   details: Record<string, RouteDetailFields>,

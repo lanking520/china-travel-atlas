@@ -20,10 +20,22 @@ import {
 } from './soft-short-character-20260802';
 import { routeFieldPatches as r6 } from './compose-leg-kind-20260802';
 import { routeFieldPatches as r7 } from './zhengzhou-home-20260802';
+import {
+  detailPatches as p10,
+  routeFieldPatches as r8,
+} from './ctrip-enrich-huabei-dongbei-20260802';
+import {
+  detailPatches as p11,
+  routeFieldPatches as r9,
+} from './ctrip-enrich-xinan-20260802';
+import {
+  detailPatches as p12,
+  routeFieldPatches as r10,
+} from './ctrip-enrich-xibei-qingzang-20260802';
 import { stopTipPatches } from './high-traffic-stops-20260802';
 
-const detailPatchList = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
-const routePatchList = [r1, r2, r3, r4, r5, r6, r7];
+const detailPatchList = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
+const routePatchList = [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10];
 
 export function applyDetailPatches(
   details: Record<string, RouteDetailFields>,
@@ -59,7 +71,22 @@ export function applyRouteFieldPatches(route: Route): Route {
   let next = route;
   for (const patch of routePatchList) {
     const p = patch?.[route.id];
-    if (p) next = { ...next, ...p };
+    if (!p) continue;
+    if (p.sources?.length) {
+      const existing = next.sources ?? [];
+      const seen = new Set(existing.map((s) => s.url));
+      const merged = [...existing];
+      for (const s of p.sources) {
+        if (!seen.has(s.url)) {
+          merged.push(s);
+          seen.add(s.url);
+        }
+      }
+      const { sources: _ignored, ...rest } = p;
+      next = { ...next, ...rest, sources: merged };
+    } else {
+      next = { ...next, ...p };
+    }
   }
   return applyStopTipPatches(next);
 }

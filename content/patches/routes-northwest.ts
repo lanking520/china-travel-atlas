@@ -214,7 +214,7 @@ export const patchRoutes: Route[] = [
   // ── 青藏 · 青海湖 ──────────────────────────────────────────
   {
     id: 'qingzang-qinghai-lake',
-    title: '西宁 · 青海湖环线慢游',
+    title: '青海湖 · 西宁适应加环线',
     region: 'qingzang',
     seasons: ['summer'],
     tripType: 'long',

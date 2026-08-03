@@ -106,7 +106,12 @@ export function searchRoutes(catalog: Route[], query: string): Route[] {
         break;
       }
     }
-    if (hit && score > 0) scored.push({ route, score });
+    if (hit && score > 0) {
+      // Composition IA: when both a leg and a compose title-hit the same landmark,
+      // prefer the leg as the destination card. Keyword-only compose hits stay (+10).
+      if (route.compositionKind === "compose" && score >= 100) score -= 35;
+      scored.push({ route, score });
+    }
   }
 
   scored.sort(

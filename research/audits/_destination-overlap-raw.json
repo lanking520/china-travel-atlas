@@ -1,0 +1,1850 @@
+{
+  "generatedAt": "2026-08-02",
+  "catalogCount": 201,
+  "summary": {
+    "placeClusters": {
+      "HIGH": 12,
+      "MED": 19,
+      "LOW": 0
+    },
+    "composeLegOverlap": {
+      "HIGH": 0,
+      "MED": 0,
+      "LOW": 31
+    },
+    "legComposePairs": {
+      "HIGH": 0,
+      "MED": 24,
+      "LOW": 4
+    },
+    "nearDupPairs": {
+      "HIGH": 4,
+      "MED": 10
+    },
+    "retiredLive": 0,
+    "monolithSuspects": 3
+  },
+  "placeClusters": [
+    {
+      "token": "西湖",
+      "aliases": [
+        "西湖"
+      ],
+      "severity": "HIGH",
+      "count": 3,
+      "kinds": [
+        "leg",
+        "(unset)",
+        "compose"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huadong-hangzhou-suzhou",
+          "title": "杭州西湖 · 浙江五日",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5天"
+        },
+        {
+          "id": "huanan-guangdong-huizhou",
+          "title": "惠州西湖 · 岭南湖岸浅住",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约2–4天"
+        },
+        {
+          "id": "compose-jiangnan-zhegan-lushan",
+          "title": "江南浙赣 · 西湖婺源庐山",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "大理",
+      "aliases": [
+        "大理"
+      ],
+      "severity": "HIGH",
+      "count": 4,
+      "kinds": [
+        "leg",
+        "compose",
+        "(unset)"
+      ],
+      "peerDestCount": 3,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-dali-erhai",
+          "title": "大理 · 洱海慢住浅段",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–7天"
+        },
+        {
+          "id": "compose-yunnan-dali-lijiang",
+          "title": "滇西慢串 · 大理洱海到丽江",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约10–14天（可分段）"
+        },
+        {
+          "id": "longstay-dali",
+          "title": "大理 · 洱海慢居约一个月",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约一个月"
+        },
+        {
+          "id": "xinan-yunnan-dali-daytrips",
+          "title": "大理州 · 洱源剑川日归表",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约4–6天"
+        }
+      ]
+    },
+    {
+      "token": "洱海",
+      "aliases": [
+        "洱海"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "(unset)"
+      ],
+      "peerDestCount": 0,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-dali-erhai",
+          "title": "大理 · 洱海慢住浅段",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–7天"
+        },
+        {
+          "id": "longstay-dali",
+          "title": "大理 · 洱海慢居约一个月",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约一个月"
+        }
+      ]
+    },
+    {
+      "token": "桂林",
+      "aliases": [
+        "桂林"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "base"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 1,
+      "hits": [
+        {
+          "id": "huanan-guilin-yangshuo",
+          "title": "桂林阳朔 · 漓江慢住",
+          "kind": "leg",
+          "tripType": "long",
+          "daysLabel": "约10–14天"
+        },
+        {
+          "id": "base-guilin",
+          "title": "桂林 · 漓江慢居枢纽",
+          "kind": "base",
+          "tripType": "long",
+          "daysLabel": "约三四周"
+        }
+      ]
+    },
+    {
+      "token": "阳朔",
+      "aliases": [
+        "阳朔",
+        "漓江"
+      ],
+      "severity": "HIGH",
+      "count": 4,
+      "kinds": [
+        "leg",
+        "base",
+        "compose"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 1,
+      "baseCount": 1,
+      "hits": [
+        {
+          "id": "huanan-guilin-yangshuo",
+          "title": "桂林阳朔 · 漓江慢住",
+          "kind": "leg",
+          "tripType": "long",
+          "daysLabel": "约10–14天"
+        },
+        {
+          "id": "longstay-yangshuo",
+          "title": "阳朔 · 漓江山水短住",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–7天"
+        },
+        {
+          "id": "base-guilin",
+          "title": "桂林 · 漓江慢居枢纽",
+          "kind": "base",
+          "tripType": "long",
+          "daysLabel": "约三四周"
+        },
+        {
+          "id": "compose-gui-beihai",
+          "title": "桂北海 · 阳朔银滩",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约3–4周"
+        }
+      ]
+    },
+    {
+      "token": "西安",
+      "aliases": [
+        "西安",
+        "兵马俑"
+      ],
+      "severity": "HIGH",
+      "count": 4,
+      "kinds": [
+        "(unset)",
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 2,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huazhong-xian-slow",
+          "title": "西安 · 慢住",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约10–12天"
+        },
+        {
+          "id": "leg-xian-terracotta",
+          "title": "西安 · 城墙与兵马俑浅尝",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–6天"
+        },
+        {
+          "id": "compose-silkroad-xian-turpan",
+          "title": "丝路慢段 · 西安到吐鲁番",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        },
+        {
+          "id": "compose-shan-jin-yu",
+          "title": "陕晋豫 · 西安平遥洛阳",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "洛阳",
+      "aliases": [
+        "洛阳"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "(unset)"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huazhong-luoyang-kaifeng",
+          "title": "洛阳龙门 · 少林或开封",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "3–5天"
+        },
+        {
+          "id": "huazhong-henan-luoyang-county",
+          "title": "洛阳 · 孟津偃师县域浅线",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        }
+      ]
+    },
+    {
+      "token": "镇远",
+      "aliases": [
+        "镇远"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "(unset)",
+        "leg"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "xinan-guizhou-zhenyuan",
+          "title": "镇远 · 舞阳河古城",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约3天"
+        },
+        {
+          "id": "longstay-zhenyuan",
+          "title": "镇远 · 舞阳河江城短住",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约4–6天"
+        }
+      ]
+    },
+    {
+      "token": "都江堰",
+      "aliases": [
+        "都江堰"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "(unset)"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "xinan-dujiangyan-2d",
+          "title": "都江堰 · 青城山两日",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "2–3天"
+        },
+        {
+          "id": "longstay-dujiangyan",
+          "title": "都江堰 · 平原边缘清新慢居",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约一个月"
+        }
+      ]
+    },
+    {
+      "token": "苏州",
+      "aliases": [
+        "苏州",
+        "拙政园"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "(unset)"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huadong-suzhou-nanjing",
+          "title": "苏州园林 · 南京可选",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "3–5天"
+        },
+        {
+          "id": "huadong-jiangsu-suzhou-county",
+          "title": "苏州县域 · 周庄同里常熟",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        }
+      ]
+    },
+    {
+      "token": "成都",
+      "aliases": [
+        "成都"
+      ],
+      "severity": "HIGH",
+      "count": 6,
+      "kinds": [
+        "(unset)",
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 4,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "xinan-chengdu-slow",
+          "title": "成都 · 平原慢住",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约10–12天"
+        },
+        {
+          "id": "leg-chengdu-adapt",
+          "title": "成都 · 平原适应锚",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约2–3天"
+        },
+        {
+          "id": "compose-chuanxi-chengdu-leshan-jiuzhai",
+          "title": "川西 · 成都乐山九寨浅廊",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周（不适随时缩短）"
+        },
+        {
+          "id": "compose-chuandian-chengdu-dali-lijiang",
+          "title": "川滇慢环 · 成都大理丽江",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        },
+        {
+          "id": "compose-yun-gui-chuan-shallow",
+          "title": "云贵川浅环 · 成都黄果树昆明",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        },
+        {
+          "id": "compose-chuanyu-chengdu-chongqing",
+          "title": "川渝 · 成都重庆",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "喀什",
+      "aliases": [
+        "喀什"
+      ],
+      "severity": "HIGH",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "base"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 1,
+      "hits": [
+        {
+          "id": "xibei-xinjiang-kashi",
+          "title": "喀什 · 老城与帕米尔浅尝",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约4–6天"
+        },
+        {
+          "id": "base-kashi",
+          "title": "喀什 · 丝路慢居枢纽",
+          "kind": "base",
+          "tripType": "long",
+          "daysLabel": "约三四周"
+        }
+      ]
+    },
+    {
+      "token": "拉萨",
+      "aliases": [
+        "拉萨"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "qingzang-lhasa-slow",
+          "title": "拉萨 · 高原慢适应",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约7–10天"
+        },
+        {
+          "id": "compose-qingzang-lhasa-nyingchi",
+          "title": "拉萨到林芝 · 河谷浅廊",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约12–18天（含拉萨适应）"
+        }
+      ]
+    },
+    {
+      "token": "敦煌",
+      "aliases": [
+        "敦煌",
+        "莫高窟"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-dunhuang-mogao",
+          "title": "敦煌 · 莫高窟与鸣沙浅尝",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–7天"
+        },
+        {
+          "id": "compose-hexi-dunhuang-zhangye",
+          "title": "河西走廊 · 敦煌张掖租车",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "张掖",
+      "aliases": [
+        "张掖",
+        "丹霞"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "(unset)"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-zhangye-danxia",
+          "title": "张掖 · 七彩丹霞快览",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约2–3天"
+        },
+        {
+          "id": "huanan-guangdong-danxia",
+          "title": "韶关丹霞山 · 丹霞浅览",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约3–4天"
+        }
+      ]
+    },
+    {
+      "token": "张家界",
+      "aliases": [
+        "张家界"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huazhong-zhangjiajie",
+          "title": "张家界 · 索道看峰林",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "5–7天"
+        },
+        {
+          "id": "compose-xiang-qian-gui",
+          "title": "湘黔桂 · 张家界黄果树阳朔",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "黄山",
+      "aliases": [
+        "黄山"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huadong-huangshan-hui",
+          "title": "黄山 · 索道上山与徽州慢走",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "5–7天"
+        },
+        {
+          "id": "compose-wantan-jiuhua",
+          "title": "皖南 · 黄山九华",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "赛里木",
+      "aliases": [
+        "赛里木"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-sayram-lake",
+          "title": "赛里木湖 · 环湖浅段",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–4天"
+        },
+        {
+          "id": "compose-beijiang-sayram-kanas",
+          "title": "北疆慢串 · 赛里木到喀纳斯",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "泰山",
+      "aliases": [
+        "泰山"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huabei-shandong-taishan",
+          "title": "泰山曲阜 · 鲁中名景廊",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        },
+        {
+          "id": "compose-lu-taishan-qingdao",
+          "title": "齐鲁泰青 · 泰山崂山青岛",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "青岛",
+      "aliases": [
+        "青岛"
+      ],
+      "severity": "MED",
+      "count": 3,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-qingdao-laoshan",
+          "title": "青岛 · 崂山与即墨浅段",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–4天"
+        },
+        {
+          "id": "compose-shandong-qingdao-yantai",
+          "title": "胶东半岛慢串 · 青岛到烟台",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约10天–2周"
+        },
+        {
+          "id": "leg-qingdao-coast",
+          "title": "青岛 · 滨海栈道慢住",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约4天"
+        }
+      ]
+    },
+    {
+      "token": "沙坡头",
+      "aliases": [
+        "沙坡头"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 0,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "xibei-ningxia-shapotou",
+          "title": "中卫 · 沙坡头黄河浅游",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        },
+        {
+          "id": "compose-ningxia-shapotou-lanzhou",
+          "title": "宁兰 · 沙坡头黄河",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "三亚",
+      "aliases": [
+        "三亚"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "(unset)",
+        "leg"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huanan-sanya-winter",
+          "title": "三亚 · 暖冬慢住两周",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约2周"
+        },
+        {
+          "id": "leg-sanya-beach",
+          "title": "三亚 · 海湾浅住",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–7天"
+        }
+      ]
+    },
+    {
+      "token": "海口",
+      "aliases": [
+        "海口"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huanan-hainan-haikou",
+          "title": "海口 · 骑楼与海岸浅住",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约4–7天"
+        },
+        {
+          "id": "compose-hainan-island-shallow",
+          "title": "海南环岛浅 · 海口西线三亚",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "青海湖",
+      "aliases": [
+        "青海湖"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "(unset)",
+        "leg"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "qingzang-qinghai-lake",
+          "title": "青海湖 · 西宁适应加环线",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约6–8天"
+        },
+        {
+          "id": "leg-xining-qinghai-lake",
+          "title": "青海湖 · 二郎剑浅段",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约5–7天"
+        }
+      ]
+    },
+    {
+      "token": "武夷",
+      "aliases": [
+        "武夷"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huanan-fujian-wuyi",
+          "title": "武夷山 · 九曲竹筏浅尝",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        },
+        {
+          "id": "compose-wuyi-xiamen",
+          "title": "武夷厦 · 九曲鼓浪屿",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "呼伦贝尔",
+      "aliases": [
+        "呼伦贝尔",
+        "海拉尔"
+      ],
+      "severity": "MED",
+      "count": 3,
+      "kinds": [
+        "(unset)",
+        "leg"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huabei-neimeng-summer",
+          "title": "呼伦贝尔 · 草原慢住两周",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约10–14天"
+        },
+        {
+          "id": "huabei-neimeng-hulunbuir",
+          "title": "海拉尔 · 草原一周浅线",
+          "kind": "leg",
+          "tripType": "long",
+          "daysLabel": "约7–10天"
+        },
+        {
+          "id": "longstay-hulunbuir",
+          "title": "呼伦贝尔 · 夏季草原慢居",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约3–4周"
+        }
+      ]
+    },
+    {
+      "token": "哈尔滨",
+      "aliases": [
+        "哈尔滨"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "(unset)",
+        "leg"
+      ],
+      "peerDestCount": 2,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "dongbei-harbin-snow-3d",
+          "title": "哈尔滨 · 看雪三日",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约3天2晚"
+        },
+        {
+          "id": "dongbei-heilongjiang-harbin-summer",
+          "title": "哈尔滨 · 中央大街夏日慢走",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        }
+      ]
+    },
+    {
+      "token": "恩施",
+      "aliases": [
+        "恩施"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "huazhong-hubei-enshi",
+          "title": "恩施大峡谷 · 电梯浅览",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约3–5天"
+        },
+        {
+          "id": "compose-exi-enshi-sanxia",
+          "title": "鄂西 · 恩施三峡",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "黄果树",
+      "aliases": [
+        "黄果树"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "(unset)",
+        "leg"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 0,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "xinan-guizhou-loop",
+          "title": "贵阳基地 · 黄果树与黔东可选",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约10–12天"
+        },
+        {
+          "id": "xinan-guizhou-huangguoshu",
+          "title": "黄果树大瀑布 · 扶梯浅览",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约2–4天"
+        }
+      ]
+    },
+    {
+      "token": "库车",
+      "aliases": [
+        "库车"
+      ],
+      "severity": "MED",
+      "count": 2,
+      "kinds": [
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "leg-kuqa-canyon",
+          "title": "库车 · 天山神秘大峡谷",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约2–3天"
+        },
+        {
+          "id": "compose-nanjiang-kuqa-kashi",
+          "title": "南疆 · 库车喀什人文走廊",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约2–3周"
+        }
+      ]
+    },
+    {
+      "token": "西宁",
+      "aliases": [
+        "西宁"
+      ],
+      "severity": "MED",
+      "count": 5,
+      "kinds": [
+        "(unset)",
+        "leg",
+        "compose"
+      ],
+      "peerDestCount": 1,
+      "composeCount": 1,
+      "baseCount": 0,
+      "hits": [
+        {
+          "id": "qingzang-qinghai-lake",
+          "title": "青海湖 · 西宁适应加环线",
+          "kind": "(unset)",
+          "tripType": "long",
+          "daysLabel": "约6–8天"
+        },
+        {
+          "id": "qingzang-xining-3d",
+          "title": "西宁城区 · 高原适应短住",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "3–4天"
+        },
+        {
+          "id": "qingzang-g214-xining-taste",
+          "title": "G214 · 西宁入口浅段",
+          "kind": "(unset)",
+          "tripType": "short",
+          "daysLabel": "约4–6天"
+        },
+        {
+          "id": "leg-qingzang-railway",
+          "title": "青藏铁路 · 西宁至拉萨列车段",
+          "kind": "leg",
+          "tripType": "short",
+          "daysLabel": "约2–3天（含上车日）"
+        },
+        {
+          "id": "compose-qingzang-railway-lhasa",
+          "title": "青藏铁路慢进藏 · 西宁到拉萨",
+          "kind": "compose",
+          "tripType": "long",
+          "daysLabel": "约10–14天（含西宁适应与拉萨静养）"
+        }
+      ]
+    }
+  ],
+  "composeLegOverlap": [],
+  "legComposePairs": [
+    {
+      "token": "西湖",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huadong-hangzhou-suzhou",
+        "title": "杭州西湖 · 浙江五日",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5天"
+      },
+      "compose": {
+        "id": "compose-jiangnan-zhegan-lushan",
+        "title": "江南浙赣 · 西湖婺源庐山",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "大理",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-dali-erhai",
+        "title": "大理 · 洱海慢住浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–7天"
+      },
+      "compose": {
+        "id": "compose-yunnan-dali-lijiang",
+        "title": "滇西慢串 · 大理洱海到丽江",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约10–14天（可分段）"
+      }
+    },
+    {
+      "token": "拉萨",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "qingzang-lhasa-slow",
+        "title": "拉萨 · 高原慢适应",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约7–10天"
+      },
+      "compose": {
+        "id": "compose-qingzang-lhasa-nyingchi",
+        "title": "拉萨到林芝 · 河谷浅廊",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约12–18天（含拉萨适应）"
+      }
+    },
+    {
+      "token": "敦煌",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-dunhuang-mogao",
+        "title": "敦煌 · 莫高窟与鸣沙浅尝",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–7天"
+      },
+      "compose": {
+        "id": "compose-hexi-dunhuang-zhangye",
+        "title": "河西走廊 · 敦煌张掖租车",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "张家界",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huazhong-zhangjiajie",
+        "title": "张家界 · 索道看峰林",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "5–7天"
+      },
+      "compose": {
+        "id": "compose-xiang-qian-gui",
+        "title": "湘黔桂 · 张家界黄果树阳朔",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "黄山",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huadong-huangshan-hui",
+        "title": "黄山 · 索道上山与徽州慢走",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "5–7天"
+      },
+      "compose": {
+        "id": "compose-wantan-jiuhua",
+        "title": "皖南 · 黄山九华",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "阳朔",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huanan-guilin-yangshuo",
+        "title": "桂林阳朔 · 漓江慢住",
+        "kind": "leg",
+        "tripType": "long",
+        "daysLabel": "约10–14天"
+      },
+      "compose": {
+        "id": "compose-gui-beihai",
+        "title": "桂北海 · 阳朔银滩",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约3–4周"
+      }
+    },
+    {
+      "token": "赛里木",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-sayram-lake",
+        "title": "赛里木湖 · 环湖浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–4天"
+      },
+      "compose": {
+        "id": "compose-beijiang-sayram-kanas",
+        "title": "北疆慢串 · 赛里木到喀纳斯",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "泰山",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huabei-shandong-taishan",
+        "title": "泰山曲阜 · 鲁中名景廊",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–5天"
+      },
+      "compose": {
+        "id": "compose-lu-taishan-qingdao",
+        "title": "齐鲁泰青 · 泰山崂山青岛",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "青岛",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-qingdao-laoshan",
+        "title": "青岛 · 崂山与即墨浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–4天"
+      },
+      "compose": {
+        "id": "compose-shandong-qingdao-yantai",
+        "title": "胶东半岛慢串 · 青岛到烟台",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约10天–2周"
+      }
+    },
+    {
+      "token": "青岛",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-qingdao-coast",
+        "title": "青岛 · 滨海栈道慢住",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4天"
+      },
+      "compose": {
+        "id": "compose-shandong-qingdao-yantai",
+        "title": "胶东半岛慢串 · 青岛到烟台",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约10天–2周"
+      }
+    },
+    {
+      "token": "沙坡头",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "xibei-ningxia-shapotou",
+        "title": "中卫 · 沙坡头黄河浅游",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–5天"
+      },
+      "compose": {
+        "id": "compose-ningxia-shapotou-lanzhou",
+        "title": "宁兰 · 沙坡头黄河",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "海口",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huanan-hainan-haikou",
+        "title": "海口 · 骑楼与海岸浅住",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4–7天"
+      },
+      "compose": {
+        "id": "compose-hainan-island-shallow",
+        "title": "海南环岛浅 · 海口西线三亚",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "西安",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-xian-terracotta",
+        "title": "西安 · 城墙与兵马俑浅尝",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–6天"
+      },
+      "compose": {
+        "id": "compose-silkroad-xian-turpan",
+        "title": "丝路慢段 · 西安到吐鲁番",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "西安",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-xian-terracotta",
+        "title": "西安 · 城墙与兵马俑浅尝",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–6天"
+      },
+      "compose": {
+        "id": "compose-shan-jin-yu",
+        "title": "陕晋豫 · 西安平遥洛阳",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "武夷",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huanan-fujian-wuyi",
+        "title": "武夷山 · 九曲竹筏浅尝",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–5天"
+      },
+      "compose": {
+        "id": "compose-wuyi-xiamen",
+        "title": "武夷厦 · 九曲鼓浪屿",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "恩施",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "huazhong-hubei-enshi",
+        "title": "恩施大峡谷 · 电梯浅览",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–5天"
+      },
+      "compose": {
+        "id": "compose-exi-enshi-sanxia",
+        "title": "鄂西 · 恩施三峡",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "成都",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-chengdu-adapt",
+        "title": "成都 · 平原适应锚",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天"
+      },
+      "compose": {
+        "id": "compose-chuanxi-chengdu-leshan-jiuzhai",
+        "title": "川西 · 成都乐山九寨浅廊",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周（不适随时缩短）"
+      }
+    },
+    {
+      "token": "成都",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-chengdu-adapt",
+        "title": "成都 · 平原适应锚",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天"
+      },
+      "compose": {
+        "id": "compose-chuandian-chengdu-dali-lijiang",
+        "title": "川滇慢环 · 成都大理丽江",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "成都",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-chengdu-adapt",
+        "title": "成都 · 平原适应锚",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天"
+      },
+      "compose": {
+        "id": "compose-yun-gui-chuan-shallow",
+        "title": "云贵川浅环 · 成都黄果树昆明",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "成都",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-chengdu-adapt",
+        "title": "成都 · 平原适应锚",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天"
+      },
+      "compose": {
+        "id": "compose-chuanyu-chengdu-chongqing",
+        "title": "川渝 · 成都重庆",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "库车",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-kuqa-canyon",
+        "title": "库车 · 天山神秘大峡谷",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天"
+      },
+      "compose": {
+        "id": "compose-nanjiang-kuqa-kashi",
+        "title": "南疆 · 库车喀什人文走廊",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      }
+    },
+    {
+      "token": "西宁",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "qingzang-xining-3d",
+        "title": "西宁城区 · 高原适应短住",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "3–4天"
+      },
+      "compose": {
+        "id": "compose-qingzang-railway-lhasa",
+        "title": "青藏铁路慢进藏 · 西宁到拉萨",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约10–14天（含西宁适应与拉萨静养）"
+      }
+    },
+    {
+      "token": "西宁",
+      "severity": "MED",
+      "embedded": true,
+      "leg": {
+        "id": "leg-qingzang-railway",
+        "title": "青藏铁路 · 西宁至拉萨列车段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天（含上车日）"
+      },
+      "compose": {
+        "id": "compose-qingzang-railway-lhasa",
+        "title": "青藏铁路慢进藏 · 西宁到拉萨",
+        "kind": "compose",
+        "tripType": "long",
+        "daysLabel": "约10–14天（含西宁适应与拉萨静养）"
+      }
+    }
+  ],
+  "nearDupPairs": [
+    {
+      "token": "成都",
+      "severity": "HIGH",
+      "a": {
+        "id": "xinan-chengdu-slow",
+        "title": "成都 · 平原慢住",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约10–12天"
+      },
+      "b": {
+        "id": "leg-chengdu-adapt",
+        "title": "成都 · 平原适应锚",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约2–3天"
+      }
+    },
+    {
+      "token": "呼伦贝",
+      "severity": "HIGH",
+      "a": {
+        "id": "huabei-neimeng-summer",
+        "title": "呼伦贝尔 · 草原慢住两周",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约10–14天"
+      },
+      "b": {
+        "id": "longstay-hulunbuir",
+        "title": "呼伦贝尔 · 夏季草原慢居",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约3–4周"
+      }
+    },
+    {
+      "token": "西安",
+      "severity": "HIGH",
+      "a": {
+        "id": "huazhong-xian-slow",
+        "title": "西安 · 慢住",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约10–12天"
+      },
+      "b": {
+        "id": "leg-xian-terracotta",
+        "title": "西安 · 城墙与兵马俑浅尝",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–6天"
+      }
+    },
+    {
+      "token": "海南西",
+      "severity": "HIGH",
+      "a": {
+        "id": "huanan-hainan-slow-west",
+        "title": "海南西线 · 儋州慢住",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约2–3周"
+      },
+      "b": {
+        "id": "leg-hainan-west-shallow",
+        "title": "海南西线 · 儋州棋子湾浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4–6天"
+      }
+    },
+    {
+      "token": "哈尔滨",
+      "severity": "MED",
+      "a": {
+        "id": "dongbei-harbin-snow-3d",
+        "title": "哈尔滨 · 看雪三日",
+        "kind": "(unset)",
+        "tripType": "short",
+        "daysLabel": "约3天2晚"
+      },
+      "b": {
+        "id": "dongbei-heilongjiang-harbin-summer",
+        "title": "哈尔滨 · 中央大街夏日慢走",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–5天"
+      }
+    },
+    {
+      "token": "三亚",
+      "severity": "MED",
+      "a": {
+        "id": "huanan-sanya-winter",
+        "title": "三亚 · 暖冬慢住两周",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约2周"
+      },
+      "b": {
+        "id": "leg-sanya-beach",
+        "title": "三亚 · 海湾浅住",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–7天"
+      }
+    },
+    {
+      "token": "青海湖",
+      "severity": "MED",
+      "a": {
+        "id": "qingzang-qinghai-lake",
+        "title": "青海湖 · 西宁适应加环线",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约6–8天"
+      },
+      "b": {
+        "id": "leg-xining-qinghai-lake",
+        "title": "青海湖 · 二郎剑浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–7天"
+      }
+    },
+    {
+      "token": "都江堰",
+      "severity": "MED",
+      "a": {
+        "id": "xinan-dujiangyan-2d",
+        "title": "都江堰 · 青城山两日",
+        "kind": "(unset)",
+        "tripType": "short",
+        "daysLabel": "2–3天"
+      },
+      "b": {
+        "id": "longstay-dujiangyan",
+        "title": "都江堰 · 平原边缘清新慢居",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约一个月"
+      }
+    },
+    {
+      "token": "喀什",
+      "severity": "MED",
+      "a": {
+        "id": "xibei-xinjiang-kashi",
+        "title": "喀什 · 老城与帕米尔浅尝",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4–6天"
+      },
+      "b": {
+        "id": "base-kashi",
+        "title": "喀什 · 丝路慢居枢纽",
+        "kind": "base",
+        "tripType": "long",
+        "daysLabel": "约三四周"
+      }
+    },
+    {
+      "token": "镇远",
+      "severity": "MED",
+      "a": {
+        "id": "xinan-guizhou-zhenyuan",
+        "title": "镇远 · 舞阳河古城",
+        "kind": "(unset)",
+        "tripType": "short",
+        "daysLabel": "约3天"
+      },
+      "b": {
+        "id": "longstay-zhenyuan",
+        "title": "镇远 · 舞阳河江城短住",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4–6天"
+      }
+    },
+    {
+      "token": "大理",
+      "severity": "MED",
+      "a": {
+        "id": "leg-dali-erhai",
+        "title": "大理 · 洱海慢住浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约5–7天"
+      },
+      "b": {
+        "id": "longstay-dali",
+        "title": "大理 · 洱海慢居约一个月",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约一个月"
+      }
+    },
+    {
+      "token": "昆明",
+      "severity": "MED",
+      "a": {
+        "id": "longstay-kunming",
+        "title": "昆明 · 春城慢居约一个月",
+        "kind": "(unset)",
+        "tripType": "long",
+        "daysLabel": "约一个月"
+      },
+      "b": {
+        "id": "xinan-yunnan-kunming-city",
+        "title": "昆明 · 滇池与翠湖慢游",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4–7天"
+      }
+    },
+    {
+      "token": "贵阳",
+      "severity": "MED",
+      "a": {
+        "id": "base-guiyang",
+        "title": "贵阳 · 黔中慢居枢纽",
+        "kind": "base",
+        "tripType": "long",
+        "daysLabel": "约三四周"
+      },
+      "b": {
+        "id": "xinan-guizhou-guiyang",
+        "title": "贵阳 · 甲秀楼与黔中慢住",
+        "kind": "(unset)",
+        "tripType": "short",
+        "daysLabel": "约3–5天"
+      }
+    },
+    {
+      "token": "青岛",
+      "severity": "MED",
+      "a": {
+        "id": "leg-qingdao-laoshan",
+        "title": "青岛 · 崂山与即墨浅段",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约3–4天"
+      },
+      "b": {
+        "id": "leg-qingdao-coast",
+        "title": "青岛 · 滨海栈道慢住",
+        "kind": "leg",
+        "tripType": "short",
+        "daysLabel": "约4天"
+      }
+    }
+  ],
+  "retiredLive": [],
+  "monolithSuspects": [
+    {
+      "id": "xinan-sichuan-g318-east",
+      "title": "川藏东段 · 康定新都桥浅尝",
+      "kind": "(unset)",
+      "tripType": "short",
+      "daysLabel": "约5–8天（成都平原缓冲后）"
+    },
+    {
+      "id": "xinan-guizhou-dong-corridor",
+      "title": "黔东南 · 西江肇兴浅访",
+      "kind": "(unset)",
+      "tripType": "short",
+      "daysLabel": "约5–8天"
+    },
+    {
+      "id": "xinan-sichuan-g318-mid",
+      "title": "G318 中段 · 雅安泸定浅尝",
+      "kind": "(unset)",
+      "tripType": "short",
+      "daysLabel": "约4–6天"
+    }
+  ]
+}

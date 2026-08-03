@@ -8,7 +8,7 @@ export const patchRoutes: Route[] = [
   // ── 青甘 · 西宁湖光腿 ──────────────────────────────────────
   {
     id: 'leg-xining-qinghai-lake',
-    title: '西宁 · 青海湖浅段',
+    title: '青海湖 · 二郎剑浅段',
     region: 'qingzang',
     seasons: ['summer', 'autumn'],
     tripType: 'short',
@@ -22,7 +22,7 @@ export const patchRoutes: Route[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qinghai_Lake.jpg/1280px-Qinghai_Lake.jpg',
     summary:
       '独立短线：西宁电梯房先适应（约2200m），再包车看二郎剑等青海湖岸选段；茶卡盐湖可选半日。不硬环湖、不夜赶。可单订，也可接青甘组合东行兰州。',
-    whyFast: '茶卡可整段删；高原不适只留西宁静养也成立。更长环湖见「西宁·青海湖环线慢游」。',
+    whyFast: '茶卡可整段删；高原不适只留西宁静养也成立。更长环湖见「青海湖 · 西宁适应加环线」。',
     researchKeywords: [
       '西宁 青海湖 包车 父母',
       '青海湖 二郎剑 预约',

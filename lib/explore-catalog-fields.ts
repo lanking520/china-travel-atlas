@@ -12,7 +12,7 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
     fromHome: false,
     daysLabel: '约10–14天',
     summary:
-      '北京直飞海拉尔，以城区为慢住基地约十到十四日：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。不垫三周空日。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
+      '北京直飞海拉尔，以城区为慢住基地约十到十四日：每天最多一处——草原骑马、额尔古纳河、满洲里口岸任选。不垫三周空日。更紧凑一周线见「海拉尔 · 草原一周浅线」。紫外线强、温差大，备防晒与薄外套。结束后飞回北京休整。',
   },
 
   'compose-shandong-qingdao-yantai': {
@@ -361,7 +361,7 @@ export const exploreRouteFieldPatchList: Record<string, Partial<Route>>[] = [
   'qingzang-qinghai-lake': {
     daysLabel: '约6–8天',
     summary:
-      '西宁（约 2260 米）先适应 2–3 日，再包车青海湖选段（湖面约 3200 米）。不垫两周空日；更短浅段见 leg-xining-qinghai-lake。结束后飞回北京。',
+      '西宁（约 2260 米）先适应 2–3 日，再包车青海湖选段（湖面约 3200 米）。不垫两周空日；更短「青海湖 · 二郎剑浅段」见 leg-xining-qinghai-lake。结束后飞回北京。',
     transport:
       '飞西宁曹家堡，市区适应后再包车环湖（优先于自驾）；二郎剑等景区限流须预约；结束后飞回北京',
     budgetLabel: '本趟约5000–9000元（含机票与包车；双人）',

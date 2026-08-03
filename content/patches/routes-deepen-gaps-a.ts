@@ -5,7 +5,7 @@ export const patchRoutes: Route[] = [
   // ── 华北 · 呼伦贝尔夏季慢游（7–10天紧凑长线）────────────────
   {
     id: 'huabei-neimeng-hulunbuir',
-    title: '呼伦贝尔 · 夏季慢游',
+    title: '海拉尔 · 草原一周浅线',
     region: 'huabei',
     seasons: ['summer'],
     tripType: 'long',

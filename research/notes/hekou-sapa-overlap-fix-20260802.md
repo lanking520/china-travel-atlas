@@ -8,7 +8,7 @@ User report: **云南沙巴** looks like **two (overlapping) guides**. Audit of 
 | --- | --- | --- | --- |
 | `leg-hekou-border` | 河口 · 口岸边贸浅住 | leg | **中国境内侧**口岸县城 |
 | `leg-sapa-vietnam` | 沙巴 · 镇区慢住（越南·跨境） | leg | **越南侧目的地** + 证件诚实正文 |
-| `compose-yunnan-hekou-sapa` | 河口→沙巴 · 中越慢廊（跨境） | compose | **串线 glue only** |
+| `compose-yunnan-hekou-sapa` | 中越慢廊 · 长线组合卡 | compose | **串线 glue only** |
 | `yunnan-hekou-sapa-corridor` | — | retired | Not in catalog |
 
 ## Overlap evidence (before)
@@ -41,6 +41,7 @@ Passport honesty stays on **all three** as one-liners or pointers; **full** poli
 - Differentiated intros / notices / PG in `ctrip-enrich-xinan-20260802.ts` (winning detail patch) + aligned `leg-compose-character-20260802.ts`, `routes-yunnan-hekou-sapa.ts`, `route-details.ts`, `practical-guides.ts`.
 - Compose Explore summary → explicit「串线组合卡（非沙巴游记）」(`explore-catalog-fields.ts`).
 - Compose cover → 河口—老街口岸图（不再与沙巴腿同图）(`place-images.ts` + route patch).
+- Compose title →「中越慢廊 · 长线组合卡」（不再与沙巴腿 title-head 同抢「沙巴」搜索）；`route-search` demotes compose vs legs.
 - Regen explore catalog.
 
 ## 为何上次没查出来

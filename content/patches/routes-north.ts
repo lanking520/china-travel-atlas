@@ -5,7 +5,7 @@ export const patchRoutes: Route[] = [
   // ── 华北 · 呼伦贝尔夏 ──────────────────────────────────────────
   {
     id: 'huabei-neimeng-summer',
-    title: '呼伦贝尔 · 草原慢住',
+    title: '呼伦贝尔 · 草原慢住两周',
     region: 'huabei',
     seasons: ['summer'],
     tripType: 'long',
@@ -17,7 +17,7 @@ export const patchRoutes: Route[] = [
     coverImage:
       'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200',
     summary:
-      '海拉尔城住为锚，陈巴尔虎草原选段+额尔古纳/满洲里可选；约十到十四日，不垫三周空日。更紧凑见呼伦贝尔短线；月租见 longstay-hulunbuir。',
+      '海拉尔城住为锚，陈巴尔虎草原选段+额尔古纳/满洲里可选；约十到十四日，不垫三周空日。更紧凑见「海拉尔 · 草原一周浅线」；月租见 longstay-hulunbuir。',
     whyFast:
       '满洲里与莫尔道嘎可各排一日快览；主体时间在海拉尔周边草原慢走，勿赶环线。',
     researchKeywords: [

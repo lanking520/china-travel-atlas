@@ -1,13 +1,15 @@
 import type { Route } from '../types';
 import type { RouteDetailFields } from '../route-details';
+import { practicalGuidePatches } from './ctrip-enrich-xibei-qingzang-pg-20260802';
 
 /**
  * Ctrip-style guide enrich — 西北 + 青藏 (2026-08-02).
  * Rewrite from 携程游记/攻略 + official notes; no wholesale copy.
  * Plateau honesty: adapt days, altitude ladders; no 阿里/珠峰 invent.
  * Longer intros win via preferRicherText.
+ * practicalGuide backfill: same 32 ids (see *-pg-20260802 companion).
  */
-export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
+const introDetailPatches: Record<string, Partial<RouteDetailFields>> = {
   'leg-dunhuang-mogao': {
     introduction: '敦煌独立短线约五到七天，核心是「官方预约 + 数字中心先看片 + 摆渡进窟区」，别把莫高当成随到随进的开放式景区。只走「莫高窟参观预约网」小程序或官网；旺季票紧，行前按场次定好日子，早场光线更好、人也相对可控。先到数字展示中心换票观影，再坐区间车进窟区跟讲解——窟内禁止拍照、光线暗，穿舒适防滑鞋，备薄外套；老人可走爱心窗口/绿色通道（以现场为准）。特窟另购且限额，体力一般可跳过，普窟看完即返市区歇。\n\n鸣沙山·月牙泉只浅尝：观光车或短段骑骆驼即可，不硬爬沙；沙尘大备口罩润唇膏。住敦煌市区电梯酒店，吃饭方便，机场约十几公里可酒店接送。干燥多饮水，正午少户外。可单飞往返，或东行接河西组合经嘉峪关到张掖。对照月预算与机票统筹，别被第三方「代抢票」忽悠。',
     seasonGuide: '主推秋（约 9–10 月）：风沙相对可控、干爽。春季风沙大缩短户外；夏午地表烫，宜早晚；冬干冷淡季票更易约，但户外时间压缩。沙尘暴预警改室内日。',
@@ -403,6 +405,16 @@ export const detailPatches: Record<string, Partial<RouteDetailFields>> = {
     ],
   },
 };
+
+export const detailPatches: Record<string, Partial<RouteDetailFields>> = Object.fromEntries(
+  Object.entries(introDetailPatches).map(([id, fields]) => [
+    id,
+    {
+      ...fields,
+      ...(practicalGuidePatches[id] ? { practicalGuide: practicalGuidePatches[id] } : {}),
+    },
+  ]),
+);
 
 export const routeFieldPatches: Record<string, Partial<Route>> = {
   'leg-dunhuang-mogao': {

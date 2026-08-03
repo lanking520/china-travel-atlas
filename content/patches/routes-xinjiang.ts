@@ -18,7 +18,7 @@ export const patchRoutes: Route[] = [
       '飞乌鲁木齐转伊宁，或乌市取车西行；河谷内短途自驾/包车，单日≤4小时。结束后经乌市飞回北京。赛里木环湖另见独立短线，可与本腿衔接但不复述正文。',
     budgetLabel: '本趟约3000–6500元（机票+租车/包车+住宿）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
     summary:
       '独立短线：以伊宁为基地，那拉提/喀拉峻分段看草原，不赶独库全程。赛里木请订「赛里木湖·环湖浅段」或北疆组合，本卡不复写湖区正文。适合少走喀纳斯长车程的父母。',
     whyFast: '喀拉峻可删；那拉提可选索道，恐高只看山下。赛里木另线。',
@@ -46,7 +46,7 @@ export const patchRoutes: Route[] = [
         summary: '电梯酒店休整，吃面喝奶茶，作为草原日归基地。',
         tips: '优先近市中心电梯房；昼夜温差大备薄外套。留空白日。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
       },
       {
         id: 'nalati',
@@ -58,7 +58,7 @@ export const patchRoutes: Route[] = [
         summary: '空中草原可坐索道；膝盖不适者山下观光车浅看。',
         tips: '旺季预约交通车；一日足够，勿安排连赶喀拉峻。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
       },
       {
         id: 'kalajun',
@@ -70,7 +70,7 @@ export const patchRoutes: Route[] = [
         summary: '与那拉提二选一加深也可；累了直接跳过回伊宁。',
         tips: '景交为主，少步行；雨天草地滑，穿防滑鞋。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
       },
     ],
   },
@@ -87,7 +87,7 @@ export const patchRoutes: Route[] = [
       '飞库车或乌市转库车；市区包车/打车往返大峡谷。结束后可西行接南疆走廊，或经乌市飞回北京。',
     budgetLabel: '本趟约2000–4500元（机票浮动大）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
     summary:
       '独立短线：天山神秘大峡谷以观光车半日为主，库车市区电梯酒店休整补水。不接环塔；可单飞往返，也可作为南疆长线第一段。',
     whyFast: '峡谷硬爬与夜路可整段删；一日观光车足够。',
@@ -115,7 +115,7 @@ export const patchRoutes: Route[] = [
         summary: '电梯酒店安顿；适应干燥与温差，傍晚平地散步即可。',
         tips: '夏季极热，备防晒补水；勿抵达当日赶峡谷。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
       },
       {
         id: 'kuqa-canyon',
@@ -127,7 +127,7 @@ export const patchRoutes: Route[] = [
         summary: '观光车串联红层峡谷观景；以车览+短停为主，少爬台阶。',
         tips: '早晚出游避正午；峡谷内量力，不适即返市区。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
       },
       {
         id: 'kuqa-buffer',
@@ -139,7 +139,7 @@ export const patchRoutes: Route[] = [
         summary: '休息或飞乌/京；若接南疆长线，次日西行阿克苏方向。',
         tips: '西行单日车程预留≤5小时；疲劳则多留一日。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
       },
     ],
   },
@@ -372,7 +372,7 @@ export const patchRoutes: Route[] = [
           '经阿克苏缓冲东行库车峡谷观光车半日；见 leg-kuqa-canyon。疲劳则整段删。',
         tips: '单日车程≤5小时；可改订南疆组合长线一次走完。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
       },
     ],
   },

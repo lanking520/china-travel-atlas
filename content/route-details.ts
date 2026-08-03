@@ -679,7 +679,7 @@ export const routeDetails: Record<string, RouteDetailFields> = {
     ],
     gallery: [
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
         caption: '走廊末段 · 喀纳斯（见短线 leg-kanas）',
       },
     ],
@@ -809,7 +809,7 @@ export const routeDetails: Record<string, RouteDetailFields> = {
     ],
     gallery: [
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
         caption: '走廊前段 · 库车（见短线 leg-kuqa-canyon）',
       },
       {
@@ -838,11 +838,11 @@ export const routeDetails: Record<string, RouteDetailFields> = {
     ],
     gallery: [
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
         caption: '库车 · 天山神秘大峡谷 · 封面景色',
       },
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuqa.jpg/1280px-Kuqa.jpg',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuqa_May_2007_429.jpg/1280px-Kuqa_May_2007_429.jpg',
         caption: '天山神秘大峡谷（观光车）',
         stopId: 'kuqa-canyon',
       },
@@ -1954,7 +1954,7 @@ export const routeDetails: Record<string, RouteDetailFields> = {
         stopId: 'lanzhou-silk',
       },
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Grape_Valley.jpg/1280px-Grape_Valley.jpg',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Turpan_grape_valley.jpg/1280px-Turpan_grape_valley.jpg',
         caption: '走廊末段 · 吐鲁番（见短线 xibei-xinjiang-turpan）',
       },
     ],

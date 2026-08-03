@@ -19,7 +19,7 @@ export const patchRoutes: Route[] = [
       '飞乌鲁木齐取车西行，或伊宁往返包车/自驾。可单订，也可作北疆组合第一段后北上奎屯缓冲。',
     budgetLabel: '本趟约2500–5500元（机票浮动大；含门票/自驾服务费）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
     summary:
       '独立短线：天山天湖环湖公路多停观景台，风大备外套。湖面海拔约2070米，多数人可适应，仍勿剧烈运动。可单订，也可接北疆组合北上喀纳斯。',
     whyFast: '环湖半日至一日足够；硬徒步与夜赶可删。',
@@ -55,7 +55,7 @@ export const patchRoutes: Route[] = [
         tips:
           '微信「赛里木湖旅游」提前订门票/自驾服务费。环湖约90公里，放慢到大半天；风大备外套。海拔约2070米，别剧烈运动。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
       },
       {
         id: 'sayram-buffer',
@@ -67,7 +67,7 @@ export const patchRoutes: Route[] = [
         summary: '休息补水；若接北疆组合，次日北上奎屯/克拉玛依缓冲。',
         tips: '疲劳多留一日；勿夜赶赛里木→布尔津。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Narat_Grassland.jpg/1280px-Narat_Grassland.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nalati_Grassland_1.jpg/1280px-Nalati_Grassland_1.jpg',
       },
     ],
   },
@@ -86,7 +86,7 @@ export const patchRoutes: Route[] = [
       '经布尔津进贾登峪；景区内强制区间车。可单订（乌市飞/包车），也可作北疆组合末段。',
     budgetLabel: '本趟约3000–6500元（含预约票+住宿；机票浮动大）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
     summary:
       '独立短线：住贾登峪或布尔津，靠区间车进景区；观鱼台台阶多，累了远观即返。禾木可另排一日或跳过。可单订，也可接北疆组合。',
     whyFast: '观鱼台硬爬与禾木可删；只景区车览+空白日也成立。',
@@ -122,7 +122,7 @@ export const patchRoutes: Route[] = [
         tips:
           '「遇见喀纳斯」小程序或「喀纳斯景区」公众号提前预约（建议≥3天）。景区内强制区间车。观鱼台限流、台阶多，累了远观即返。禾木可另排或跳过。7–9月旺，9月中后渐凉。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
       },
       {
         id: 'kanas-exit',
@@ -134,7 +134,7 @@ export const patchRoutes: Route[] = [
         summary: '还车飞京前市区歇一晚；不硬加点。',
         tips: '单日车程长时中途服务区必歇。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
       },
     ],
   },
@@ -158,7 +158,7 @@ export const patchRoutes: Route[] = [
       '飞乌鲁木齐取SUV。顺序：赛里木短线 → 奎屯/克拉玛依缓冲 → 喀纳斯短线；段末乌市飞回北京。',
     budgetLabel: '对照月预算约2万（含租车+机票分摊）',
     coverImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
     summary:
       '长线组合卡：嵌入赛里木、喀纳斯两条短线；乌市与奎屯/克拉玛依只作进出与缓冲。景点正文见各短线。与伊犁专线拆开，避免一条线塞满南北口。',
     whyFast:
@@ -194,7 +194,7 @@ export const patchRoutes: Route[] = [
         tips:
           '地窝堡机场取车后先市区住一晚再西行。备润唇膏、防晒、薄羽绒。近新疆维吾尔自治区人民医院选酒店。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
       },
       {
         id: 'kuitun-buffer',
@@ -206,7 +206,7 @@ export const patchRoutes: Route[] = [
         summary: '赛里木与布尔津之间的公路缓冲，电梯酒店休整，不硬加点。',
         tips: '拆开长车程；补给油水后北上。想看伊犁草原请改订伊犁短线。',
         image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kanas.jpg/1280px-Kanas.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lake_Kanas.jpg/1280px-Lake_Kanas.jpg',
       },
     ],
   },

@@ -24,6 +24,28 @@ WIDTH = 1280
 
 # stopId / routeId → Commons filename (underscores). Place-named photos only.
 FILES: dict[str, str] = {
+    "menghai-day-optional": "西双版纳勐海县打洛口岸_04.jpg",
+    "jz-airport-buffer": "Jiuzhaigou_Sichuan_China_Main-entrance-to-the-valleys-01.jpg",
+    "hks-border-crossing": "Hekou-Kim_Thành_border_crossing_-_P1380333.JPG",
+    "lb-base": "荔波县城_-_panoramio.jpg",
+    "fj-jinding-optional": "梵净山红云金顶_-_panoramio.jpg",
+    "gaozhuang-optional": "景洪_告庄西双景之街道与金塔同框_02.jpg",
+    "urumqi-bazaar-optional": "新疆国际大巴扎是乌鲁木齐新十景.jpg",
+    "urumqi-museum": "新疆博物馆_全景（2021）.jpg",
+    "g214-gonghe-optional": "Gonghe,_Hainan,_Qinghai,_China_-_panoramio_-_neverdance_(17).jpg",
+    "g214-buffer-optional": "Xining_-_Dongguan_mosque_Minaret_2024.jpg",
+    "le-leshan-base": "凌云路江堤隔江看乐山城区_-_panoramio.jpg",
+    "g318m-descend": "雪山下的成都市天际线_Chengdu_skyline_with_snow_capped_mountains.jpg",
+    "g318m-chengdu": "雪山下的成都市天际线_Chengdu_skyline_with_snow_capped_mountains.jpg",
+    "g318e-chengdu-buffer": "雪山下的成都市天际线_Chengdu_skyline_with_snow_capped_mountains.jpg",
+    "lz-bayi-base": "Bayi,_Nyingchi,_Tibet,_China_-_panoramio_(1).jpg",
+    "km-cuihu-base": "Southwest_part_of_Cuihu_Park,_Kunming_(20240214121712).jpg",
+    "gy-nanming-base": "Jiaxiu_building_and_Nanming_river_in_Guiyang.jpg",
+    "qd-kaili-gate": "Kaili_city,_guizhou,_china.JPG",
+    "hg-anshun-rest": "A_tower_in_downtown_Anshun,_Guizhou,_China.jpg",
+    "hg-guiyang-gate": "View_of_Guiyang,_Guizhou_from_Neighboring_Mountains.jpg",
+    "wl-town": "Wulong,_Chongqing.jpg",
+    "wl-cq-buffer": "Chongqing_Nightscape.jpg",
     # 京津冀 / 长城
     "mutianyu": "Great_Wall_of_China_July_2006.JPG",
     "mutianyu-day": "Great_Wall_of_China_July_2006.JPG",
@@ -133,7 +155,7 @@ FILES: dict[str, str] = {
     "wuyuan-jiangling": "Wuyuan_Jiangxi.jpg",
     "huadong-wuyuan-spring": "Wuyuan_Jiangxi.jpg",
     "wuyuan-huangling": "婺源篁岭天街_3.jpg",
-    "wuyuan-village": "Wuyuan_Jiangxi.jpg",
+    "wuyuan-village": "婺源晓起.jpg",
     "slender-west-lake": "Slender_West_Lake.jpg",
     "huadong-jiangsu-yangzhou": "Slender_West_Lake.jpg",
     "dongguan-street": "Ge_Yuan_个园_(5812003010).jpg",  # 个园; alt He_Garden.jpg
@@ -165,7 +187,7 @@ FILES: dict[str, str] = {
     "hanzhong-base": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
     "huazhong-shaanxi-hanzhong": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
     "hanzhong-wuhou": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
-    "xinghan-optional": "Hantai,_Hanzhong,_Shaanxi,_China_-_panoramio_(6).jpg",
+    "xinghan-optional": "兴汉胜境16.jpg",
     "three-gorges-dam": "Three_Gorges_Dam.jpg",
     "three-gorges-boat": "Three_Gorges_Dam.jpg",
     "yichang-base": "Three_Gorges_Dam.jpg",
@@ -411,6 +433,29 @@ FILES: dict[str, str] = {
     "fh-night-riverside": "Fenghuang_County_night_view_20190727.jpg",
     "snj-gate": "宜昌滨江公园_-_panoramio.jpg",
     "dx-shaoguan-gate": "韶关市中心的马路边_-_By_科技小辛_-_panoramio.jpg",
+
+    # huadong soft upgrades 20260802 batch
+    "hf-baohe-base": "天鹅湖.jpg",
+    "hf-sanhe-optional": "三河古镇老街.jpg",
+    "fz-gulou-base": "福州三坊七巷南后街oeotwc_-_panoramio.jpg",
+    "fz-rongcheng-optional": "20181004_福州上下杭_04.jpg",
+    "nc-honggutan-base": "Honggutan_20180726_115201.jpg",
+    "jn-xitang-optional": "1_xitang_zhejiang_2023.jpg",
+    "cz-yancheng-optional": "常州武进淹城大门2.jpg",
+    "nt-museum-optional": "南通博物苑1.jpg",
+    "huz-feiying-optional": "湖州飞英塔,_2009-01-26_01.jpg",
+    "wf-park-optional": "20210911_Weifang_people's_Park_3.jpg",
+    "jdz-imperial-kiln": "景德镇御窑博物馆.jpg",
+    "nj-xuanwu-base": "玄武湖望南京天际线_-_panoramio.jpg",
+    "wz-city-optional": "温州_江心屿_Jiang_Xin_Yu,_Wenzhou_-_panoramio.jpg",
+    "wy-tea-optional": "武夷山茶园风光.jpg",
+    "pt-gate": "舟山.沈家门.十里渔港_-_panoramio.jpg",
+    "ls-jiujiang-gate": "九江琵琶亭远眺长江大桥.JPG",
+    "cz-base": "Changzhou_Skyline,_Jul_25_2022.jpg",
+    "jn-lishi-base": "济南泉城广场远景.jpg",
+    "wx-liangxi-base": "无锡三阳广场.jpg",
+    "nb-haishu-base": "Tianyi_Square_2019-07_01.jpg",
+
 }
 
 

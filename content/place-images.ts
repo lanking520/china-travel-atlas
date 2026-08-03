@@ -24,17 +24,12 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'shapotou-optional', // 沙坡头可选 ↔ 沙坡头主图同景区
   // famous P1 soft same-corridor
 
-  'wy-tea-optional', // 茶馆 ↔ 九曲同景区
 
-  'pt-gate', // 沈家门缓冲 ↔ 普陀同廊
 
   'wl-cq-buffer', // 重庆缓冲 ↔ 武隆三桥同廊示意
   'wl-town', // 武隆城 ↔ 三桥同廊
   'hg-guiyang-gate', // 贵阳进出 ↔ 黄果树同省廊
   'hg-anshun-rest', // 安顺歇 ↔ 黄果树同廊
-  'cz-base', // 常州住 ↔ 天宁同城
-  'cz-yancheng-optional', // 淹城 ↔ 常州同城示意
-  'wz-city-optional', // 温州缓冲 ↔ 市区照；雁荡另有专用
   // prefecture wave 20260802e soft
   'xz-county-base', // 忻州锚点 ↔ 代县阿育王塔同廊示意
   'xz-dingxiang-optional', // 河边无专用 ↔ 雁门同廊示意
@@ -44,13 +39,10 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'yzc-shaobo-optional', // 邵伯 ↔ 高邮湖同廊示意
   'zj-base', // 镇江住 ↔ 金山同城
 
-  'nt-museum-optional', // 博物苑 ↔ 狼山同城示意
 
-  'huz-feiying-optional', // 飞英塔 ↔ 南浔同市示意
 
   // prefecture wave 20260802f soft
   'yc-museum-optional', // 运城馆线 ↔ 关帝庙同廊示意
-  'wf-park-optional', // 潍坊公园 ↔ 风筝馆同城示意
   'xc-base', // 宣城锚点 ↔ 广教寺双塔同市示意
 
   'qd-hangzhou-note', // 返杭缓冲：西湖专用照，标注同廊衔接
@@ -71,20 +63,13 @@ export const PLACE_SOFT_IDS = new Set<string>([
 
 
 
-  'hf-baohe-base',
-  'hf-sanhe-optional',
 
-  'fz-gulou-base',
 
-  'fz-rongcheng-optional',
-  'nc-honggutan-base',
 
   'ty-yingze-base',
   'ty-fenhe-optional',
 
-  'jn-lishi-base',
 
-  'nj-xuanwu-base',
 
   'gy-nanming-base',
 
@@ -98,7 +83,6 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'g318e-chengdu-buffer',
   'g318e-xinduqiao-optional',
   'jn-hangzhou-gate',
-  'jn-xitang-optional',
   'jn-exit',
   'le-leshan-base',
 
@@ -108,8 +92,6 @@ export const PLACE_SOFT_IDS = new Set<string>([
   // hh-city / hh-buffer：已升呼市大召专用 Commons（离呼伦贝尔错城）
   // coverage wave 20260802b soft same-city / same-corridor
   // (可园/莞城/虎门馆/岭南天地=东华里/古运河/普达措/枣园/西宁适应/京沪出京 等已升专用 Commons)
-  'wx-liangxi-base', // 梁溪慢住 ↔ 鼋头渚同城
-  'nb-haishu-base', // 海曙慢住 ↔ 天一阁同城
   'g214-gonghe-optional', // 共和缓冲 ↔ 青海湖同廊
   'g214-buffer-optional', // 西宁缓冲 ↔ 青海湖同廊
   'ya-baota-base', // 宝塔区慢住 ↔ 宝塔山同城
@@ -127,13 +109,10 @@ export const PLACE_SOFT_IDS = new Set<string>([
   'hks-return-hekou', // 返回河口 ↔ 河口主图同城
   // famous stitch soft
 
-  'wuyuan-village',
-  'jdz-imperial-kiln',
   'jz-airport-buffer',
 
   'urumqi-museum',
   'urumqi-bazaar-optional',
-  'ls-jiujiang-gate',
   'sx-hangzhou-optional',
 ]);
 

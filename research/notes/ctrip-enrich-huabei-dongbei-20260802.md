@@ -5,8 +5,9 @@ Rewrite reference: 携程游记/攻略（`kind: 'other'`，note「改写参考�
 
 ## Files
 
-- `content/audit-patches/ctrip-enrich-huabei-dongbei-20260802.ts` — `detailPatches` (practicalGuide) + `routeFieldPatches` (sources append)
-- Registered last in `content/audit-patches/index.ts` (PG overlay wins; sources merged by URL)
+- `content/audit-patches/ctrip-enrich-huabei-dongbei-20260802.ts` — `detailPatches` (practicalGuide + **introduction**) + `routeFieldPatches` (sources append)
+- Registered last among early regional batches in `content/audit-patches/index.ts` (PG overlay wins; sources merged by URL; longer intros via `preferRicherText`)
+- Draft bodies: `research/raw/ctrip-intro-huabei-dongbei-20260802.json`
 
 ## Counts
 
@@ -14,15 +15,21 @@ Rewrite reference: 携程游记/攻略（`kind: 'other'`，note「改写参考�
 | --- | ---: |
 | Catalog in scope | 47 |
 | **Enriched practicalGuide** | **43** |
+| **Enriched introduction** | **44** |
 | **Skipped PG** (already rich hand guides) | **4** |
+| **Skipped intro** (already strong) | **3** |
 | Ctrip `sources` appended | 46 (incl. 3 skip-PG + shanxi-loop; mutianyu already had Ctrip) |
 
-### Skipped (PG already rich)
+### Skipped PG (already rich)
 
-- `mutianyu-day` — hand PG + existing Ctrip sources
-- `gubei-overnight`
-- `tianjin-day` — sources only
-- `huabei-shanxi-loop` — sources only
+- `mutianyu-day` — hand PG + existing Ctrip sources (**intro enriched** — was thin ~200)
+- `gubei-overnight` — PG + intro already strong (~583) — **intro skipped**
+- `tianjin-day` — sources only; intro strong (~591) — **intro skipped**
+- `huabei-shanxi-loop` — sources only; intro strong (~1038) — **intro skipped**
+
+### Introduction parity (2026-08-02 follow-up)
+
+Rewrote `introduction` for **44** ids (43 PG batch + thin `mutianyu-day`), 华东-style length (final merged p50 ≈432, min ≥420, with「对照携程公开游记」适老 footer). Not wholesale copy.
 
 ### Enriched (practicalGuide overlay)
 
@@ -55,4 +62,4 @@ Rewrite reference: 携程游记/攻略（`kind: 'other'`，note「改写参考�
 - https://you.ctrip.com/travels/wutaishan184/4100348.html — 五台台怀
 - https://you.ctrip.com/sight/qinhuangdao132/78427.html — 北戴河老虎石
 
-Some secondary destinations share a corridor travel URL when a dedicated short guide was not independently cited; note still「改写参考，非官方」. Intro culture blocks from prior character waves left intact (prefer richer intros; this batch targets thin PGs).
+Some secondary destinations share a corridor travel URL when a dedicated short guide was not independently cited; note still「改写参考，非官方」.

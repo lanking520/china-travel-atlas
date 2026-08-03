@@ -19,7 +19,7 @@ HEAD: `9478529`
 | Catalog | **~201** · compose **31** · leg **67** · base **3** |
 
 ## Top next tasks
-1. Optional 华北/东北 Ctrip introduction parity
+1. ~~Optional 华北/东北 Ctrip introduction parity~~ **done (44)**
 2. Soft→Commons residual only if dedicated scenic appears
 3. UX density / virtualization / embla only after live feedback or proven jank
 4. New prefecture / corridor coverage only if product asks

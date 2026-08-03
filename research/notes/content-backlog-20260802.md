@@ -97,7 +97,7 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 - [x] **逐条精细化** — high-traffic stop tips (`high-traffic-stops-20260802`) + Ctrip enrich PG\|intro **197/201** (`9478529`); residual opportunistic only
 - [ ] Soft→Commons **residual** buffers only if dedicated scenic appears（mass soft→Commons waves done; `PLACE_SOFT_IDS` ≈15 intentional same-corridor; 乐亭/左云/qiziwan gen）
 - [ ] Optional corridors if product asks：粤西开平–湛江（需湛江 leg）、东北冬冰雪专廊
-- [ ] Optional：华北/东北 Ctrip **introduction** parity（PG done; intros still light by design — see ctrip rollup）
+- [x] Optional：华北/东北 Ctrip **introduction** parity — **44** intros（43 PG batch + thin `mutianyu-day`; skipped strong `gubei-overnight` / `tianjin-day` / `huabei-shanxi-loop`）
 - Standing (not a build ticket): extreme alpine cards keep honest warnings; do **not** force compose splits
 
 ## Notes
@@ -114,10 +114,9 @@ Fail or weak → rethink queue (keep card only with prominent caveats, or demote
 
 ## Suggested next session order
 
-1. Optional：华北/东北 Ctrip introduction parity
-2. Soft→Commons residual only if dedicated scenic appears
-3. New prefecture / corridor coverage only if product asks（粤西、东北冬等）
-4. Aliyun OSS+CDN+ICP only if CF Pages insufficient（mainland-access note; do **not** build dual-deploy now）
-5. UX density / virtualization / embla only after live feedback or proven jank
+1. Soft→Commons residual only if dedicated scenic appears
+2. New prefecture / corridor coverage only if product asks（粤西、东北冬等）
+3. Aliyun OSS+CDN+ICP only if CF Pages insufficient（mainland-access note; do **not** build dual-deploy now）
+4. UX density / virtualization / embla only after live feedback or proven jank
 
 **Ops:** Mainland CDN interim **DONE** via Cloudflare Pages — https://china-travel-atlas.pages.dev/

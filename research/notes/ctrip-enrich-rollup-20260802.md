@@ -23,22 +23,20 @@ Counts = unique route ids in each patch’s `detailPatches` with `practicalGuide
 
 | Region batch | detail ids | practicalGuide | introduction | either | routeField sources |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 华北/东北 | 43 | 43 | 0 | 43 | 46 |
+| 华北/东北 | 44 | 43 | 44 | 44 | 46 |
 | 华东 | 30 | 30 | 30 | 30 | 30 |
 | 西南 | 37 | 37 | 37 | 37 | 37 |
 | 华中/华南 | 55 | 55 | 55 | 55 | 55 |
 | 西北/青藏 | 32 | 32 | 32 | 32 | 32 |
-| **Unique all** | **197** | **197** | **154** | **197** | **200** |
+| **Unique all** | **198** | **197** | **198** | **198** | **200** |
 
-Catalog check (`lib/generated/explore-routes.json`): **197/201** routes have PG|intro from these patches. Remaining **4** are intentional 华北 skips (already-rich hand PG): `mutianyu-day`, `gubei-overnight`, `tianjin-day`, `huabei-shanxi-loop` — three still got Ctrip `sources` only; `mutianyu-day` already had Ctrip sources.
+Catalog check: **198/201** routes have PG|intro from these patches. Remaining **3** intentional skips (strong hand intros, no intro rewrite): `gubei-overnight`, `tianjin-day`, `huabei-shanxi-loop`. `mutianyu-day` got intro parity (PG still hand).
 
-## Still thin
+## Regional residuals
 
 - **西北/青藏** — **done**: intro + **32/32** `practicalGuide` (companion `ctrip-enrich-xibei-qingzang-pg-20260802.ts`, same register).
 - **西南** — PG backfill done **6→37** (see region note).
-- **华北/东北** — PG-only style (no introduction rewrite in batch); 4 short lines skipped by design.
-
-华东 + 华中/华南 + 西北/青藏 + 西南 now have PG on every patched id; 华北/东北 still intro-light by design.
+- **华北/东北** — **done**: introduction parity **44** (PG 43 + thin `mutianyu-day` intro); 3 strong-intro skips.
 
 ## Verify
 
@@ -52,11 +50,11 @@ Catalog check (`lib/generated/explore-routes.json`): **197/201** routes have PG|
 
 ## Verdict
 
-**PASS** on regional PG|intro coverage for the five Ctrip batches (197 either-overlays; 4 intentional 华北 skips). Residual: 华北/东北 still lack introduction rewrites (by design). Post-Ctrip plan verify: `research/audits/plan-verify-round-20260802-post-ctrip.md`.
+**PASS** on regional PG|intro coverage for the five Ctrip batches (198 either-overlays; 3 intentional 华北 intro skips). 华北/东北 introduction parity **done (44)**. Post-Ctrip plan verify: `research/audits/plan-verify-round-20260802-post-ctrip.md`.
 
 ### Next (optional)
 
 1. ~~Backfill `practicalGuide` for 西北/青藏 ctrip batch~~ **done (32)**.
 2. ~~Backfill 西南 PG 6→37~~ **done**.
-3. Run `npm run preview` + `ux:plan` when convenient.
-4. Optional intro pass for 华北/东北 if product wants parity with 华东 style.
+3. ~~Optional intro pass for 华北/东北~~ **done (44)**.
+4. Run `npm run preview` + `ux:plan` when convenient.
